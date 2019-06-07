@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
-  <title>CCP Stacking - Seispy Documentation</title>
+  <title>Stack PRFs by Common Conversion points (CCP) method - Seispy Documentation</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   
   <link rel="icon" href="https://xumi1993.github.io/seispy/favicon.png">
@@ -26,6 +26,12 @@
     <li class="menu-item-home">
       <a href="/seispy/">
         <span>Home</span>
+      </a>
+    </li>
+    
+    <li class="menu-item-source code">
+      <a href="https://github.com/xumi1993/seispy">
+        <span>Source Code</span>
       </a>
     </li>
     
@@ -53,6 +59,12 @@
     <li class="menu-item-home">
       <a href="/seispy/">
         <span>Home</span>
+      </a>
+    </li>
+    
+    <li class="menu-item-source code">
+      <a href="https://github.com/xumi1993/seispy">
+        <span>Source Code</span>
       </a>
     </li>
     
@@ -94,8 +106,12 @@
       <a href="https://xumi1993.github.io/seispy/docs/install-seispy/">Install Seispy</a>
     </li>
     
+    <li class="">
+      <a href="https://xumi1993.github.io/seispy/docs/rf-single/">Calculate a P-wave Receiver Function (PRF)</a>
+    </li>
+    
     <li class="active ">
-      <a href="https://xumi1993.github.io/seispy/docs/ccp/">CCP Stacking</a>
+      <a href="https://xumi1993.github.io/seispy/docs/ccp/">Stack PRFs by Common Conversion points (CCP) method</a>
     </li>
     
   </ul>
@@ -105,21 +121,20 @@
         </div>
         <div class="col-12 col-md-9">
           
-<h1 class="title">CCP Stacking</h1>
+<h1 class="title">Stack PRFs by Common Conversion points (CCP) method</h1>
 <div class="content">
   
 
-<h1 id="stack-prfs-by-common-conversion-points-ccp-method">Stack PRFs by Common Conversion points (CCP) method</h1>
+<p>This note will introduce how to stack PRFs by CCP method in two steps.</p>
 
-<p>This note will introduce how to stack PRFs by CCP method in two steps.
-1. Convert PRFs from time axis to depth axis according to 1D velocity model.
-2. Search and stack amplitudes in each bin with calculated pierce points falling in.</p>
+<p><strong>1. Convert PRFs from time axis to depth axis according to 1D velocity model.<br />
+1. Search and stack amplitudes in each bin with calculated pierce points falling in.</strong></p>
 
-<h2 id="preparation">Preparation</h2>
+<h3 id="preparation">Preparation</h3>
 
 <p>Befor the CCP stacking, we should prepare:</p>
 
-<h3 id="1-prfs-data-with-sac-format">1. PRFs data with sac format</h3>
+<h4 id="1-prfs-data-with-sac-format">1. PRFs data with sac format</h4>
 
 <ul>
 <li>the SACHeader of <code>b</code>, <code>delta</code> and <code>npts</code> are required. please make sure that they are correct. The <code>b</code> denote the shift time before P arrival.</li>
@@ -140,80 +155,80 @@
 </ul></li>
 </ul>
 
-<h3 id="2-station-list">2. Station list</h3>
+<h4 id="2-a-station-list">2. A station list</h4>
 
 <p>A text table of station information with 3 columns:</p>
 
 <ul>
-<li><code>station</code>: The station name which should be same as the directory name including PRF Files.</li>
+<li><code>station</code>: The station name which should be the same as the directory name including PRF Files.</li>
 <li><code>stlat</code>: The latitude of the station.</li>
 <li><code>stlon</code>: The longitude of the station.</li>
 </ul>
 
-<h3 id="3-a-parameter-file">3. A parameter file</h3>
+<h4 id="3-a-parameter-file">3. A parameter file</h4>
 
 <p>The parameter file include parameters used in CCP stacking. the format should follow <code>configparser</code> as the following example:</p>
-<div class="highlight"><pre class="chroma">[FileIO]
-# Path to stations with RF sac files
-rfpath = /path/to/RFresult
+<div class="highlight"><pre class="chroma"><code class="language-Python" data-lang="Python"><span class="p">[</span><span class="n">FileIO</span><span class="p">]</span>
+<span class="c1"># Path to stations with RF sac files</span>
+<span class="n">rfpath</span> <span class="o">=</span> <span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">RFresult</span>
 
-# Path to station list
-stalist = /path/to/sta_all.lst
+<span class="c1"># Path to station list</span>
+<span class="n">stalist</span> <span class="o">=</span> <span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">sta_all</span><span class="o">.</span><span class="n">lst</span>
 
-# Path to the lib of Ps ray parameters. 
-# If it&#39;s empty the ray parameters of Ps would be assumed as that of P arrival
-rayp_lib =
+<span class="c1"># Path to the lib of Ps ray parameters. </span>
+<span class="c1"># If it&#39;s empty the ray parameters of Ps would be assumed as that of P arrival</span>
+<span class="n">rayp_lib</span> <span class="o">=</span>
 
-# Output data struct after time to depth
-depthdat =  /Users/xumj/Researches/NETibet/ccp_result/RFdepth_3D.mat
+<span class="c1"># Output data struct after time to depth</span>
+<span class="n">depthdat</span> <span class="o">=</span>  <span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">xumj</span><span class="o">/</span><span class="n">Researches</span><span class="o">/</span><span class="n">NETibet</span><span class="o">/</span><span class="n">ccp_result</span><span class="o">/</span><span class="n">RFdepth_3D</span><span class="o">.</span><span class="n">mat</span>
 
-# Output data struct after CCP stacking
-stackfile = /Users/xumj/Researches/NETibet/Ordos_Process/stack_L5
+<span class="c1"># Output data struct after CCP stacking</span>
+<span class="n">stackfile</span> <span class="o">=</span> <span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">xumj</span><span class="o">/</span><span class="n">Researches</span><span class="o">/</span><span class="n">NETibet</span><span class="o">/</span><span class="n">Ordos_Process</span><span class="o">/</span><span class="n">stack_L5</span>
 
-# Station list used to stack
-stack_sta_list = /Users/xumj/Researches/NETibet/Ordos_Process/sta_L5.lst
+<span class="c1"># Station list used to stack</span>
+<span class="n">stack_sta_list</span> <span class="o">=</span> <span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">xumj</span><span class="o">/</span><span class="n">Researches</span><span class="o">/</span><span class="n">NETibet</span><span class="o">/</span><span class="n">Ordos_Process</span><span class="o">/</span><span class="n">sta_L5</span><span class="o">.</span><span class="n">lst</span>
 
-# Path to 1D velocity model
-# If it&#39;s empty, useing IASP91 model
-velmod =
+<span class="c1"># Path to 1D velocity model</span>
+<span class="c1"># If it&#39;s empty, useing IASP91 model</span>
+<span class="n">velmod</span> <span class="o">=</span>
 
-[bin]
-# The shape of bins
-shape = rect
+<span class="p">[</span><span class="nb">bin</span><span class="p">]</span>
+<span class="c1"># The shape of bins</span>
+<span class="n">shape</span> <span class="o">=</span> <span class="n">rect</span>
 
-# period of S wave (to assuming the radius of fresnel zone)
-domperiod = 5
+<span class="c1"># period of S wave (to assuming the radius of fresnel zone)</span>
+<span class="n">domperiod</span> <span class="o">=</span> <span class="mi">5</span>
 
-# Width of the profile in km
-width = 100
+<span class="c1"># Width of the profile in km</span>
+<span class="n">width</span> <span class="o">=</span> <span class="mi">100</span>
 
-# Radius of bins in km
-# If it&#39;s empty, radius would be assumed following fresnel zone
-bin_radius =
+<span class="c1"># Radius of bins in km</span>
+<span class="c1"># If it&#39;s empty, radius would be assumed following fresnel zone</span>
+<span class="n">bin_radius</span> <span class="o">=</span>
 
-# sliding interval of bins in km 
-slid_val = 5
+<span class="c1"># sliding interval of bins in km </span>
+<span class="n">slid_val</span> <span class="o">=</span> <span class="mi">5</span>
 
-[line]
-Coordinate of two end points for the profile
-profile_lat1 = 40.82
-profile_lon1 = 103.451
-profile_lat2 = 36.33
-profile_lon2 = 108.817
+<span class="p">[</span><span class="n">line</span><span class="p">]</span>
+<span class="c1"># Coordinate of two end points for the profile</span>
+<span class="n">profile_lat1</span> <span class="o">=</span> <span class="mf">40.82</span>
+<span class="n">profile_lon1</span> <span class="o">=</span> <span class="mf">103.451</span>
+<span class="n">profile_lat2</span> <span class="o">=</span> <span class="mf">36.33</span>
+<span class="n">profile_lon2</span> <span class="o">=</span> <span class="mf">108.817</span>
 
-[depth]
-# Max depth you wanna convert to
-dep_end = 800
+<span class="p">[</span><span class="n">depth</span><span class="p">]</span>
+<span class="c1"># Max depth you wanna convert to</span>
+<span class="n">dep_end</span> <span class="o">=</span> <span class="mi">800</span>
 
-# depth interval in converting time to depth
-dep_val = 1
+<span class="c1"># depth interval in converting time to depth</span>
+<span class="n">dep_val</span> <span class="o">=</span> <span class="mi">1</span>
 
-[stack]
-# Stack RFs from &lt;stack_start&gt; km to &lt;stack_end&gt; km with interval of &lt;stack_val&gt; km
-stack_start = 0
-stack_end = 150
-stack_val = 1</pre></div>
-<h3 id="4-optional-a-lib-of-ps-ray-parameters">4. (Optional) A lib of Ps ray parameters.</h3>
+<span class="p">[</span><span class="n">stack</span><span class="p">]</span>
+<span class="c1"># Stack RFs from &lt;stack_start&gt; km to &lt;stack_end&gt; km with interval of &lt;stack_val&gt; km</span>
+<span class="n">stack_start</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">stack_end</span> <span class="o">=</span> <span class="mi">150</span>
+<span class="n">stack_val</span> <span class="o">=</span> <span class="mi">1</span></code></pre></div>
+<h4 id="4-optional-a-lib-of-ps-ray-parameters">4. (Optional) A lib of Ps ray parameters.</h4>
 
 <p>If you would stack PRFs in a great depth (e.g., D410 or D660), the ray parameters of P arrival cannot represent that of Ps phase. Therefore,
 a library file of Ps ray parameters in different depths and epicentral distance is required in calculating Ps-P time difference.
@@ -228,9 +243,9 @@ optional arguments:
   -e DEP_STR   Event depth range as &#39;min_dep/max_dep/interval&#39;
   -l LAY_STR   layers range as &#39;min_layer/man_layer&#39;
   -o OUT_PATH  Out path to Pds ray parameter lib</pre></div>
-<h3 id="5-optional-a-3d-velocity-model">5. (Optional) A 3D velocity model</h3>
+<h4 id="5-optional-a-3d-velocity-model">5. (Optional) A 3D velocity model</h4>
 
-<p>To correct influence by velocity anomalies above the interface you wanna study, 3D velocity model would be used to correct Ps-P time difference.
+<p>To correct influence by velocity anomalies above the interface you wanna study, you can use a 3D velocity model to correct Ps-P time difference.
 The model file should be <code>.npz</code> format (generated by <a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.savez.html?highlight=savez"><code>numpy.savez</code></a>) with 5 fields:</p>
 
 <ul>
@@ -241,10 +256,10 @@ The model file should be <code>.npz</code> format (generated by <a href="https:/
 <li><code>vs</code>: S wave velocity. 3D <code>numpy.array</code> with shape of <code>(len_dep, len_lat, len_lon)</code></li>
 </ul>
 
-<h2 id="convert-time-to-depth">Convert time to depth</h2>
+<h3 id="convert-time-to-depth">Convert time to depth</h3>
 
 <p><code>rf2depth</code> command would convert PRFs from time axis to depth axis using above preparations:</p>
-<div class="highlight"><pre class="chroma">usage: rf2depth [-h] [-d VEL3DPATH] cfg_file
+<div class="highlight"><pre class="chroma"><code class="language-Bash" data-lang="Bash">usage: rf2depth <span class="o">[</span>-h<span class="o">]</span> <span class="o">[</span>-d VEL3DPATH<span class="o">]</span> cfg_file
 
 Convert Ps RF to depth axis
 
@@ -252,8 +267,8 @@ positional arguments:
   cfg_file      Path to configure file
 
 optional arguments:
-  -h, --help    show this help message and exit
-  -d VEL3DPATH  Path to 3d vel model in npz file</pre></div>
+  -h, --help    show this <span class="nb">help</span> message and <span class="nb">exit</span>
+  -d VEL3DPATH  Path to 3d vel model in npz file</code></pre></div>
 <p>The output struct would be saved as a <code>.mat</code> file, which can be read in <strong>MATLAB</strong>. Therefore, you can browse items and fields of this file using
 <strong>MATLAB</strong> or <code>scipy.io.loadmat</code>. The number of items is equal to the number of stations in <em>Station list</em>. Each item has 9 fields:</p>
 
@@ -270,7 +285,7 @@ optional arguments:
 &gt;Note: the <code>layer_num</code> was determined by field [depth] in parameter file.</li>
 </ul>
 
-<h2 id="ccp-stack-prfs-along-a-profile">CCP Stack PRFs along a profile</h2>
+<h3 id="ccp-stack-prfs-along-a-profile">CCP Stack PRFs along a profile</h3>
 
 <p>The <code>ccp_profile</code> command provide functions to stack PRFs along a profile:</p>
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">usage: ccp_profile <span class="o">[</span>-h<span class="o">]</span> <span class="o">[</span>-l LINE_LOCA<span class="o">]</span> <span class="o">[</span>-s STALIST<span class="o">]</span> <span class="o">[</span>-o OUTPATH<span class="o">]</span> <span class="o">[</span>-t<span class="o">]</span> cfg_file
@@ -286,7 +301,7 @@ optional arguments:
   -s STALIST    Path to station list
   -o OUTPATH    Path to output data
   -t            Output as text file</code></pre></div>
-<h3 id="required-arguments">Required arguments</h3>
+<h4 id="required-arguments">Required arguments</h4>
 
 <ul>
 <li><code>cfg_file</code>: the <em>parameter file</em> introduced above. Meanwhile, some options are required:
