@@ -110,6 +110,10 @@
       <a href="https://xumi1993.github.io/seispy/docs/rf-single/">Calculate a P-wave Receiver Function (PRF)</a>
     </li>
     
+    <li class="">
+      <a href="https://xumi1993.github.io/seispy/docs/rf-sta/">Calculate PRFs for a station</a>
+    </li>
+    
     <li class="active ">
       <a href="https://xumi1993.github.io/seispy/docs/ccp/">Stack PRFs by Common Conversion points (CCP) method</a>
     </li>
@@ -128,7 +132,7 @@
 <p>This note will introduce how to stack PRFs by CCP method in two steps.</p>
 
 <p><strong>1. Convert PRFs from time axis to depth axis according to 1D velocity model.<br />
-1. Search and stack amplitudes in each bin with calculated pierce points falling in.</strong></p>
+2. Search and stack amplitudes in each bin with calculated pierce points falling in.</strong></p>
 
 <h3 id="preparation">Preparation</h3>
 
@@ -281,9 +285,12 @@ optional arguments:
 <li><code>moveout_correct</code>: The amplitude for each PRF after time-depth conversion (2D array with shape of <code>(ev_num, layer_num)</code>).</li>
 <li><code>Piercelat</code>: Latitudes of each event at each depth (2D array with shape of <code>(ev_num, layer_num)</code>).</li>
 <li><code>Piercelon</code>: Longitudes of each event at each depth (2D array with shape of <code>(ev_num, layer_num)</code>).</li>
-<li><code>StopIndex</code>: The last layer after time-depth conversion (2D array with shape of <code>(ev_num, layer_num)</code>).
-&gt;Note: the <code>layer_num</code> was determined by field [depth] in parameter file.</li>
+<li><code>StopIndex</code>: The last layer after time-depth conversion (2D array with shape of <code>(ev_num, layer_num)</code>).</li>
 </ul>
+
+<blockquote>
+<p>Note: the <code>layer_num</code> was determined by field [depth] in parameter file.</p>
+</blockquote>
 
 <h3 id="ccp-stack-prfs-along-a-profile">CCP Stack PRFs along a profile</h3>
 
@@ -307,9 +314,46 @@ optional arguments:
 <li><code>cfg_file</code>: the <em>parameter file</em> introduced above. Meanwhile, some options are required:
 
 <ul>
-<li><code>stack</code> section: Define the nodes of the profile</li>
-<li><code>bin</code> section: The shape of bin.</li>
+<li><code>FileIO</code>: Allow to set input and output path
+
+<ul>
+<li><code>depthdat</code>: The <code>.mat</code> file path output from <code>rf2depth</code></li>
+<li><code>stackfile</code>: Path to output file after CCP stacking</li>
+<li><code>stalist</code>: <strong>Path to station list used to stack. If it is not exists, the stations would be limited using the <code>witdth</code> of the profile. the stations that meets the condition would be project to this proflie and write to this <code>stalist</code>.</strong></li>
 </ul></li>
+<li><code>stack</code> section: Define the nodes in depth
+
+<ul>
+<li><code>stack_start</code>: Define the depth with stacking begining</li>
+<li><code>stack_end</code>: Defane the depth with stacking ending</li>
+<li><code>stack_val</code>: The interval between adjacent nodes in depth</li>
+</ul></li>
+<li><code>bin</code> section: The shape of bin.
+
+<ul>
+<li><code>shape</code>: Define the shape of bins. Only &lsquo;rect&rsquo; or &lsquo;circle&rsquo; is avalible</li>
+<li><code>domperiod</code>: the period in second of S wave used in calculating radius of a fresnel zone</li>
+<li><code>witdth</code>: The width of the profile.</li>
+<li><code>bin_radius</code>: Radius of each bin. If it is not defined, radius would be assumed following fresnel zone.</li>
+<li><code>slid_val</code>: Interval between adjacent bins</li>
+</ul></li>
+<li><code>line</code>: Line location</li>
+</ul></li>
+</ul>
+
+<h4 id="optional-arguments">Optional arguments</h4>
+
+<ul>
+<li><code>-t</code>: the output file will use ASCII file with <code>.dat</code> suffix
+<br /></li>
+</ul>
+
+<p>To facilitate the calculation of multiple sections in batches. We allow to set location of the profile, the station list and the path to output file in command line.</p>
+
+<ul>
+<li><code>-l</code>: set the location of the profile (instead of section <code>line</code> in cfg file)</li>
+<li><code>-s</code>: Path to station list (instead of <code>stalist</code> in cfg file)</li>
+<li><code>-o</code>: Path to output file after CCP stacking (instead of <code>stackfile</code> in cfg file)</li>
 </ul>
 
 </div>
