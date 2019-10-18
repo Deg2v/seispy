@@ -7,11 +7,11 @@
   <title>Calculate PRFs for a station - Seispy Documentation</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   
-  <link rel="icon" href="https://xumi1993.github.io/seispy/favicon.png">
+  <link rel="icon" href="https://xumijian.me/seispy/favicon.png">
 
   
   
-  <link rel="stylesheet" href="/seispy/css/style.min.020d604e977275cf093999068602ba80e6eb2f78df409ccca5a76f02778bea56.css">
+  <link rel="stylesheet" href="/seispy/css/style.min.7dc335eda7504f93456161f5def735046a15346dd8ee25bedd7d902fbdb43776.css">
   
 
   
@@ -47,10 +47,10 @@
     <div class='header'>
   <div class="container">
     <div class="logo">
-      <a href="https://xumi1993.github.io/seispy"><img alt="Logo" src="/seispy/images/seispy.png" /></a>
+      <a href="https://xumijian.me/seispy"><img alt="Logo" src="/seispy/images/seispy.png" /></a>
     </div>
     <div class="logo-mobile">
-      <a href="https://xumi1993.github.io/seispy"><img alt="Logo" src="/seispy/images/seispy.png" /></a>
+      <a href="https://xumijian.me/seispy"><img alt="Logo" src="/seispy/images/seispy.png" /></a>
     </div>
     <div id="main-menu" class="main-menu">
   <ul>
@@ -103,19 +103,19 @@
   <ul>
     
     <li class="">
-      <a href="https://xumi1993.github.io/seispy/docs/install-seispy/">Install Seispy</a>
+      <a href="https://xumijian.me/seispy/docs/install-seispy/">Install Seispy</a>
     </li>
     
     <li class="">
-      <a href="https://xumi1993.github.io/seispy/docs/rf-single/">Calculate a P-wave Receiver Function (PRF)</a>
+      <a href="https://xumijian.me/seispy/docs/cal-prf/">Calculate a P-wave Receiver Function (PRF)</a>
     </li>
     
     <li class="active ">
-      <a href="https://xumi1993.github.io/seispy/docs/rf-sta/">Calculate PRFs for a station</a>
+      <a href="https://xumijian.me/seispy/docs/rf-sta/">Calculate PRFs for a station</a>
     </li>
     
     <li class="">
-      <a href="https://xumi1993.github.io/seispy/docs/ccp/">Stack PRFs by Common Conversion points (CCP) method</a>
+      <a href="https://xumijian.me/seispy/docs/ccp/">Stack PRFs by Common Conversion points (CCP) method</a>
     </li>
     
   </ul>
@@ -126,30 +126,30 @@
         <div class="col-12 col-md-9">
           
 <h1 class="title">Calculate PRFs for a station</h1>
-<div class="content">
+<div class="content ">
   
 
 <h2 id="1-perpare-seismic-records-order-by-stations">1. Perpare seismic records order by stations</h2>
 
-<p>Seismic data should be trimed according earthquakes, including direct P arrival. Meanwhile, the data should be order by stations instead of events. For example, <em>YN001</em> and <em>YN002</em> are stations the SAC files are data of events recorded by these stations.</p>
+<p>Seismic data should be trimed according earthquakes, including direct P arrival. Meanwhile, the data should be order by stations instead of events. For example, YN001 and YN002 are stations the SAC files are data of events recorded by these stations.</p>
 <div class="highlight"><pre class="chroma">event_data/
 ├── YN001
-│   ├── 2018.229.15.35.02.1.sac
-│   ├── 2018.229.15.35.02.2.sac
-│   ├── 2018.229.15.35.02.3.sac
-│   ├── 2018.229.22.06.55.1.sac
-│   ├── 2018.229.22.06.55.2.sac
+│   ├── 2018.229.15.35.02.1.sac
+│   ├── 2018.229.15.35.02.2.sac
+│   ├── 2018.229.15.35.02.3.sac
+│   ├── 2018.229.22.06.55.1.sac
+│   ├── 2018.229.22.06.55.2.sac
 │   │......
 ├── YN002
-│   ├── 2018.229.15.35.02.1.sac
-│   ├── 2018.229.15.35.02.2.sac
-│   ├── 2018.229.15.35.02.3.sac
-│   ├── 2018.229.22.06.55.1.sac
-│   ├── 2018.229.22.06.55.2.sac
+│   ├── 2018.229.15.35.02.1.sac
+│   ├── 2018.229.15.35.02.2.sac
+│   ├── 2018.229.15.35.02.3.sac
+│   ├── 2018.229.22.06.55.1.sac
+│   ├── 2018.229.22.06.55.2.sac
 │   │......</pre></div>
 <h2 id="2-init-a-project-instance">2. Init a project instance</h2>
 
-<p>First, let&rsquo;s init a <code>rf</code> instance. In this instance, we can set parameters, match earthquakes from catalog and calculate PRFs.</p>
+<p>First, let’s init a <code>rf</code>instance. In this instance, we can set parameters, match earthquakes from catalog and calculate PRFs.</p>
 <div class="highlight"><pre class="chroma"><code class="language-Python" data-lang="Python"><span class="kn">from</span> <span class="nn">seispy.rf</span> <span class="kn">import</span> <span class="n">rf</span>
 <span class="kn">from</span> <span class="nn">os.path</span> <span class="kn">import</span> <span class="n">join</span>
 <span class="kn">from</span> <span class="nn">obspy</span> <span class="kn">import</span> <span class="n">UTCDateTime</span>
@@ -157,38 +157,38 @@
 <span class="n">pjt</span> <span class="o">=</span> <span class="n">rf</span><span class="p">()</span></code></pre></div>
 <h2 id="3-set-parameters">3. Set parameters</h2>
 
-<p>Most of parameters are saved in <code>pjt.para</code>. Let&rsquo;s show all default parameters</p>
-<div class="highlight"><pre class="chroma"><code class="language-Python" data-lang="Python"><span class="k">print</span><span class="p">(</span><span class="n">pjt</span><span class="o">.</span><span class="n">para</span><span class="o">.</span><span class="vm">__dict__</span><span class="p">)</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-Python" data-lang="Python"><span class="p">{</span><span class="s1">&#39;_datapath&#39;</span><span class="p">:</span> <span class="s1">&#39;/Users/xumj&#39;</span><span class="p">,</span>
- <span class="s1">&#39;_rfpath&#39;</span><span class="p">:</span> <span class="s1">&#39;/Users/xumj&#39;</span><span class="p">,</span>
- <span class="s1">&#39;_imagepath&#39;</span><span class="p">:</span> <span class="s1">&#39;/Users/xumj&#39;</span><span class="p">,</span>
- <span class="s1">&#39;_catalogpath&#39;</span><span class="p">:</span> <span class="s1">&#39;/Users/xumj/.pyenv/versions/anaconda3-5.3.1/lib/python3.7/site-packages/seispy-1.1.8-py3.7.egg/seispy/data/EventCMT.dat&#39;</span><span class="p">,</span>
- <span class="s1">&#39;offset&#39;</span><span class="p">:</span> <span class="bp">None</span><span class="p">,</span>
- <span class="s1">&#39;tolerance&#39;</span><span class="p">:</span> <span class="mi">210</span><span class="p">,</span>
- <span class="s1">&#39;dateformat&#39;</span><span class="p">:</span> <span class="s1">&#39;%Y.%j.%H.%M.%S&#39;</span><span class="p">,</span>
- <span class="s1">&#39;date_begin&#39;</span><span class="p">:</span> <span class="mi">1976</span><span class="o">-</span><span class="mo">01</span><span class="o">-</span><span class="mo">01</span><span class="n">T00</span><span class="p">:</span><span class="mo">00</span><span class="p">:</span><span class="mf">00.000000</span><span class="n">Z</span><span class="p">,</span>
- <span class="s1">&#39;date_end&#39;</span><span class="p">:</span> <span class="mi">2019</span><span class="o">-</span><span class="mo">07</span><span class="o">-</span><span class="mi">11</span><span class="n">T14</span><span class="p">:</span><span class="mo">04</span><span class="p">:</span><span class="mf">15.365860</span><span class="n">Z</span><span class="p">,</span>
- <span class="s1">&#39;magmin&#39;</span><span class="p">:</span> <span class="mf">5.5</span><span class="p">,</span>
- <span class="s1">&#39;magmax&#39;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
- <span class="s1">&#39;dismin&#39;</span><span class="p">:</span> <span class="mi">30</span><span class="p">,</span>
- <span class="s1">&#39;dismax&#39;</span><span class="p">:</span> <span class="mi">90</span><span class="p">,</span>
- <span class="s1">&#39;ref_comp&#39;</span><span class="p">:</span> <span class="s1">&#39;BHZ&#39;</span><span class="p">,</span>
- <span class="s1">&#39;suffix&#39;</span><span class="p">:</span> <span class="s1">&#39;SAC&#39;</span><span class="p">,</span>
- <span class="s1">&#39;noisegate&#39;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span>
- <span class="s1">&#39;gauss&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
- <span class="s1">&#39;target_dt&#39;</span><span class="p">:</span> <span class="mf">0.01</span><span class="p">,</span>
- <span class="s1">&#39;phase&#39;</span><span class="p">:</span> <span class="s1">&#39;P&#39;</span><span class="p">,</span>
- <span class="s1">&#39;time_before&#39;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
- <span class="s1">&#39;time_after&#39;</span><span class="p">:</span> <span class="mi">120</span><span class="p">,</span>
- <span class="s1">&#39;only_r&#39;</span><span class="p">:</span> <span class="bp">False</span><span class="p">}</span></code></pre></div>
+<p>Most of parameters are saved in <code>pjt.para</code>. Let’s show all default parameters</p>
+<div class="highlight"><pre class="chroma"><code class="language-Python" data-lang="Python"><span class="k">print</span><span class="p">(</span><span class="n">pjt</span><span class="o">.</span><span class="n">para</span><span class="o">.</span><span class="vm">__dict__</span><span class="p">)</span></code></pre></div><div class="highlight"><pre class="chroma">{&#39;_datapath&#39;: &#39;/Users/xumj&#39;,
+ &#39;_rfpath&#39;: &#39;/Users/xumj&#39;,
+ &#39;_imagepath&#39;: &#39;/Users/xumj&#39;,
+ &#39;_catalogpath&#39;: &#39;/Users/xumj/.pyenv/versions/anaconda3-5.3.1/lib/python3.7/site-packages/seispy-1.1.8-py3.7.egg/seispy/data/EventCMT.dat&#39;,
+ &#39;offset&#39;: None,
+ &#39;tolerance&#39;: 210,
+ &#39;dateformat&#39;: &#39;%Y.%j.%H.%M.%S&#39;,
+ &#39;date_begin&#39;: 1976-01-01T00:00:00.000000Z,
+ &#39;date_end&#39;: 2019-07-11T14:04:15.365860Z,
+ &#39;magmin&#39;: 5.5,
+ &#39;magmax&#39;: 10,
+ &#39;dismin&#39;: 30,
+ &#39;dismax&#39;: 90,
+ &#39;ref_comp&#39;: &#39;BHZ&#39;,
+ &#39;suffix&#39;: &#39;SAC&#39;,
+ &#39;noisegate&#39;: 5,
+ &#39;gauss&#39;: 2,
+ &#39;target_dt&#39;: 0.01,
+ &#39;phase&#39;: &#39;P&#39;,
+ &#39;time_before&#39;: 10,
+ &#39;time_after&#39;: 120,
+ &#39;only_r&#39;: False}</pre></div>
 <p>Thus, we can set them in our scripts</p>
-<div class="highlight"><pre class="chroma"><code class="language-Python" data-lang="Python"><span class="n">pjt</span><span class="o">.</span><span class="n">para</span><span class="o">.</span><span class="n">datapath</span> <span class="o">=</span> <span class="s1">&#39;Data/Path/to/station_name&#39;</span>
-<span class="n">pjt</span><span class="o">.</span><span class="n">para</span><span class="o">.</span><span class="n">rfpath</span> <span class="o">=</span> <span class="s1">&#39;Result/Path/to/station_name&#39;</span>
-<span class="n">pjt</span><span class="o">.</span><span class="n">para</span><span class="o">.</span><span class="n">suffix</span> <span class="o">=</span> <span class="s1">&#39;sac&#39;</span>
-<span class="n">pjt</span><span class="o">.</span><span class="n">para</span><span class="o">.</span><span class="n">ref_comp</span> <span class="o">=</span> <span class="s2">&#34;.1.&#34;</span>
-<span class="n">pjt</span><span class="o">.</span><span class="n">date_begin</span> <span class="o">=</span> <span class="n">UTCDataTime</span><span class="p">(</span><span class="s1">&#39;20180701&#39;</span><span class="p">)</span>
-<span class="n">pjt</span><span class="o">.</span><span class="n">date_end</span> <span class="o">=</span> <span class="n">UTCDataTime</span><span class="p">(</span><span class="s1">&#39;20190701&#39;</span><span class="p">)</span>
-<span class="n">pjt</span><span class="o">.</span><span class="n">para</span><span class="o">.</span><span class="n">offset</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="n">pjt</span><span class="o">.</span><span class="n">para</span><span class="o">.</span><span class="n">tolerance</span> <span class="o">=</span> <span class="mi">60</span></code></pre></div>
+<div class="highlight"><pre class="chroma">pjt.para.datapath = &#39;Data/Path/to/station_name&#39;
+pjt.para.rfpath = &#39;Result/Path/to/station_name&#39;
+pjt.para.suffix = &#39;sac&#39;
+pjt.para.ref_comp = &#34;.1.&#34;
+pjt.date_begin = UTCDataTime(&#39;20180701&#39;)
+pjt.date_end = UTCDataTime(&#39;20190701&#39;)
+pjt.para.offset = 0
+pjt.para.tolerance = 60</pre></div>
 <p>or in a configure file</p>
 <div class="highlight"><pre class="chroma">[path]
 datapath = Data/Path/to/station_name
@@ -221,33 +221,32 @@ only_r = yes</pre></div>
 <div class="highlight"><pre class="chroma"><code class="language-Python" data-lang="Python"><span class="n">pjt</span> <span class="o">=</span> <span class="n">rf</span><span class="p">(</span><span class="n">cfg_file</span><span class="o">=</span><span class="s1">&#39;path/to/config&#39;</span><span class="p">)</span></code></pre></div>
 <h2 id="4-search-earthquakes-from-catalog">4. Search earthquakes from catalog</h2>
 
-<p>We use the same process as the <a href="https://github.com/xumi1993/SplitRFLab">SplitRFLab</a>. To match the data records and events, we should search earthquakes with some criteria (period, epicental distance and maganitude).</p>
+<p>We use the same process as the <a href="https://git.nju.edu.cn/xumi1993/SplitRFLab">SplitRFLab</a>. To match the data records and events, we should search earthquakes with some criteria (period, epicental distance and maganitude).</p>
 
 <h3 id="4-1-load-station-infomation">4.1 Load station infomation</h3>
 
-<p>the The station latitude and longitude are absolutely necessary when we are used to search earthquakes. the function will read <code>stla</code> and <code>stlo</code> of SAC header from files in <code>pjt.para.datapath</code>.</p>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">pjt</span><span class="o">.</span><span class="n">load_stainfo</span><span class="p">()</span></code></pre></div>
+<p>the The station latitude and longitude are absolutely necessary when we are used to search earthquakes. the function will read stla and stlo of SAC header from files in pjt.para.datapath.</p>
+<div class="highlight"><pre class="chroma"><code class="language-Python" data-lang="Python"><span class="n">pjt</span><span class="o">.</span><span class="n">load_stainfo</span><span class="p">()</span></code></pre></div>
 <h3 id="4-2-search-earthquakes">4.2 Search earthquakes</h3>
 
 <p>the function provide two method to search earthquakes. use</p>
 <div class="highlight"><pre class="chroma"><code class="language-Python" data-lang="Python"><span class="n">pjt</span><span class="o">.</span><span class="n">search_eq</span><span class="p">()</span></code></pre></div>
 <p>to search earthquakes in IRIS Web service with the CMT catalog.</p>
 
-<p>In addition, the function allow to perpare earthquakes from a CMT catalog file (saved to <code>seispy/seispy/data/EventCMT.dat</code>). Use command <code>updatecatalog</code> to update the catalog file.</p>
+<p>In addition, the function allow to perpare earthquakes from a CMT catalog file (saved to seispy/seispy/data/EventCMT.dat). Use command updatecatalog to update the catalog file.</p>
 <div class="highlight"><pre class="chroma"><code class="language-Python" data-lang="Python"><span class="n">pjt</span><span class="o">.</span><span class="n">search_eq</span><span class="p">(</span><span class="n">local</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span></code></pre></div>
 <h2 id="5-associate-sac-files-with-events">5. Associate SAC files with events</h2>
 
-<p>This is a important step, which allow to link SAC files and earthquakes in catalog. The <code>pjt.para.dateformat</code>, that is a format string as <a href="https://docs.python.org/3/library/time.html#time.strftime">time module</a>, including datetime infomation will allow to match events in catalog. For example, assuming the filename is <code>2018.229.15.35.02.1.sac</code>. the <code>pjt.para.dateformat</code> should be <code>%Y.%j.%H.%M.%S</code>.</p>
+<p>This is a important step, which allow to link SAC files and earthquakes in catalog. The <code>pjt.para.dateformat</code>, that is a format string as in <a href="https://docs.python.org/3/library/time.html#time.strftime"><code>time.strftime</code></a>, including datetime infomation will allow to match events in catalog. For example, assuming the filename is <code>2018.229.15.35.02.1.sac</code>. the <code>pjt.para.dateformat</code> should be <code>%Y.%j.%H.%M.%S</code>.</p>
 
-<p>A reference sac file will read to Associate with events. Thus, file-search-string will help to find real SAC files in data path. In this program file-search-string composed of <code>pjt.para.ref_comp</code> and <code>pjt.para.suffix</code>. the presence of <code>*pjt.para.ref_comp*pjt.para.suffix</code>, such as <code>*.1.*sac</code> in this example, for SAC files will be found.</p>
+<p>A reference sac file will read to Associate with events. Thus, file-search-string will help to find real SAC files in data path. In this program file-search-string composed of <code>pjt.para.ref_comp</code> and <code>pjt.para.suffix</code>. The presence of <code>*pjt.para.ref_comp*pjt.para.suffix</code>, such as <code>*.1.*sac</code> in this example, for SAC files will be found.</p>
 
-<p>the <code>pjt.para.offset</code> and <code>pjt.para.tolerance</code> are used to match the origin time from catalog. The definition are the same as those in <a href="https://github.com/xumi1993/SplitRFLab">SplitRFLab</a>.</p>
+<p>the <code>pjt.para.offset</code> and <code>p</code>jt.para.tolerance` are used to match the origin time from catalog. The definition are the same as those in <a href="https://git.nju.edu.cn/xumi1993/SplitRFLab">SplitRFLab</a>.</p>
 
 <blockquote>
 <ul>
-<li>The &ldquo;offset&rdquo; is the time duration between the event time and the starting time of your seismograms. Ideally, this offset should be identical to the &ldquo;request start time&rdquo; defined in the previous window but the data management center may have sent you data beginning later than requested. The offset value represents this difference.</li>
-<li>The &ldquo;Tolerance&rdquo; value in seconds will define the time window within which the program will try to associate a seismic file to an event file, by using either its name or the information contained in the header. It is up to the user to find the best compromise: a value too small will let orphans and a value too large will bring confusion since several files could be associated to a seismic event.
-<img src="/seispy/images/offset.png" alt="png" /></li>
+<li>The “offset” is the time duration between the event time and the starting time of your seismograms. Ideally, this offset should be identical to the “request start time” defined in the previous window but the data management center may have sent you data beginning later than requested. The offset value represents this difference.</li>
+<li>The “Tolerance” value in seconds will define the time window within which the program will try to associate a seismic file to an event file, by using either its name or the information contained in the header. It is up to the user to find the best compromise: a value too small will let orphans and a value too large will bring confusion since several files could be associated to a seismic event. <img src="/images/offset.png" alt="" /></li>
 </ul>
 </blockquote>
 
@@ -264,11 +263,11 @@ only_r = yes</pre></div>
 <span class="n">pjt</span><span class="o">.</span><span class="n">rotate</span><span class="p">()</span></code></pre></div>
 <h2 id="7-calulating-prfs">7. Calulating PRFs</h2>
 
-<p>Set the maximum number of iterations <code>itmax</code> and the minimum misfit <code>minderr</code> to calculate PRFs using iterative time-domain deconvolution method.</p>
-<div class="highlight"><pre class="chroma">pjt.deconv(itmax=400, minderr=0.001)</pre></div>
+<p>Set the maximum number of iterations itmax and the minimum misfit minderr to calculate PRFs using iterative time-domain deconvolution method.</p>
+<div class="highlight"><pre class="chroma"><code class="language-Python" data-lang="Python"><span class="n">pjt</span><span class="o">.</span><span class="n">deconv</span><span class="p">(</span><span class="n">itmax</span><span class="o">=</span><span class="mi">400</span><span class="p">,</span> <span class="n">minderr</span><span class="o">=</span><span class="mf">0.001</span><span class="p">)</span></code></pre></div>
 <h2 id="8-save-prfs">8. Save PRFs</h2>
 
-<p>Save the PRFs to <code>pjt.para.rfpath</code> with some criteria. Two kind of criteria allow to set (i.e., <code>crust</code> or <code>mtz</code>). if the parameter set as <code>None</code>, all of PRFs will be saved.</p>
+<p>Save the PRFs to pjt.para.rfpath with some criteria. Two kind of criteria allow to set (i.e., crust or mtz). if the parameter set as None, all of PRFs will be saved.</p>
 
 <h3 id="crust"><code>crust</code></h3>
 
@@ -285,6 +284,22 @@ only_r = yes</pre></div>
 </ul>
 <div class="highlight"><pre class="chroma"><code class="language-Python" data-lang="Python"><span class="n">pjt</span><span class="o">.</span><span class="n">saverf</span><span class="p">(</span><span class="n">criterion</span><span class="o">=</span><span class="s1">&#39;crust&#39;</span><span class="p">)</span></code></pre></div>
 </div>
+<div id="gitalk-container"></div>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script type="text/javascript">
+      var gitalk = new Gitalk({
+        id: '2019-09-27 23:09:33 \x2b0800 \x2b0800',
+        title: 'Calculate PRFs for a station',
+        clientID: '3a3b190b1de92a4f6922',
+        clientSecret: '19f7856d5352fd8ae126ac92a43ac7897fb9a4e3',
+        repo: 'seispy-doc.post',
+        owner: 'xumi1993',
+        admin: ['xumi1993'],
+        body: decodeURI(location.href),
+      });
+      gitalk.render('gitalk-container');
+</script>
 </div>
 
         </div>
@@ -299,7 +314,7 @@ only_r = yes</pre></div>
       <div class="col-12">
         <div class="sub-footer-inner">
           <ul>
-            <li class="zerostatic"><a href="https://xumi1993.github.io/">xumi1993.github.io</a></li>
+            <li class="zerostatic"><a href="https://xumijian.me">xmijian.me</a></li>
           </ul>
         </div>
       </div>
@@ -313,7 +328,7 @@ only_r = yes</pre></div>
   
 
   
-  <script type="text/javascript" src="/seispy/js/scripts.min.bf1e1f7ae8e03db5f012356e825843facdff51c0a559cb0d27fe2bbe1db405c2.js"></script>
+  <script type="text/javascript" src="/seispy/js/scripts.min.1237ff71925bb8625c97a9af8db4c54525258bedfd7c47493daaff723bea755e.js"></script>
   
 
   

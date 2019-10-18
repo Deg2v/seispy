@@ -7,11 +7,11 @@
   <title>Overview - Seispy Documentation</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   
-  <link rel="icon" href="https://xumi1993.github.io/seispy/favicon.png">
+  <link rel="icon" href="https://xumijian.me/seispy/favicon.png">
 
   
   
-  <link rel="stylesheet" href="/seispy/css/style.min.020d604e977275cf093999068602ba80e6eb2f78df409ccca5a76f02778bea56.css">
+  <link rel="stylesheet" href="/seispy/css/style.min.7dc335eda7504f93456161f5def735046a15346dd8ee25bedd7d902fbdb43776.css">
   
 
   
@@ -47,10 +47,10 @@
     <div class='header'>
   <div class="container">
     <div class="logo">
-      <a href="https://xumi1993.github.io/seispy"><img alt="Logo" src="/seispy/images/seispy.png" /></a>
+      <a href="https://xumijian.me/seispy"><img alt="Logo" src="/seispy/images/seispy.png" /></a>
     </div>
     <div class="logo-mobile">
-      <a href="https://xumi1993.github.io/seispy"><img alt="Logo" src="/seispy/images/seispy.png" /></a>
+      <a href="https://xumijian.me/seispy"><img alt="Logo" src="/seispy/images/seispy.png" /></a>
     </div>
     <div id="main-menu" class="main-menu">
   <ul>
@@ -103,19 +103,19 @@
   <ul>
     
     <li class="">
-      <a href="https://xumi1993.github.io/seispy/docs/install-seispy/">Install Seispy</a>
+      <a href="https://xumijian.me/seispy/docs/install-seispy/">Install Seispy</a>
     </li>
     
     <li class="">
-      <a href="https://xumi1993.github.io/seispy/docs/rf-single/">Calculate a P-wave Receiver Function (PRF)</a>
+      <a href="https://xumijian.me/seispy/docs/cal-prf/">Calculate a P-wave Receiver Function (PRF)</a>
     </li>
     
     <li class="">
-      <a href="https://xumi1993.github.io/seispy/docs/rf-sta/">Calculate PRFs for a station</a>
+      <a href="https://xumijian.me/seispy/docs/rf-sta/">Calculate PRFs for a station</a>
     </li>
     
     <li class="">
-      <a href="https://xumi1993.github.io/seispy/docs/ccp/">Stack PRFs by Common Conversion points (CCP) method</a>
+      <a href="https://xumijian.me/seispy/docs/ccp/">Stack PRFs by Common Conversion points (CCP) method</a>
     </li>
     
   </ul>
@@ -140,31 +140,36 @@
 
 <div class="summary mb-2">
   
-  <h2 class="title-summary"><a href="https://xumi1993.github.io/seispy/docs/install-seispy/">Install Seispy</a></h2>
-  <p> Install Dependencies To use this module you will need to have Python3 and some thired party module installed.
- obspy (Numpy, Scipy and …</p>
+  <h2 class="title-summary"><a href="https://xumijian.me/seispy/docs/install-seispy/">Install Seispy</a></h2>
+  <p>Install Dependencies To use this module you will need to have Python3 and some thired party module installed.
+ obspy (Numpy, Scipy and matplotlib included) netcdf4 pandas  Install Seispy Now download and install Seispy</p>
 </div>
+
 
 <div class="summary mb-2">
   
-  <h2 class="title-summary"><a href="https://xumi1993.github.io/seispy/docs/rf-single/">Calculate a P-wave Receiver Function (PRF)</a></h2>
-  <p> 0. Download SAC files for this example Download SAC files
+  <h2 class="title-summary"><a href="https://xumijian.me/seispy/docs/cal-prf/">Calculate a P-wave Receiver Function (PRF)</a></h2>
+  <p>0. Download SAC files for this example Download SAC files
 Download and unzip this .tar.gz file, which include three SAC files.
-1. Import …</p>
+1. Import corresponding modules import obspy import seispy import numpy as np import matplotlib.</p>
 </div>
+
 
 <div class="summary mb-2">
   
-  <h2 class="title-summary"><a href="https://xumi1993.github.io/seispy/docs/rf-sta/">Calculate PRFs for a station</a></h2>
-  <p> 1. Perpare seismic records order by stations Seismic data should be trimed according earthquakes, including direct P arrival. Meanwhile, …</p>
+  <h2 class="title-summary"><a href="https://xumijian.me/seispy/docs/rf-sta/">Calculate PRFs for a station</a></h2>
+  <p>1. Perpare seismic records order by stations Seismic data should be trimed according earthquakes, including direct P arrival. Meanwhile, the data should be order by stations instead of events. For example, YN001 and YN002 are stations the SAC files are data of events recorded by these stations.</p>
 </div>
+
 
 <div class="summary mb-2">
   
-  <h2 class="title-summary"><a href="https://xumi1993.github.io/seispy/docs/ccp/">Stack PRFs by Common Conversion points (CCP) method</a></h2>
-  <p> This note will introduce how to stack PRFs by CCP method in two steps.
-1. Convert PRFs from time axis to depth axis according to 1D …</p>
+  <h2 class="title-summary"><a href="https://xumijian.me/seispy/docs/ccp/">Stack PRFs by Common Conversion points (CCP) method</a></h2>
+  <p>This note will introduce how to stack PRFs by CCP method in two steps.
+1. Convert PRFs from time axis to depth axis according to 1D velocity model.
+2. Search and stack amplitudes in each bin with calculated pierce points falling in.</p>
 </div>
+
 
 
 
@@ -180,7 +185,7 @@ Download and unzip this .tar.gz file, which include three SAC files.
       <div class="col-12">
         <div class="sub-footer-inner">
           <ul>
-            <li class="zerostatic"><a href="https://xumi1993.github.io/">xumi1993.github.io</a></li>
+            <li class="zerostatic"><a href="https://xumijian.me">xmijian.me</a></li>
           </ul>
         </div>
       </div>
@@ -194,7 +199,7 @@ Download and unzip this .tar.gz file, which include three SAC files.
   
 
   
-  <script type="text/javascript" src="/seispy/js/scripts.min.bf1e1f7ae8e03db5f012356e825843facdff51c0a559cb0d27fe2bbe1db405c2.js"></script>
+  <script type="text/javascript" src="/seispy/js/scripts.min.1237ff71925bb8625c97a9af8db4c54525258bedfd7c47493daaff723bea755e.js"></script>
   
 
   

@@ -7,11 +7,11 @@
   <title>Stack PRFs by Common Conversion points (CCP) method - Seispy Documentation</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   
-  <link rel="icon" href="https://xumi1993.github.io/seispy/favicon.png">
+  <link rel="icon" href="https://xumijian.me/seispy/favicon.png">
 
   
   
-  <link rel="stylesheet" href="/seispy/css/style.min.020d604e977275cf093999068602ba80e6eb2f78df409ccca5a76f02778bea56.css">
+  <link rel="stylesheet" href="/seispy/css/style.min.7dc335eda7504f93456161f5def735046a15346dd8ee25bedd7d902fbdb43776.css">
   
 
   
@@ -47,10 +47,10 @@
     <div class='header'>
   <div class="container">
     <div class="logo">
-      <a href="https://xumi1993.github.io/seispy"><img alt="Logo" src="/seispy/images/seispy.png" /></a>
+      <a href="https://xumijian.me/seispy"><img alt="Logo" src="/seispy/images/seispy.png" /></a>
     </div>
     <div class="logo-mobile">
-      <a href="https://xumi1993.github.io/seispy"><img alt="Logo" src="/seispy/images/seispy.png" /></a>
+      <a href="https://xumijian.me/seispy"><img alt="Logo" src="/seispy/images/seispy.png" /></a>
     </div>
     <div id="main-menu" class="main-menu">
   <ul>
@@ -103,19 +103,19 @@
   <ul>
     
     <li class="">
-      <a href="https://xumi1993.github.io/seispy/docs/install-seispy/">Install Seispy</a>
+      <a href="https://xumijian.me/seispy/docs/install-seispy/">Install Seispy</a>
     </li>
     
     <li class="">
-      <a href="https://xumi1993.github.io/seispy/docs/rf-single/">Calculate a P-wave Receiver Function (PRF)</a>
+      <a href="https://xumijian.me/seispy/docs/cal-prf/">Calculate a P-wave Receiver Function (PRF)</a>
     </li>
     
     <li class="">
-      <a href="https://xumi1993.github.io/seispy/docs/rf-sta/">Calculate PRFs for a station</a>
+      <a href="https://xumijian.me/seispy/docs/rf-sta/">Calculate PRFs for a station</a>
     </li>
     
     <li class="active ">
-      <a href="https://xumi1993.github.io/seispy/docs/ccp/">Stack PRFs by Common Conversion points (CCP) method</a>
+      <a href="https://xumijian.me/seispy/docs/ccp/">Stack PRFs by Common Conversion points (CCP) method</a>
     </li>
     
   </ul>
@@ -126,7 +126,7 @@
         <div class="col-12 col-md-9">
           
 <h1 class="title">Stack PRFs by Common Conversion points (CCP) method</h1>
-<div class="content">
+<div class="content ">
   
 
 <p>This note will introduce how to stack PRFs by CCP method in two steps.</p>
@@ -134,15 +134,15 @@
 <p><strong>1. Convert PRFs from time axis to depth axis according to 1D velocity model.<br />
 2. Search and stack amplitudes in each bin with calculated pierce points falling in.</strong></p>
 
-<h3 id="preparation">Preparation</h3>
+<h2 id="preparation">Preparation</h2>
 
 <p>Befor the CCP stacking, we should prepare:</p>
 
-<h4 id="1-prfs-data-with-sac-format">1. PRFs data with sac format</h4>
+<h3 id="1-prfs-data-with-sac-format">1.PRFs data with sac format</h3>
 
 <ul>
-<li>the SACHeader of <code>b</code>, <code>delta</code> and <code>npts</code> are required. please make sure that they are correct. The <code>b</code> denote the shift time before P arrival.</li>
-<li>All of SAC files belong to a same station must be put into a same <strong>directory with name of the station name</strong>.</li>
+<li>The SACHeader of <code>b</code>, <code>delta</code> and <code>npts</code> are required. please make sure that they are correct. The <code>b</code> denote the shift time before P arrival.</li>
+<li>All of SAC files belong to a same station must be put into a same <strong>directory with name of the station name.</strong></li>
 <li>A list file with 10 columns is required in this directory, whose format as:
 
 <ul>
@@ -159,7 +159,7 @@
 </ul></li>
 </ul>
 
-<h4 id="2-a-station-list">2. A station list</h4>
+<h3 id="2-a-station-list">2. A station list</h3>
 
 <p>A text table of station information with 3 columns:</p>
 
@@ -169,9 +169,9 @@
 <li><code>stlon</code>: The longitude of the station.</li>
 </ul>
 
-<h4 id="3-a-parameter-file">3. A parameter file</h4>
+<h3 id="3-a-parameter-file">3. A parameter file</h3>
 
-<p>The parameter file include parameters used in CCP stacking. the format should follow <code>configparser</code> as the following example:</p>
+<p>The parameter file include parameters used in CCP stacking. the format should follow configparser as the following example:</p>
 <div class="highlight"><pre class="chroma"><code class="language-Python" data-lang="Python"><span class="p">[</span><span class="n">FileIO</span><span class="p">]</span>
 <span class="c1"># Path to stations with RF sac files</span>
 <span class="n">rfpath</span> <span class="o">=</span> <span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">RFresult</span>
@@ -232,11 +232,9 @@
 <span class="n">stack_start</span> <span class="o">=</span> <span class="mi">0</span>
 <span class="n">stack_end</span> <span class="o">=</span> <span class="mi">150</span>
 <span class="n">stack_val</span> <span class="o">=</span> <span class="mi">1</span></code></pre></div>
-<h4 id="4-optional-a-lib-of-ps-ray-parameters">4. (Optional) A lib of Ps ray parameters.</h4>
+<h3 id="4-optional-a-lib-of-ps-ray-parameters">4. (Optional) A lib of Ps ray parameters</h3>
 
-<p>If you would stack PRFs in a great depth (e.g., D410 or D660), the ray parameters of P arrival cannot represent that of Ps phase. Therefore,
-a library file of Ps ray parameters in different depths and epicentral distance is required in calculating Ps-P time difference.
-This lib file has specific binary format. You can generate it by command of <code>gen_rayp_lib</code>:</p>
+<p>If you would stack PRFs in a great depth (e.g., D410 or D660), the ray parameters of P arrival cannot represent that of Ps phase. Therefore, a library file of Ps ray parameters in different depths and epicentral distance is required in calculating Ps-P time difference. This lib file has specific binary format. You can generate it by command of gen_rayp_lib:</p>
 <div class="highlight"><pre class="chroma">usage: gen_rayp_lib [-h] -d DIS_STR -e DEP_STR [-l LAY_STR] [-o OUT_PATH]
 
 Gen a ray parameter lib for Pds phases
@@ -247,10 +245,9 @@ optional arguments:
   -e DEP_STR   Event depth range as &#39;min_dep/max_dep/interval&#39;
   -l LAY_STR   layers range as &#39;min_layer/man_layer&#39;
   -o OUT_PATH  Out path to Pds ray parameter lib</pre></div>
-<h4 id="5-optional-a-3d-velocity-model">5. (Optional) A 3D velocity model</h4>
+<h3 id="5-optional-a-3d-velocity-model">5. (Optional) A 3D velocity model</h3>
 
-<p>To correct influence by velocity anomalies above the interface you wanna study, you can use a 3D velocity model to correct Ps-P time difference.
-The model file should be <code>.npz</code> format (generated by <a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.savez.html?highlight=savez"><code>numpy.savez</code></a>) with 5 fields:</p>
+<p>To correct influence by velocity anomalies above the interface you wanna study, you can use a 3D velocity model to correct Ps-P time difference. The model file should be <code>.npz</code> format (generated by <a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.savez.html?highlight=savez"><code>numpy.savez</code></a>) with 5 fields:</p>
 
 <ul>
 <li><code>dep</code>: Depth axis. 1D <code>numpy.array</code> with shape of <code>(len_dep,)</code></li>
@@ -260,10 +257,10 @@ The model file should be <code>.npz</code> format (generated by <a href="https:/
 <li><code>vs</code>: S wave velocity. 3D <code>numpy.array</code> with shape of <code>(len_dep, len_lat, len_lon)</code></li>
 </ul>
 
-<h3 id="convert-time-to-depth">Convert time to depth</h3>
+<h2 id="convert-time-to-depth">Convert time to depth</h2>
 
 <p><code>rf2depth</code> command would convert PRFs from time axis to depth axis using above preparations:</p>
-<div class="highlight"><pre class="chroma"><code class="language-Bash" data-lang="Bash">usage: rf2depth <span class="o">[</span>-h<span class="o">]</span> <span class="o">[</span>-d VEL3DPATH<span class="o">]</span> cfg_file
+<div class="highlight"><pre class="chroma">usage: rf2depth [-h] [-d VEL3DPATH] cfg_file
 
 Convert Ps RF to depth axis
 
@@ -271,31 +268,30 @@ positional arguments:
   cfg_file      Path to configure file
 
 optional arguments:
-  -h, --help    show this <span class="nb">help</span> message and <span class="nb">exit</span>
-  -d VEL3DPATH  Path to 3d vel model in npz file</code></pre></div>
-<p>The output struct would be saved as a <code>.mat</code> file, which can be read in <strong>MATLAB</strong>. Therefore, you can browse items and fields of this file using
-<strong>MATLAB</strong> or <code>scipy.io.loadmat</code>. The number of items is equal to the number of stations in <em>Station list</em>. Each item has 9 fields:</p>
+  -h, --help    show this help message and exit
+  -d VEL3DPATH  Path to 3d vel model in npz file</pre></div>
+<p>The output struct would be saved as a <code>.mat</code> file, which can be read in MATLAB. Therefore, you can browse items and fields of this file using MATLAB or <code>scipy.io.loadmat</code>. The number of items is equal to the number of stations in <strong><em>Station list</em></strong>. Each item has 9 fields:</p>
 
 <ul>
 <li><code>Station</code>: The station name.</li>
 <li><code>stalat</code>: The Latitude of the station.</li>
 <li><code>stalon</code>: The Longitude of the station.</li>
-<li><code>bazi</code>: The back-azimuth of each event (1D array with shape of <code>(ev_num,)</code>).</li>
-<li><code>rayp</code>: The Ray-parameter of each event (1D array with shape of <code>(ev_num,)</code>).</li>
-<li><code>moveout_correct</code>: The amplitude for each PRF after time-depth conversion (2D array with shape of <code>(ev_num, layer_num)</code>).</li>
-<li><code>Piercelat</code>: Latitudes of each event at each depth (2D array with shape of <code>(ev_num, layer_num)</code>).</li>
-<li><code>Piercelon</code>: Longitudes of each event at each depth (2D array with shape of <code>(ev_num, layer_num)</code>).</li>
-<li><code>StopIndex</code>: The last layer after time-depth conversion (2D array with shape of <code>(ev_num, layer_num)</code>).</li>
+<li><code>bazi</code>: The back-azimuth of each event (1D array with shape of (ev_num,)).</li>
+<li><code>rayp</code>: The Ray-parameter of each event (1D array with shape of (ev_num,)).</li>
+<li><code>moveout_correct</code>: The amplitude for each PRF after time-depth conversion (2D array with shape of (ev_num, layer_num)).</li>
+<li><code>Piercelat</code>: Latitudes of each event at each depth (2D array with shape of (ev_num, layer_num)).</li>
+<li><code>Piercelon</code>: Longitudes of each event at each depth (2D array with shape of (ev_num, layer_num)).</li>
+<li><code>StopIndex</code>: The last layer after time-depth conversion (2D array with shape of (ev_num, layer_num)).</li>
 </ul>
 
 <blockquote>
-<p>Note: the <code>layer_num</code> was determined by field [depth] in parameter file.</p>
+<p>Note: the layer_num was determined by field <code>[depth]</code> in parameter file.</p>
 </blockquote>
 
-<h3 id="ccp-stack-prfs-along-a-profile">CCP Stack PRFs along a profile</h3>
+<h2 id="ccp-stack-prfs-along-a-profile">CCP Stack PRFs along a profile</h2>
 
 <p>The <code>ccp_profile</code> command provide functions to stack PRFs along a profile:</p>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">usage: ccp_profile <span class="o">[</span>-h<span class="o">]</span> <span class="o">[</span>-l LINE_LOCA<span class="o">]</span> <span class="o">[</span>-s STALIST<span class="o">]</span> <span class="o">[</span>-o OUTPATH<span class="o">]</span> <span class="o">[</span>-t<span class="o">]</span> cfg_file
+<div class="highlight"><pre class="chroma">usage: ccp_profile [-h] [-l LINE_LOCA] [-s STALIST] [-o OUTPATH] [-t] cfg_file
 
 Stack PRFS along a profile
 
@@ -303,23 +299,23 @@ positional arguments:
   cfg_file      Path to CCP configure file
 
 optional arguments:
-  -h, --help    show this <span class="nb">help</span> message and <span class="nb">exit</span>
+  -h, --help    show this help message and exit
   -l LINE_LOCA  Location of the profile &lt;lat1&gt;/&lt;lon1&gt;/&lt;lat2&gt;/&lt;lon2&gt;
   -s STALIST    Path to station list
   -o OUTPATH    Path to output data
-  -t            Output as text file</code></pre></div>
-<h4 id="required-arguments">Required arguments</h4>
+  -t            Output as text file</pre></div>
+<h3 id="required-arguments">Required arguments</h3>
 
 <ul>
-<li><code>cfg_file</code>: the <em>parameter file</em> introduced above. Meanwhile, some options are required:
+<li><code>cfg_file</code>: the parameter file introduced above. Meanwhile, some options are required:
 
 <ul>
 <li><code>FileIO</code>: Allow to set input and output path
 
 <ul>
-<li><code>depthdat</code>: The <code>.mat</code> file path output from <code>rf2depth</code></li>
+<li><code>depthdat</code>: The .mat file path output from rf2depth</li>
 <li><code>stackfile</code>: Path to output file after CCP stacking</li>
-<li><code>stalist</code>: <strong>Path to station list used to stack. If it is not exists, the stations would be limited using the <code>witdth</code> of the profile. the stations that meets the condition would be project to this proflie and write to this <code>stalist</code>.</strong></li>
+<li><code>stalist</code>: Path to station list used to stack. If it is not exists, the stations would be limited using the witdth of the profile. the stations that meets the condition would be project to this proflie and write to this stalist.</li>
 </ul></li>
 <li><code>stack</code> section: Define the nodes in depth
 
@@ -331,32 +327,33 @@ optional arguments:
 <li><code>bin</code> section: The shape of bin.
 
 <ul>
-<li><code>shape</code>: Define the shape of bins. Only &lsquo;rect&rsquo; or &lsquo;circle&rsquo; is avalible</li>
+<li><code>shape</code>: Define the shape of bins. Only ‘rect’ or ‘circle’ is avalible</li>
 <li><code>domperiod</code>: the period in second of S wave used in calculating radius of a fresnel zone</li>
 <li><code>witdth</code>: The width of the profile.</li>
 <li><code>bin_radius</code>: Radius of each bin. If it is not defined, radius would be assumed following fresnel zone.</li>
-<li><code>slid_val</code>: Interval between adjacent bins</li>
+<li><code>slid_val</code>: Interval between adjacent bins
+<code>line</code>: Line location</li>
 </ul></li>
-<li><code>line</code>: Line location</li>
 </ul></li>
-</ul>
-
-<h4 id="optional-arguments">Optional arguments</h4>
-
-<ul>
-<li><code>-t</code>: the output file will use ASCII file with <code>.dat</code> suffix
-<br /></li>
-</ul>
-
-<p>To facilitate the calculation of multiple sections in batches. We allow to set location of the profile, the station list and the path to output file in command line.</p>
-
-<ul>
-<li><code>-l</code>: set the location of the profile (instead of section <code>line</code> in cfg file)</li>
-<li><code>-s</code>: Path to station list (instead of <code>stalist</code> in cfg file)</li>
-<li><code>-o</code>: Path to output file after CCP stacking (instead of <code>stackfile</code> in cfg file)</li>
 </ul>
 
 </div>
+<div id="gitalk-container"></div>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script type="text/javascript">
+      var gitalk = new Gitalk({
+        id: '2019-10-18 21:18:45 \x2b0800 \x2b0800',
+        title: 'Stack PRFs by Common Conversion points (CCP) method',
+        clientID: '3a3b190b1de92a4f6922',
+        clientSecret: '19f7856d5352fd8ae126ac92a43ac7897fb9a4e3',
+        repo: 'seispy-doc.post',
+        owner: 'xumi1993',
+        admin: ['xumi1993'],
+        body: decodeURI(location.href),
+      });
+      gitalk.render('gitalk-container');
+</script>
 </div>
 
         </div>
@@ -371,7 +368,7 @@ optional arguments:
       <div class="col-12">
         <div class="sub-footer-inner">
           <ul>
-            <li class="zerostatic"><a href="https://xumi1993.github.io/">xumi1993.github.io</a></li>
+            <li class="zerostatic"><a href="https://xumijian.me">xmijian.me</a></li>
           </ul>
         </div>
       </div>
@@ -385,7 +382,7 @@ optional arguments:
   
 
   
-  <script type="text/javascript" src="/seispy/js/scripts.min.bf1e1f7ae8e03db5f012356e825843facdff51c0a559cb0d27fe2bbe1db405c2.js"></script>
+  <script type="text/javascript" src="/seispy/js/scripts.min.1237ff71925bb8625c97a9af8db4c54525258bedfd7c47493daaff723bea755e.js"></script>
   
 
   
