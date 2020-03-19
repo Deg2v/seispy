@@ -11,7 +11,7 @@
 
   
   
-  <link rel="stylesheet" href="/css/style.min.7dc335eda7504f93456161f5def735046a15346dd8ee25bedd7d902fbdb43776.css">
+  <link rel="stylesheet" href="/css/style.min.d0149e46d37ed09a60f55899204505f757aeb152bb817cdb02a1a2bf5728bb6b.css">
   
 
   
@@ -81,6 +81,41 @@
     <span class="hamburger-inner"></span>
   </span>
 </button>
+    <script type="text/javascript"
+        async
+        src="https://cdn.bootcss.com/mathjax/2.7.3/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$'], ['\[\[','\]\]']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  }
+});
+
+MathJax.Hub.Queue(function() {
+    
+    
+    
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i = 0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+<style>
+code.has-jax {
+    font: inherit;
+    font-size: 100%;
+    background: inherit;
+    border: inherit;
+    color: #515151;
+}
+</style>
   </div>
 </div>
 
@@ -127,31 +162,24 @@
           
 <h1 class="title">Install Seispy</h1>
 <div class="content ">
-  
-
-<h2 id="install-dependencies">Install Dependencies</h2>
-
+  <h2 id="install-dependencies">Install Dependencies</h2>
 <p>To use this module you will need to have Python3 and some thired party module installed.</p>
-
 <ul>
 <li>obspy (Numpy, Scipy and matplotlib included)</li>
 <li>netcdf4</li>
 <li>pandas</li>
 </ul>
-
 <h2 id="install-seispy">Install Seispy</h2>
-
 <p>Now download and install Seispy</p>
-
 <h3 id="download">Download</h3>
-<div class="highlight"><pre class="chroma">git clone https://github.com/xumi1993/seispy.git</pre></div>
-<p>or</p>
-<div class="highlight"><pre class="chroma">git clone https://git.nju.edu.cn/geophy/seispy.git</pre></div>
-<p>The Github link is a mirror repo from <a href="https://git.nju.edu.cn/geophy/seispy.git">https://git.nju.edu.cn/geophy/seispy.git</a></p>
-
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">git clone https://github.com/xumi1993/seispy.git
+</code></pre></div><p>or</p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">git clone https://git.nju.edu.cn/geophy/seispy.git
+</code></pre></div><p>The Github link is a mirror repo from <a href="https://git.nju.edu.cn/geophy/seispy.git">https://git.nju.edu.cn/geophy/seispy.git</a></p>
 <p>Installation</p>
-<div class="highlight"><pre class="chroma">cd seispy
-python setup.py install</pre></div>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">cd seispy
+python setup.py install
+</code></pre></div>
 </div>
 <div id="gitalk-container"></div>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">

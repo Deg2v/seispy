@@ -11,7 +11,7 @@
 
   
   
-  <link rel="stylesheet" href="/css/style.min.7dc335eda7504f93456161f5def735046a15346dd8ee25bedd7d902fbdb43776.css">
+  <link rel="stylesheet" href="/css/style.min.d0149e46d37ed09a60f55899204505f757aeb152bb817cdb02a1a2bf5728bb6b.css">
   
 
   
@@ -81,6 +81,41 @@
     <span class="hamburger-inner"></span>
   </span>
 </button>
+    <script type="text/javascript"
+        async
+        src="https://cdn.bootcss.com/mathjax/2.7.3/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$'], ['\[\[','\]\]']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  }
+});
+
+MathJax.Hub.Queue(function() {
+    
+    
+    
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i = 0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+<style>
+code.has-jax {
+    font: inherit;
+    font-size: 100%;
+    background: inherit;
+    border: inherit;
+    color: #515151;
+}
+</style>
   </div>
 </div>
 
@@ -127,24 +162,16 @@
           
 <h1 class="title">Stack PRFs by Common Conversion points (CCP) method</h1>
 <div class="content ">
-  
-
-<p>This note will introduce how to stack PRFs by CCP method in two steps.</p>
-
-<p><strong>1. Convert PRFs from time axis to depth axis according to 1D velocity model.<br />
+  <p>This note will introduce how to stack PRFs by CCP method in two steps.</p>
+<p><strong>1. Convert PRFs from time axis to depth axis according to 1D velocity model.<br>
 2. Search and stack amplitudes in each bin with calculated pierce points falling in.</strong></p>
-
 <h2 id="preparation">Preparation</h2>
-
 <p>Befor the CCP stacking, we should prepare:</p>
-
-<h3 id="1-prfs-data-with-sac-format">1.PRFs data with sac format</h3>
-
+<h3 id="1prfs-data-with-sac-format">1.PRFs data with sac format</h3>
 <ul>
 <li>The SACHeader of <code>b</code>, <code>delta</code> and <code>npts</code> are required. please make sure that they are correct. The <code>b</code> denote the shift time before P arrival.</li>
 <li>All of SAC files belong to a same station must be put into a same <strong>directory with name of the station name.</strong></li>
 <li>A list file with 10 columns is required in this directory, whose format as:
-
 <ul>
 <li><code>evt</code>: the datetime part of sacfile name of each PRF.</li>
 <li><code>phase</code>: The phase part of sacfile name of each PRF.</li>
@@ -156,21 +183,17 @@
 <li><code>rayp</code>: The ray parameter of the event.</li>
 <li><code>mag</code>: The magnitude of the event.</li>
 <li><code>f0</code>: The gauss factor used in computing the PRF.</li>
-</ul></li>
 </ul>
-
+</li>
+</ul>
 <h3 id="2-a-station-list">2. A station list</h3>
-
 <p>A text table of station information with 3 columns:</p>
-
 <ul>
 <li><code>station</code>: The station name which should be the same as the directory name including PRF Files.</li>
 <li><code>stlat</code>: The latitude of the station.</li>
 <li><code>stlon</code>: The longitude of the station.</li>
 </ul>
-
 <h3 id="3-a-parameter-file">3. A parameter file</h3>
-
 <p>The parameter file include parameters used in CCP stacking. the format should follow configparser as the following example:</p>
 <div class="highlight"><pre class="chroma"><code class="language-Python" data-lang="Python"><span class="p">[</span><span class="n">FileIO</span><span class="p">]</span>
 <span class="c1"># Path to stations with RF sac files</span>
@@ -231,11 +254,10 @@
 <span class="c1"># Stack RFs from &lt;stack_start&gt; km to &lt;stack_end&gt; km with interval of &lt;stack_val&gt; km</span>
 <span class="n">stack_start</span> <span class="o">=</span> <span class="mi">0</span>
 <span class="n">stack_end</span> <span class="o">=</span> <span class="mi">150</span>
-<span class="n">stack_val</span> <span class="o">=</span> <span class="mi">1</span></code></pre></div>
-<h3 id="4-optional-a-lib-of-ps-ray-parameters">4. (Optional) A lib of Ps ray parameters</h3>
-
+<span class="n">stack_val</span> <span class="o">=</span> <span class="mi">1</span>
+</code></pre></div><h3 id="4-optional-a-lib-of-ps-ray-parameters">4. (Optional) A lib of Ps ray parameters</h3>
 <p>If you would stack PRFs in a great depth (e.g., D410 or D660), the ray parameters of P arrival cannot represent that of Ps phase. Therefore, a library file of Ps ray parameters in different depths and epicentral distance is required in calculating Ps-P time difference. This lib file has specific binary format. You can generate it by command of gen_rayp_lib:</p>
-<div class="highlight"><pre class="chroma">usage: gen_rayp_lib [-h] -d DIS_STR -e DEP_STR [-l LAY_STR] [-o OUT_PATH]
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">usage: gen_rayp_lib [-h] -d DIS_STR -e DEP_STR [-l LAY_STR] [-o OUT_PATH]
 
 Gen a ray parameter lib for Pds phases
 
@@ -244,11 +266,9 @@ optional arguments:
   -d DIS_STR   Distance range as &#39;min_dis/max_dis/interval&#39;
   -e DEP_STR   Event depth range as &#39;min_dep/max_dep/interval&#39;
   -l LAY_STR   layers range as &#39;min_layer/man_layer&#39;
-  -o OUT_PATH  Out path to Pds ray parameter lib</pre></div>
-<h3 id="5-optional-a-3d-velocity-model">5. (Optional) A 3D velocity model</h3>
-
+  -o OUT_PATH  Out path to Pds ray parameter lib
+</code></pre></div><h3 id="5-optional-a-3d-velocity-model">5. (Optional) A 3D velocity model</h3>
 <p>To correct influence by velocity anomalies above the interface you wanna study, you can use a 3D velocity model to correct Ps-P time difference. The model file should be <code>.npz</code> format (generated by <a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.savez.html?highlight=savez"><code>numpy.savez</code></a>) with 5 fields:</p>
-
 <ul>
 <li><code>dep</code>: Depth axis. 1D <code>numpy.array</code> with shape of <code>(len_dep,)</code></li>
 <li><code>lat</code>: Latitude axis. 1D <code>numpy.array</code> with shape of <code>(len_lat,)</code></li>
@@ -256,11 +276,9 @@ optional arguments:
 <li><code>vp</code>: P wave velocity. 3D <code>numpy.array</code> with shape of <code>(len_dep, len_lat, len_lon)</code></li>
 <li><code>vs</code>: S wave velocity. 3D <code>numpy.array</code> with shape of <code>(len_dep, len_lat, len_lon)</code></li>
 </ul>
-
 <h2 id="convert-time-to-depth">Convert time to depth</h2>
-
 <p><code>rf2depth</code> command would convert PRFs from time axis to depth axis using above preparations:</p>
-<div class="highlight"><pre class="chroma">usage: rf2depth [-h] [-d VEL3DPATH] cfg_file
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">usage: rf2depth [-h] [-d VEL3DPATH] cfg_file
 
 Convert Ps RF to depth axis
 
@@ -269,9 +287,8 @@ positional arguments:
 
 optional arguments:
   -h, --help    show this help message and exit
-  -d VEL3DPATH  Path to 3d vel model in npz file</pre></div>
-<p>The output struct would be saved as a <code>.mat</code> file, which can be read in MATLAB. Therefore, you can browse items and fields of this file using MATLAB or <code>scipy.io.loadmat</code>. The number of items is equal to the number of stations in <strong><em>Station list</em></strong>. Each item has 9 fields:</p>
-
+  -d VEL3DPATH  Path to 3d vel model in npz file
+</code></pre></div><p>The output struct would be saved as a <code>.mat</code> file, which can be read in MATLAB. Therefore, you can browse items and fields of this file using MATLAB or <code>scipy.io.loadmat</code>. The number of items is equal to the number of stations in <em><strong>Station list</strong></em>. Each item has 9 fields:</p>
 <ul>
 <li><code>Station</code>: The station name.</li>
 <li><code>stalat</code>: The Latitude of the station.</li>
@@ -283,15 +300,12 @@ optional arguments:
 <li><code>Piercelon</code>: Longitudes of each event at each depth (2D array with shape of (ev_num, layer_num)).</li>
 <li><code>StopIndex</code>: The last layer after time-depth conversion (2D array with shape of (ev_num, layer_num)).</li>
 </ul>
-
 <blockquote>
 <p>Note: the layer_num was determined by field <code>[depth]</code> in parameter file.</p>
 </blockquote>
-
 <h2 id="ccp-stack-prfs-along-a-profile">CCP Stack PRFs along a profile</h2>
-
 <p>The <code>ccp_profile</code> command provide functions to stack PRFs along a profile:</p>
-<div class="highlight"><pre class="chroma">usage: ccp_profile [-h] [-l LINE_LOCA] [-s STALIST] [-o OUTPATH] [-t] cfg_file
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">usage: ccp_profile [-h] [-l LINE_LOCA] [-s STALIST] [-o OUTPATH] [-t] cfg_file
 
 Stack PRFS along a profile
 
@@ -303,29 +317,26 @@ optional arguments:
   -l LINE_LOCA  Location of the profile &lt;lat1&gt;/&lt;lon1&gt;/&lt;lat2&gt;/&lt;lon2&gt;
   -s STALIST    Path to station list
   -o OUTPATH    Path to output data
-  -t            Output as text file</pre></div>
-<h3 id="required-arguments">Required arguments</h3>
-
+  -t            Output as text file
+</code></pre></div><h3 id="required-arguments">Required arguments</h3>
 <ul>
 <li><code>cfg_file</code>: the parameter file introduced above. Meanwhile, some options are required:
-
 <ul>
 <li><code>FileIO</code>: Allow to set input and output path
-
 <ul>
 <li><code>depthdat</code>: The .mat file path output from rf2depth</li>
 <li><code>stackfile</code>: Path to output file after CCP stacking</li>
 <li><code>stalist</code>: Path to station list used to stack. If it is not exists, the stations would be limited using the witdth of the profile. the stations that meets the condition would be project to this proflie and write to this stalist.</li>
-</ul></li>
+</ul>
+</li>
 <li><code>stack</code> section: Define the nodes in depth
-
 <ul>
 <li><code>stack_start</code>: Define the depth with stacking begining</li>
 <li><code>stack_end</code>: Defane the depth with stacking ending</li>
 <li><code>stack_val</code>: The interval between adjacent nodes in depth</li>
-</ul></li>
+</ul>
+</li>
 <li><code>bin</code> section: The shape of bin.
-
 <ul>
 <li><code>shape</code>: Define the shape of bins. Only ‘rect’ or ‘circle’ is avalible</li>
 <li><code>domperiod</code>: the period in second of S wave used in calculating radius of a fresnel zone</li>
@@ -333,8 +344,10 @@ optional arguments:
 <li><code>bin_radius</code>: Radius of each bin. If it is not defined, radius would be assumed following fresnel zone.</li>
 <li><code>slid_val</code>: Interval between adjacent bins
 <code>line</code>: Line location</li>
-</ul></li>
-</ul></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 
 </div>

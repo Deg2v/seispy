@@ -11,7 +11,7 @@
 
   
   
-  <link rel="stylesheet" href="/css/style.min.7dc335eda7504f93456161f5def735046a15346dd8ee25bedd7d902fbdb43776.css">
+  <link rel="stylesheet" href="/css/style.min.d0149e46d37ed09a60f55899204505f757aeb152bb817cdb02a1a2bf5728bb6b.css">
   
 
   
@@ -81,6 +81,41 @@
     <span class="hamburger-inner"></span>
   </span>
 </button>
+    <script type="text/javascript"
+        async
+        src="https://cdn.bootcss.com/mathjax/2.7.3/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$'], ['\[\[','\]\]']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  }
+});
+
+MathJax.Hub.Queue(function() {
+    
+    
+    
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i = 0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+<style>
+code.has-jax {
+    font: inherit;
+    font-size: 100%;
+    background: inherit;
+    border: inherit;
+    color: #515151;
+}
+</style>
   </div>
 </div>
 
@@ -127,12 +162,9 @@
           
 <h1 class="title">Calculate PRFs for a station</h1>
 <div class="content ">
-  
-
-<h2 id="1-perpare-seismic-records-order-by-stations">1. Perpare seismic records order by stations</h2>
-
+  <h2 id="1-perpare-seismic-records-order-by-stations">1. Perpare seismic records order by stations</h2>
 <p>Seismic data should be trimed according earthquakes, including direct P arrival. Meanwhile, the data should be order by stations instead of events. For example, YN001 and YN002 are stations the SAC files are data of events recorded by these stations.</p>
-<div class="highlight"><pre class="chroma">event_data/
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">event_data/
 ├── YN001
 │   ├── 2018.229.15.35.02.1.sac
 │   ├── 2018.229.15.35.02.2.sac
@@ -146,19 +178,81 @@
 │   ├── 2018.229.15.35.02.3.sac
 │   ├── 2018.229.22.06.55.1.sac
 │   ├── 2018.229.22.06.55.2.sac
-│   │......</pre></div>
-<h2 id="2-init-a-project-instance">2. Init a project instance</h2>
+│   │......
+</code></pre></div><h2 id="2-calculate-prfs-using-a-simple-command">2. Calculate PRFs using a simple command</h2>
+<h3 id="21-prepare-a-configure-file">2.1 Prepare a configure file</h3>
+<p>We should perpare a configure file as following including all parameters that will be set during the calculation. The format is following Python module of <code>configparser</code></p>
+<div class="highlight"><pre class="chroma"><code class="language-Python" data-lang="Python"><span class="p">[</span><span class="n">path</span><span class="p">]</span>
+<span class="n">datapath</span> <span class="o">=</span> <span class="n">Data</span><span class="o">/</span><span class="n">Path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">station_name</span>
+<span class="n">rfpath</span> <span class="o">=</span> <span class="n">Result</span><span class="o">/</span><span class="n">Path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">station_name</span>
+<span class="n">imagepath</span> <span class="o">=</span> <span class="n">Path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">images</span>
+<span class="n">catalogpath</span> <span class="o">=</span> <span class="n">Path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">catalog</span>
 
+<span class="p">[</span><span class="n">search_eq</span><span class="p">]</span>
+<span class="n">date_begin</span> <span class="o">=</span> <span class="mi">20110701</span>
+<span class="n">date_end</span> <span class="o">=</span> <span class="mi">20111101</span>
+<span class="n">catalog_server</span> <span class="o">=</span> <span class="n">IRIS</span>
+<span class="n">magmin</span> <span class="o">=</span> <span class="mf">5.5</span>
+<span class="n">magmax</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">dismin</span> <span class="o">=</span> <span class="mi">30</span>
+<span class="n">dismax</span> <span class="o">=</span> <span class="mi">90</span>
+
+<span class="p">[</span><span class="n">match_eq</span><span class="p">]</span>
+<span class="n">dateformat</span> <span class="o">=</span> <span class="o">%</span><span class="n">Y</span><span class="o">.</span><span class="o">%</span><span class="n">j</span><span class="o">.</span><span class="o">%</span><span class="n">H</span><span class="o">.</span><span class="o">%</span><span class="n">M</span><span class="o">.</span><span class="o">%</span><span class="n">S</span>
+<span class="n">ref_comp</span> <span class="o">=</span> <span class="o">.</span><span class="mf">1.</span>
+<span class="n">suffix</span> <span class="o">=</span> <span class="n">SAC</span>
+<span class="n">tolerance</span> <span class="o">=</span> <span class="mi">60</span>
+<span class="n">offset</span> <span class="o">=</span>
+
+<span class="p">[</span><span class="n">snr</span><span class="p">]</span>
+<span class="n">noisegate</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">noiselen</span> <span class="o">=</span> <span class="mi">50</span>
+
+<span class="p">[</span><span class="nb">filter</span><span class="p">]</span>
+<span class="n">freqmin</span> <span class="o">=</span> <span class="mf">0.05</span>
+<span class="n">freqmax</span> <span class="o">=</span> <span class="mi">2</span>
+
+<span class="p">[</span><span class="n">trim</span><span class="p">]</span>
+<span class="n">time_before</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">time_after</span> <span class="o">=</span> <span class="mi">120</span>
+
+<span class="p">[</span><span class="n">deconv</span><span class="p">]</span>
+<span class="n">gauss</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">itmax</span><span class="o">=</span> <span class="mi">400</span>
+<span class="n">minderr</span> <span class="o">=</span> <span class="mf">0.001</span>
+
+<span class="p">[</span><span class="n">save</span><span class="p">]</span>
+<span class="n">target_dt</span> <span class="o">=</span> <span class="mf">0.01</span>
+<span class="n">only_r</span> <span class="o">=</span> <span class="n">no</span>
+<span class="n">criterion</span> <span class="o">=</span> <span class="n">crust</span>
+</code></pre></div><h2 id="22-run-in-command-line">2.2 Run in command line</h2>
+<p>We have provided the command <code>prf</code>. The usage is shown as:</p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">usage: prf [-h] [-l] cfg_file
+
+Calculating RFs for single station
+
+positional arguments:
+  cfg_file    Path to RF configure file
+
+optional arguments:
+  -h, --help  show this help message and exit
+  -l          use local catalog. Default is false
+</code></pre></div><ul>
+<li><code>cfg_file</code>: configure file shown above.</li>
+<li><code>-l</code> if the argument was specfied, a local file of catalog would be used in searching earthquakes.</li>
+</ul>
+<h2 id="3-initalize-a-project-instance">3. Initalize a project instance</h2>
+<p><strong>To further understand the procedure of the command <code>prf</code>, we recommend calculateing PRFs with writing a Python script as following steps.</strong></p>
 <p>First, let’s init a <code>rf</code>instance. In this instance, we can set parameters, match earthquakes from catalog and calculate PRFs.</p>
-<div class="highlight"><pre class="chroma"><code class="language-Python" data-lang="Python"><span class="kn">from</span> <span class="nn">seispy.rf</span> <span class="kn">import</span> <span class="n">rf</span>
+<div class="highlight"><pre class="chroma"><code class="language-Python" data-lang="Python"><span class="kn">from</span> <span class="nn">seispy.rf</span> <span class="kn">import</span> <span class="n">RF</span>
 <span class="kn">from</span> <span class="nn">os.path</span> <span class="kn">import</span> <span class="n">join</span>
 <span class="kn">from</span> <span class="nn">obspy</span> <span class="kn">import</span> <span class="n">UTCDateTime</span>
 
-<span class="n">pjt</span> <span class="o">=</span> <span class="n">rf</span><span class="p">()</span></code></pre></div>
-<h2 id="3-set-parameters">3. Set parameters</h2>
-
+<span class="n">pjt</span> <span class="o">=</span> <span class="n">RF</span><span class="p">(</span><span class="p">)</span>
+</code></pre></div><h2 id="4-set-parameters">4. Set parameters</h2>
 <p>Most of parameters are saved in <code>pjt.para</code>. Let’s show all default parameters</p>
-<div class="highlight"><pre class="chroma"><code class="language-Python" data-lang="Python"><span class="k">print</span><span class="p">(</span><span class="n">pjt</span><span class="o">.</span><span class="n">para</span><span class="o">.</span><span class="vm">__dict__</span><span class="p">)</span></code></pre></div><div class="highlight"><pre class="chroma">{&#39;_datapath&#39;: &#39;/Users/xumj&#39;,
+<div class="highlight"><pre class="chroma"><code class="language-Python" data-lang="Python"><span class="k">print</span><span class="p">(</span><span class="n">pjt</span><span class="o">.</span><span class="n">para</span><span class="o">.</span><span class="vm">__dict__</span><span class="p">)</span>
+</code></pre></div><div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">{&#39;_datapath&#39;: &#39;/Users/xumj&#39;,
  &#39;_rfpath&#39;: &#39;/Users/xumj&#39;,
  &#39;_imagepath&#39;: &#39;/Users/xumj&#39;,
  &#39;_catalogpath&#39;: &#39;/Users/xumj/.pyenv/versions/anaconda3-5.3.1/lib/python3.7/site-packages/seispy-1.1.8-py3.7.egg/seispy/data/EventCMT.dat&#39;,
@@ -179,110 +273,89 @@
  &#39;phase&#39;: &#39;P&#39;,
  &#39;time_before&#39;: 10,
  &#39;time_after&#39;: 120,
- &#39;only_r&#39;: False}</pre></div>
-<p>Thus, we can set them in our scripts</p>
-<div class="highlight"><pre class="chroma">pjt.para.datapath = &#39;Data/Path/to/station_name&#39;
+ &#39;only_r&#39;: False}
+</code></pre></div><p>Thus, we can set them in our scripts</p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">pjt.para.datapath = &#39;Data/Path/to/station_name&#39;
 pjt.para.rfpath = &#39;Result/Path/to/station_name&#39;
 pjt.para.suffix = &#39;sac&#39;
 pjt.para.ref_comp = &#34;.1.&#34;
 pjt.date_begin = UTCDataTime(&#39;20180701&#39;)
 pjt.date_end = UTCDataTime(&#39;20190701&#39;)
 pjt.para.offset = 0
-pjt.para.tolerance = 60</pre></div>
-<p>or in a configure file</p>
-<div class="highlight"><pre class="chroma">[path]
-datapath = Data/Path/to/station_name
-rfpath = Result/Path/to/station_name
-imagepath = Path/to/images
-catalogpath =
-
-[para]
-date_begin = 20180701
-date_end = 20190701
-
-magmin = 5.5
-magmax = 10
-dismin = 30
-dismax = 90
-dateformat = %Y.%j.%H.%M.%S
-ref_comp = .1.
-suffix = sac
-tolerance = 60
-offset = 0
-noisegate = 5
-gauss = 0.6
-freqmin = 0.05
-freqmax = 2
-target_dt = 0.01
-time_before = 10
-time_after = 120
-only_r = yes</pre></div>
-<p>When you want to init the instance using this configure file, please add the path to <code>rf()</code></p>
-<div class="highlight"><pre class="chroma"><code class="language-Python" data-lang="Python"><span class="n">pjt</span> <span class="o">=</span> <span class="n">rf</span><span class="p">(</span><span class="n">cfg_file</span><span class="o">=</span><span class="s1">&#39;path/to/config&#39;</span><span class="p">)</span></code></pre></div>
-<h2 id="4-search-earthquakes-from-catalog">4. Search earthquakes from catalog</h2>
-
+pjt.para.tolerance = 60
+</code></pre></div><p>or in a configure file as above. When you want to initialize an instance using this configure file, please add the path to <code>RF()</code> as:</p>
+<div class="highlight"><pre class="chroma"><code class="language-Python" data-lang="Python"><span class="n">pjt</span> <span class="o">=</span> <span class="n">RF</span><span class="p">(</span><span class="n">cfg_file</span><span class="o">=</span><span class="sa"></span><span class="s1">&#39;</span><span class="s1">path/to/config</span><span class="s1">&#39;</span><span class="p">)</span>
+</code></pre></div><h2 id="5-search-earthquakes-from-catalog">5. Search earthquakes from catalog</h2>
 <p>We use the same process as the <a href="https://git.nju.edu.cn/xumi1993/SplitRFLab">SplitRFLab</a>. To match the data records and events, we should search earthquakes with some criteria (period, epicental distance and maganitude).</p>
-
-<h3 id="4-1-load-station-infomation">4.1 Load station infomation</h3>
-
+<h3 id="51-load-station-infomation">5.1 Load station infomation</h3>
 <p>the The station latitude and longitude are absolutely necessary when we are used to search earthquakes. the function will read stla and stlo of SAC header from files in pjt.para.datapath.</p>
-<div class="highlight"><pre class="chroma"><code class="language-Python" data-lang="Python"><span class="n">pjt</span><span class="o">.</span><span class="n">load_stainfo</span><span class="p">()</span></code></pre></div>
-<h3 id="4-2-search-earthquakes">4.2 Search earthquakes</h3>
-
+<div class="highlight"><pre class="chroma"><code class="language-Python" data-lang="Python"><span class="n">pjt</span><span class="o">.</span><span class="n">load_stainfo</span><span class="p">(</span><span class="p">)</span>
+</code></pre></div><h3 id="52-search-earthquakes">5.2 Search earthquakes</h3>
 <p>the function provide two method to search earthquakes. use</p>
-<div class="highlight"><pre class="chroma"><code class="language-Python" data-lang="Python"><span class="n">pjt</span><span class="o">.</span><span class="n">search_eq</span><span class="p">()</span></code></pre></div>
-<p>to search earthquakes in IRIS Web service with the CMT catalog.</p>
-
+<div class="highlight"><pre class="chroma"><code class="language-Python" data-lang="Python"><span class="n">pjt</span><span class="o">.</span><span class="n">search_eq</span><span class="p">(</span><span class="p">)</span>
+</code></pre></div><p>to search earthquakes in IRIS Web service with the CMT catalog.</p>
 <p>In addition, the function allow to perpare earthquakes from a CMT catalog file (saved to seispy/seispy/data/EventCMT.dat). Use command updatecatalog to update the catalog file.</p>
-<div class="highlight"><pre class="chroma"><code class="language-Python" data-lang="Python"><span class="n">pjt</span><span class="o">.</span><span class="n">search_eq</span><span class="p">(</span><span class="n">local</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span></code></pre></div>
-<h2 id="5-associate-sac-files-with-events">5. Associate SAC files with events</h2>
-
+<div class="highlight"><pre class="chroma"><code class="language-Python" data-lang="Python"><span class="n">pjt</span><span class="o">.</span><span class="n">search_eq</span><span class="p">(</span><span class="n">local</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+</code></pre></div><h2 id="6-associate-sac-files-with-events">6. Associate SAC files with events</h2>
 <p>This is a important step, which allow to link SAC files and earthquakes in catalog. The <code>pjt.para.dateformat</code>, that is a format string as in <a href="https://docs.python.org/3/library/time.html#time.strftime"><code>time.strftime</code></a>, including datetime infomation will allow to match events in catalog. For example, assuming the filename is <code>2018.229.15.35.02.1.sac</code>. the <code>pjt.para.dateformat</code> should be <code>%Y.%j.%H.%M.%S</code>.</p>
-
 <p>A reference sac file will read to Associate with events. Thus, file-search-string will help to find real SAC files in data path. In this program file-search-string composed of <code>pjt.para.ref_comp</code> and <code>pjt.para.suffix</code>. The presence of <code>*pjt.para.ref_comp*pjt.para.suffix</code>, such as <code>*.1.*sac</code> in this example, for SAC files will be found.</p>
-
 <p>the <code>pjt.para.offset</code> and <code>p</code>jt.para.tolerance` are used to match the origin time from catalog. The definition are the same as those in <a href="https://git.nju.edu.cn/xumi1993/SplitRFLab">SplitRFLab</a>.</p>
-
 <blockquote>
+</blockquote>
 <ul>
 <li>The “offset” is the time duration between the event time and the starting time of your seismograms. Ideally, this offset should be identical to the “request start time” defined in the previous window but the data management center may have sent you data beginning later than requested. The offset value represents this difference.</li>
-<li>The “Tolerance” value in seconds will define the time window within which the program will try to associate a seismic file to an event file, by using either its name or the information contained in the header. It is up to the user to find the best compromise: a value too small will let orphans and a value too large will bring confusion since several files could be associated to a seismic event. <img src="/images/offset.png" alt="" /></li>
+<li>The “Tolerance” value in seconds will define the time window within which the program will try to associate a seismic file to an event file, by using either its name or the information contained in the header. It is up to the user to find the best compromise: a value too small will let orphans and a value too large will bring confusion since several files could be associated to a seismic event. <img src="/images/offset.png" alt=""></li>
 </ul>
-</blockquote>
-
-<p>afert assuming these parameters are right, just use:</p>
-<div class="highlight"><pre class="chroma"><code class="language-Python" data-lang="Python"><span class="n">pjt</span><span class="o">.</span><span class="n">match_eq</span><span class="p">()</span></code></pre></div>
-<h2 id="6-pretreatment">6. Pretreatment</h2>
-
+<p>After setting up these parameters, use following command to match data records to the catalog:</p>
+<div class="highlight"><pre class="chroma"><code class="language-Python" data-lang="Python"><span class="n">pjt</span><span class="o">.</span><span class="n">match_eq</span><span class="p">(</span><span class="p">)</span>
+</code></pre></div><h2 id="7-pretreatment">7. Pretreatment</h2>
 <p>The process of pretreatment include retrend, bandpass filter, calculating arrival time, reject bad record with low SNR, trim records and rotate components from NE to RT.</p>
-<div class="highlight"><pre class="chroma"><code class="language-Python" data-lang="Python"><span class="n">pjt</span><span class="o">.</span><span class="n">detrend</span><span class="p">()</span>
-<span class="n">pjt</span><span class="o">.</span><span class="nb">filter</span><span class="p">()</span> <span class="c1"># default using &#39;para.freqmin&#39; and &#39;para.freqmax&#39;</span>
-<span class="n">pjt</span><span class="o">.</span><span class="n">cal_phase</span><span class="p">()</span>
-<span class="n">pjt</span><span class="o">.</span><span class="n">drop_eq_snr</span><span class="p">()</span> <span class="c1"># The threshold used as &#39;para.noisegate&#39;</span>
-<span class="n">pjt</span><span class="o">.</span><span class="n">trim</span><span class="p">()</span> <span class="c1"># from &#39;para.time_before&#39; before P to &#39;para.time_after&#39; after P</span>
-<span class="n">pjt</span><span class="o">.</span><span class="n">rotate</span><span class="p">()</span></code></pre></div>
-<h2 id="7-calulating-prfs">7. Calulating PRFs</h2>
-
-<p>Set the maximum number of iterations itmax and the minimum misfit minderr to calculate PRFs using iterative time-domain deconvolution method.</p>
-<div class="highlight"><pre class="chroma"><code class="language-Python" data-lang="Python"><span class="n">pjt</span><span class="o">.</span><span class="n">deconv</span><span class="p">(</span><span class="n">itmax</span><span class="o">=</span><span class="mi">400</span><span class="p">,</span> <span class="n">minderr</span><span class="o">=</span><span class="mf">0.001</span><span class="p">)</span></code></pre></div>
-<h2 id="8-save-prfs">8. Save PRFs</h2>
-
+<h3 id="71-filter">7.1 Filter</h3>
+<p>We will aply a bandpass filter on seismic records. Two corners shoud be specfied.</p>
+<ul>
+<li><code>para.freqmin</code>: Pass band low corner frequency.</li>
+<li><code>para.freqmax</code>: Pass band high corner frequency.</li>
+</ul>
+<h3 id="72-signal-noise-ratios">7.2 Signal-noise-ratios</h3>
+<p>Bad records will be rejected in this step. We will reject records with SNR &lt; <code>para.noisegate</code>. The SNR was calculated as:</p>
+<p>$$
+SNR = 10log_{10}\left(\frac{A_S}{A_N}\right)
+$$
+where $A_N$ and $A_N$ are root mean squares (RMS) of the waveform in
+a <code>para.noisrlen</code> time-window before and after theoretical P arrival times, respectively.</p>
+<h3 id="73-trim">7.3 Trim</h3>
+<p>The waveforms will be cut in this step before <code>para.time_before</code> and after <code>para.time_after</code> theoretical P arrival times, respectively.</p>
+<div class="highlight"><pre class="chroma"><code class="language-Python" data-lang="Python"><span class="n">pjt</span><span class="o">.</span><span class="n">detrend</span><span class="p">(</span><span class="p">)</span>
+<span class="n">pjt</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="p">)</span> <span class="c1"># default using &#39;para.freqmin&#39; and &#39;para.freqmax&#39;</span>
+<span class="n">pjt</span><span class="o">.</span><span class="n">cal_phase</span><span class="p">(</span><span class="p">)</span>
+<span class="n">pjt</span><span class="o">.</span><span class="n">drop_eq_snr</span><span class="p">(</span><span class="p">)</span> <span class="c1"># The threshold used as &#39;para.noisegate&#39;</span>
+<span class="n">pjt</span><span class="o">.</span><span class="n">trim</span><span class="p">(</span><span class="p">)</span> <span class="c1"># from &#39;para.time_before&#39; before P to &#39;para.time_after&#39; after P</span>
+<span class="n">pjt</span><span class="o">.</span><span class="n">rotate</span><span class="p">(</span><span class="p">)</span>
+</code></pre></div><h2 id="8-calulating-prfs">8. Calulating PRFs</h2>
+<p>We need parameters of <code>pjt.para.gauss</code>, <code>pjt.para.itmax</code> and <code>pjt.para.minderr</code> to calculate PRFs using iterative time-domain deconvolution method</p>
+<ul>
+<li><code>pjt.para.gauss</code>: Gauss factor. Default is 2.0</li>
+<li><code>pjt.para.itmax</code>: The maximum number of iterations. Default is 400</li>
+<li><code>pjt.para.minderr</code>: The minimum misfit. Default is 0.001</li>
+</ul>
+<div class="highlight"><pre class="chroma"><code class="language-Python" data-lang="Python"><span class="n">pjt</span><span class="o">.</span><span class="n">deconv</span><span class="p">(</span><span class="p">)</span>
+</code></pre></div><h2 id="9-save-prfs">9. Save PRFs</h2>
 <p>Save the PRFs to pjt.para.rfpath with some criteria. Two kind of criteria allow to set (i.e., crust or mtz). if the parameter set as None, all of PRFs will be saved.</p>
-
 <h3 id="crust"><code>crust</code></h3>
-
 <ul>
 <li>The max peak should appare berween -2s and 2s</li>
 </ul>
-
 <h3 id="mtz"><code>mtz</code></h3>
-
 <ul>
-<li><p>The max peak should appare berween -5s and 5s</p></li>
-
-<li><p>the maximum amplitudes of PRFs in a 30–120 s window after the direct P are smaller than 30% of the maximum amplitudes of the direct P phases.</p></li>
+<li>
+<p>The max peak should appare berween -5s and 5s</p>
+</li>
+<li>
+<p>the maximum amplitudes of PRFs in a 30–120 s window after the direct P are smaller than 30% of the maximum amplitudes of the direct P phases.</p>
+</li>
 </ul>
-<div class="highlight"><pre class="chroma"><code class="language-Python" data-lang="Python"><span class="n">pjt</span><span class="o">.</span><span class="n">saverf</span><span class="p">(</span><span class="n">criterion</span><span class="o">=</span><span class="s1">&#39;crust&#39;</span><span class="p">)</span></code></pre></div>
+<div class="highlight"><pre class="chroma"><code class="language-Python" data-lang="Python"><span class="n">pjt</span><span class="o">.</span><span class="n">saverf</span><span class="p">(</span><span class="n">criterion</span><span class="o">=</span><span class="sa"></span><span class="s1">&#39;</span><span class="s1">crust</span><span class="s1">&#39;</span><span class="p">)</span>
+</code></pre></div>
 </div>
 <div id="gitalk-container"></div>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
