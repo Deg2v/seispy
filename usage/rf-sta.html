@@ -1,7 +1,7 @@
 
 
 <!DOCTYPE html>
-<html class="writer-html4" lang="en" >
+<html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8">
   
@@ -27,27 +27,18 @@
   <![endif]-->
   
     
-      <script type="text/javascript">
-          var DOCUMENTATION_OPTIONS = {
-              URL_ROOT:'../',
-              VERSION:'latest',
-              LANGUAGE:'None',
-              COLLAPSE_INDEX:false,
-              FILE_SUFFIX:'.html',
-              HAS_SOURCE:  true,
-              SOURCELINK_SUFFIX: '.txt'
-          };
-      </script>
-        <script type="text/javascript" src="../_static/jquery.js"></script>
-        <script type="text/javascript" src="../_static/underscore.js"></script>
-        <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
 
     
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="title: “Stack PRFs by Common Conversion points (CCP) method” date: 2019-10-18T21:18:45+08:00 draft: false weight: 100" href="ccp.html" />
+    <link rel="next" title="Stack PRFs with Common Conversion points (CCP) method" href="ccp.html" />
     <link rel="prev" title="Calculate a P-wave Receiver Function (PRF)" href="calrf.html" /> 
 </head>
 
@@ -130,13 +121,7 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="ccp.html">title: “Stack PRFs by Common Conversion points (CCP) method”
-date: 2019-10-18T21:18:45+08:00
-draft: false
-weight: 100</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ccp.html#preparation">Preparation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ccp.html#convert-time-to-depth">Convert time to depth</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ccp.html#ccp-stack-prfs-along-a-profile">CCP Stack PRFs along a profile</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ccp.html">Stack PRFs with Common Conversion points (CCP) method</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../modules.html">Module Index</a></li>
@@ -299,8 +284,8 @@ weight: 100</a></li>
 </pre></div>
 </div>
 <ul class="simple">
-<li><code class="docutils literal notranslate"><span class="pre">cfg_file</span></code>: configure file shown above.</li>
-<li><code class="docutils literal notranslate"><span class="pre">-l</span></code> if the argument was specfied, a local file of catalog would be used in searching earthquakes.</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cfg_file</span></code>: configure file shown above.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-l</span></code> if the argument was specfied, a local file of catalog would be used in searching earthquakes.</p></li>
 </ul>
 </div>
 <div class="section" id="initalize-a-project-instance">
@@ -390,8 +375,8 @@ weight: 100</a></li>
 <p>A reference sac file will read to Associate with events. Thus, file-search-string will help to find real SAC files in data path. In this program file-search-string composed of <code class="docutils literal notranslate"><span class="pre">pjt.para.ref_comp</span></code> and <code class="docutils literal notranslate"><span class="pre">pjt.para.suffix</span></code>. The presence of <code class="docutils literal notranslate"><span class="pre">*pjt.para.ref_comp*pjt.para.suffix</span></code>, such as <code class="docutils literal notranslate"><span class="pre">*.1.*sac</span></code> in this example, for SAC files will be found.</p>
 <p>the <code class="docutils literal notranslate"><span class="pre">pjt.para.offset</span></code> and <code class="docutils literal notranslate"><span class="pre">p</span></code>jt.para.tolerance` are used to match the origin time from catalog. The definition are the same as those in <a class="reference external" href="https://git.nju.edu.cn/xumi1993/SplitRFLab">SplitRFLab</a>.</p>
 <ul class="simple">
-<li>The “offset” is the time duration between the event time and the starting time of your seismograms. Ideally, this offset should be identical to the “request start time” defined in the previous window but the data management center may have sent you data beginning later than requested. The offset value represents this difference.</li>
-<li>The “Tolerance” value in seconds will define the time window within which the program will try to associate a seismic file to an event file, by using either its name or the information contained in the header. It is up to the user to find the best compromise: a value too small will let orphans and a value too large will bring confusion since several files could be associated to a seismic event. <img alt="../_images/offset.png" src="../_images/offset.png" /></li>
+<li><p>The “offset” is the time duration between the event time and the starting time of your seismograms. Ideally, this offset should be identical to the “request start time” defined in the previous window but the data management center may have sent you data beginning later than requested. The offset value represents this difference.</p></li>
+<li><p>The “Tolerance” value in seconds will define the time window within which the program will try to associate a seismic file to an event file, by using either its name or the information contained in the header. It is up to the user to find the best compromise: a value too small will let orphans and a value too large will bring confusion since several files could be associated to a seismic event. <img alt="../_images/offset.png" src="../_images/offset.png" /></p></li>
 </ul>
 <p>After setting up these parameters, use following command to match data records to the catalog:</p>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">pjt</span><span class="o">.</span><span class="n">match_eq</span><span class="p">()</span>
@@ -405,8 +390,8 @@ weight: 100</a></li>
 <h3>7.1 Filter<a class="headerlink" href="#filter" title="Permalink to this headline">¶</a></h3>
 <p>We will aply a bandpass filter on seismic records. Two corners shoud be specfied.</p>
 <ul class="simple">
-<li><code class="docutils literal notranslate"><span class="pre">para.freqmin</span></code>: Pass band low corner frequency.</li>
-<li><code class="docutils literal notranslate"><span class="pre">para.freqmax</span></code>: Pass band high corner frequency.</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">para.freqmin</span></code>: Pass band low corner frequency.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">para.freqmax</span></code>: Pass band high corner frequency.</p></li>
 </ul>
 </div>
 <div class="section" id="signal-noise-ratios">
@@ -435,9 +420,9 @@ a <code class="docutils literal notranslate"><span class="pre">para.noisrlen</sp
 <h2>8. Calulating PRFs<a class="headerlink" href="#calulating-prfs" title="Permalink to this headline">¶</a></h2>
 <p>We need parameters of <code class="docutils literal notranslate"><span class="pre">pjt.para.gauss</span></code>, <code class="docutils literal notranslate"><span class="pre">pjt.para.itmax</span></code> and <code class="docutils literal notranslate"><span class="pre">pjt.para.minderr</span></code> to calculate PRFs using iterative time-domain deconvolution method</p>
 <ul class="simple">
-<li><code class="docutils literal notranslate"><span class="pre">pjt.para.gauss</span></code>: Gauss factor. Default is 2.0</li>
-<li><code class="docutils literal notranslate"><span class="pre">pjt.para.itmax</span></code>: The maximum number of iterations. Default is 400</li>
-<li><code class="docutils literal notranslate"><span class="pre">pjt.para.minderr</span></code>: The minimum misfit. Default is 0.001</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">pjt.para.gauss</span></code>: Gauss factor. Default is 2.0</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">pjt.para.itmax</span></code>: The maximum number of iterations. Default is 400</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">pjt.para.minderr</span></code>: The minimum misfit. Default is 0.001</p></li>
 </ul>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">pjt</span><span class="o">.</span><span class="n">deconv</span><span class="p">()</span>
 </pre></div>
@@ -449,14 +434,14 @@ a <code class="docutils literal notranslate"><span class="pre">para.noisrlen</sp
 <div class="section" id="crust">
 <h3><code class="docutils literal notranslate"><span class="pre">crust</span></code><a class="headerlink" href="#crust" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
-<li>The max peak should appare berween -2s and 2s</li>
+<li><p>The max peak should appare berween -2s and 2s</p></li>
 </ul>
 </div>
 <div class="section" id="mtz">
 <h3><code class="docutils literal notranslate"><span class="pre">mtz</span></code><a class="headerlink" href="#mtz" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
-<li>The max peak should appare berween -5s and 5s</li>
-<li>the maximum amplitudes of PRFs in a 30–120 s window after the direct P are smaller than 30% of the maximum amplitudes of the direct P phases.</li>
+<li><p>The max peak should appare berween -5s and 5s</p></li>
+<li><p>the maximum amplitudes of PRFs in a 30–120 s window after the direct P are smaller than 30% of the maximum amplitudes of the direct P phases.</p></li>
 </ul>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">pjt</span><span class="o">.</span><span class="n">saverf</span><span class="p">(</span><span class="n">criterion</span><span class="o">=</span><span class="s1">&#39;crust&#39;</span><span class="p">)</span>
 </pre></div>
@@ -473,7 +458,7 @@ a <code class="docutils literal notranslate"><span class="pre">para.noisrlen</sp
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="ccp.html" class="btn btn-neutral float-right" title="title: “Stack PRFs by Common Conversion points (CCP) method” date: 2019-10-18T21:18:45+08:00 draft: false weight: 100" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="ccp.html" class="btn btn-neutral float-right" title="Stack PRFs with Common Conversion points (CCP) method" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="calrf.html" class="btn btn-neutral float-left" title="Calculate a P-wave Receiver Function (PRF)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
