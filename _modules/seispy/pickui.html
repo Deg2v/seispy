@@ -96,7 +96,10 @@
               <p class="caption"><span class="caption-text">Getting Started:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../usage/installation.html">Installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../usage/quickstart.html">Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../usage/calrf.html">Calculate a P-wave Receiver Function (PRF)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../usage/rf-sta.html">Calculate PRFs for a station</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../usage/pickrf.html">Reject poor PRFs with an user interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../usage/ccp.html">Stack PRFs with Common Conversion points (CCP) method</a></li>
 </ul>
 <p class="caption"><span class="caption-text">API Documentation:</span></p>
 <ul>
@@ -183,26 +186,21 @@
   <h1>Source code for seispy.pickui</h1><div class="highlight"><pre>
 <span></span><span class="kn">import</span> <span class="nn">sys</span>
 <span class="kn">import</span> <span class="nn">os</span>
-<span class="kn">import</span> <span class="nn">random</span>
-<span class="kn">import</span> <span class="nn">matplotlib</span>
 <span class="kn">import</span> <span class="nn">argparse</span>
-
-<span class="n">matplotlib</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s2">&quot;Qt5Agg&quot;</span><span class="p">)</span>
-<span class="kn">from</span> <span class="nn">PyQt5</span> <span class="k">import</span> <span class="n">QtCore</span>
-<span class="kn">from</span> <span class="nn">PyQt5.QtCore</span> <span class="k">import</span> <span class="n">Qt</span>
-<span class="kn">from</span> <span class="nn">PyQt5.QtGui</span> <span class="k">import</span> <span class="n">QIcon</span><span class="p">,</span> <span class="n">QKeySequence</span>
-<span class="kn">from</span> <span class="nn">PyQt5.QtWidgets</span> <span class="k">import</span> <span class="n">QApplication</span><span class="p">,</span> <span class="n">QMainWindow</span><span class="p">,</span> <span class="n">QVBoxLayout</span><span class="p">,</span> <span class="n">QSizePolicy</span><span class="p">,</span> <span class="n">QWidget</span><span class="p">,</span> <span class="n">QDesktopWidget</span><span class="p">,</span> \
-                            <span class="n">QPushButton</span><span class="p">,</span> <span class="n">QHBoxLayout</span><span class="p">,</span> <span class="n">QLineEdit</span><span class="p">,</span> <span class="n">QFileDialog</span><span class="p">,</span> <span class="n">QAction</span><span class="p">,</span> <span class="n">QShortcut</span>
-<span class="kn">from</span> <span class="nn">numpy</span> <span class="k">import</span> <span class="n">arange</span><span class="p">,</span> <span class="n">sin</span><span class="p">,</span> <span class="n">pi</span>
-<span class="kn">from</span> <span class="nn">os.path</span> <span class="k">import</span> <span class="n">exists</span><span class="p">,</span> <span class="n">dirname</span><span class="p">,</span> <span class="n">join</span>
-<span class="kn">from</span> <span class="nn">matplotlib.backends.backend_qt5agg</span> <span class="k">import</span> <span class="n">FigureCanvasQTAgg</span> <span class="k">as</span> <span class="n">FigureCanvas</span>
-<span class="kn">from</span> <span class="nn">matplotlib.backends.backend_qt5agg</span> <span class="k">import</span> <span class="n">NavigationToolbar2QT</span> <span class="k">as</span> <span class="n">NavigationToolbar</span>
-<span class="kn">from</span> <span class="nn">matplotlib.figure</span> <span class="k">import</span> <span class="n">Figure</span>
+<span class="c1"># matplotlib.use(&quot;Qt5Agg&quot;)</span>
+<span class="kn">from</span> <span class="nn">PyQt5.QtGui</span> <span class="kn">import</span> <span class="n">QIcon</span><span class="p">,</span> <span class="n">QKeySequence</span>
+<span class="kn">from</span> <span class="nn">PyQt5.QtWidgets</span> <span class="kn">import</span> <span class="n">QApplication</span><span class="p">,</span> <span class="n">QMainWindow</span><span class="p">,</span> <span class="n">QVBoxLayout</span><span class="p">,</span> \
+                            <span class="n">QSizePolicy</span><span class="p">,</span> <span class="n">QWidget</span><span class="p">,</span> <span class="n">QDesktopWidget</span><span class="p">,</span> \
+                            <span class="n">QPushButton</span><span class="p">,</span> <span class="n">QHBoxLayout</span><span class="p">,</span> <span class="n">QFileDialog</span><span class="p">,</span> \
+                            <span class="n">QAction</span><span class="p">,</span> <span class="n">QShortcut</span>
+<span class="kn">from</span> <span class="nn">os.path</span> <span class="kn">import</span> <span class="n">exists</span><span class="p">,</span> <span class="n">dirname</span><span class="p">,</span> <span class="n">join</span>
+<span class="kn">from</span> <span class="nn">matplotlib.backends.backend_qt5agg</span> <span class="kn">import</span> <span class="n">FigureCanvasQTAgg</span> <span class="k">as</span> <span class="n">FigureCanvas</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">from</span> <span class="nn">seispy.pickfigure</span> <span class="k">import</span> <span class="n">RFFigure</span>
+<span class="kn">from</span> <span class="nn">seispy.pickfigure</span> <span class="kn">import</span> <span class="n">RFFigure</span>
+
 
 <div class="viewcode-block" id="MyMplCanvas"><a class="viewcode-back" href="../../seispy.html#seispy.pickui.MyMplCanvas">[docs]</a><span class="k">class</span> <span class="nc">MyMplCanvas</span><span class="p">(</span><span class="n">FigureCanvas</span><span class="p">):</span>
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">rfpath</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">21</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">11</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">100</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">rfpath</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">21</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">11</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">100</span><span class="p">):</span>
 
         <span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;axes.unicode_minus&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span> 
 
@@ -218,7 +216,7 @@
 
 
 <div class="viewcode-block" id="MatplotlibWidget"><a class="viewcode-back" href="../../seispy.html#seispy.pickui.MatplotlibWidget">[docs]</a><span class="k">class</span> <span class="nc">MatplotlibWidget</span><span class="p">(</span><span class="n">QMainWindow</span><span class="p">):</span>
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">rfpath</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">rfpath</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">(</span><span class="n">MatplotlibWidget</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">parent</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">initUi</span><span class="p">(</span><span class="n">rfpath</span><span class="p">)</span>
 
@@ -246,7 +244,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">_define_global_shortcuts</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">setWindowTitle</span><span class="p">(</span><span class="s1">&#39;PickRF&#39;</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">setWindowIcon</span><span class="p">(</span><span class="n">QIcon</span><span class="p">(</span><span class="n">join</span><span class="p">(</span><span class="n">dirname</span><span class="p">(</span><span class="vm">__file__</span><span class="p">),</span> <span class="s1">&#39;data&#39;</span><span class="p">,</span> <span class="s1">&#39;seispy.png&#39;</span><span class="p">)))</span></div>
-    
+
 <div class="viewcode-block" id="MatplotlibWidget.on_click"><a class="viewcode-back" href="../../seispy.html#seispy.pickui.MatplotlibWidget.on_click">[docs]</a>    <span class="k">def</span> <span class="nf">on_click</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">mpl</span><span class="o">.</span><span class="n">rffig</span><span class="o">.</span><span class="n">onclick</span><span class="p">(</span><span class="n">event</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">mpl</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span></div>
@@ -254,7 +252,7 @@
 <div class="viewcode-block" id="MatplotlibWidget.previous_connect"><a class="viewcode-back" href="../../seispy.html#seispy.pickui.MatplotlibWidget.previous_connect">[docs]</a>    <span class="k">def</span> <span class="nf">previous_connect</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">mpl</span><span class="o">.</span><span class="n">rffig</span><span class="o">.</span><span class="n">butprevious</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">mpl</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span></div>
-    
+
 <div class="viewcode-block" id="MatplotlibWidget.next_connect"><a class="viewcode-back" href="../../seispy.html#seispy.pickui.MatplotlibWidget.next_connect">[docs]</a>    <span class="k">def</span> <span class="nf">next_connect</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">mpl</span><span class="o">.</span><span class="n">rffig</span><span class="o">.</span><span class="n">butnext</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">mpl</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span></div>
@@ -262,11 +260,11 @@
 <div class="viewcode-block" id="MatplotlibWidget.enlarge"><a class="viewcode-back" href="../../seispy.html#seispy.pickui.MatplotlibWidget.enlarge">[docs]</a>    <span class="k">def</span> <span class="nf">enlarge</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">mpl</span><span class="o">.</span><span class="n">rffig</span><span class="o">.</span><span class="n">enlarge</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">mpl</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span></div>
-    
+
 <div class="viewcode-block" id="MatplotlibWidget.reduce"><a class="viewcode-back" href="../../seispy.html#seispy.pickui.MatplotlibWidget.reduce">[docs]</a>    <span class="k">def</span> <span class="nf">reduce</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">mpl</span><span class="o">.</span><span class="n">rffig</span><span class="o">.</span><span class="n">reduce</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">mpl</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span></div>
-    
+
 <div class="viewcode-block" id="MatplotlibWidget.finish"><a class="viewcode-back" href="../../seispy.html#seispy.pickui.MatplotlibWidget.finish">[docs]</a>    <span class="k">def</span> <span class="nf">finish</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">mpl</span><span class="o">.</span><span class="n">rffig</span><span class="o">.</span><span class="n">finish</span><span class="p">()</span>
         <span class="n">QApplication</span><span class="o">.</span><span class="n">quit</span><span class="p">()</span></div>
@@ -275,8 +273,8 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">mpl</span><span class="o">.</span><span class="n">rffig</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span></div>
 
 <div class="viewcode-block" id="MatplotlibWidget.plot_save"><a class="viewcode-back" href="../../seispy.html#seispy.pickui.MatplotlibWidget.plot_save">[docs]</a>    <span class="k">def</span> <span class="nf">plot_save</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="n">fileName_choose</span><span class="p">,</span> <span class="n">filetype</span> <span class="o">=</span> <span class="n">QFileDialog</span><span class="o">.</span><span class="n">getSaveFileName</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>  
-                                    <span class="s2">&quot;Save the figure&quot;</span><span class="p">,</span>  
+        <span class="n">fileName_choose</span><span class="p">,</span> <span class="n">filetype</span> <span class="o">=</span> <span class="n">QFileDialog</span><span class="o">.</span><span class="n">getSaveFileName</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                                    <span class="s2">&quot;Save the figure&quot;</span><span class="p">,</span>
                                     <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">(),</span> <span class="bp">self</span><span class="o">.</span><span class="n">mpl</span><span class="o">.</span><span class="n">rffig</span><span class="o">.</span><span class="n">staname</span> <span class="o">+</span> <span class="s1">&#39;RT_bazorder&#39;</span><span class="p">),</span> 
                                     <span class="s2">&quot;PDF Files (*.pdf);;Images (*.png);;All Files (*)&quot;</span><span class="p">)</span>
 
@@ -290,7 +288,7 @@
         <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">mpl</span><span class="o">.</span><span class="n">rffig</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">RFlog</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">e</span><span class="p">))</span></div>
 
-    <span class="k">def</span> <span class="nf">_set_geom_center</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mf">0.8</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">_set_geom_center</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
         <span class="n">screen_resolution</span> <span class="o">=</span> <span class="n">QDesktopWidget</span><span class="p">()</span><span class="o">.</span><span class="n">screenGeometry</span><span class="p">()</span>
         <span class="n">screen_height</span> <span class="o">=</span> <span class="n">screen_resolution</span><span class="o">.</span><span class="n">height</span><span class="p">()</span>
         <span class="n">screen_width</span> <span class="o">=</span> <span class="n">screen_resolution</span><span class="o">.</span><span class="n">width</span><span class="p">()</span>
@@ -299,20 +297,22 @@
 
         <span class="bp">self</span><span class="o">.</span><span class="n">setGeometry</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">frame_width</span><span class="p">,</span> <span class="n">frame_height</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">move</span><span class="p">((</span><span class="n">screen_width</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span> <span class="o">-</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">frameSize</span><span class="p">()</span><span class="o">.</span><span class="n">width</span><span class="p">()</span> <span class="o">/</span> <span class="mi">2</span><span class="p">),</span>
-                  <span class="p">(</span><span class="n">screen_height</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span> <span class="o">-</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">frameSize</span><span class="p">()</span><span class="o">.</span><span class="n">height</span><span class="p">()</span> <span class="o">/</span> <span class="mi">2</span><span class="p">))</span> 
-    
+                  <span class="p">(</span><span class="n">screen_height</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span> <span class="o">-</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">frameSize</span><span class="p">()</span><span class="o">.</span><span class="n">height</span><span class="p">()</span> <span class="o">/</span> <span class="mi">2</span><span class="p">))</span>
+
     <span class="k">def</span> <span class="nf">_define_global_shortcuts</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">key_c</span> <span class="o">=</span> <span class="n">QShortcut</span><span class="p">(</span><span class="n">QKeySequence</span><span class="p">(</span><span class="s1">&#39;c&#39;</span><span class="p">),</span> <span class="bp">self</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">key_c</span><span class="o">.</span><span class="n">activated</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">next_connect</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">key_z</span> <span class="o">=</span> <span class="n">QShortcut</span><span class="p">(</span><span class="n">QKeySequence</span><span class="p">(</span><span class="s1">&#39;z&#39;</span><span class="p">),</span> <span class="bp">self</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">key_z</span><span class="o">.</span><span class="n">activated</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">previous_connect</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">key_space</span> <span class="o">=</span> <span class="n">QShortcut</span><span class="p">(</span><span class="n">QKeySequence</span><span class="p">(</span><span class="s1">&#39;Space&#39;</span><span class="p">),</span> <span class="bp">self</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">key_space</span><span class="o">.</span><span class="n">activated</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">plot_ui</span><span class="p">)</span>
 
 <div class="viewcode-block" id="MatplotlibWidget.add_btn"><a class="viewcode-back" href="../../seispy.html#seispy.pickui.MatplotlibWidget.add_btn">[docs]</a>    <span class="k">def</span> <span class="nf">add_btn</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="n">pre_btn</span> <span class="o">=</span> <span class="n">QPushButton</span><span class="p">(</span><span class="s2">&quot;Previous (z)&quot;</span><span class="p">)</span>
         <span class="n">pre_btn</span><span class="o">.</span><span class="n">clicked</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">previous_connect</span><span class="p">)</span>
         <span class="n">next_btn</span> <span class="o">=</span> <span class="n">QPushButton</span><span class="p">(</span><span class="s2">&quot;Next (c)&quot;</span><span class="p">)</span>
         <span class="n">next_btn</span><span class="o">.</span><span class="n">clicked</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">next_connect</span><span class="p">)</span>
-        <span class="n">plot_btn</span> <span class="o">=</span> <span class="n">QPushButton</span><span class="p">(</span><span class="s2">&quot;Preview&quot;</span><span class="p">)</span>
+        <span class="n">plot_btn</span> <span class="o">=</span> <span class="n">QPushButton</span><span class="p">(</span><span class="s2">&quot;Preview (Space)&quot;</span><span class="p">)</span>
         <span class="n">plot_btn</span><span class="o">.</span><span class="n">clicked</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">plot_ui</span><span class="p">)</span>
         <span class="n">finish_btn</span> <span class="o">=</span> <span class="n">QPushButton</span><span class="p">(</span><span class="s2">&quot;Finish&quot;</span><span class="p">)</span>
         <span class="n">finish_btn</span><span class="o">.</span><span class="n">clicked</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">finish</span><span class="p">)</span>
@@ -348,7 +348,8 @@
     <span class="n">app</span> <span class="o">=</span> <span class="n">QApplication</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span>
     <span class="n">ui</span> <span class="o">=</span> <span class="n">MatplotlibWidget</span><span class="p">(</span><span class="n">rfpath</span><span class="p">)</span>
     <span class="n">ui</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-    <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="n">app</span><span class="o">.</span><span class="n">exec_</span><span class="p">())</span> </div>
+    <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="n">app</span><span class="o">.</span><span class="n">exec_</span><span class="p">())</span></div>
+
 
 <span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
     <span class="n">main</span><span class="p">()</span>

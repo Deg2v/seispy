@@ -1,7 +1,7 @@
 
 
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html4" lang="en" >
 <head>
   <meta charset="utf-8">
   
@@ -27,11 +27,20 @@
   <![endif]-->
   
     
-      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-        <script src="_static/jquery.js"></script>
-        <script src="_static/underscore.js"></script>
-        <script src="_static/doctools.js"></script>
-        <script src="_static/language_data.js"></script>
+      <script type="text/javascript">
+          var DOCUMENTATION_OPTIONS = {
+              URL_ROOT:'./',
+              VERSION:'latest',
+              LANGUAGE:'None',
+              COLLAPSE_INDEX:false,
+              FILE_SUFFIX:'.html',
+              HAS_SOURCE:  true,
+              SOURCELINK_SUFFIX: '.txt'
+          };
+      </script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
     
     <script type="text/javascript" src="_static/js/theme.js"></script>
 
@@ -198,225 +207,225 @@
 <h1>RF package<a class="headerlink" href="#rf-package" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="module-seispy.eq">
 <span id="seispy-eq-module"></span><h2>seispy.eq module<a class="headerlink" href="#module-seispy.eq" title="Permalink to this headline">¶</a></h2>
-<dl class="py class">
+<dl class="class">
 <dt id="seispy.eq.eq">
-<em class="property">class </em><code class="sig-prename descclassname">seispy.eq.</code><code class="sig-name descname">eq</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">pathname</span></em>, <em class="sig-param"><span class="n">datestr</span></em>, <em class="sig-param"><span class="n">suffix</span></em>, <em class="sig-param"><span class="n">switchEN</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">reverseE</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">reverseN</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/eq.html#eq"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#seispy.eq.eq" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">seispy.eq.</code><code class="descname">eq</code><span class="sig-paren">(</span><em>pathname</em>, <em>datestr</em>, <em>suffix</em>, <em>switchEN=False</em>, <em>reverseE=False</em>, <em>reverseN=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/eq.html#eq"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#seispy.eq.eq" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<dl class="py method">
+<dl class="method">
 <dt id="seispy.eq.eq.arr_correct">
-<code class="sig-name descname">arr_correct</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">write_to_sac</span><span class="o">=</span><span class="default_value">True</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/eq.html#eq.arr_correct"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#seispy.eq.eq.arr_correct" title="Permalink to this definition">¶</a></dt>
+<code class="descname">arr_correct</code><span class="sig-paren">(</span><em>write_to_sac=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/eq.html#eq.arr_correct"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#seispy.eq.eq.arr_correct" title="Permalink to this definition">¶</a></dt>
 <dd><p>offset = sac.b - real o</p>
 </dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="seispy.eq.eq.deconvolute">
-<code class="sig-name descname">deconvolute</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">shift</span></em>, <em class="sig-param"><span class="n">time_after</span></em>, <em class="sig-param"><span class="n">f0</span></em>, <em class="sig-param"><span class="n">phase</span><span class="o">=</span><span class="default_value">'P'</span></em>, <em class="sig-param"><span class="n">only_r</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">itmax</span><span class="o">=</span><span class="default_value">400</span></em>, <em class="sig-param"><span class="n">minderr</span><span class="o">=</span><span class="default_value">0.001</span></em>, <em class="sig-param"><span class="n">target_dt</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/eq.html#eq.deconvolute"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#seispy.eq.eq.deconvolute" title="Permalink to this definition">¶</a></dt>
+<code class="descname">deconvolute</code><span class="sig-paren">(</span><em>shift</em>, <em>time_after</em>, <em>f0</em>, <em>phase='P'</em>, <em>only_r=False</em>, <em>itmax=400</em>, <em>minderr=0.001</em>, <em>target_dt=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/eq.html#eq.deconvolute"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#seispy.eq.eq.deconvolute" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="seispy.eq.eq.detrend">
-<code class="sig-name descname">detrend</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/eq.html#eq.detrend"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#seispy.eq.eq.detrend" title="Permalink to this definition">¶</a></dt>
+<code class="descname">detrend</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/eq.html#eq.detrend"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#seispy.eq.eq.detrend" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="seispy.eq.eq.filter">
-<code class="sig-name descname">filter</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">freqmin</span><span class="o">=</span><span class="default_value">0.05</span></em>, <em class="sig-param"><span class="n">freqmax</span><span class="o">=</span><span class="default_value">1</span></em>, <em class="sig-param"><span class="n">order</span><span class="o">=</span><span class="default_value">4</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/eq.html#eq.filter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#seispy.eq.eq.filter" title="Permalink to this definition">¶</a></dt>
+<code class="descname">filter</code><span class="sig-paren">(</span><em>freqmin=0.05</em>, <em>freqmax=1</em>, <em>order=4</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/eq.html#eq.filter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#seispy.eq.eq.filter" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="seispy.eq.eq.fix_channel_name">
-<code class="sig-name descname">fix_channel_name</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/eq.html#eq.fix_channel_name"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#seispy.eq.eq.fix_channel_name" title="Permalink to this definition">¶</a></dt>
+<code class="descname">fix_channel_name</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/eq.html#eq.fix_channel_name"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#seispy.eq.eq.fix_channel_name" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="seispy.eq.eq.get_arrival">
-<code class="sig-name descname">get_arrival</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">model</span></em>, <em class="sig-param"><span class="n">evdp</span></em>, <em class="sig-param"><span class="n">dis</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/eq.html#eq.get_arrival"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#seispy.eq.eq.get_arrival" title="Permalink to this definition">¶</a></dt>
+<code class="descname">get_arrival</code><span class="sig-paren">(</span><em>model</em>, <em>evdp</em>, <em>dis</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/eq.html#eq.get_arrival"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#seispy.eq.eq.get_arrival" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="seispy.eq.eq.get_raypara">
-<code class="sig-name descname">get_raypara</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">model</span></em>, <em class="sig-param"><span class="n">evdp</span></em>, <em class="sig-param"><span class="n">dis</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/eq.html#eq.get_raypara"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#seispy.eq.eq.get_raypara" title="Permalink to this definition">¶</a></dt>
+<code class="descname">get_raypara</code><span class="sig-paren">(</span><em>model</em>, <em>evdp</em>, <em>dis</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/eq.html#eq.get_raypara"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#seispy.eq.eq.get_raypara" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="seispy.eq.eq.get_time_offset">
-<code class="sig-name descname">get_time_offset</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">event_time</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/eq.html#eq.get_time_offset"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#seispy.eq.eq.get_time_offset" title="Permalink to this definition">¶</a></dt>
+<code class="descname">get_time_offset</code><span class="sig-paren">(</span><em>event_time</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/eq.html#eq.get_time_offset"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#seispy.eq.eq.get_time_offset" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="seispy.eq.eq.judge_rf">
-<code class="sig-name descname">judge_rf</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">shift</span></em>, <em class="sig-param"><span class="n">npts</span></em>, <em class="sig-param"><span class="n">criterion</span><span class="o">=</span><span class="default_value">'crust'</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/eq.html#eq.judge_rf"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#seispy.eq.eq.judge_rf" title="Permalink to this definition">¶</a></dt>
+<code class="descname">judge_rf</code><span class="sig-paren">(</span><em>shift</em>, <em>npts</em>, <em>criterion='crust'</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/eq.html#eq.judge_rf"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#seispy.eq.eq.judge_rf" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="seispy.eq.eq.rotate">
-<code class="sig-name descname">rotate</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">bazi</span></em>, <em class="sig-param"><span class="n">inc</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">method</span><span class="o">=</span><span class="default_value">'NE-&gt;RT'</span></em>, <em class="sig-param"><span class="n">phase</span><span class="o">=</span><span class="default_value">'P'</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/eq.html#eq.rotate"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#seispy.eq.eq.rotate" title="Permalink to this definition">¶</a></dt>
+<code class="descname">rotate</code><span class="sig-paren">(</span><em>bazi</em>, <em>inc=None</em>, <em>method='NE-&gt;RT'</em>, <em>phase='P'</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/eq.html#eq.rotate"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#seispy.eq.eq.rotate" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="seispy.eq.eq.saverf">
-<code class="sig-name descname">saverf</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">path</span></em>, <em class="sig-param"><span class="n">evtstr</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">phase</span><span class="o">=</span><span class="default_value">'P'</span></em>, <em class="sig-param"><span class="n">shift</span><span class="o">=</span><span class="default_value">0</span></em>, <em class="sig-param"><span class="n">evla</span><span class="o">=</span><span class="default_value">- 12345.0</span></em>, <em class="sig-param"><span class="n">evlo</span><span class="o">=</span><span class="default_value">- 12345.0</span></em>, <em class="sig-param"><span class="n">evdp</span><span class="o">=</span><span class="default_value">- 12345.0</span></em>, <em class="sig-param"><span class="n">mag</span><span class="o">=</span><span class="default_value">- 12345.0</span></em>, <em class="sig-param"><span class="n">gauss</span><span class="o">=</span><span class="default_value">0</span></em>, <em class="sig-param"><span class="n">baz</span><span class="o">=</span><span class="default_value">- 12345.0</span></em>, <em class="sig-param"><span class="n">gcarc</span><span class="o">=</span><span class="default_value">- 12345.0</span></em>, <em class="sig-param"><span class="n">only_r</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/eq.html#eq.saverf"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#seispy.eq.eq.saverf" title="Permalink to this definition">¶</a></dt>
+<code class="descname">saverf</code><span class="sig-paren">(</span><em>path</em>, <em>evtstr=None</em>, <em>phase='P'</em>, <em>shift=0</em>, <em>evla=-12345.0</em>, <em>evlo=-12345.0</em>, <em>evdp=-12345.0</em>, <em>mag=-12345.0</em>, <em>gauss=0</em>, <em>baz=-12345.0</em>, <em>gcarc=-12345.0</em>, <em>only_r=False</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/eq.html#eq.saverf"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#seispy.eq.eq.saverf" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="seispy.eq.eq.search_baz">
-<code class="sig-name descname">search_baz</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">bazi</span></em>, <em class="sig-param"><span class="n">time_b</span><span class="o">=</span><span class="default_value">10</span></em>, <em class="sig-param"><span class="n">time_e</span><span class="o">=</span><span class="default_value">20</span></em>, <em class="sig-param"><span class="n">offset</span><span class="o">=</span><span class="default_value">90</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/eq.html#eq.search_baz"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#seispy.eq.eq.search_baz" title="Permalink to this definition">¶</a></dt>
+<code class="descname">search_baz</code><span class="sig-paren">(</span><em>bazi</em>, <em>time_b=10</em>, <em>time_e=20</em>, <em>offset=90</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/eq.html#eq.search_baz"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#seispy.eq.eq.search_baz" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="seispy.eq.eq.search_inc">
-<code class="sig-name descname">search_inc</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">bazi</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/eq.html#eq.search_inc"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#seispy.eq.eq.search_inc" title="Permalink to this definition">¶</a></dt>
+<code class="descname">search_inc</code><span class="sig-paren">(</span><em>bazi</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/eq.html#eq.search_inc"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#seispy.eq.eq.search_inc" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="seispy.eq.eq.snr">
-<code class="sig-name descname">snr</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">length</span><span class="o">=</span><span class="default_value">50</span></em>, <em class="sig-param"><span class="n">phase</span><span class="o">=</span><span class="default_value">'P'</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/eq.html#eq.snr"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#seispy.eq.eq.snr" title="Permalink to this definition">¶</a></dt>
+<code class="descname">snr</code><span class="sig-paren">(</span><em>length=50</em>, <em>phase='P'</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/eq.html#eq.snr"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#seispy.eq.eq.snr" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="seispy.eq.eq.trim">
-<code class="sig-name descname">trim</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">time_before</span></em>, <em class="sig-param"><span class="n">time_after</span></em>, <em class="sig-param"><span class="n">phase</span><span class="o">=</span><span class="default_value">'P'</span></em>, <em class="sig-param"><span class="n">isreturn</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/eq.html#eq.trim"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#seispy.eq.eq.trim" title="Permalink to this definition">¶</a></dt>
+<code class="descname">trim</code><span class="sig-paren">(</span><em>time_before</em>, <em>time_after</em>, <em>phase='P'</em>, <em>isreturn=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/eq.html#eq.trim"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#seispy.eq.eq.trim" title="Permalink to this definition">¶</a></dt>
 <dd><p>offset = sac.b - real o</p>
 </dd></dl>
 
 </dd></dl>
 
-<dl class="py function">
+<dl class="function">
 <dt id="seispy.eq.rotateZNE">
-<code class="sig-prename descclassname">seispy.eq.</code><code class="sig-name descname">rotateZNE</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">st</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/eq.html#rotateZNE"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#seispy.eq.rotateZNE" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">seispy.eq.</code><code class="descname">rotateZNE</code><span class="sig-paren">(</span><em>st</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/eq.html#rotateZNE"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#seispy.eq.rotateZNE" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </div>
 <div class="section" id="module-seispy.rf">
 <span id="seispy-rf-module"></span><h2>seispy.rf module<a class="headerlink" href="#module-seispy.rf" title="Permalink to this headline">¶</a></h2>
-<dl class="py function">
+<dl class="function">
 <dt id="seispy.rf.CfgModify">
-<code class="sig-prename descclassname">seispy.rf.</code><code class="sig-name descname">CfgModify</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">cfg_file</span></em>, <em class="sig-param"><span class="n">session</span></em>, <em class="sig-param"><span class="n">key</span></em>, <em class="sig-param"><span class="n">value</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/rf.html#CfgModify"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#seispy.rf.CfgModify" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">seispy.rf.</code><code class="descname">CfgModify</code><span class="sig-paren">(</span><em>cfg_file</em>, <em>session</em>, <em>key</em>, <em>value</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/rf.html#CfgModify"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#seispy.rf.CfgModify" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py function">
+<dl class="function">
 <dt id="seispy.rf.CfgParser">
-<code class="sig-prename descclassname">seispy.rf.</code><code class="sig-name descname">CfgParser</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">cfg_file</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/rf.html#CfgParser"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#seispy.rf.CfgParser" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">seispy.rf.</code><code class="descname">CfgParser</code><span class="sig-paren">(</span><em>cfg_file</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/rf.html#CfgParser"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#seispy.rf.CfgParser" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py class">
+<dl class="class">
 <dt id="seispy.rf.RF">
-<em class="property">class </em><code class="sig-prename descclassname">seispy.rf.</code><code class="sig-name descname">RF</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">cfg_file</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">log</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/rf.html#RF"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#seispy.rf.RF" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">seispy.rf.</code><code class="descname">RF</code><span class="sig-paren">(</span><em>cfg_file=None</em>, <em>log=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/rf.html#RF"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#seispy.rf.RF" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<dl class="py method">
+<dl class="method">
 <dt id="seispy.rf.RF.baz_correct">
-<code class="sig-name descname">baz_correct</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">time_b</span><span class="o">=</span><span class="default_value">10</span></em>, <em class="sig-param"><span class="n">time_e</span><span class="o">=</span><span class="default_value">20</span></em>, <em class="sig-param"><span class="n">offset</span><span class="o">=</span><span class="default_value">90</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/rf.html#RF.baz_correct"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#seispy.rf.RF.baz_correct" title="Permalink to this definition">¶</a></dt>
+<code class="descname">baz_correct</code><span class="sig-paren">(</span><em>time_b=10</em>, <em>time_e=20</em>, <em>offset=90</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/rf.html#RF.baz_correct"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#seispy.rf.RF.baz_correct" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="seispy.rf.RF.cal_phase">
-<code class="sig-name descname">cal_phase</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/rf.html#RF.cal_phase"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#seispy.rf.RF.cal_phase" title="Permalink to this definition">¶</a></dt>
+<code class="descname">cal_phase</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/rf.html#RF.cal_phase"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#seispy.rf.RF.cal_phase" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
+<dl class="attribute">
 <dt id="seispy.rf.RF.date_begin">
-<em class="property">property </em><code class="sig-name descname">date_begin</code><a class="headerlink" href="#seispy.rf.RF.date_begin" title="Permalink to this definition">¶</a></dt>
+<code class="descname">date_begin</code><a class="headerlink" href="#seispy.rf.RF.date_begin" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
+<dl class="attribute">
 <dt id="seispy.rf.RF.date_end">
-<em class="property">property </em><code class="sig-name descname">date_end</code><a class="headerlink" href="#seispy.rf.RF.date_end" title="Permalink to this definition">¶</a></dt>
+<code class="descname">date_end</code><a class="headerlink" href="#seispy.rf.RF.date_end" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="seispy.rf.RF.deconv">
-<code class="sig-name descname">deconv</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">itmax</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">minderr</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/rf.html#RF.deconv"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#seispy.rf.RF.deconv" title="Permalink to this definition">¶</a></dt>
+<code class="descname">deconv</code><span class="sig-paren">(</span><em>itmax=None</em>, <em>minderr=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/rf.html#RF.deconv"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#seispy.rf.RF.deconv" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="seispy.rf.RF.detrend">
-<code class="sig-name descname">detrend</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/rf.html#RF.detrend"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#seispy.rf.RF.detrend" title="Permalink to this definition">¶</a></dt>
+<code class="descname">detrend</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/rf.html#RF.detrend"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#seispy.rf.RF.detrend" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="seispy.rf.RF.drop_eq_snr">
-<code class="sig-name descname">drop_eq_snr</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">length</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/rf.html#RF.drop_eq_snr"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#seispy.rf.RF.drop_eq_snr" title="Permalink to this definition">¶</a></dt>
+<code class="descname">drop_eq_snr</code><span class="sig-paren">(</span><em>length=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/rf.html#RF.drop_eq_snr"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#seispy.rf.RF.drop_eq_snr" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="seispy.rf.RF.filter">
-<code class="sig-name descname">filter</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">freqmin</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">freqmax</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">order</span><span class="o">=</span><span class="default_value">4</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/rf.html#RF.filter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#seispy.rf.RF.filter" title="Permalink to this definition">¶</a></dt>
+<code class="descname">filter</code><span class="sig-paren">(</span><em>freqmin=None</em>, <em>freqmax=None</em>, <em>order=4</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/rf.html#RF.filter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#seispy.rf.RF.filter" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="seispy.rf.RF.load_stainfo">
-<code class="sig-name descname">load_stainfo</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/rf.html#RF.load_stainfo"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#seispy.rf.RF.load_stainfo" title="Permalink to this definition">¶</a></dt>
+<code class="descname">load_stainfo</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/rf.html#RF.load_stainfo"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#seispy.rf.RF.load_stainfo" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="seispy.rf.RF.match_eq">
-<code class="sig-name descname">match_eq</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">switchEN</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">reverseE</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">reverseN</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/rf.html#RF.match_eq"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#seispy.rf.RF.match_eq" title="Permalink to this definition">¶</a></dt>
+<code class="descname">match_eq</code><span class="sig-paren">(</span><em>switchEN=False</em>, <em>reverseE=False</em>, <em>reverseN=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/rf.html#RF.match_eq"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#seispy.rf.RF.match_eq" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="seispy.rf.RF.rotate">
-<code class="sig-name descname">rotate</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">method</span><span class="o">=</span><span class="default_value">'NE-&gt;RT'</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/rf.html#RF.rotate"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#seispy.rf.RF.rotate" title="Permalink to this definition">¶</a></dt>
+<code class="descname">rotate</code><span class="sig-paren">(</span><em>method='NE-&gt;RT'</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/rf.html#RF.rotate"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#seispy.rf.RF.rotate" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="seispy.rf.RF.saverf">
-<code class="sig-name descname">saverf</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/rf.html#RF.saverf"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#seispy.rf.RF.saverf" title="Permalink to this definition">¶</a></dt>
+<code class="descname">saverf</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/rf.html#RF.saverf"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#seispy.rf.RF.saverf" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="seispy.rf.RF.search_eq">
-<code class="sig-name descname">search_eq</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">local</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">server</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">catalog</span><span class="o">=</span><span class="default_value">'GCMT'</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/rf.html#RF.search_eq"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#seispy.rf.RF.search_eq" title="Permalink to this definition">¶</a></dt>
+<code class="descname">search_eq</code><span class="sig-paren">(</span><em>local=False</em>, <em>server=None</em>, <em>catalog='GCMT'</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/rf.html#RF.search_eq"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#seispy.rf.RF.search_eq" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="seispy.rf.RF.trim">
-<code class="sig-name descname">trim</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/rf.html#RF.trim"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#seispy.rf.RF.trim" title="Permalink to this definition">¶</a></dt>
+<code class="descname">trim</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/rf.html#RF.trim"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#seispy.rf.RF.trim" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
-<dl class="py function">
+<dl class="function">
 <dt id="seispy.rf.datestr2regex">
-<code class="sig-prename descclassname">seispy.rf.</code><code class="sig-name descname">datestr2regex</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">datestr</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/rf.html#datestr2regex"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#seispy.rf.datestr2regex" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">seispy.rf.</code><code class="descname">datestr2regex</code><span class="sig-paren">(</span><em>datestr</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/rf.html#datestr2regex"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#seispy.rf.datestr2regex" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py function">
+<dl class="function">
 <dt id="seispy.rf.load_station_info">
-<code class="sig-prename descclassname">seispy.rf.</code><code class="sig-name descname">load_station_info</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">pathname</span></em>, <em class="sig-param"><span class="n">ref_comp</span></em>, <em class="sig-param"><span class="n">suffix</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/rf.html#load_station_info"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#seispy.rf.load_station_info" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">seispy.rf.</code><code class="descname">load_station_info</code><span class="sig-paren">(</span><em>pathname</em>, <em>ref_comp</em>, <em>suffix</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/rf.html#load_station_info"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#seispy.rf.load_station_info" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py function">
+<dl class="function">
 <dt id="seispy.rf.match_eq">
-<code class="sig-prename descclassname">seispy.rf.</code><code class="sig-name descname">match_eq</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">eq_lst</span></em>, <em class="sig-param"><span class="n">pathname</span></em>, <em class="sig-param"><span class="n">stla</span></em>, <em class="sig-param"><span class="n">stlo</span></em>, <em class="sig-param"><span class="n">ref_comp</span><span class="o">=</span><span class="default_value">'Z'</span></em>, <em class="sig-param"><span class="n">suffix</span><span class="o">=</span><span class="default_value">'SAC'</span></em>, <em class="sig-param"><span class="n">offset</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">tolerance</span><span class="o">=</span><span class="default_value">210</span></em>, <em class="sig-param"><span class="n">dateformat</span><span class="o">=</span><span class="default_value">'%Y.%j.%H.%M.%S'</span></em>, <em class="sig-param"><span class="n">switchEN</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">reverseE</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">reverseN</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/rf.html#match_eq"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#seispy.rf.match_eq" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">seispy.rf.</code><code class="descname">match_eq</code><span class="sig-paren">(</span><em>eq_lst</em>, <em>pathname</em>, <em>stla</em>, <em>stlo</em>, <em>ref_comp='Z'</em>, <em>suffix='SAC'</em>, <em>offset=None</em>, <em>tolerance=210</em>, <em>dateformat='%Y.%j.%H.%M.%S'</em>, <em>switchEN=False</em>, <em>reverseE=False</em>, <em>reverseN=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/rf.html#match_eq"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#seispy.rf.match_eq" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py function">
+<dl class="function">
 <dt id="seispy.rf.prf">
-<code class="sig-prename descclassname">seispy.rf.</code><code class="sig-name descname">prf</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/rf.html#prf"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#seispy.rf.prf" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">seispy.rf.</code><code class="descname">prf</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/rf.html#prf"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#seispy.rf.prf" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py function">
+<dl class="function">
 <dt id="seispy.rf.read_catalog">
-<code class="sig-prename descclassname">seispy.rf.</code><code class="sig-name descname">read_catalog</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">logpath</span></em>, <em class="sig-param"><span class="n">b_time</span></em>, <em class="sig-param"><span class="n">e_time</span></em>, <em class="sig-param"><span class="n">stla</span></em>, <em class="sig-param"><span class="n">stlo</span></em>, <em class="sig-param"><span class="n">magmin</span><span class="o">=</span><span class="default_value">5.5</span></em>, <em class="sig-param"><span class="n">magmax</span><span class="o">=</span><span class="default_value">10</span></em>, <em class="sig-param"><span class="n">dismin</span><span class="o">=</span><span class="default_value">30</span></em>, <em class="sig-param"><span class="n">dismax</span><span class="o">=</span><span class="default_value">90</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/rf.html#read_catalog"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#seispy.rf.read_catalog" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">seispy.rf.</code><code class="descname">read_catalog</code><span class="sig-paren">(</span><em>logpath</em>, <em>b_time</em>, <em>e_time</em>, <em>stla</em>, <em>stlo</em>, <em>magmin=5.5</em>, <em>magmax=10</em>, <em>dismin=30</em>, <em>dismax=90</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/rf.html#read_catalog"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#seispy.rf.read_catalog" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py function">
+<dl class="function">
 <dt id="seispy.rf.setpar">
-<code class="sig-prename descclassname">seispy.rf.</code><code class="sig-name descname">setpar</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/rf.html#setpar"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#seispy.rf.setpar" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">seispy.rf.</code><code class="descname">setpar</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/rf.html#setpar"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#seispy.rf.setpar" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py class">
+<dl class="class">
 <dt id="seispy.rf.stainfo">
-<em class="property">class </em><code class="sig-prename descclassname">seispy.rf.</code><code class="sig-name descname">stainfo</code><a class="reference internal" href="_modules/seispy/rf.html#stainfo"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#seispy.rf.stainfo" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">seispy.rf.</code><code class="descname">stainfo</code><a class="reference internal" href="_modules/seispy/rf.html#stainfo"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#seispy.rf.stainfo" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<dl class="py method">
+<dl class="method">
 <dt id="seispy.rf.stainfo.get_stainfo">
-<code class="sig-name descname">get_stainfo</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/rf.html#stainfo.get_stainfo"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#seispy.rf.stainfo.get_stainfo" title="Permalink to this definition">¶</a></dt>
+<code class="descname">get_stainfo</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/rf.html#stainfo.get_stainfo"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#seispy.rf.stainfo.get_stainfo" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="seispy.rf.stainfo.load_stainfo">
-<code class="sig-name descname">load_stainfo</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">pathname</span></em>, <em class="sig-param"><span class="n">ref_comp</span></em>, <em class="sig-param"><span class="n">suffix</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/rf.html#stainfo.load_stainfo"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#seispy.rf.stainfo.load_stainfo" title="Permalink to this definition">¶</a></dt>
+<code class="descname">load_stainfo</code><span class="sig-paren">(</span><em>pathname</em>, <em>ref_comp</em>, <em>suffix</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/rf.html#stainfo.load_stainfo"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#seispy.rf.stainfo.load_stainfo" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -424,38 +433,38 @@
 </div>
 <div class="section" id="module-seispy.para">
 <span id="seispy-para-module"></span><h2>seispy.para module<a class="headerlink" href="#module-seispy.para" title="Permalink to this headline">¶</a></h2>
-<dl class="py class">
+<dl class="class">
 <dt id="seispy.para.para">
-<em class="property">class </em><code class="sig-prename descclassname">seispy.para.</code><code class="sig-name descname">para</code><a class="reference internal" href="_modules/seispy/para.html#para"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#seispy.para.para" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">seispy.para.</code><code class="descname">para</code><a class="reference internal" href="_modules/seispy/para.html#para"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#seispy.para.para" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<dl class="py method">
+<dl class="attribute">
 <dt id="seispy.para.para.catalogpath">
-<em class="property">property </em><code class="sig-name descname">catalogpath</code><a class="headerlink" href="#seispy.para.para.catalogpath" title="Permalink to this definition">¶</a></dt>
+<code class="descname">catalogpath</code><a class="headerlink" href="#seispy.para.para.catalogpath" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
+<dl class="attribute">
 <dt id="seispy.para.para.criterion">
-<em class="property">property </em><code class="sig-name descname">criterion</code><a class="headerlink" href="#seispy.para.para.criterion" title="Permalink to this definition">¶</a></dt>
+<code class="descname">criterion</code><a class="headerlink" href="#seispy.para.para.criterion" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
+<dl class="attribute">
 <dt id="seispy.para.para.datapath">
-<em class="property">property </em><code class="sig-name descname">datapath</code><a class="headerlink" href="#seispy.para.para.datapath" title="Permalink to this definition">¶</a></dt>
+<code class="descname">datapath</code><a class="headerlink" href="#seispy.para.para.datapath" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="seispy.para.para.get_para">
-<code class="sig-name descname">get_para</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/para.html#para.get_para"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#seispy.para.para.get_para" title="Permalink to this definition">¶</a></dt>
+<code class="descname">get_para</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/para.html#para.get_para"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#seispy.para.para.get_para" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
+<dl class="attribute">
 <dt id="seispy.para.para.imagepath">
-<em class="property">property </em><code class="sig-name descname">imagepath</code><a class="headerlink" href="#seispy.para.para.imagepath" title="Permalink to this definition">¶</a></dt>
+<code class="descname">imagepath</code><a class="headerlink" href="#seispy.para.para.imagepath" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
+<dl class="attribute">
 <dt id="seispy.para.para.rfpath">
-<em class="property">property </em><code class="sig-name descname">rfpath</code><a class="headerlink" href="#seispy.para.para.rfpath" title="Permalink to this definition">¶</a></dt>
+<code class="descname">rfpath</code><a class="headerlink" href="#seispy.para.para.rfpath" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
