@@ -1,7 +1,7 @@
 
 
 <!DOCTYPE html>
-<html class="writer-html4" lang="en" >
+<html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8">
   
@@ -27,20 +27,11 @@
   <![endif]-->
   
     
-      <script type="text/javascript">
-          var DOCUMENTATION_OPTIONS = {
-              URL_ROOT:'../../',
-              VERSION:'latest',
-              LANGUAGE:'None',
-              COLLAPSE_INDEX:false,
-              FILE_SUFFIX:'.html',
-              HAS_SOURCE:  true,
-              SOURCELINK_SUFFIX: '.txt'
-          };
-      </script>
-        <script type="text/javascript" src="../../_static/jquery.js"></script>
-        <script type="text/javascript" src="../../_static/underscore.js"></script>
-        <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/language_data.js"></script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
@@ -507,8 +498,8 @@
             <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">RFlog</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s1">&#39;Range of searching bazi is too small.&#39;</span><span class="p">)</span>
             <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
         <span class="n">baz_shift</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">shift_all</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">logical_not</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">shift_all</span><span class="p">)))])</span>
-        <span class="n">fig</span> <span class="o">=</span> <span class="n">_plotampt</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">ampt_all</span><span class="p">,</span> <span class="n">shift_all</span><span class="p">)</span>
-        <span class="n">fig</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{}</span><span class="s1">_rotation.png&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">stainfo</span><span class="o">.</span><span class="n">station</span><span class="p">))</span>
+        <span class="c1"># fig = _plotampt(x, y, ampt_all, shift_all)</span>
+        <span class="c1"># fig.savefig(&#39;{}_rotation.png&#39;.format(self.stainfo.station))</span>
         <span class="c1"># self._baz_confirm(offset, ampt_all)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">RFlog</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;Average </span><span class="si">{:.1f}</span><span class="s1"> deg offset in back-azimuth&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">baz_shift</span><span class="p">))</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">eqs</span><span class="p">[</span><span class="s1">&#39;bazi&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mod</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">eqs</span><span class="p">[</span><span class="s1">&#39;bazi&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="n">baz_shift</span><span class="p">,</span> <span class="mi">360</span><span class="p">)</span></div>
