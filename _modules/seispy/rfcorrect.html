@@ -31,7 +31,6 @@
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
         <script src="../../_static/doctools.js"></script>
-        <script src="../../_static/language_data.js"></script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
@@ -193,7 +192,7 @@
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">evt_lst</span><span class="p">,</span> <span class="n">only_r</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        :param evt_lst: event list in RF data dir. Column as date string, phase, evt lat, evt lon, evt dep,</span>
-<span class="sd">                        distance, back-azimuth, ray parameter, magnitude, gauss factor.</span>
+<span class="sd">                        distance, back-azimuth, ray parameter, magnitude and gauss factor.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">only_r</span> <span class="o">=</span> <span class="n">only_r</span>
         <span class="n">data_path</span> <span class="o">=</span> <span class="n">dirname</span><span class="p">(</span><span class="n">evt_lst</span><span class="p">)</span>
@@ -239,8 +238,8 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">depthsraw</span> <span class="o">=</span> <span class="n">VelocityModel</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">vpraw</span> <span class="o">=</span> <span class="n">VelocityModel</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">vsraw</span> <span class="o">=</span> <span class="n">VelocityModel</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">]</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">vp</span> <span class="o">=</span> <span class="n">interp1d</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">depthsraw</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">vpraw</span><span class="p">)(</span><span class="n">YAxisRange</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">vs</span> <span class="o">=</span> <span class="n">interp1d</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">depthsraw</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">vsraw</span><span class="p">)(</span><span class="n">YAxisRange</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">vp</span> <span class="o">=</span> <span class="n">interp1d</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">depthsraw</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">vpraw</span><span class="p">,</span> <span class="n">bounds_error</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">fill_value</span><span class="o">=</span><span class="s1">&#39;extrapolate&#39;</span><span class="p">)(</span><span class="n">YAxisRange</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">vs</span> <span class="o">=</span> <span class="n">interp1d</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">depthsraw</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">vsraw</span><span class="p">,</span> <span class="n">bounds_error</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">fill_value</span><span class="o">=</span><span class="s1">&#39;extrapolate&#39;</span><span class="p">)(</span><span class="n">YAxisRange</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">depths</span> <span class="o">=</span> <span class="n">YAxisRange</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">dz</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">depths</span><span class="p">))</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">R</span> <span class="o">=</span> <span class="mi">6371</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">depths</span></div>
@@ -483,8 +482,8 @@
             <span class="n">srayps</span> <span class="o">=</span> <span class="n">get_psrayp</span><span class="p">(</span><span class="n">rayp_lib</span><span class="p">,</span> <span class="n">stadatar</span><span class="o">.</span><span class="n">dis</span><span class="p">[</span><span class="n">i</span><span class="p">],</span>
                                 <span class="n">stadatar</span><span class="o">.</span><span class="n">evdp</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">YAxisRange</span><span class="p">)</span>
             <span class="n">srayps</span> <span class="o">=</span> <span class="n">skm2srad</span><span class="p">(</span><span class="n">sdeg2skm</span><span class="p">(</span><span class="n">srayps</span><span class="p">))</span>
-        <span class="n">pplat_s</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">stadatar</span><span class="o">.</span><span class="n">stla</span>
-        <span class="n">pplon_s</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">stadatar</span><span class="o">.</span><span class="n">stlo</span>
+        <span class="n">pplat_s</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">pplat_p</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">stadatar</span><span class="o">.</span><span class="n">stla</span>
+        <span class="n">pplon_s</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">pplon_p</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">stadatar</span><span class="o">.</span><span class="n">stlo</span>
         <span class="n">x_s</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
         <span class="n">x_p</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
         <span class="n">vs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">YAxisRange</span><span class="p">)</span>
@@ -595,7 +594,6 @@
     <span class="c1"># plt.plot(YAxisRange, PS_RFdepth[1])</span>
     <span class="c1"># plt.show()</span>
     <span class="n">psrf_3D_raytracing</span><span class="p">(</span><span class="n">stadata</span><span class="p">,</span> <span class="n">YAxisRange</span><span class="p">,</span> <span class="n">vel3dmod</span><span class="p">,</span> <span class="n">srayp</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
-
 
     <span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">    # dep_mod = DepModel(YAxisRange, velmod)</span>
