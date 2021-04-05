@@ -4,7 +4,8 @@
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8" />
-  
+  <meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <title>Calculate a P-wave Receiver Function (PRF) &mdash; seispy latest documentation</title>
@@ -89,7 +90,7 @@
               
             
             
-              <p class="caption"><span class="caption-text">Getting Started:</span></p>
+              <p><span class="caption-text">Getting Started:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Calculate a P-wave Receiver Function (PRF)</a><ul>
@@ -109,7 +110,7 @@
 <li class="toctree-l1"><a class="reference internal" href="pickrf.html">Reject poor PRFs with an user interface</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ccp.html">Stack PRFs with Common Conversion points (CCP) method</a></li>
 </ul>
-<p class="caption"><span class="caption-text">API Documentation:</span></p>
+<p><span class="caption-text">API Documentation:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../modules.html">Module Index</a></li>
 </ul>
@@ -197,14 +198,14 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="calculate-a-p-wave-receiver-function-prf">
+  <section id="calculate-a-p-wave-receiver-function-prf">
 <h1>Calculate a P-wave Receiver Function (PRF)<a class="headerlink" href="#calculate-a-p-wave-receiver-function-prf" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="download-sac-files-for-this-example">
+<section id="download-sac-files-for-this-example">
 <h2>0. Download SAC files for this example<a class="headerlink" href="#download-sac-files-for-this-example" title="Permalink to this headline">¶</a></h2>
 <p><a class="reference external" href="https://git.nju.edu.cn/xumi1993/source/-/raw/33e89db97bd8c2a9689b27ac843ccaffa7ea2790/rf_example.tar.gz">Download SAC files</a></p>
 <p>Download and unzip this <code class="docutils literal notranslate"><span class="pre">.tar.gz</span></code> file, which include SAC files of three components.</p>
-</div>
-<div class="section" id="import-corresponding-modules">
+</section>
+<section id="import-corresponding-modules">
 <h2>1. Import corresponding modules<a class="headerlink" href="#import-corresponding-modules" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">obspy</span>
 <span class="kn">import</span> <span class="nn">seispy</span>
@@ -212,15 +213,15 @@
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="read-sac-files-with-3-components-enz">
+</section>
+<section id="read-sac-files-with-3-components-enz">
 <h2>2. Read SAC files with 3 components (ENZ)<a class="headerlink" href="#read-sac-files-with-3-components-enz" title="Permalink to this headline">¶</a></h2>
 <p>You should prepare teleseismic data if SAC format (ENZ) and read them via obspy. To facilitate the follow-up, you’d better write positions of the station and the event into SAC header (i.e., <code class="docutils literal notranslate"><span class="pre">stla</span></code>, <code class="docutils literal notranslate"><span class="pre">stlo</span></code>, <code class="docutils literal notranslate"><span class="pre">evla</span></code>, <code class="docutils literal notranslate"><span class="pre">evlo</span></code> and <code class="docutils literal notranslate"><span class="pre">evdp</span></code>).</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">st</span> <span class="o">=</span> <span class="n">obspy</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s1">&#39;tele/*.101.*.SAC&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="pre-process-for-raw-data">
+</section>
+<section id="pre-process-for-raw-data">
 <h2>3. Pre-process for raw data<a class="headerlink" href="#pre-process-for-raw-data" title="Permalink to this headline">¶</a></h2>
 <p>You should remove the mean offset and linear trend of the waveforms, then filtered them with a Butterworth filter in the range of 0.05–2 Hz. The figures show a comparison between the raw data and the data after pre-process</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">st_cmp</span> <span class="o">=</span> <span class="n">st</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
@@ -235,8 +236,8 @@
 </div>
 <p><img alt="png" src="../_images/output_5_0.png" /></p>
 <p><img alt="png" src="../_images/output_5_1.png" /></p>
-</div>
-<div class="section" id="calculate-the-epicenter-distance-and-back-azimuth">
+</section>
+<section id="calculate-the-epicenter-distance-and-back-azimuth">
 <h2>4. Calculate the epicenter distance and back-azimuth<a class="headerlink" href="#calculate-the-epicenter-distance-and-back-azimuth" title="Permalink to this headline">¶</a></h2>
 <p>To trim the waveform or rotate the components, you can use the <code class="docutils literal notranslate"><span class="pre">seispy.distaz</span></code> to calculate the epicenter distance and back-azimuth.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">da</span> <span class="o">=</span> <span class="n">seispy</span><span class="o">.</span><span class="n">distaz</span><span class="p">(</span><span class="n">st</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">sac</span><span class="o">.</span><span class="n">stla</span><span class="p">,</span> <span class="n">st</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">sac</span><span class="o">.</span><span class="n">stlo</span><span class="p">,</span> <span class="n">st</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">sac</span><span class="o">.</span><span class="n">evla</span><span class="p">,</span> <span class="n">st</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">sac</span><span class="o">.</span><span class="n">evlo</span><span class="p">)</span>
@@ -251,15 +252,15 @@
 back-azimuth = 131.59˚
 </pre></div>
 </div>
-</div>
-<div class="section" id="rotation">
+</section>
+<section id="rotation">
 <h2>5. Rotation<a class="headerlink" href="#rotation" title="Permalink to this headline">¶</a></h2>
 <p>Now you can rotate horizontal components (ENZ) into radial and transverse components (TRZ)</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">st_TRZ</span> <span class="o">=</span> <span class="n">st</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span><span class="o">.</span><span class="n">rotate</span><span class="p">(</span><span class="s1">&#39;NE-&gt;RT&#39;</span><span class="p">,</span> <span class="n">back_azimuth</span><span class="o">=</span><span class="n">bazi</span><span class="p">)</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="estimating-p-arrival-time-and-ray-parameter-with-obspy-taup">
+</section>
+<section id="estimating-p-arrival-time-and-ray-parameter-with-obspy-taup">
 <h2>6. Estimating P arrival time and ray parameter with <code class="docutils literal notranslate"><span class="pre">obspy.taup</span></code><a class="headerlink" href="#estimating-p-arrival-time-and-ray-parameter-with-obspy-taup" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">obspy.taup</span> <span class="kn">import</span> <span class="n">TauPyModel</span>
 
@@ -270,8 +271,8 @@ back-azimuth = 131.59˚
 <span class="n">P_ray</span> <span class="o">=</span> <span class="n">rayp</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="trim-the-waveforms-for-prf">
+</section>
+<section id="trim-the-waveforms-for-prf">
 <h2>7.Trim the waveforms for PRF<a class="headerlink" href="#trim-the-waveforms-for-prf" title="Permalink to this headline">¶</a></h2>
 <p>Then you cut 130 s long waveforms around P arrival time (from 10 s before to 120 s after theoretical P arrival times).</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">dt</span> <span class="o">=</span> <span class="n">st</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">delta</span>
@@ -301,8 +302,8 @@ back-azimuth = 131.59˚
 </pre></div>
 </div>
 <p><img alt="png" src="../_images/output_13_1.png" /></p>
-</div>
-<div class="section" id="calculate-prf">
+</section>
+<section id="calculate-prf">
 <h2>8. Calculate PRF<a class="headerlink" href="#calculate-prf" title="Permalink to this headline">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">seispy.decov.decovit</span></code> provide a function with an iterative time-domain deconvolution method. Now let’s calculate a PRF. In this example we assume:</p>
 <ul class="simple">
@@ -325,11 +326,11 @@ back-azimuth = 131.59˚
 </div>
 <p><img alt="png" src="../_images/output_15_1.png" /></p>
 <p>The figure shows PRFs in R and T components.</p>
-</div>
-<div class="section" id="download-this-jupyter-notebook">
+</section>
+<section id="download-this-jupyter-notebook">
 <h2><a class="reference external" href="https://git.nju.edu.cn/xumi1993/source/-/raw/33e89db97bd8c2a9689b27ac843ccaffa7ea2790/PRF_Process.ipynb">Download this Jupyter Notebook</a><a class="headerlink" href="#download-this-jupyter-notebook" title="Permalink to this headline">¶</a></h2>
-</div>
-</div>
+</section>
+</section>
 
 
            </div>
