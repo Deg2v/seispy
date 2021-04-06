@@ -119,7 +119,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#module-seispy.mccc">seispy.mccc module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#module-seispy.para">seispy.para module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#module-seispy.pickfigure">seispy.pickfigure module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#seispy-pickui-module">seispy.pickui module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-seispy.pickui">seispy.pickui module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#module-seispy.plotR">seispy.plotR module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#module-seispy.plotRT">seispy.plotRT module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#module-seispy.psrayp">seispy.psrayp module</a></li>
@@ -527,7 +527,7 @@ samples)</p>
 
 <dl class="py function">
 <dt id="seispy.decov.decovit">
-<code class="sig-prename descclassname"><span class="pre">seispy.decov.</span></code><code class="sig-name descname"><span class="pre">decovit</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">uin</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">win</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dt</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nt</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tshift</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">f0</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">itmax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">400</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">minderr</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.001</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">info</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/decov.html#decovit"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.decov.decovit" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">seispy.decov.</span></code><code class="sig-name descname"><span class="pre">decovit</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">uin</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">win</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dt</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nt</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tshift</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">f0</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">itmax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">400</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">minderr</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.001</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">info</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">phase</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'P'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/decov.html#decovit"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.decov.decovit" title="Permalink to this definition">¶</a></dt>
 <dd><p>Created on Wed Sep 10 14:21:38 2014
 [RFI, rms, it]=makeRFitdecon(uin,win,dt,nt,tshift,f0,itmax,minderr)</p>
 <p>In:
@@ -752,7 +752,7 @@ return</p>
 
 <dl class="py method">
 <dt id="seispy.eq.eq.rotate">
-<code class="sig-name descname"><span class="pre">rotate</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bazi</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inc</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'NE-&gt;RT'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">phase</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'P'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/eq.html#eq.rotate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.eq.eq.rotate" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">rotate</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bazi</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inc</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'NE-&gt;RT'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">phase</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'P'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">search_inc</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/eq.html#eq.rotate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.eq.eq.rotate" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
@@ -1319,8 +1319,75 @@ Calculate error for H and kappa
 <dd></dd></dl>
 
 </section>
-<section id="seispy-pickui-module">
-<h2>seispy.pickui module<a class="headerlink" href="#seispy-pickui-module" title="Permalink to this headline">¶</a></h2>
+<section id="module-seispy.pickui">
+<span id="seispy-pickui-module"></span><h2>seispy.pickui module<a class="headerlink" href="#module-seispy.pickui" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="seispy.pickui.MatplotlibWidget">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">seispy.pickui.</span></code><code class="sig-name descname"><span class="pre">MatplotlibWidget</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rfpath</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parent</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/pickui.html#MatplotlibWidget"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.pickui.MatplotlibWidget" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">PyQt5.QtWidgets.QMainWindow</span></code></p>
+<dl class="py method">
+<dt id="seispy.pickui.MatplotlibWidget.add_btn">
+<code class="sig-name descname"><span class="pre">add_btn</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/pickui.html#MatplotlibWidget.add_btn"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.pickui.MatplotlibWidget.add_btn" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="seispy.pickui.MatplotlibWidget.enlarge">
+<code class="sig-name descname"><span class="pre">enlarge</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/pickui.html#MatplotlibWidget.enlarge"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.pickui.MatplotlibWidget.enlarge" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="seispy.pickui.MatplotlibWidget.finish">
+<code class="sig-name descname"><span class="pre">finish</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/pickui.html#MatplotlibWidget.finish"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.pickui.MatplotlibWidget.finish" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="seispy.pickui.MatplotlibWidget.initUi">
+<code class="sig-name descname"><span class="pre">initUi</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rfpath</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/pickui.html#MatplotlibWidget.initUi"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.pickui.MatplotlibWidget.initUi" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="seispy.pickui.MatplotlibWidget.next_connect">
+<code class="sig-name descname"><span class="pre">next_connect</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/pickui.html#MatplotlibWidget.next_connect"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.pickui.MatplotlibWidget.next_connect" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="seispy.pickui.MatplotlibWidget.on_click">
+<code class="sig-name descname"><span class="pre">on_click</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">event</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/pickui.html#MatplotlibWidget.on_click"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.pickui.MatplotlibWidget.on_click" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="seispy.pickui.MatplotlibWidget.plot_save">
+<code class="sig-name descname"><span class="pre">plot_save</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/pickui.html#MatplotlibWidget.plot_save"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.pickui.MatplotlibWidget.plot_save" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="seispy.pickui.MatplotlibWidget.plot_ui">
+<code class="sig-name descname"><span class="pre">plot_ui</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/pickui.html#MatplotlibWidget.plot_ui"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.pickui.MatplotlibWidget.plot_ui" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="seispy.pickui.MatplotlibWidget.previous_connect">
+<code class="sig-name descname"><span class="pre">previous_connect</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/pickui.html#MatplotlibWidget.previous_connect"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.pickui.MatplotlibWidget.previous_connect" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="seispy.pickui.MatplotlibWidget.reduce">
+<code class="sig-name descname"><span class="pre">reduce</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/pickui.html#MatplotlibWidget.reduce"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.pickui.MatplotlibWidget.reduce" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="seispy.pickui.MyMplCanvas">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">seispy.pickui.</span></code><code class="sig-name descname"><span class="pre">MyMplCanvas</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parent</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rfpath</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">width</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">21</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">height</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">11</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dpi</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/pickui.html#MyMplCanvas"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.pickui.MyMplCanvas" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">matplotlib.backends.backend_qt5agg.FigureCanvasQTAgg</span></code></p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="seispy.pickui.main">
+<code class="sig-prename descclassname"><span class="pre">seispy.pickui.</span></code><code class="sig-name descname"><span class="pre">main</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/pickui.html#main"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.pickui.main" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
 </section>
 <section id="module-seispy.plotR">
 <span id="seispy-plotr-module"></span><h2>seispy.plotR module<a class="headerlink" href="#module-seispy.plotR" title="Permalink to this headline">¶</a></h2>
@@ -1502,8 +1569,13 @@ Calculate error for H and kappa
 <dd></dd></dl>
 
 <dl class="py method">
+<dt id="seispy.rf.RF.pick">
+<code class="sig-name descname"><span class="pre">pick</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/rf.html#RF.pick"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.rf.RF.pick" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
 <dt id="seispy.rf.RF.rotate">
-<code class="sig-name descname"><span class="pre">rotate</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">method</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'NE-&gt;RT'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/rf.html#RF.rotate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.rf.RF.rotate" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">rotate</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">method</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'NE-&gt;RT'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">search_inc</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/rf.html#RF.rotate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.rf.RF.rotate" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
@@ -1536,6 +1608,11 @@ Calculate error for H and kappa
 <dl class="py function">
 <dt id="seispy.rf.match_eq">
 <code class="sig-prename descclassname"><span class="pre">seispy.rf.</span></code><code class="sig-name descname"><span class="pre">match_eq</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">eq_lst</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pathname</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stla</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stlo</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ref_comp</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'Z'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">suffix</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'SAC'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">offset</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tolerance</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">210</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dateformat</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'%Y.%j.%H.%M.%S'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">switchEN</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reverseE</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reverseN</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/rf.html#match_eq"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.rf.match_eq" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="seispy.rf.pickphase">
+<code class="sig-prename descclassname"><span class="pre">seispy.rf.</span></code><code class="sig-name descname"><span class="pre">pickphase</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">eqs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">para</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/rf.html#pickphase"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.rf.pickphase" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py function">
@@ -1585,7 +1662,7 @@ Calculate error for H and kappa
 
 <dl class="py function">
 <dt id="seispy.rf2depth_makedata.makedata">
-<code class="sig-prename descclassname"><span class="pre">seispy.rf2depth_makedata.</span></code><code class="sig-name descname"><span class="pre">makedata</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">cpara</span></em>, <em class="sig-param"><span class="pre">velmod3d=None</span></em>, <em class="sig-param"><span class="pre">log=&lt;seispy.setuplog.setuplog</span> <span class="pre">object&gt;</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/rf2depth_makedata.html#makedata"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.rf2depth_makedata.makedata" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">seispy.rf2depth_makedata.</span></code><code class="sig-name descname"><span class="pre">makedata</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">cpara</span></em>, <em class="sig-param"><span class="pre">velmod3d=None</span></em>, <em class="sig-param"><span class="pre">modfolder1d=None</span></em>, <em class="sig-param"><span class="pre">log=&lt;seispy.setuplog.setuplog</span> <span class="pre">object&gt;</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/rf2depth_makedata.html#makedata"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.rf2depth_makedata.makedata" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py function">
