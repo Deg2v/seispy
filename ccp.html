@@ -238,6 +238,12 @@
 
 </dd></dl>
 
+<dl class="py class">
+<dt id="seispy.rfcorrect.SACStationS">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">seispy.rfcorrect.</span></code><code class="sig-name descname"><span class="pre">SACStationS</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/rfcorrect.html#SACStationS"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.rfcorrect.SACStationS" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+</dd></dl>
+
 <dl class="py function">
 <dt id="seispy.rfcorrect.from_file">
 <code class="sig-prename descclassname"><span class="pre">seispy.rfcorrect.</span></code><code class="sig-name descname"><span class="pre">from_file</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mode_name</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/rfcorrect.html#from_file"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.rfcorrect.from_file" title="Permalink to this definition">¶</a></dt>
@@ -250,15 +256,13 @@
 
 <dl class="py function">
 <dt id="seispy.rfcorrect.moveoutcorrect_ref">
-<code class="sig-prename descclassname"><span class="pre">seispy.rfcorrect.</span></code><code class="sig-name descname"><span class="pre">moveoutcorrect_ref</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">stadatar</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">raypref</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">YAxisRange</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sampling</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shift</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">velmod</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'iasp91'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/rfcorrect.html#moveoutcorrect_ref"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.rfcorrect.moveoutcorrect_ref" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">seispy.rfcorrect.</span></code><code class="sig-name descname"><span class="pre">moveoutcorrect_ref</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">stadatar</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">raypref</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">YAxisRange</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sampling</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shift</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">velmod</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'iasp91'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/rfcorrect.html#moveoutcorrect_ref"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.rfcorrect.moveoutcorrect_ref" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>stadatar</strong> – data class of SACStation</p></li>
 <li><p><strong>raypref</strong> – referred ray parameter in rad</p></li>
 <li><p><strong>YAxisRange</strong> – Depth range in nd.array type</p></li>
-<li><p><strong>sampling</strong> – dt</p></li>
-<li><p><strong>shift</strong> – time before P</p></li>
 <li><p><strong>velmod</strong> – Path to velocity model</p></li>
 </ul>
 </dd>

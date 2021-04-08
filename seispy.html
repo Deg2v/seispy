@@ -526,6 +526,40 @@ samples)</p>
 <dd></dd></dl>
 
 <dl class="py function">
+<dt id="seispy.decov.deconv_waterlevel">
+<code class="sig-prename descclassname"><span class="pre">seispy.decov.</span></code><code class="sig-name descname"><span class="pre">deconv_waterlevel</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rsp_list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">src</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sampling_rate</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">waterlevel</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.05</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gauss</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tshift</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">length</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">normalize</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nfft</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_info</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/decov.html#deconv_waterlevel"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.decov.deconv_waterlevel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Frequency-domain deconvolution using waterlevel method.</p>
+<p>Deconvolve src from arrays in rsp_list.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>rsp_list</strong> – either a list of arrays containing the response functions
+or a single array</p></li>
+<li><p><strong>src</strong> – array with source function</p></li>
+<li><p><strong>sampling_rate</strong> – sampling rate of the data</p></li>
+<li><p><strong>waterlevel</strong> – waterlevel to stabilize the deconvolution</p></li>
+<li><p><strong>gauss</strong> – Gauss parameter (standard deviation) of the
+Gaussian Low-pass filter,
+corresponds to cut-off frequency in Hz for a response value of
+exp(0.5)=0.607.</p></li>
+<li><p><strong>tshift</strong> – delay time 0s will be at time tshift afterwards</p></li>
+<li><p><strong>nfft</strong> – explicitely set number of samples for the fft</p></li>
+<li><p><strong>length</strong> – number of data points in results, optional</p></li>
+<li><p><strong>normalize</strong> – normalize all results so that the maximum of the trace
+with supplied index is 1. Set normalize to ‘src’ to normalize
+for the maximum of the prepared source. Set normalize to None for no
+normalization.</p></li>
+<li><p><strong>return_info</strong> – return additionally a lot of different parameters in a
+dict for debugging purposes</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>(list of) array(s) with deconvolution(s)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
 <dt id="seispy.decov.decovit">
 <code class="sig-prename descclassname"><span class="pre">seispy.decov.</span></code><code class="sig-name descname"><span class="pre">decovit</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">uin</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">win</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dt</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nt</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tshift</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">f0</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">itmax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">400</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">minderr</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.001</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">info</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">phase</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'P'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/decov.html#decovit"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.decov.decovit" title="Permalink to this definition">¶</a></dt>
 <dd><p>Created on Wed Sep 10 14:21:38 2014
@@ -1711,6 +1745,12 @@ Calculate error for H and kappa
 
 </dd></dl>
 
+<dl class="py class">
+<dt id="seispy.rfcorrect.SACStationS">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">seispy.rfcorrect.</span></code><code class="sig-name descname"><span class="pre">SACStationS</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/rfcorrect.html#SACStationS"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.rfcorrect.SACStationS" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+</dd></dl>
+
 <dl class="py function">
 <dt id="seispy.rfcorrect.from_file">
 <code class="sig-prename descclassname"><span class="pre">seispy.rfcorrect.</span></code><code class="sig-name descname"><span class="pre">from_file</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mode_name</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/rfcorrect.html#from_file"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.rfcorrect.from_file" title="Permalink to this definition">¶</a></dt>
@@ -1723,15 +1763,13 @@ Calculate error for H and kappa
 
 <dl class="py function">
 <dt id="seispy.rfcorrect.moveoutcorrect_ref">
-<code class="sig-prename descclassname"><span class="pre">seispy.rfcorrect.</span></code><code class="sig-name descname"><span class="pre">moveoutcorrect_ref</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">stadatar</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">raypref</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">YAxisRange</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sampling</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shift</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">velmod</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'iasp91'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/rfcorrect.html#moveoutcorrect_ref"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.rfcorrect.moveoutcorrect_ref" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">seispy.rfcorrect.</span></code><code class="sig-name descname"><span class="pre">moveoutcorrect_ref</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">stadatar</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">raypref</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">YAxisRange</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sampling</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shift</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">velmod</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'iasp91'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/rfcorrect.html#moveoutcorrect_ref"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.rfcorrect.moveoutcorrect_ref" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>stadatar</strong> – data class of SACStation</p></li>
 <li><p><strong>raypref</strong> – referred ray parameter in rad</p></li>
 <li><p><strong>YAxisRange</strong> – Depth range in nd.array type</p></li>
-<li><p><strong>sampling</strong> – dt</p></li>
-<li><p><strong>shift</strong> – time before P</p></li>
 <li><p><strong>velmod</strong> – Path to velocity model</p></li>
 </ul>
 </dd>

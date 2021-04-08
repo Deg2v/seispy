@@ -315,6 +315,122 @@
 
     <span class="k">return</span> <span class="n">RFI</span><span class="p">,</span> <span class="n">rms</span><span class="p">,</span> <span class="n">it</span> </div>
 
+<span class="k">def</span> <span class="nf">__get_length</span><span class="p">(</span><span class="n">rsp_list</span><span class="p">):</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">rsp_list</span><span class="p">,</span> <span class="p">(</span><span class="nb">list</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">)):</span>
+        <span class="n">rsp_list</span> <span class="o">=</span> <span class="n">rsp_list</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="n">rsp_list</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">_phase_shift_filter</span><span class="p">(</span><span class="n">nft</span><span class="p">,</span> <span class="n">dt</span><span class="p">,</span> <span class="n">tshift</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Construct filter to shift an array to account for time before onset</span>
+
+<span class="sd">    :param nft: number of points for fft</span>
+<span class="sd">    :param dt: sample spacing in seconds</span>
+<span class="sd">    :param tshift: time to shift by in seconds</span>
+<span class="sd">    :return: shifted array</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">freq</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">fftfreq</span><span class="p">(</span><span class="n">nft</span><span class="p">,</span> <span class="n">d</span><span class="o">=</span><span class="n">dt</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="n">j</span> <span class="o">*</span> <span class="n">pi</span> <span class="o">*</span> <span class="n">freq</span> <span class="o">*</span> <span class="n">tshift</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">_gauss_filter</span><span class="p">(</span><span class="n">dt</span><span class="p">,</span> <span class="n">nft</span><span class="p">,</span> <span class="n">f0</span><span class="p">,</span> <span class="n">waterlevel</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Gaussian filter with width f0</span>
+
+<span class="sd">    :param dt: sample spacing in seconds</span>
+<span class="sd">    :param nft: length of filter in points</span>
+<span class="sd">    :param f0: Standard deviation of the Gaussian Low-pass filter,</span>
+<span class="sd">        corresponds to cut-off frequency in Hz for a response value of</span>
+<span class="sd">        exp(0.5)=0.607.</span>
+<span class="sd">    :param waterlevel: waterlevel for eliminating very low values</span>
+<span class="sd">        (default: no waterlevel)</span>
+<span class="sd">    :return: array with Gaussian filter frequency response</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">f</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">fftfreq</span><span class="p">(</span><span class="n">nft</span><span class="p">,</span> <span class="n">dt</span><span class="p">)</span>
+    <span class="n">gauss_arg</span> <span class="o">=</span> <span class="o">-</span><span class="mf">0.5</span> <span class="o">*</span> <span class="p">(</span><span class="n">f</span><span class="o">/</span><span class="n">f0</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span>
+    <span class="k">if</span> <span class="n">waterlevel</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">gauss_arg</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">maximum</span><span class="p">(</span><span class="n">gauss_arg</span><span class="p">,</span> <span class="n">waterlevel</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">gauss_arg</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="deconv_waterlevel"><a class="viewcode-back" href="../../seispy.html#seispy.decov.deconv_waterlevel">[docs]</a><span class="k">def</span> <span class="nf">deconv_waterlevel</span><span class="p">(</span><span class="n">rsp_list</span><span class="p">,</span> <span class="n">src</span><span class="p">,</span> <span class="n">sampling_rate</span><span class="p">,</span> <span class="n">waterlevel</span><span class="o">=</span><span class="mf">0.05</span><span class="p">,</span> <span class="n">gauss</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span>
+                      <span class="n">tshift</span><span class="o">=</span><span class="mf">10.</span><span class="p">,</span> <span class="n">length</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">normalize</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">nfft</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                      <span class="n">return_info</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Frequency-domain deconvolution using waterlevel method.</span>
+
+<span class="sd">    Deconvolve src from arrays in rsp_list.</span>
+
+<span class="sd">    :param rsp_list: either a list of arrays containing the response functions</span>
+<span class="sd">        or a single array</span>
+<span class="sd">    :param src: array with source function</span>
+<span class="sd">    :param sampling_rate: sampling rate of the data</span>
+<span class="sd">    :param waterlevel: waterlevel to stabilize the deconvolution</span>
+<span class="sd">    :param gauss: Gauss parameter (standard deviation) of the</span>
+<span class="sd">        Gaussian Low-pass filter,</span>
+<span class="sd">        corresponds to cut-off frequency in Hz for a response value of</span>
+<span class="sd">        exp(0.5)=0.607.</span>
+<span class="sd">    :param tshift: delay time 0s will be at time tshift afterwards</span>
+<span class="sd">    :param nfft: explicitely set number of samples for the fft</span>
+<span class="sd">    :param length: number of data points in results, optional</span>
+<span class="sd">    :param normalize: normalize all results so that the maximum of the trace</span>
+<span class="sd">        with supplied index is 1. Set normalize to &#39;src&#39; to normalize</span>
+<span class="sd">        for the maximum of the prepared source. Set normalize to None for no</span>
+<span class="sd">        normalization.</span>
+<span class="sd">    :param return_info: return additionally a lot of different parameters in a</span>
+<span class="sd">        dict for debugging purposes</span>
+
+<span class="sd">    :return: (list of) array(s) with deconvolution(s)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">length</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">length</span> <span class="o">=</span> <span class="n">__get_length</span><span class="p">(</span><span class="n">rsp_list</span><span class="p">)</span>
+    <span class="n">N</span> <span class="o">=</span> <span class="n">length</span>
+    <span class="k">if</span> <span class="n">nfft</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">nfft</span> <span class="o">=</span> <span class="n">next_pow_2</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>
+    <span class="n">dt</span> <span class="o">=</span> <span class="mf">1.</span> <span class="o">/</span> <span class="n">sampling_rate</span>
+    <span class="n">ffilt</span> <span class="o">=</span> <span class="n">_phase_shift_filter</span><span class="p">(</span><span class="n">nfft</span><span class="p">,</span> <span class="n">dt</span><span class="p">,</span> <span class="n">tshift</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">gauss</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">ffilt</span> <span class="o">=</span> <span class="n">_gauss_filter</span><span class="p">(</span><span class="n">dt</span><span class="p">,</span> <span class="n">nfft</span><span class="p">,</span> <span class="n">gauss</span><span class="p">,</span> <span class="n">waterlevel</span><span class="o">=-</span><span class="mi">700</span><span class="p">)</span> <span class="o">*</span> <span class="n">ffilt</span>
+    <span class="n">spec_src</span> <span class="o">=</span> <span class="n">fft</span><span class="p">(</span><span class="n">src</span><span class="p">,</span> <span class="n">nfft</span><span class="p">)</span>
+    <span class="n">spec_src_conj</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">conjugate</span><span class="p">(</span><span class="n">spec_src</span><span class="p">)</span>
+    <span class="n">spec_src_water</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">spec_src</span> <span class="o">*</span> <span class="n">spec_src_conj</span><span class="p">)</span>
+    <span class="n">spec_src_water</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">maximum</span><span class="p">(</span>
+        <span class="n">spec_src_water</span><span class="p">,</span> <span class="nb">max</span><span class="p">(</span><span class="n">spec_src_water</span><span class="p">)</span> <span class="o">*</span> <span class="n">waterlevel</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">normalize</span> <span class="o">==</span> <span class="s1">&#39;src&#39;</span><span class="p">:</span>
+        <span class="n">spec_src</span> <span class="o">=</span> <span class="n">ffilt</span> <span class="o">*</span> <span class="n">spec_src</span> <span class="o">*</span> <span class="n">spec_src_conj</span> <span class="o">/</span> <span class="n">spec_src_water</span>
+        <span class="n">rf_src</span> <span class="o">=</span> <span class="n">ifft</span><span class="p">(</span><span class="n">spec_src</span><span class="p">,</span> <span class="n">nfft</span><span class="p">)[:</span><span class="n">N</span><span class="p">]</span>
+        <span class="n">norm</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">/</span> <span class="nb">max</span><span class="p">(</span><span class="n">rf_src</span><span class="p">)</span>
+        <span class="n">rf_src</span> <span class="o">=</span> <span class="n">norm</span> <span class="o">*</span> <span class="n">rf_src</span>
+
+    <span class="n">flag</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">rsp_list</span><span class="p">,</span> <span class="p">(</span><span class="nb">list</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">)):</span>
+        <span class="n">flag</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="n">rsp_list</span> <span class="o">=</span> <span class="p">[</span><span class="n">rsp_list</span><span class="p">]</span>
+    <span class="n">rf_list</span> <span class="o">=</span> <span class="p">[</span><span class="n">ifft</span><span class="p">(</span><span class="n">ffilt</span> <span class="o">*</span> <span class="n">fft</span><span class="p">(</span><span class="n">rsp</span><span class="p">,</span> <span class="n">nfft</span><span class="p">)</span> <span class="o">*</span> <span class="n">spec_src_conj</span> <span class="o">/</span> <span class="n">spec_src_water</span><span class="p">,</span>
+                    <span class="n">nfft</span><span class="p">)[:</span><span class="n">N</span><span class="p">]</span> <span class="k">for</span> <span class="n">rsp</span> <span class="ow">in</span> <span class="n">rsp_list</span><span class="p">]</span>
+    <span class="k">if</span> <span class="n">normalize</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="s1">&#39;src&#39;</span><span class="p">):</span>
+        <span class="n">norm</span> <span class="o">=</span> <span class="mf">1.</span> <span class="o">/</span> <span class="nb">max</span><span class="p">(</span><span class="n">rf_list</span><span class="p">[</span><span class="n">normalize</span><span class="p">])</span>
+    <span class="k">if</span> <span class="n">normalize</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">rf</span> <span class="ow">in</span> <span class="n">rf_list</span><span class="p">:</span>
+            <span class="n">rf</span> <span class="o">*=</span> <span class="n">norm</span>
+    <span class="k">if</span> <span class="n">return_info</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">normalize</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="s1">&#39;src&#39;</span><span class="p">):</span>
+            <span class="n">spec_src</span> <span class="o">=</span> <span class="n">ffilt</span> <span class="o">*</span> <span class="n">spec_src</span> <span class="o">*</span> <span class="n">spec_src_conj</span> <span class="o">/</span> <span class="n">spec_src_water</span>
+            <span class="n">rf_src</span> <span class="o">=</span> <span class="n">ifft</span><span class="p">(</span><span class="n">spec_src</span><span class="p">,</span> <span class="n">nfft</span><span class="p">)[:</span><span class="n">N</span><span class="p">]</span>
+            <span class="n">norm</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">/</span> <span class="nb">max</span><span class="p">(</span><span class="n">rf_src</span><span class="p">)</span>
+            <span class="n">rf_src</span> <span class="o">=</span> <span class="n">norm</span> <span class="o">*</span> <span class="n">rf_src</span>
+        <span class="n">info</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;rf_src&#39;</span><span class="p">:</span> <span class="n">rf_src</span><span class="p">,</span> <span class="s1">&#39;rf_src_conj&#39;</span><span class="p">:</span> <span class="n">spec_src_conj</span><span class="p">,</span>
+                <span class="s1">&#39;spec_src_water&#39;</span><span class="p">:</span> <span class="n">spec_src_water</span><span class="p">,</span>
+                <span class="s1">&#39;freq&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">fftfreq</span><span class="p">(</span><span class="n">nfft</span><span class="p">,</span> <span class="n">d</span><span class="o">=</span><span class="n">dt</span><span class="p">),</span>
+                <span class="s1">&#39;gauss&#39;</span><span class="p">:</span> <span class="n">ffilt</span><span class="p">,</span> <span class="s1">&#39;norm&#39;</span><span class="p">:</span> <span class="n">norm</span><span class="p">,</span> <span class="s1">&#39;N&#39;</span><span class="p">:</span> <span class="n">N</span><span class="p">,</span> <span class="s1">&#39;nfft&#39;</span><span class="p">:</span> <span class="n">nfft</span><span class="p">}</span>
+        <span class="k">return</span> <span class="n">rf_list</span><span class="p">,</span> <span class="n">info</span>
+    <span class="k">elif</span> <span class="n">flag</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">rf</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">rf_list</span></div>
+
 
 <span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
     <span class="n">ldata</span> <span class="o">=</span> <span class="n">SACTrace</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s1">&#39;data/syn_S.L&#39;</span><span class="p">)</span>
