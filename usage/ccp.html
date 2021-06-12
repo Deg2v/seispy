@@ -45,8 +45,8 @@
     
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Module Index" href="../modules.html" />
-    <link rel="prev" title="Reject poor PRFs with an user interface" href="pickrf.html" /> 
+    <link rel="next" title="Calulating PRFs of the station CB.NJ2" href="../examples/ex-prf.html" />
+    <link rel="prev" title="Virtual check PRFs with an user interface" href="pickrf.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -98,7 +98,7 @@
 <li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="calrf.html">Calculate a P-wave Receiver Function (PRF)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rf-sta.html">Calculate PRFs for a station</a></li>
-<li class="toctree-l1"><a class="reference internal" href="pickrf.html">Reject poor PRFs with an user interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pickrf.html">Virtual check PRFs with an user interface</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Stack PRFs with Common Conversion points (CCP) method</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#preparation">Preparation</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#prfs-data-with-sac-format">1.PRFs data with sac format</a></li>
@@ -115,6 +115,11 @@
 </li>
 </ul>
 </li>
+</ul>
+<p class="caption"><span class="caption-text">Examples:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../examples/ex-prf.html">Calulating PRFs of the station CB.NJ2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples/ex-prf.html#estimated-the-moho-depth-and-the-crustal-vp-vs-using-the-h-k-stacking-method">Estimated the Moho depth and the crustal Vp/Vs using the H-k stacking method</a></li>
 </ul>
 <p class="caption"><span class="caption-text">API Documentation:</span></p>
 <ul>
@@ -243,7 +248,7 @@
 </section>
 <section id="a-parameter-file">
 <h3>3. A parameter file<a class="headerlink" href="#a-parameter-file" title="Permalink to this headline">¶</a></h3>
-<p>The parameter file include parameters used in CCP stacking. the format should follow <code class="docutils literal notranslate"><span class="pre">configparser</span></code> module as the following example:</p>
+<p>The parameter file include parameters used in the time-to-depth and CCP stacking. the format should follow <code class="docutils literal notranslate"><span class="pre">configparser</span></code> module as the following example:</p>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">FileIO</span><span class="p">]</span>
 <span class="c1"># Path to stations with RF sac files</span>
 <span class="n">rfpath</span> <span class="o">=</span> <span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">RFresult</span>
@@ -265,7 +270,7 @@
 <span class="n">stack_sta_list</span> <span class="o">=</span> <span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">xumj</span><span class="o">/</span><span class="n">Researches</span><span class="o">/</span><span class="n">NETibet</span><span class="o">/</span><span class="n">Ordos_Process</span><span class="o">/</span><span class="n">sta_L5</span><span class="o">.</span><span class="n">lst</span>
 
 <span class="c1"># Path to 1D velocity model</span>
-<span class="c1"># If it&#39;s empty, useing IASP91 model</span>
+<span class="c1"># If it&#39;s empty, the IASP91 model will be used in time-to-depth conversion </span>
 <span class="n">velmod</span> <span class="o">=</span>
 
 <span class="p">[</span><span class="nb">bin</span><span class="p">]</span>
@@ -450,8 +455,8 @@ gitalk.render('gitalk-container');
           </div>
           <footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="../modules.html" class="btn btn-neutral float-right" title="Module Index" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-        <a href="pickrf.html" class="btn btn-neutral float-left" title="Reject poor PRFs with an user interface" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../examples/ex-prf.html" class="btn btn-neutral float-right" title="Calulating PRFs of the station CB.NJ2" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="pickrf.html" class="btn btn-neutral float-left" title="Virtual check PRFs with an user interface" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
 
   <hr/>

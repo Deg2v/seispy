@@ -97,8 +97,13 @@
 <li class="toctree-l1"><a class="reference internal" href="usage/installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="usage/calrf.html">Calculate a P-wave Receiver Function (PRF)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="usage/rf-sta.html">Calculate PRFs for a station</a></li>
-<li class="toctree-l1"><a class="reference internal" href="usage/pickrf.html">Reject poor PRFs with an user interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage/pickrf.html">Virtual check PRFs with an user interface</a></li>
 <li class="toctree-l1"><a class="reference internal" href="usage/ccp.html">Stack PRFs with Common Conversion points (CCP) method</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Examples:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="examples/ex-prf.html">Calulating PRFs of the station CB.NJ2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples/ex-prf.html#estimated-the-moho-depth-and-the-crustal-vp-vs-using-the-h-k-stacking-method">Estimated the Moho depth and the crustal Vp/Vs using the H-k stacking method</a></li>
 </ul>
 <p class="caption"><span class="caption-text">API Documentation:</span></p>
 <ul>
@@ -210,19 +215,79 @@
 <li class="toctree-l1"><a class="reference internal" href="usage/installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="usage/calrf.html">Calculate a P-wave Receiver Function (PRF)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="usage/rf-sta.html">Calculate PRFs for a station</a></li>
-<li class="toctree-l1"><a class="reference internal" href="usage/pickrf.html">Reject poor PRFs with an user interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage/pickrf.html">Virtual check PRFs with an user interface</a></li>
 <li class="toctree-l1"><a class="reference internal" href="usage/ccp.html">Stack PRFs with Common Conversion points (CCP) method</a></li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<p class="caption"><span class="caption-text">Examples:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="examples/ex-prf.html">Calulating PRFs of the station CB.NJ2</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="examples/ex-prf.html#download-seismic-data-and-config-file">Download Seismic data and config file</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples/ex-prf.html#run-this-example">Run this example</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="examples/ex-prf.html#estimated-the-moho-depth-and-the-crustal-vp-vs-using-the-h-k-stacking-method">Estimated the Moho depth and the crustal Vp/Vs using the H-k stacking method</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="examples/ex-prf.html#prepare-a-configure-file-for-hk">Prepare a configure file for <code class="docutils literal notranslate"><span class="pre">hk</span></code></a></li>
+</ul>
+</li>
 </ul>
 </div>
 <div class="toctree-wrapper compound">
 <p class="caption"><span class="caption-text">API Documentation:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="modules.html">Module Index</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="rf.html">RF package</a></li>
-<li class="toctree-l2"><a class="reference internal" href="hk.html">Hk package</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ccp.html">CCP package</a></li>
-<li class="toctree-l2"><a class="reference internal" href="gui.html">GUI package</a></li>
-<li class="toctree-l2"><a class="reference internal" href="seispy.html">seispy package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rf.html">RF package</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="rf.html#module-seispy.eq">seispy.eq module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rf.html#module-seispy.rf">seispy.rf module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rf.html#module-seispy.para">seispy.para module</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="hk.html">Hk package</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="hk.html#module-seispy.hk">seispy.hk module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hk.html#module-seispy.hkpara">seispy.hkpara module</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ccp.html">CCP package</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ccp.html#module-seispy.rfcorrect">seispy.rfcorrect module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ccp.html#module-seispy.rf2depth_makedata">seispy.rf2depth_makedata module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ccp.html#module-seispy.ccp">seispy.ccp module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ccp.html#module-seispy.ccppara">seispy.ccppara module</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="gui.html">GUI package</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="gui.html#module-seispy.pickfigure">seispy.pickfigure module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gui.html#module-seispy.pickui">seispy.pickui module</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="seispy.html">seispy package</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="seispy.html#module-seispy.bootstrap">seispy.bootstrap module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="seispy.html#module-seispy.ccp">seispy.ccp module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="seispy.html#module-seispy.ccppara">seispy.ccppara module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="seispy.html#module-seispy.decov">seispy.decov module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="seispy.html#module-seispy.distaz">seispy.distaz module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="seispy.html#module-seispy.eq">seispy.eq module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="seispy.html#module-seispy.geo">seispy.geo module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="seispy.html#seispy-get-cpt-module">seispy.get_cpt module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="seispy.html#module-seispy.hk">seispy.hk module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="seispy.html#module-seispy.hkpara">seispy.hkpara module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="seispy.html#module-seispy.io">seispy.io module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="seispy.html#module-seispy.mccc">seispy.mccc module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="seispy.html#module-seispy.para">seispy.para module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="seispy.html#module-seispy.pickfigure">seispy.pickfigure module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="seispy.html#module-seispy.pickui">seispy.pickui module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="seispy.html#module-seispy.plotR">seispy.plotR module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="seispy.html#module-seispy.plotRT">seispy.plotRT module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="seispy.html#module-seispy.psrayp">seispy.psrayp module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="seispy.html#module-seispy.rf">seispy.rf module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="seispy.html#module-seispy.rf2depth_makedata">seispy.rf2depth_makedata module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="seispy.html#module-seispy.rfcorrect">seispy.rfcorrect module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="seispy.html#module-seispy.setuplog">seispy.setuplog module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="seispy.html#module-seispy.signal">seispy.signal module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="seispy.html#module-seispy.updatecatalog">seispy.updatecatalog module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="seispy.html#module-seispy">Module contents</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
