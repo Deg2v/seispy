@@ -13,6 +13,8 @@
   
   <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
 
   
   
@@ -32,6 +34,7 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
         <script src="../../_static/doctools.js"></script>
@@ -87,7 +90,7 @@
               
             
             
-              <p><span class="caption-text">Getting Started:</span></p>
+              <p class="caption"><span class="caption-text">Getting Started:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../usage/installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../usage/calrf.html">Calculate a P-wave Receiver Function (PRF)</a></li>
@@ -95,7 +98,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../usage/pickrf.html">Reject poor PRFs with an user interface</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../usage/ccp.html">Stack PRFs with Common Conversion points (CCP) method</a></li>
 </ul>
-<p><span class="caption-text">API Documentation:</span></p>
+<p class="caption"><span class="caption-text">API Documentation:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../modules.html">Module Index</a></li>
 </ul>
@@ -196,6 +199,23 @@
 
 
 <div class="viewcode-block" id="init_profile"><a class="viewcode-back" href="../../seispy.html#seispy.ccp.init_profile">[docs]</a><span class="k">def</span> <span class="nf">init_profile</span><span class="p">(</span><span class="n">lat1</span><span class="p">,</span> <span class="n">lon1</span><span class="p">,</span> <span class="n">lat2</span><span class="p">,</span> <span class="n">lon2</span><span class="p">,</span> <span class="n">val</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; Initial bins along a profile with given position of two points.</span>
+
+<span class="sd">    :param lat1: The latitude of the start point</span>
+<span class="sd">    :type lat1: float</span>
+<span class="sd">    :param lon1: The lontitude of the start point</span>
+<span class="sd">    :type lon1: float</span>
+<span class="sd">    :param lat2: The latitude of the end point</span>
+<span class="sd">    :type lat2: float</span>
+<span class="sd">    :param lon2: The lontitude of the end point</span>
+<span class="sd">    :type lon2: float</span>
+<span class="sd">    :param val: The interval between two points</span>
+<span class="sd">    :type val: float</span>
+<span class="sd">    :return: The location of bins (bin_loca), and length between each bin and the start point (profile_range)</span>
+
+<span class="sd">    The bin_loca is a numpy.array with two column. The profile_range is an 1D numpy.array.</span>
+<span class="sd">    :rtype: (numpy.array, numpy.array)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">azi</span> <span class="o">=</span> <span class="n">distaz</span><span class="p">(</span><span class="n">lat1</span><span class="p">,</span> <span class="n">lon1</span><span class="p">,</span> <span class="n">lat2</span><span class="p">,</span> <span class="n">lon2</span><span class="p">)</span><span class="o">.</span><span class="n">baz</span>
     <span class="n">dis</span> <span class="o">=</span> <span class="n">distaz</span><span class="p">(</span><span class="n">lat1</span><span class="p">,</span> <span class="n">lon1</span><span class="p">,</span> <span class="n">lat2</span><span class="p">,</span> <span class="n">lon2</span><span class="p">)</span><span class="o">.</span><span class="n">delta</span>
     <span class="n">profile_range</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">deg2km</span><span class="p">(</span><span class="n">dis</span><span class="p">),</span> <span class="n">val</span><span class="p">)</span>
@@ -379,14 +399,22 @@
         <span class="k">if</span> <span class="n">isci</span><span class="p">:</span>
             <span class="k">for</span> <span class="nb">bin</span> <span class="ow">in</span> <span class="n">stack_data</span><span class="p">:</span>
                 <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">dep</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">stack_range</span><span class="p">):</span>
-                    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{:.4f}</span><span class="se">\t</span><span class="si">{:.4f}</span><span class="se">\t</span><span class="si">{:.4f}</span><span class="se">\t</span><span class="si">{:.2f}</span><span class="se">\t</span><span class="si">{:.4f}</span><span class="se">\t</span><span class="si">{:.4f}</span><span class="se">\t</span><span class="si">{:.4f}</span><span class="se">\t</span><span class="si">{:d}</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">bin</span><span class="p">[</span><span class="s1">&#39;bin_lat&#39;</span><span class="p">],</span> <span class="nb">bin</span><span class="p">[</span><span class="s1">&#39;bin_lon&#39;</span><span class="p">],</span>
+                    <span class="k">if</span> <span class="n">dep</span> <span class="o">==</span> <span class="n">stack_range</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]:</span>
+                        <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{:.4f}</span><span class="se">\t</span><span class="si">{:.4f}</span><span class="se">\t</span><span class="si">{:.4f}</span><span class="se">\t</span><span class="si">{:.2f}</span><span class="s1"> nan nan nan nan</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">bin</span><span class="p">[</span><span class="s1">&#39;bin_lat&#39;</span><span class="p">],</span> <span class="nb">bin</span><span class="p">[</span><span class="s1">&#39;bin_lon&#39;</span><span class="p">],</span>
+                                                                                          <span class="nb">bin</span><span class="p">[</span><span class="s1">&#39;profile_dis&#39;</span><span class="p">],</span> <span class="n">dep</span><span class="p">))</span>
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{:.4f}</span><span class="se">\t</span><span class="si">{:.4f}</span><span class="se">\t</span><span class="si">{:.4f}</span><span class="se">\t</span><span class="si">{:.2f}</span><span class="se">\t</span><span class="si">{:.4f}</span><span class="se">\t</span><span class="si">{:.4f}</span><span class="se">\t</span><span class="si">{:.4f}</span><span class="se">\t</span><span class="si">{:d}</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">bin</span><span class="p">[</span><span class="s1">&#39;bin_lat&#39;</span><span class="p">],</span> <span class="nb">bin</span><span class="p">[</span><span class="s1">&#39;bin_lon&#39;</span><span class="p">],</span>
                                                                                     <span class="nb">bin</span><span class="p">[</span><span class="s1">&#39;profile_dis&#39;</span><span class="p">],</span>
-                                                                                    <span class="n">dep</span><span class="p">,</span> <span class="nb">bin</span><span class="p">[</span><span class="s1">&#39;mu&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">],</span> <span class="nb">bin</span><span class="p">[</span><span class="s1">&#39;ci&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> 
+                                                                                    <span class="n">dep</span><span class="p">,</span> <span class="nb">bin</span><span class="p">[</span><span class="s1">&#39;mu&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">],</span> <span class="nb">bin</span><span class="p">[</span><span class="s1">&#39;ci&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
                                                                                     <span class="nb">bin</span><span class="p">[</span><span class="s1">&#39;ci&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="nb">int</span><span class="p">(</span><span class="nb">bin</span><span class="p">[</span><span class="s1">&#39;count&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">])))</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="k">for</span> <span class="nb">bin</span> <span class="ow">in</span> <span class="n">stack_data</span><span class="p">:</span>
                 <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">dep</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">stack_range</span><span class="p">):</span>
-                    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{:.4f}</span><span class="se">\t</span><span class="si">{:.4f}</span><span class="se">\t</span><span class="si">{:.4f}</span><span class="se">\t</span><span class="si">{:.2f}</span><span class="se">\t</span><span class="si">{:.4f}</span><span class="se">\t</span><span class="si">{:d}</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">bin</span><span class="p">[</span><span class="s1">&#39;bin_lat&#39;</span><span class="p">],</span> <span class="nb">bin</span><span class="p">[</span><span class="s1">&#39;bin_lon&#39;</span><span class="p">],</span>
+                    <span class="k">if</span> <span class="n">dep</span> <span class="o">==</span> <span class="n">stack_range</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]:</span>
+                        <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{:.4f}</span><span class="se">\t</span><span class="si">{:.4f}</span><span class="se">\t</span><span class="si">{:.4f}</span><span class="se">\t</span><span class="si">{:.2f}</span><span class="s1"> nan nan</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">bin</span><span class="p">[</span><span class="s1">&#39;bin_lat&#39;</span><span class="p">],</span> <span class="nb">bin</span><span class="p">[</span><span class="s1">&#39;bin_lon&#39;</span><span class="p">],</span>
+                                                                                  <span class="nb">bin</span><span class="p">[</span><span class="s1">&#39;profile_dis&#39;</span><span class="p">],</span> <span class="n">dep</span><span class="p">))</span>
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{:.4f}</span><span class="se">\t</span><span class="si">{:.4f}</span><span class="se">\t</span><span class="si">{:.4f}</span><span class="se">\t</span><span class="si">{:.2f}</span><span class="se">\t</span><span class="si">{:.4f}</span><span class="se">\t</span><span class="si">{:d}</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">bin</span><span class="p">[</span><span class="s1">&#39;bin_lat&#39;</span><span class="p">],</span> <span class="nb">bin</span><span class="p">[</span><span class="s1">&#39;bin_lon&#39;</span><span class="p">],</span>
                                                                                     <span class="nb">bin</span><span class="p">[</span><span class="s1">&#39;profile_dis&#39;</span><span class="p">],</span>
                                                                                     <span class="n">dep</span><span class="p">,</span> <span class="nb">bin</span><span class="p">[</span><span class="s1">&#39;mu&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">],</span> <span class="nb">int</span><span class="p">(</span><span class="nb">bin</span><span class="p">[</span><span class="s1">&#39;count&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">])))</span></div>
 

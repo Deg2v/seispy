@@ -13,6 +13,8 @@
   
   <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
 
   
   
@@ -32,6 +34,7 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
         <script src="../../_static/doctools.js"></script>
@@ -87,7 +90,7 @@
               
             
             
-              <p><span class="caption-text">Getting Started:</span></p>
+              <p class="caption"><span class="caption-text">Getting Started:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../usage/installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../usage/calrf.html">Calculate a P-wave Receiver Function (PRF)</a></li>
@@ -95,7 +98,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../usage/pickrf.html">Reject poor PRFs with an user interface</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../usage/ccp.html">Stack PRFs with Common Conversion points (CCP) method</a></li>
 </ul>
-<p><span class="caption-text">API Documentation:</span></p>
+<p class="caption"><span class="caption-text">API Documentation:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../modules.html">Module Index</a></li>
 </ul>
@@ -311,7 +314,7 @@
     <span class="n">ax4</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">besth</span><span class="p">,</span> <span class="n">besth</span><span class="p">],</span> <span class="n">ylim</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.6</span><span class="p">)</span>
     <span class="n">ax4</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Moho depth (km)&#39;</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">path</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="n">f</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="n">f</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s1">&#39;pdf&#39;</span><span class="p">)</span></div>
 
@@ -335,6 +338,7 @@
     <span class="n">cs_path</span> <span class="o">=</span> <span class="n">cs</span><span class="o">.</span><span class="n">collections</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">get_paths</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">vertices</span>
     <span class="n">maxhsig</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">cs_path</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">])</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">cs_path</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]))</span> <span class="o">/</span> <span class="mi">2</span>
     <span class="n">maxksig</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">cs_path</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">])</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">cs_path</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]))</span> <span class="o">/</span> <span class="mi">2</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
     <span class="k">return</span> <span class="n">besth</span><span class="p">,</span> <span class="n">bestk</span><span class="p">,</span> <span class="n">cvalue</span><span class="p">,</span> <span class="n">maxhsig</span><span class="p">,</span> <span class="n">maxksig</span></div>
 
 
@@ -347,7 +351,7 @@
     <span class="nb">print</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="hksta"><a class="viewcode-back" href="../../seispy.html#seispy.hk.hksta">[docs]</a><span class="k">def</span> <span class="nf">hksta</span><span class="p">(</span><span class="n">hpara</span><span class="p">,</span> <span class="n">isplot</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<div class="viewcode-block" id="hksta"><a class="viewcode-back" href="../../seispy.html#seispy.hk.hksta">[docs]</a><span class="k">def</span> <span class="nf">hksta</span><span class="p">(</span><span class="n">hpara</span><span class="p">,</span> <span class="n">isplot</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">isdisplay</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
     <span class="n">station</span> <span class="o">=</span> <span class="n">basename</span><span class="p">(</span><span class="n">hpara</span><span class="o">.</span><span class="n">rfpath</span><span class="p">)</span>
     <span class="n">stadata</span> <span class="o">=</span> <span class="n">SACStation</span><span class="p">(</span><span class="n">join</span><span class="p">(</span><span class="n">hpara</span><span class="o">.</span><span class="n">rfpath</span><span class="p">,</span> <span class="n">station</span><span class="o">+</span><span class="s1">&#39;finallist.dat&#39;</span><span class="p">),</span> <span class="n">only_r</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
     <span class="n">stack</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">allstack</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">hkstack</span><span class="p">(</span><span class="n">stadata</span><span class="o">.</span><span class="n">datar</span><span class="p">,</span> <span class="n">stadata</span><span class="o">.</span><span class="n">shift</span><span class="p">,</span> <span class="n">stadata</span><span class="o">.</span><span class="n">sampling</span><span class="p">,</span> <span class="n">srad2skm</span><span class="p">(</span><span class="n">stadata</span><span class="o">.</span><span class="n">rayp</span><span class="p">),</span>
@@ -358,6 +362,8 @@
                                                                               <span class="n">besth</span><span class="p">,</span> <span class="n">maxhsig</span><span class="p">,</span> <span class="n">bestk</span><span class="p">,</span> <span class="n">maxksig</span><span class="p">))</span>
     <span class="n">title</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="si">{}</span><span class="se">\n</span><span class="s1">Moho depth = $</span><span class="si">{:.1f}</span><span class="s1">\pm</span><span class="si">{:.2f}</span><span class="s1">$</span><span class="se">\n</span><span class="s1">$V_P/V_S$ = $</span><span class="si">{:.2f}</span><span class="s1">\pm</span><span class="si">{:.3f}</span><span class="s1">$&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">station</span><span class="p">,</span> <span class="n">besth</span><span class="p">,</span>
                                                                                      <span class="n">maxhsig</span><span class="p">,</span> <span class="n">bestk</span><span class="p">,</span> <span class="n">maxksig</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">isdisplay</span><span class="p">:</span>
+        <span class="n">print_result</span><span class="p">(</span><span class="n">besth</span><span class="p">,</span> <span class="n">bestk</span><span class="p">,</span> <span class="n">maxhsig</span><span class="p">,</span> <span class="n">maxksig</span><span class="p">,</span> <span class="n">print_comment</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">isplot</span><span class="p">:</span>
         <span class="n">img_path</span> <span class="o">=</span> <span class="n">join</span><span class="p">(</span><span class="n">hpara</span><span class="o">.</span><span class="n">hkpath</span><span class="p">,</span> <span class="n">station</span><span class="o">+</span><span class="s1">&#39;.pdf&#39;</span><span class="p">)</span>
         <span class="n">plot</span><span class="p">(</span><span class="n">stack</span><span class="p">,</span> <span class="n">allstack</span><span class="p">,</span> <span class="n">hpara</span><span class="o">.</span><span class="n">hrange</span><span class="p">,</span> <span class="n">hpara</span><span class="o">.</span><span class="n">krange</span><span class="p">,</span> <span class="n">besth</span><span class="p">,</span> <span class="n">bestk</span><span class="p">,</span> <span class="n">cvalue</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="n">title</span><span class="p">,</span> <span class="n">path</span><span class="o">=</span><span class="n">img_path</span><span class="p">)</span>
@@ -368,22 +374,25 @@
 <div class="viewcode-block" id="hk"><a class="viewcode-back" href="../../seispy.html#seispy.hk.hk">[docs]</a><span class="k">def</span> <span class="nf">hk</span><span class="p">():</span>
     <span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s2">&quot;HK stacking for single station&quot;</span><span class="p">)</span>
     <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;cfg_file&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">str</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Path to HK configure file&#39;</span><span class="p">)</span>
-    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-s&#39;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Path to PRFs with folder name of the station name&#39;</span><span class="p">,</span>
-                        <span class="n">dest</span><span class="o">=</span><span class="s1">&#39;station&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">str</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
-    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-H&#39;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Range for searching best H: &lt;hmin&gt;/&lt;hmax&gt;&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">str</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
-    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-K&#39;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Range for searching best K: &lt;kmin&gt;/&lt;kmax&gt;&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">str</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
-    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-p&#39;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;If save the figure&#39;</span><span class="p">,</span> <span class="n">dest</span><span class="o">=</span><span class="s1">&#39;isplot&#39;</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="s1">&#39;store_true&#39;</span><span class="p">)</span>
+    <span class="c1"># parser.add_argument(&#39;-s&#39;, help=&#39;Path to PRFs with folder name of the station name&#39;,</span>
+                        <span class="c1"># dest=&#39;station&#39;, type=str, default=&#39;&#39;)</span>
+    <span class="c1"># parser.add_argument(&#39;-H&#39;, help=&#39;Range for searching best H: &lt;hmin&gt;/&lt;hmax&gt;&#39;, type=str, default=&#39;&#39;)</span>
+    <span class="c1"># parser.add_argument(&#39;-K&#39;, help=&#39;Range for searching best K: &lt;kmin&gt;/&lt;kmax&gt;&#39;, type=str, default=&#39;&#39;)</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-p&#39;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Whether to save the image&#39;</span><span class="p">,</span>
+                        <span class="n">dest</span><span class="o">=</span><span class="s1">&#39;isplot&#39;</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="s1">&#39;store_true&#39;</span><span class="p">)</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-v&#39;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Display results to standard output&#39;</span><span class="p">,</span>
+                        <span class="n">dest</span><span class="o">=</span><span class="s1">&#39;isdisplay&#39;</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="s1">&#39;store_true&#39;</span><span class="p">)</span>
     <span class="n">arg</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
     <span class="n">hpara</span> <span class="o">=</span> <span class="n">hkpara</span><span class="p">(</span><span class="n">arg</span><span class="o">.</span><span class="n">cfg_file</span><span class="p">)</span>
-    <span class="k">if</span> <span class="n">arg</span><span class="o">.</span><span class="n">station</span> <span class="o">!=</span> <span class="s1">&#39;&#39;</span><span class="p">:</span>
-        <span class="n">hpara</span><span class="o">.</span><span class="n">rfpath</span> <span class="o">=</span> <span class="n">arg</span><span class="o">.</span><span class="n">station</span>
-    <span class="k">if</span> <span class="n">arg</span><span class="o">.</span><span class="n">H</span> <span class="o">!=</span> <span class="s1">&#39;&#39;</span><span class="p">:</span>
-        <span class="n">hmin</span><span class="p">,</span> <span class="n">hmax</span> <span class="o">=</span> <span class="p">[</span><span class="nb">float</span><span class="p">(</span><span class="n">val</span><span class="p">)</span> <span class="k">for</span> <span class="n">val</span> <span class="ow">in</span> <span class="n">arg</span><span class="o">.</span><span class="n">H</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">)]</span>
-        <span class="n">hpara</span><span class="o">.</span><span class="n">hrange</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">hmin</span><span class="p">,</span> <span class="n">hmax</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">)</span>
-    <span class="k">if</span> <span class="n">arg</span><span class="o">.</span><span class="n">K</span> <span class="o">!=</span> <span class="s1">&#39;&#39;</span><span class="p">:</span>
-        <span class="n">kmin</span><span class="p">,</span> <span class="n">kmax</span> <span class="o">=</span> <span class="p">[</span><span class="nb">float</span><span class="p">(</span><span class="n">val</span><span class="p">)</span> <span class="k">for</span> <span class="n">val</span> <span class="ow">in</span> <span class="n">arg</span><span class="o">.</span><span class="n">K</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">)]</span>
-        <span class="n">hpara</span><span class="o">.</span><span class="n">krange</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">kmin</span><span class="p">,</span> <span class="n">kmax</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">)</span>
-    <span class="n">hksta</span><span class="p">(</span><span class="n">hpara</span><span class="p">,</span> <span class="n">isplot</span><span class="o">=</span><span class="n">arg</span><span class="o">.</span><span class="n">isplot</span><span class="p">)</span></div>
+    <span class="c1"># if arg.station != &#39;&#39;:</span>
+    <span class="c1">#     hpara.rfpath = arg.station</span>
+    <span class="c1"># if arg.H != &#39;&#39;:</span>
+    <span class="c1">#     hmin, hmax = [float(val) for val in arg.H.split(&#39;/&#39;)]</span>
+    <span class="c1">#     hpara.hrange = np.arange(hmin, hmax, 0.1)</span>
+    <span class="c1"># if arg.K != &#39;&#39;:</span>
+    <span class="c1">#     kmin, kmax = [float(val) for val in arg.K.split(&#39;/&#39;)]</span>
+    <span class="c1">#     hpara.krange = np.arange(kmin, kmax, 0.1)</span>
+    <span class="n">hksta</span><span class="p">(</span><span class="n">hpara</span><span class="p">,</span> <span class="n">isplot</span><span class="o">=</span><span class="n">arg</span><span class="o">.</span><span class="n">isplot</span><span class="p">,</span> <span class="n">isdisplay</span><span class="o">=</span><span class="n">arg</span><span class="o">.</span><span class="n">isdisplay</span><span class="p">)</span></div>
 
 
 <div class="viewcode-block" id="hktest"><a class="viewcode-back" href="../../seispy.html#seispy.hk.hktest">[docs]</a><span class="k">def</span> <span class="nf">hktest</span><span class="p">():</span>

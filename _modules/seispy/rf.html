@@ -13,6 +13,8 @@
   
   <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
 
   
   
@@ -32,6 +34,7 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
         <script src="../../_static/doctools.js"></script>
@@ -87,7 +90,7 @@
               
             
             
-              <p><span class="caption-text">Getting Started:</span></p>
+              <p class="caption"><span class="caption-text">Getting Started:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../usage/installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../usage/calrf.html">Calculate a P-wave Receiver Function (PRF)</a></li>
@@ -95,7 +98,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../usage/pickrf.html">Reject poor PRFs with an user interface</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../usage/ccp.html">Stack PRFs with Common Conversion points (CCP) method</a></li>
 </ul>
-<p><span class="caption-text">API Documentation:</span></p>
+<p class="caption"><span class="caption-text">API Documentation:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../modules.html">Module Index</a></li>
 </ul>
@@ -249,6 +252,8 @@
     <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
         <span class="k">raise</span> <span class="ne">FileNotFoundError</span><span class="p">(</span><span class="s1">&#39;no such SAC file in </span><span class="si">{0}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">pathname</span><span class="p">))</span>
     <span class="n">ex_tr</span> <span class="o">=</span> <span class="n">SACTrace</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">ex_sac</span><span class="p">,</span> <span class="n">headonly</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">ex_tr</span><span class="o">.</span><span class="n">stla</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="n">ex_tr</span><span class="o">.</span><span class="n">stlo</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;The stlo and stla are not in the SACHeader&#39;</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">ex_tr</span><span class="o">.</span><span class="n">knetwk</span><span class="p">,</span> <span class="n">ex_tr</span><span class="o">.</span><span class="n">kstnm</span><span class="p">,</span> <span class="n">ex_tr</span><span class="o">.</span><span class="n">stla</span><span class="p">,</span> <span class="n">ex_tr</span><span class="o">.</span><span class="n">stlo</span><span class="p">,</span> <span class="n">ex_tr</span><span class="o">.</span><span class="n">stel</span></div>
 
 
@@ -261,7 +266,7 @@
         <span class="k">try</span><span class="p">:</span>
             <span class="n">datestr</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span> <span class="n">ref_sac</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
         <span class="k">except</span> <span class="ne">IndexError</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="ne">IndexError</span><span class="p">(</span><span class="s1">&#39;Error data format in </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">ref_sac</span><span class="p">))</span>
+            <span class="k">raise</span> <span class="ne">IndexError</span><span class="p">(</span><span class="s1">&#39;Error data format of </span><span class="si">{}</span><span class="s1"> in </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">dateformat</span><span class="p">,</span> <span class="n">ref_sac</span><span class="p">))</span>
         <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">offset</span><span class="p">,</span> <span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">)):</span>
             <span class="n">sac_files</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">datestr</span><span class="p">,</span> <span class="n">obspy</span><span class="o">.</span><span class="n">UTCDateTime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="n">datestr</span><span class="p">,</span> <span class="n">dateformat</span><span class="p">),</span> <span class="o">-</span><span class="n">offset</span><span class="p">])</span>
         <span class="k">elif</span> <span class="n">offset</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
@@ -432,7 +437,8 @@
                                            <span class="n">dismin</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">para</span><span class="o">.</span><span class="n">dismin</span><span class="p">,</span> <span class="n">dismax</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">para</span><span class="o">.</span><span class="n">dismax</span><span class="p">)</span>
             <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">RFlog</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{0}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">e</span><span class="p">))</span>
-                <span class="k">raise</span> <span class="n">e</span></div>
+                <span class="k">raise</span> <span class="n">e</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">RFlog</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;Found </span><span class="si">{}</span><span class="s1"> earthquakes&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">eq_lst</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span></div>
 
 <div class="viewcode-block" id="RF.match_eq"><a class="viewcode-back" href="../../seispy.html#seispy.rf.RF.match_eq">[docs]</a>    <span class="k">def</span> <span class="nf">match_eq</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">switchEN</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">reverseE</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">reverseN</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
         <span class="k">try</span><span class="p">:</span>
