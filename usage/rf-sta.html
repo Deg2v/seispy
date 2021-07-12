@@ -430,12 +430,11 @@
 </div>
 <div class="section" id="signal-noise-ratios-snr-calculation">
 <h3>Signal-noise-ratios (SNR) calculation<a class="headerlink" href="#signal-noise-ratios-snr-calculation" title="Permalink to this headline">¶</a></h3>
-<p>Bad records will be rejected in this step. We will reject records with SNR &lt; <code class="docutils literal notranslate"><span class="pre">para.noisegate</span></code>. The SNR was calculated as:</p>
+<p>seismic records with poor quality will be rejected in this step. We will reject records with SNR &lt; <code class="docutils literal notranslate"><span class="pre">para.noisegate</span></code>. The SNR was calculated as:</p>
 <p>$$
 SNR = 10log_{10}\left(\frac{A_S}{A_N}\right)
 $$</p>
-<p>where $A_N$ and $A_N$ are root mean squares (RMS) of the waveform in
-a <code class="docutils literal notranslate"><span class="pre">para.noiselen</span></code> time-window before and after theoretical P arrival times, respectively.</p>
+<p>where $A_N$ and $A_N$ are root mean squares (RMS) of the waveform trimmed with time length of <code class="docutils literal notranslate"><span class="pre">para.noiselen</span></code> before and after theoretical P arrival times, respectively.</p>
 </div>
 <div class="section" id="trim">
 <h3>Trim<a class="headerlink" href="#trim" title="Permalink to this headline">¶</a></h3>
