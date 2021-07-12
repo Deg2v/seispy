@@ -14,8 +14,6 @@
   
   <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
 
   
   
@@ -35,7 +33,6 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
         <script src="_static/doctools.js"></script>
@@ -93,7 +90,7 @@
               
             
             
-              <p class="caption"><span class="caption-text">Getting Started:</span></p>
+              <p><span class="caption-text">Getting Started:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="usage/installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="usage/calrf.html">Calculate a P-wave Receiver Function (PRF)</a></li>
@@ -101,12 +98,14 @@
 <li class="toctree-l1"><a class="reference internal" href="usage/pickrf.html">Virtual check PRFs with an user interface</a></li>
 <li class="toctree-l1"><a class="reference internal" href="usage/ccp.html">Stack PRFs with Common Conversion points (CCP) method</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Examples:</span></p>
+<p><span class="caption-text">Examples:</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="examples/ex-prf.html">Calculating PRFs of the station CB.NJ2</a></li>
-<li class="toctree-l1"><a class="reference internal" href="examples/ex-prf.html#estimated-the-moho-depth-and-the-crustal-vp-vs-using-the-h-k-stacking-method">Estimated the Moho depth and the crustal Vp/Vs using the H-k stacking method</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples/ex-prf.html">Calculate PRFs of the station CB.NJ2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples/ex-prf.html#estimate-the-moho-depth-and-the-crustal-vp-vs-using-the-h-k-stacking-method">Estimate the Moho depth and the crustal Vp/Vs using the H-k stacking method</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples/ex-ccp.html">Calculate PRFs of a seismic array in batch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples/ex-ccp.html#ccp-stacking-along-a-linear-seismic-array">CCP stacking along a linear seismic array</a></li>
 </ul>
-<p class="caption"><span class="caption-text">API Documentation:</span></p>
+<p><span class="caption-text">API Documentation:</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="modules.html">Module Index</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="rf.html">RF package</a></li>
@@ -214,57 +213,57 @@
 <section id="module-seispy.rfcorrect">
 <span id="seispy-rfcorrect-module"></span><h2>seispy.rfcorrect module<a class="headerlink" href="#module-seispy.rfcorrect" title="Permalink to this headline">¶</a></h2>
 <dl class="py class">
-<dt class="sig sig-object py" id="seispy.rfcorrect.DepModel">
-<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">seispy.rfcorrect.</span></span><span class="sig-name descname"><span class="pre">DepModel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">YAxisRange</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">velmod</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'iasp91'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/rfcorrect.html#DepModel"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.rfcorrect.DepModel" title="Permalink to this definition">¶</a></dt>
+<dt id="seispy.rfcorrect.DepModel">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">seispy.rfcorrect.</span></code><code class="sig-name descname"><span class="pre">DepModel</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">YAxisRange</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">velmod</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'iasp91'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/rfcorrect.html#DepModel"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.rfcorrect.DepModel" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 </dd></dl>
 
 <dl class="py class">
-<dt class="sig sig-object py" id="seispy.rfcorrect.Mod3DPerturbation">
-<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">seispy.rfcorrect.</span></span><span class="sig-name descname"><span class="pre">Mod3DPerturbation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">modpath</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">YAxisRange</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">velmod</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'iasp91'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/rfcorrect.html#Mod3DPerturbation"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.rfcorrect.Mod3DPerturbation" title="Permalink to this definition">¶</a></dt>
+<dt id="seispy.rfcorrect.Mod3DPerturbation">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">seispy.rfcorrect.</span></code><code class="sig-name descname"><span class="pre">Mod3DPerturbation</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">modpath</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">YAxisRange</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">velmod</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'iasp91'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/rfcorrect.html#Mod3DPerturbation"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.rfcorrect.Mod3DPerturbation" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <dl class="py method">
-<dt class="sig sig-object py" id="seispy.rfcorrect.Mod3DPerturbation.interpdvp">
-<span class="sig-name descname"><span class="pre">interpdvp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">points</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/rfcorrect.html#Mod3DPerturbation.interpdvp"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.rfcorrect.Mod3DPerturbation.interpdvp" title="Permalink to this definition">¶</a></dt>
+<dt id="seispy.rfcorrect.Mod3DPerturbation.interpdvp">
+<code class="sig-name descname"><span class="pre">interpdvp</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">points</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/rfcorrect.html#Mod3DPerturbation.interpdvp"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.rfcorrect.Mod3DPerturbation.interpdvp" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="seispy.rfcorrect.Mod3DPerturbation.interpdvs">
-<span class="sig-name descname"><span class="pre">interpdvs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">points</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/rfcorrect.html#Mod3DPerturbation.interpdvs"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.rfcorrect.Mod3DPerturbation.interpdvs" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-</dd></dl>
-
-<dl class="py class">
-<dt class="sig sig-object py" id="seispy.rfcorrect.SACStation">
-<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">seispy.rfcorrect.</span></span><span class="sig-name descname"><span class="pre">SACStation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">evt_lst</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">only_r</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/rfcorrect.html#SACStation"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.rfcorrect.SACStation" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<dl class="py method">
-<dt class="sig sig-object py" id="seispy.rfcorrect.SACStation.resample">
-<span class="sig-name descname"><span class="pre">resample</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dt</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/rfcorrect.html#SACStation.resample"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.rfcorrect.SACStation.resample" title="Permalink to this definition">¶</a></dt>
+<dt id="seispy.rfcorrect.Mod3DPerturbation.interpdvs">
+<code class="sig-name descname"><span class="pre">interpdvs</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">points</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/rfcorrect.html#Mod3DPerturbation.interpdvs"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.rfcorrect.Mod3DPerturbation.interpdvs" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
 <dl class="py class">
-<dt class="sig sig-object py" id="seispy.rfcorrect.SACStationS">
-<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">seispy.rfcorrect.</span></span><span class="sig-name descname"><span class="pre">SACStationS</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/rfcorrect.html#SACStationS"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.rfcorrect.SACStationS" title="Permalink to this definition">¶</a></dt>
+<dt id="seispy.rfcorrect.SACStation">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">seispy.rfcorrect.</span></code><code class="sig-name descname"><span class="pre">SACStation</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">evt_lst</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">only_r</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/rfcorrect.html#SACStation"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.rfcorrect.SACStation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt id="seispy.rfcorrect.SACStation.resample">
+<code class="sig-name descname"><span class="pre">resample</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dt</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/rfcorrect.html#SACStation.resample"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.rfcorrect.SACStation.resample" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="seispy.rfcorrect.SACStationS">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">seispy.rfcorrect.</span></code><code class="sig-name descname"><span class="pre">SACStationS</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/rfcorrect.html#SACStationS"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.rfcorrect.SACStationS" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="seispy.rfcorrect.from_file">
-<span class="sig-prename descclassname"><span class="pre">seispy.rfcorrect.</span></span><span class="sig-name descname"><span class="pre">from_file</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mode_name</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/rfcorrect.html#from_file"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.rfcorrect.from_file" title="Permalink to this definition">¶</a></dt>
+<dt id="seispy.rfcorrect.from_file">
+<code class="sig-prename descclassname"><span class="pre">seispy.rfcorrect.</span></code><code class="sig-name descname"><span class="pre">from_file</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mode_name</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/rfcorrect.html#from_file"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.rfcorrect.from_file" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="seispy.rfcorrect.interp_depth_model">
-<span class="sig-prename descclassname"><span class="pre">seispy.rfcorrect.</span></span><span class="sig-name descname"><span class="pre">interp_depth_model</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lat</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lon</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">new_dep</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/rfcorrect.html#interp_depth_model"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.rfcorrect.interp_depth_model" title="Permalink to this definition">¶</a></dt>
+<dt id="seispy.rfcorrect.interp_depth_model">
+<code class="sig-prename descclassname"><span class="pre">seispy.rfcorrect.</span></code><code class="sig-name descname"><span class="pre">interp_depth_model</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lat</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lon</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">new_dep</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/rfcorrect.html#interp_depth_model"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.rfcorrect.interp_depth_model" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="seispy.rfcorrect.moveoutcorrect_ref">
-<span class="sig-prename descclassname"><span class="pre">seispy.rfcorrect.</span></span><span class="sig-name descname"><span class="pre">moveoutcorrect_ref</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">stadatar</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">raypref</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">YAxisRange</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sampling</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shift</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">velmod</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'iasp91'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/rfcorrect.html#moveoutcorrect_ref"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.rfcorrect.moveoutcorrect_ref" title="Permalink to this definition">¶</a></dt>
+<dt id="seispy.rfcorrect.moveoutcorrect_ref">
+<code class="sig-prename descclassname"><span class="pre">seispy.rfcorrect.</span></code><code class="sig-name descname"><span class="pre">moveoutcorrect_ref</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">stadatar</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">raypref</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">YAxisRange</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sampling</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shift</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">velmod</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'iasp91'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/rfcorrect.html#moveoutcorrect_ref"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.rfcorrect.moveoutcorrect_ref" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -281,8 +280,8 @@
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="seispy.rfcorrect.psrf2depth">
-<span class="sig-prename descclassname"><span class="pre">seispy.rfcorrect.</span></span><span class="sig-name descname"><span class="pre">psrf2depth</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">stadatar</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">YAxisRange</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sampling</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shift</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">velmod</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'iasp91'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">velmod_3d</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">srayp</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/rfcorrect.html#psrf2depth"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.rfcorrect.psrf2depth" title="Permalink to this definition">¶</a></dt>
+<dt id="seispy.rfcorrect.psrf2depth">
+<code class="sig-prename descclassname"><span class="pre">seispy.rfcorrect.</span></code><code class="sig-name descname"><span class="pre">psrf2depth</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">stadatar</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">YAxisRange</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sampling</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shift</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">velmod</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'iasp91'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">velmod_3d</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">srayp</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/rfcorrect.html#psrf2depth"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.rfcorrect.psrf2depth" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -300,18 +299,18 @@
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="seispy.rfcorrect.psrf_1D_raytracing">
-<span class="sig-prename descclassname"><span class="pre">seispy.rfcorrect.</span></span><span class="sig-name descname"><span class="pre">psrf_1D_raytracing</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">stadatar</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">YAxisRange</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">velmod</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'iasp91'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">srayp</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/rfcorrect.html#psrf_1D_raytracing"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.rfcorrect.psrf_1D_raytracing" title="Permalink to this definition">¶</a></dt>
+<dt id="seispy.rfcorrect.psrf_1D_raytracing">
+<code class="sig-prename descclassname"><span class="pre">seispy.rfcorrect.</span></code><code class="sig-name descname"><span class="pre">psrf_1D_raytracing</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">stadatar</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">YAxisRange</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">velmod</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'iasp91'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">srayp</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/rfcorrect.html#psrf_1D_raytracing"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.rfcorrect.psrf_1D_raytracing" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="seispy.rfcorrect.psrf_3D_migration">
-<span class="sig-prename descclassname"><span class="pre">seispy.rfcorrect.</span></span><span class="sig-name descname"><span class="pre">psrf_3D_migration</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pplat_s</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pplon_s</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pplat_p</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pplon_p</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">raylength_s</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">raylength_p</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Tpds</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">YAxisRange</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mod3d</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/rfcorrect.html#psrf_3D_migration"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.rfcorrect.psrf_3D_migration" title="Permalink to this definition">¶</a></dt>
+<dt id="seispy.rfcorrect.psrf_3D_migration">
+<code class="sig-prename descclassname"><span class="pre">seispy.rfcorrect.</span></code><code class="sig-name descname"><span class="pre">psrf_3D_migration</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pplat_s</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pplon_s</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pplat_p</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pplon_p</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">raylength_s</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">raylength_p</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Tpds</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">YAxisRange</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mod3d</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/rfcorrect.html#psrf_3D_migration"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.rfcorrect.psrf_3D_migration" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="seispy.rfcorrect.psrf_3D_raytracing">
-<span class="sig-prename descclassname"><span class="pre">seispy.rfcorrect.</span></span><span class="sig-name descname"><span class="pre">psrf_3D_raytracing</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">stadatar</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">YAxisRange</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mod3d</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">srayp</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/rfcorrect.html#psrf_3D_raytracing"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.rfcorrect.psrf_3D_raytracing" title="Permalink to this definition">¶</a></dt>
+<dt id="seispy.rfcorrect.psrf_3D_raytracing">
+<code class="sig-prename descclassname"><span class="pre">seispy.rfcorrect.</span></code><code class="sig-name descname"><span class="pre">psrf_3D_raytracing</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">stadatar</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">YAxisRange</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mod3d</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">srayp</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/rfcorrect.html#psrf_3D_raytracing"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.rfcorrect.psrf_3D_raytracing" title="Permalink to this definition">¶</a></dt>
 <dd><p>Back ray trace the S wavs with a assumed ray parameter of P.</p>
 <dl class="simple">
 <dt>stla: float</dt><dd><p>The latitude of the station</p>
@@ -329,60 +328,60 @@
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="seispy.rfcorrect.time2depth">
-<span class="sig-prename descclassname"><span class="pre">seispy.rfcorrect.</span></span><span class="sig-name descname"><span class="pre">time2depth</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">stadatar</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">YAxisRange</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Tpds</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/rfcorrect.html#time2depth"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.rfcorrect.time2depth" title="Permalink to this definition">¶</a></dt>
+<dt id="seispy.rfcorrect.time2depth">
+<code class="sig-prename descclassname"><span class="pre">seispy.rfcorrect.</span></code><code class="sig-name descname"><span class="pre">time2depth</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">stadatar</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">YAxisRange</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Tpds</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/rfcorrect.html#time2depth"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.rfcorrect.time2depth" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </section>
 <section id="module-seispy.rf2depth_makedata">
 <span id="seispy-rf2depth-makedata-module"></span><h2>seispy.rf2depth_makedata module<a class="headerlink" href="#module-seispy.rf2depth_makedata" title="Permalink to this headline">¶</a></h2>
 <dl class="py class">
-<dt class="sig sig-object py" id="seispy.rf2depth_makedata.Station">
-<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">seispy.rf2depth_makedata.</span></span><span class="sig-name descname"><span class="pre">Station</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sta_lst</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/rf2depth_makedata.html#Station"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.rf2depth_makedata.Station" title="Permalink to this definition">¶</a></dt>
+<dt id="seispy.rf2depth_makedata.Station">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">seispy.rf2depth_makedata.</span></code><code class="sig-name descname"><span class="pre">Station</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sta_lst</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/rf2depth_makedata.html#Station"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.rf2depth_makedata.Station" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="seispy.rf2depth_makedata.init_mat">
-<span class="sig-prename descclassname"><span class="pre">seispy.rf2depth_makedata.</span></span><span class="sig-name descname"><span class="pre">init_mat</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sta_num</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/rf2depth_makedata.html#init_mat"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.rf2depth_makedata.init_mat" title="Permalink to this definition">¶</a></dt>
+<dt id="seispy.rf2depth_makedata.init_mat">
+<code class="sig-prename descclassname"><span class="pre">seispy.rf2depth_makedata.</span></code><code class="sig-name descname"><span class="pre">init_mat</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sta_num</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/rf2depth_makedata.html#init_mat"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.rf2depth_makedata.init_mat" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="seispy.rf2depth_makedata.makedata">
-<span class="sig-prename descclassname"><span class="pre">seispy.rf2depth_makedata.</span></span><span class="sig-name descname"><span class="pre">makedata</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">cpara</span></em>, <em class="sig-param"><span class="pre">velmod3d=None</span></em>, <em class="sig-param"><span class="pre">modfolder1d=None</span></em>, <em class="sig-param"><span class="pre">log=&lt;seispy.setuplog.setuplog</span> <span class="pre">object&gt;</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/rf2depth_makedata.html#makedata"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.rf2depth_makedata.makedata" title="Permalink to this definition">¶</a></dt>
+<dt id="seispy.rf2depth_makedata.makedata">
+<code class="sig-prename descclassname"><span class="pre">seispy.rf2depth_makedata.</span></code><code class="sig-name descname"><span class="pre">makedata</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">cpara</span></em>, <em class="sig-param"><span class="pre">velmod3d=None</span></em>, <em class="sig-param"><span class="pre">modfolder1d=None</span></em>, <em class="sig-param"><span class="pre">log=&lt;seispy.setuplog.setuplog</span> <span class="pre">object&gt;</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/rf2depth_makedata.html#makedata"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.rf2depth_makedata.makedata" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="seispy.rf2depth_makedata.makedata3d">
-<span class="sig-prename descclassname"><span class="pre">seispy.rf2depth_makedata.</span></span><span class="sig-name descname"><span class="pre">makedata3d</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">cpara</span></em>, <em class="sig-param"><span class="pre">velmod3d</span></em>, <em class="sig-param"><span class="pre">log=&lt;seispy.setuplog.setuplog</span> <span class="pre">object&gt;</span></em>, <em class="sig-param"><span class="pre">raytracing3d=True</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/rf2depth_makedata.html#makedata3d"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.rf2depth_makedata.makedata3d" title="Permalink to this definition">¶</a></dt>
+<dt id="seispy.rf2depth_makedata.makedata3d">
+<code class="sig-prename descclassname"><span class="pre">seispy.rf2depth_makedata.</span></code><code class="sig-name descname"><span class="pre">makedata3d</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">cpara</span></em>, <em class="sig-param"><span class="pre">velmod3d</span></em>, <em class="sig-param"><span class="pre">log=&lt;seispy.setuplog.setuplog</span> <span class="pre">object&gt;</span></em>, <em class="sig-param"><span class="pre">raytracing3d=True</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/rf2depth_makedata.html#makedata3d"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.rf2depth_makedata.makedata3d" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="seispy.rf2depth_makedata.rf2depth">
-<span class="sig-prename descclassname"><span class="pre">seispy.rf2depth_makedata.</span></span><span class="sig-name descname"><span class="pre">rf2depth</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/rf2depth_makedata.html#rf2depth"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.rf2depth_makedata.rf2depth" title="Permalink to this definition">¶</a></dt>
+<dt id="seispy.rf2depth_makedata.rf2depth">
+<code class="sig-prename descclassname"><span class="pre">seispy.rf2depth_makedata.</span></code><code class="sig-name descname"><span class="pre">rf2depth</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/rf2depth_makedata.html#rf2depth"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.rf2depth_makedata.rf2depth" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </section>
 <section id="module-seispy.ccp">
 <span id="seispy-ccp-module"></span><h2>seispy.ccp module<a class="headerlink" href="#module-seispy.ccp" title="Permalink to this headline">¶</a></h2>
 <dl class="py function">
-<dt class="sig sig-object py" id="seispy.ccp.ccp_profile">
-<span class="sig-prename descclassname"><span class="pre">seispy.ccp.</span></span><span class="sig-name descname"><span class="pre">ccp_profile</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/ccp.html#ccp_profile"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.ccp.ccp_profile" title="Permalink to this definition">¶</a></dt>
+<dt id="seispy.ccp.ccp_profile">
+<code class="sig-prename descclassname"><span class="pre">seispy.ccp.</span></code><code class="sig-name descname"><span class="pre">ccp_profile</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/ccp.html#ccp_profile"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.ccp.ccp_profile" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="seispy.ccp.fix_filename">
-<span class="sig-prename descclassname"><span class="pre">seispy.ccp.</span></span><span class="sig-name descname"><span class="pre">fix_filename</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">typ</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'dat'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/ccp.html#fix_filename"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.ccp.fix_filename" title="Permalink to this definition">¶</a></dt>
+<dt id="seispy.ccp.fix_filename">
+<code class="sig-prename descclassname"><span class="pre">seispy.ccp.</span></code><code class="sig-name descname"><span class="pre">fix_filename</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">typ</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'dat'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/ccp.html#fix_filename"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.ccp.fix_filename" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="seispy.ccp.get_sta">
-<span class="sig-prename descclassname"><span class="pre">seispy.ccp.</span></span><span class="sig-name descname"><span class="pre">get_sta</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rfdep</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stalist</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">line_loca</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dep_axis</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">log</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/ccp.html#get_sta"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.ccp.get_sta" title="Permalink to this definition">¶</a></dt>
+<dt id="seispy.ccp.get_sta">
+<code class="sig-prename descclassname"><span class="pre">seispy.ccp.</span></code><code class="sig-name descname"><span class="pre">get_sta</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rfdep</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stalist</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">line_loca</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dep_axis</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">log</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/ccp.html#get_sta"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.ccp.get_sta" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="seispy.ccp.init_profile">
-<span class="sig-prename descclassname"><span class="pre">seispy.ccp.</span></span><span class="sig-name descname"><span class="pre">init_profile</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lat1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lon1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lat2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lon2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">val</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/ccp.html#init_profile"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.ccp.init_profile" title="Permalink to this definition">¶</a></dt>
+<dt id="seispy.ccp.init_profile">
+<code class="sig-prename descclassname"><span class="pre">seispy.ccp.</span></code><code class="sig-name descname"><span class="pre">init_profile</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lat1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lon1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lat2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lon2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">val</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/ccp.html#init_profile"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.ccp.init_profile" title="Permalink to this definition">¶</a></dt>
 <dd><p>Initial bins along a profile with given position of two points.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -403,23 +402,23 @@
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="seispy.ccp.line_proj">
-<span class="sig-prename descclassname"><span class="pre">seispy.ccp.</span></span><span class="sig-name descname"><span class="pre">line_proj</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lat1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lon1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lat2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lon2</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/ccp.html#line_proj"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.ccp.line_proj" title="Permalink to this definition">¶</a></dt>
+<dt id="seispy.ccp.line_proj">
+<code class="sig-prename descclassname"><span class="pre">seispy.ccp.</span></code><code class="sig-name descname"><span class="pre">line_proj</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lat1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lon1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lat2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lon2</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/ccp.html#line_proj"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.ccp.line_proj" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="seispy.ccp.search_pierce">
-<span class="sig-prename descclassname"><span class="pre">seispy.ccp.</span></span><span class="sig-name descname"><span class="pre">search_pierce</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rfdep</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bin_loca</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">profile_range</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stack_range</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dep_axis</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">log</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bin_radius</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">isci</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">domperiod</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/ccp.html#search_pierce"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.ccp.search_pierce" title="Permalink to this definition">¶</a></dt>
+<dt id="seispy.ccp.search_pierce">
+<code class="sig-prename descclassname"><span class="pre">seispy.ccp.</span></code><code class="sig-name descname"><span class="pre">search_pierce</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rfdep</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bin_loca</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">profile_range</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stack_range</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dep_axis</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">log</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bin_radius</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">isci</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">domperiod</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/ccp.html#search_pierce"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.ccp.search_pierce" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="seispy.ccp.select_sta">
-<span class="sig-prename descclassname"><span class="pre">seispy.ccp.</span></span><span class="sig-name descname"><span class="pre">select_sta</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rfdep</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stalist</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">line_loca</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">width</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dep_axis</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">log</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/ccp.html#select_sta"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.ccp.select_sta" title="Permalink to this definition">¶</a></dt>
+<dt id="seispy.ccp.select_sta">
+<code class="sig-prename descclassname"><span class="pre">seispy.ccp.</span></code><code class="sig-name descname"><span class="pre">select_sta</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rfdep</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stalist</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">line_loca</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">width</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dep_axis</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">log</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/ccp.html#select_sta"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.ccp.select_sta" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="seispy.ccp.stack">
-<span class="sig-prename descclassname"><span class="pre">seispy.ccp.</span></span><span class="sig-name descname"><span class="pre">stack</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">rfdep</span></em>, <em class="sig-param"><span class="pre">cpara</span></em>, <em class="sig-param"><span class="pre">log=&lt;seispy.setuplog.setuplog</span> <span class="pre">object&gt;</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/ccp.html#stack"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.ccp.stack" title="Permalink to this definition">¶</a></dt>
+<dt id="seispy.ccp.stack">
+<code class="sig-prename descclassname"><span class="pre">seispy.ccp.</span></code><code class="sig-name descname"><span class="pre">stack</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">rfdep</span></em>, <em class="sig-param"><span class="pre">cpara</span></em>, <em class="sig-param"><span class="pre">log=&lt;seispy.setuplog.setuplog</span> <span class="pre">object&gt;</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/ccp.html#stack"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.ccp.stack" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -435,32 +434,32 @@
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="seispy.ccp.writedat">
-<span class="sig-prename descclassname"><span class="pre">seispy.ccp.</span></span><span class="sig-name descname"><span class="pre">writedat</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dat_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stack_data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stack_range</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">isci</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/ccp.html#writedat"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.ccp.writedat" title="Permalink to this definition">¶</a></dt>
+<dt id="seispy.ccp.writedat">
+<code class="sig-prename descclassname"><span class="pre">seispy.ccp.</span></code><code class="sig-name descname"><span class="pre">writedat</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dat_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stack_data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stack_range</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">isci</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/ccp.html#writedat"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.ccp.writedat" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </section>
 <section id="module-seispy.ccppara">
 <span id="seispy-ccppara-module"></span><h2>seispy.ccppara module<a class="headerlink" href="#module-seispy.ccppara" title="Permalink to this headline">¶</a></h2>
 <dl class="py class">
-<dt class="sig sig-object py" id="seispy.ccppara.CCPPara">
-<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">seispy.ccppara.</span></span><span class="sig-name descname"><span class="pre">CCPPara</span></span><a class="reference internal" href="_modules/seispy/ccppara.html#CCPPara"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.ccppara.CCPPara" title="Permalink to this definition">¶</a></dt>
+<dt id="seispy.ccppara.CCPPara">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">seispy.ccppara.</span></code><code class="sig-name descname"><span class="pre">CCPPara</span></code><a class="reference internal" href="_modules/seispy/ccppara.html#CCPPara"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.ccppara.CCPPara" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<dl class="py property">
-<dt class="sig sig-object py" id="seispy.ccppara.CCPPara.bin_radius">
-<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">bin_radius</span></span><a class="headerlink" href="#seispy.ccppara.CCPPara.bin_radius" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt id="seispy.ccppara.CCPPara.bin_radius">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">bin_radius</span></code><a class="headerlink" href="#seispy.ccppara.CCPPara.bin_radius" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py property">
-<dt class="sig sig-object py" id="seispy.ccppara.CCPPara.shape">
-<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">shape</span></span><a class="headerlink" href="#seispy.ccppara.CCPPara.shape" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt id="seispy.ccppara.CCPPara.shape">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">shape</span></code><a class="headerlink" href="#seispy.ccppara.CCPPara.shape" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="seispy.ccppara.ccppara">
-<span class="sig-prename descclassname"><span class="pre">seispy.ccppara.</span></span><span class="sig-name descname"><span class="pre">ccppara</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cfg_file</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/ccppara.html#ccppara"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.ccppara.ccppara" title="Permalink to this definition">¶</a></dt>
+<dt id="seispy.ccppara.ccppara">
+<code class="sig-prename descclassname"><span class="pre">seispy.ccppara.</span></code><code class="sig-name descname"><span class="pre">ccppara</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cfg_file</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/ccppara.html#ccppara"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.ccppara.ccppara" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </section>

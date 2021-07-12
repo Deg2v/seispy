@@ -14,8 +14,6 @@
   
   <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
 
   
   
@@ -35,7 +33,6 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
         <script src="../_static/doctools.js"></script>
@@ -93,33 +90,33 @@
               
             
             
-              <p class="caption"><span class="caption-text">Getting Started:</span></p>
+              <p><span class="caption-text">Getting Started:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="calrf.html">Calculate a P-wave Receiver Function (PRF)</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Calculate PRFs for a station</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#prepare-seismic-records-order-by-stations">1. Prepare seismic records order by stations</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#calculate-prfs-using-a-simple-command">2. Calculate PRFs using a simple command</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#prepare-a-configure-file">2.1 Prepare a configure file</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#prepare-seismic-records-order-by-stations">Prepare seismic records order by stations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#calculate-prfs-using-a-simple-command">Calculate PRFs using a simple command</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#prepare-a-configure-file">Prepare a configure file</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#run-in-command-line">2.2 Run in command line</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#initialize-a-project-instance">3. Initialize a project instance</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#set-parameters">4. Set parameters</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#search-earthquakes-from-catalog">5. Search earthquakes from catalog</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#load-station-information">5.1 Load station information</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#search-earthquakes">5.2 Search earthquakes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#run-in-command-line">Run in command line</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#initialize-a-project-instance">Initialize a project instance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#set-parameters">Set parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#search-earthquakes-from-catalog">Search earthquakes from catalog</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#load-station-information">Load station information</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#search-earthquakes">Search earthquakes</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#associate-sac-files-with-events">6. Associate SAC files with events</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#pretreatment">7. Pretreatment</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#filter">7.1 Filter</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#signal-noise-ratios">7.2 Signal-noise-ratios</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#trim">7.3 Trim</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#associate-sac-files-with-events">Associate SAC files with events</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#pretreatment">Pretreatment</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#filter">Filter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#signal-noise-ratios-calculation">Signal-noise-ratios calculation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#trim">Trim</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#calculating-prfs">8. Calculating PRFs</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#save-prfs">9. Save PRFs</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#prfs-calculation">PRFs calculation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#save-prfs">Save PRFs</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#crust"><code class="docutils literal notranslate"><span class="pre">crust</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#mtz"><code class="docutils literal notranslate"><span class="pre">mtz</span></code></a></li>
 </ul>
@@ -129,12 +126,14 @@
 <li class="toctree-l1"><a class="reference internal" href="pickrf.html">Virtual check PRFs with an user interface</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ccp.html">Stack PRFs with Common Conversion points (CCP) method</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Examples:</span></p>
+<p><span class="caption-text">Examples:</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../examples/ex-prf.html">Calculating PRFs of the station CB.NJ2</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../examples/ex-prf.html#estimated-the-moho-depth-and-the-crustal-vp-vs-using-the-h-k-stacking-method">Estimated the Moho depth and the crustal Vp/Vs using the H-k stacking method</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples/ex-prf.html">Calculate PRFs of the station CB.NJ2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples/ex-prf.html#estimate-the-moho-depth-and-the-crustal-vp-vs-using-the-h-k-stacking-method">Estimate the Moho depth and the crustal Vp/Vs using the H-k stacking method</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples/ex-ccp.html">Calculate PRFs of a seismic array in batch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples/ex-ccp.html#ccp-stacking-along-a-linear-seismic-array">CCP stacking along a linear seismic array</a></li>
 </ul>
-<p class="caption"><span class="caption-text">API Documentation:</span></p>
+<p><span class="caption-text">API Documentation:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../modules.html">Module Index</a></li>
 </ul>
@@ -225,7 +224,7 @@
   <section id="calculate-prfs-for-a-station">
 <h1>Calculate PRFs for a station<a class="headerlink" href="#calculate-prfs-for-a-station" title="Permalink to this headline">¶</a></h1>
 <section id="prepare-seismic-records-order-by-stations">
-<h2>1. Prepare seismic records order by stations<a class="headerlink" href="#prepare-seismic-records-order-by-stations" title="Permalink to this headline">¶</a></h2>
+<h2>Prepare seismic records order by stations<a class="headerlink" href="#prepare-seismic-records-order-by-stations" title="Permalink to this headline">¶</a></h2>
 <p>Seismic data including direct P arrival should be trimmed according earthquakes. Meanwhile, the data should be order by stations instead of events. For example, YN001 and YN002 are stations; the SAC files are teleseismic data records of these stations.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>event_data/
 ├── YN001
@@ -246,9 +245,9 @@
 </div>
 </section>
 <section id="calculate-prfs-using-a-simple-command">
-<h2>2. Calculate PRFs using a simple command<a class="headerlink" href="#calculate-prfs-using-a-simple-command" title="Permalink to this headline">¶</a></h2>
+<h2>Calculate PRFs using a simple command<a class="headerlink" href="#calculate-prfs-using-a-simple-command" title="Permalink to this headline">¶</a></h2>
 <section id="prepare-a-configure-file">
-<h3>2.1 Prepare a configure file<a class="headerlink" href="#prepare-a-configure-file" title="Permalink to this headline">¶</a></h3>
+<h3>Prepare a configure file<a class="headerlink" href="#prepare-a-configure-file" title="Permalink to this headline">¶</a></h3>
 <p>We should prepare a configure file as following including all parameters that will be set during the calculation. The format is following Python module of <code class="docutils literal notranslate"><span class="pre">configparser</span></code></p>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">path</span><span class="p">]</span>
 <span class="n">datapath</span> <span class="o">=</span> <span class="n">Data</span><span class="o">/</span><span class="n">Path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">station_name</span>
@@ -298,7 +297,7 @@
 </section>
 </section>
 <section id="run-in-command-line">
-<h2>2.2 Run in command line<a class="headerlink" href="#run-in-command-line" title="Permalink to this headline">¶</a></h2>
+<h2>Run in command line<a class="headerlink" href="#run-in-command-line" title="Permalink to this headline">¶</a></h2>
 <p>We have provided the command <code class="docutils literal notranslate"><span class="pre">prf</span></code>. The usage is shown as:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">usage</span><span class="p">:</span> <span class="n">prf</span> <span class="p">[</span><span class="o">-</span><span class="n">h</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">l</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">r</span> <span class="n">COMP</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">s</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">b</span> <span class="p">[</span><span class="n">BAZ</span><span class="p">]]</span> <span class="n">cfg_file</span>
 
@@ -325,7 +324,7 @@
 </ul>
 </section>
 <section id="initialize-a-project-instance">
-<h2>3. Initialize a project instance<a class="headerlink" href="#initialize-a-project-instance" title="Permalink to this headline">¶</a></h2>
+<h2>Initialize a project instance<a class="headerlink" href="#initialize-a-project-instance" title="Permalink to this headline">¶</a></h2>
 <p><strong>To further understand the procedure of the command <code class="docutils literal notranslate"><span class="pre">prf</span></code>, we recommend calculating PRFs with writing a Python script as following steps.</strong></p>
 <p>First, let’s init a <code class="docutils literal notranslate"><span class="pre">rf</span></code>instance. In this instance, we can set parameters, match earthquakes from catalog and calculate PRFs.</p>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">seispy.rf</span> <span class="kn">import</span> <span class="n">RF</span>
@@ -337,7 +336,7 @@
 </div>
 </section>
 <section id="set-parameters">
-<h2>4. Set parameters<a class="headerlink" href="#set-parameters" title="Permalink to this headline">¶</a></h2>
+<h2>Set parameters<a class="headerlink" href="#set-parameters" title="Permalink to this headline">¶</a></h2>
 <p>Most of parameters are saved in <code class="docutils literal notranslate"><span class="pre">pjt.para</span></code>. Let’s show all default parameters</p>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">pjt</span><span class="o">.</span><span class="n">para</span><span class="o">.</span><span class="vm">__dict__</span><span class="p">)</span>
 </pre></div>
@@ -383,17 +382,17 @@
 </div>
 </section>
 <section id="search-earthquakes-from-catalog">
-<h2>5. Search earthquakes from catalog<a class="headerlink" href="#search-earthquakes-from-catalog" title="Permalink to this headline">¶</a></h2>
+<h2>Search earthquakes from catalog<a class="headerlink" href="#search-earthquakes-from-catalog" title="Permalink to this headline">¶</a></h2>
 <p>We use the same process as the <a class="reference external" href="https://git.nju.edu.cn/xumi1993/SplitRFLab">SplitRFLab</a>. To match the data records and events, we should search earthquakes with some criteria (period, epicentral distance and magnitude).</p>
 <section id="load-station-information">
-<h3>5.1 Load station information<a class="headerlink" href="#load-station-information" title="Permalink to this headline">¶</a></h3>
+<h3>Load station information<a class="headerlink" href="#load-station-information" title="Permalink to this headline">¶</a></h3>
 <p>the The station latitude and longitude are absolutely necessary when we are used to search earthquakes. the function will read stla and stlo of SAC header from files in pjt.para.datapath.</p>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">pjt</span><span class="o">.</span><span class="n">load_stainfo</span><span class="p">()</span>
 </pre></div>
 </div>
 </section>
 <section id="search-earthquakes">
-<h3>5.2 Search earthquakes<a class="headerlink" href="#search-earthquakes" title="Permalink to this headline">¶</a></h3>
+<h3>Search earthquakes<a class="headerlink" href="#search-earthquakes" title="Permalink to this headline">¶</a></h3>
 <p>the function provide two method to search earthquakes. use</p>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">pjt</span><span class="o">.</span><span class="n">search_eq</span><span class="p">()</span>
 </pre></div>
@@ -406,10 +405,10 @@
 </section>
 </section>
 <section id="associate-sac-files-with-events">
-<h2>6. Associate SAC files with events<a class="headerlink" href="#associate-sac-files-with-events" title="Permalink to this headline">¶</a></h2>
+<h2>Associate SAC files with events<a class="headerlink" href="#associate-sac-files-with-events" title="Permalink to this headline">¶</a></h2>
 <p>This is a important step, which allow to link SAC files and earthquakes in catalog. The <code class="docutils literal notranslate"><span class="pre">pjt.para.dateformat</span></code>, that is a format string as in <a class="reference external" href="https://docs.python.org/3/library/time.html#time.strftime"><code class="docutils literal notranslate"><span class="pre">time.strftime</span></code></a>, including datetime infomation will allow to match events in catalog. For example, assuming the filename is <code class="docutils literal notranslate"><span class="pre">2018.229.15.35.02.1.sac</span></code>. the <code class="docutils literal notranslate"><span class="pre">pjt.para.dateformat</span></code> should be <code class="docutils literal notranslate"><span class="pre">%Y.%j.%H.%M.%S</span></code>.</p>
 <p>A reference sac file will read to Associate with events. Thus, file-search-string will help to find real SAC files in data path. In this program file-search-string composed of <code class="docutils literal notranslate"><span class="pre">pjt.para.ref_comp</span></code> and <code class="docutils literal notranslate"><span class="pre">pjt.para.suffix</span></code>. The presence of <code class="docutils literal notranslate"><span class="pre">*pjt.para.ref_comp*pjt.para.suffix</span></code>, such as <code class="docutils literal notranslate"><span class="pre">*.1.*sac</span></code> in this example, for SAC files will be found.</p>
-<p>the <code class="docutils literal notranslate"><span class="pre">pjt.para.offset</span></code> and <code class="docutils literal notranslate"><span class="pre">p</span></code>jt.para.tolerance` are used to match the origin time from catalog. The definition are the same as those in <a class="reference external" href="https://git.nju.edu.cn/xumi1993/SplitRFLab">SplitRFLab</a>.</p>
+<p>the <code class="docutils literal notranslate"><span class="pre">pjt.para.offset</span></code> and <code class="docutils literal notranslate"><span class="pre">pjt.para.tolerance</span></code> are used to match the origin time from catalog. The definition are the same as those in <a class="reference external" href="https://git.nju.edu.cn/xumi1993/SplitRFLab">SplitRFLab</a>.</p>
 <ul class="simple">
 <li><p>The “offset” is the time duration between the event time and the starting time of your seismograms. Ideally, this offset should be identical to the “request start time” defined in the previous window but the data management center may have sent you data beginning later than requested. The offset value represents this difference.</p></li>
 <li><p>The “Tolerance” value in seconds will define the time window within which the program will try to associate a seismic file to an event file, by using either its name or the information contained in the header. It is up to the user to find the best compromise: a value too small will let orphans and a value too large will bring confusion since several files could be associated to a seismic event. <img alt="../_images/offset.png" src="../_images/offset.png" /></p></li>
@@ -420,27 +419,27 @@
 </div>
 </section>
 <section id="pretreatment">
-<h2>7. Pretreatment<a class="headerlink" href="#pretreatment" title="Permalink to this headline">¶</a></h2>
-<p>The process of pretreatment include retrend, bandpass filter, calculating arrival time, reject bad record with low SNR, trim records and rotate components from NE to RT.</p>
+<h2>Pretreatment<a class="headerlink" href="#pretreatment" title="Permalink to this headline">¶</a></h2>
+<p>The process of pretreatment include detrend, bandpass filter, calculating arrival time, reject bad record with low SNR, trim records and rotate components from NE to RT.</p>
 <section id="filter">
-<h3>7.1 Filter<a class="headerlink" href="#filter" title="Permalink to this headline">¶</a></h3>
+<h3>Filter<a class="headerlink" href="#filter" title="Permalink to this headline">¶</a></h3>
 <p>We will aply a bandpass filter on seismic records. Two corners should be specified.</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">para.freqmin</span></code>: Pass band low corner frequency.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">para.freqmax</span></code>: Pass band high corner frequency.</p></li>
 </ul>
 </section>
-<section id="signal-noise-ratios">
-<h3>7.2 Signal-noise-ratios<a class="headerlink" href="#signal-noise-ratios" title="Permalink to this headline">¶</a></h3>
+<section id="signal-noise-ratios-calculation">
+<h3>Signal-noise-ratios calculation<a class="headerlink" href="#signal-noise-ratios-calculation" title="Permalink to this headline">¶</a></h3>
 <p>Bad records will be rejected in this step. We will reject records with SNR &lt; <code class="docutils literal notranslate"><span class="pre">para.noisegate</span></code>. The SNR was calculated as:</p>
 <p>$$
 SNR = 10log_{10}\left(\frac{A_S}{A_N}\right)
-$$
-where $A_N$ and $A_N$ are root mean squares (RMS) of the waveform in
-a <code class="docutils literal notranslate"><span class="pre">para.noisrlen</span></code> time-window before and after theoretical P arrival times, respectively.</p>
+$$</p>
+<p>where $A_N$ and $A_N$ are root mean squares (RMS) of the waveform in
+a <code class="docutils literal notranslate"><span class="pre">para.noiselen</span></code> time-window before and after theoretical P arrival times, respectively.</p>
 </section>
 <section id="trim">
-<h3>7.3 Trim<a class="headerlink" href="#trim" title="Permalink to this headline">¶</a></h3>
+<h3>Trim<a class="headerlink" href="#trim" title="Permalink to this headline">¶</a></h3>
 <p>The waveforms will be cut in this step before <code class="docutils literal notranslate"><span class="pre">para.time_before</span></code> and after <code class="docutils literal notranslate"><span class="pre">para.time_after</span></code> theoretical P arrival times, respectively.</p>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">pjt</span><span class="o">.</span><span class="n">detrend</span><span class="p">()</span>
 <span class="n">pjt</span><span class="o">.</span><span class="n">filter</span><span class="p">()</span> <span class="c1"># default using &#39;para.freqmin&#39; and &#39;para.freqmax&#39;</span>
@@ -452,8 +451,8 @@ a <code class="docutils literal notranslate"><span class="pre">para.noisrlen</sp
 </div>
 </section>
 </section>
-<section id="calculating-prfs">
-<h2>8. Calculating PRFs<a class="headerlink" href="#calculating-prfs" title="Permalink to this headline">¶</a></h2>
+<section id="prfs-calculation">
+<h2>PRFs calculation<a class="headerlink" href="#prfs-calculation" title="Permalink to this headline">¶</a></h2>
 <p>We need parameters of <code class="docutils literal notranslate"><span class="pre">pjt.para.gauss</span></code>, <code class="docutils literal notranslate"><span class="pre">pjt.para.itmax</span></code> and <code class="docutils literal notranslate"><span class="pre">pjt.para.minderr</span></code> to calculate PRFs using iterative time-domain deconvolution method</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">pjt.para.gauss</span></code>: Gauss factor. Default is 2.0</p></li>
@@ -465,7 +464,7 @@ a <code class="docutils literal notranslate"><span class="pre">para.noisrlen</sp
 </div>
 </section>
 <section id="save-prfs">
-<h2>9. Save PRFs<a class="headerlink" href="#save-prfs" title="Permalink to this headline">¶</a></h2>
+<h2>Save PRFs<a class="headerlink" href="#save-prfs" title="Permalink to this headline">¶</a></h2>
 <p>Save the PRFs to pjt.para.rfpath with some criteria. Two kind of criteria allow to set (i.e., crust or mtz). if the parameter set as None, all of PRFs will be saved.</p>
 <section id="crust">
 <h3><code class="docutils literal notranslate"><span class="pre">crust</span></code><a class="headerlink" href="#crust" title="Permalink to this headline">¶</a></h3>

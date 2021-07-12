@@ -14,8 +14,6 @@
   
   <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
 
   
   
@@ -35,7 +33,6 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
         <script src="_static/doctools.js"></script>
@@ -93,7 +90,7 @@
               
             
             
-              <p class="caption"><span class="caption-text">Getting Started:</span></p>
+              <p><span class="caption-text">Getting Started:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="usage/installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="usage/calrf.html">Calculate a P-wave Receiver Function (PRF)</a></li>
@@ -101,12 +98,14 @@
 <li class="toctree-l1"><a class="reference internal" href="usage/pickrf.html">Virtual check PRFs with an user interface</a></li>
 <li class="toctree-l1"><a class="reference internal" href="usage/ccp.html">Stack PRFs with Common Conversion points (CCP) method</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Examples:</span></p>
+<p><span class="caption-text">Examples:</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="examples/ex-prf.html">Calculating PRFs of the station CB.NJ2</a></li>
-<li class="toctree-l1"><a class="reference internal" href="examples/ex-prf.html#estimated-the-moho-depth-and-the-crustal-vp-vs-using-the-h-k-stacking-method">Estimated the Moho depth and the crustal Vp/Vs using the H-k stacking method</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples/ex-prf.html">Calculate PRFs of the station CB.NJ2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples/ex-prf.html#estimate-the-moho-depth-and-the-crustal-vp-vs-using-the-h-k-stacking-method">Estimate the Moho depth and the crustal Vp/Vs using the H-k stacking method</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples/ex-ccp.html">Calculate PRFs of a seismic array in batch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples/ex-ccp.html#ccp-stacking-along-a-linear-seismic-array">CCP stacking along a linear seismic array</a></li>
 </ul>
-<p class="caption"><span class="caption-text">API Documentation:</span></p>
+<p><span class="caption-text">API Documentation:</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="modules.html">Module Index</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="rf.html">RF package</a></li>
@@ -212,8 +211,8 @@
 <section id="module-seispy.hk">
 <span id="seispy-hk-module"></span><h2>seispy.hk module<a class="headerlink" href="#module-seispy.hk" title="Permalink to this headline">¶</a></h2>
 <dl class="py function">
-<dt class="sig sig-object py" id="seispy.hk.ci">
-<span class="sig-prename descclassname"><span class="pre">seispy.hk.</span></span><span class="sig-name descname"><span class="pre">ci</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">allstack</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">h</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kappa</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ev_num</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/hk.html#ci"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.hk.ci" title="Permalink to this definition">¶</a></dt>
+<dt id="seispy.hk.ci">
+<code class="sig-prename descclassname"><span class="pre">seispy.hk.</span></code><code class="sig-name descname"><span class="pre">ci</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">allstack</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">h</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kappa</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ev_num</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/hk.html#ci"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.hk.ci" title="Permalink to this definition">¶</a></dt>
 <dd><p>Search best H and kappa from stacked matrix.
 Calculate error for H and kappa
 :param allstack: stacked HK matrix
@@ -224,97 +223,97 @@ Calculate error for H and kappa
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="seispy.hk.hk">
-<span class="sig-prename descclassname"><span class="pre">seispy.hk.</span></span><span class="sig-name descname"><span class="pre">hk</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/hk.html#hk"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.hk.hk" title="Permalink to this definition">¶</a></dt>
+<dt id="seispy.hk.hk">
+<code class="sig-prename descclassname"><span class="pre">seispy.hk.</span></code><code class="sig-name descname"><span class="pre">hk</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/hk.html#hk"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.hk.hk" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="seispy.hk.hk_sta_test">
-<span class="sig-prename descclassname"><span class="pre">seispy.hk.</span></span><span class="sig-name descname"><span class="pre">hk_sta_test</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/hk.html#hk_sta_test"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.hk.hk_sta_test" title="Permalink to this definition">¶</a></dt>
+<dt id="seispy.hk.hk_sta_test">
+<code class="sig-prename descclassname"><span class="pre">seispy.hk.</span></code><code class="sig-name descname"><span class="pre">hk_sta_test</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/hk.html#hk_sta_test"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.hk.hk_sta_test" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="seispy.hk.hksta">
-<span class="sig-prename descclassname"><span class="pre">seispy.hk.</span></span><span class="sig-name descname"><span class="pre">hksta</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">hpara</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">isplot</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">isdisplay</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/hk.html#hksta"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.hk.hksta" title="Permalink to this definition">¶</a></dt>
+<dt id="seispy.hk.hksta">
+<code class="sig-prename descclassname"><span class="pre">seispy.hk.</span></code><code class="sig-name descname"><span class="pre">hksta</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">hpara</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">isplot</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">isdisplay</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/hk.html#hksta"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.hk.hksta" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="seispy.hk.hkstack">
-<span class="sig-prename descclassname"><span class="pre">seispy.hk.</span></span><span class="sig-name descname"><span class="pre">hkstack</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">seis</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">t0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dt</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">h</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kappa</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vp</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">6.3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">weight</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(0.7,</span> <span class="pre">0.2,</span> <span class="pre">0.1)</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/hk.html#hkstack"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.hk.hkstack" title="Permalink to this definition">¶</a></dt>
+<dt id="seispy.hk.hkstack">
+<code class="sig-prename descclassname"><span class="pre">seispy.hk.</span></code><code class="sig-name descname"><span class="pre">hkstack</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">seis</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">t0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dt</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">h</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kappa</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vp</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">6.3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">weight</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(0.7,</span> <span class="pre">0.2,</span> <span class="pre">0.1)</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/hk.html#hkstack"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.hk.hkstack" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="seispy.hk.hktest">
-<span class="sig-prename descclassname"><span class="pre">seispy.hk.</span></span><span class="sig-name descname"><span class="pre">hktest</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/hk.html#hktest"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.hk.hktest" title="Permalink to this definition">¶</a></dt>
+<dt id="seispy.hk.hktest">
+<code class="sig-prename descclassname"><span class="pre">seispy.hk.</span></code><code class="sig-name descname"><span class="pre">hktest</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/hk.html#hktest"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.hk.hktest" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="seispy.hk.load_cyan_map">
-<span class="sig-prename descclassname"><span class="pre">seispy.hk.</span></span><span class="sig-name descname"><span class="pre">load_cyan_map</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/hk.html#load_cyan_map"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.hk.load_cyan_map" title="Permalink to this definition">¶</a></dt>
+<dt id="seispy.hk.load_cyan_map">
+<code class="sig-prename descclassname"><span class="pre">seispy.hk.</span></code><code class="sig-name descname"><span class="pre">load_cyan_map</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/hk.html#load_cyan_map"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.hk.load_cyan_map" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="seispy.hk.plot">
-<span class="sig-prename descclassname"><span class="pre">seispy.hk.</span></span><span class="sig-name descname"><span class="pre">plot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">stack</span></em>, <em class="sig-param"><span class="pre">allstack</span></em>, <em class="sig-param"><span class="pre">h</span></em>, <em class="sig-param"><span class="pre">kappa</span></em>, <em class="sig-param"><span class="pre">besth</span></em>, <em class="sig-param"><span class="pre">bestk</span></em>, <em class="sig-param"><span class="pre">cvalue</span></em>, <em class="sig-param"><span class="pre">cmap=&lt;matplotlib.colors.ListedColormap</span> <span class="pre">object&gt;</span></em>, <em class="sig-param"><span class="pre">title=None</span></em>, <em class="sig-param"><span class="pre">path=None</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/hk.html#plot"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.hk.plot" title="Permalink to this definition">¶</a></dt>
+<dt id="seispy.hk.plot">
+<code class="sig-prename descclassname"><span class="pre">seispy.hk.</span></code><code class="sig-name descname"><span class="pre">plot</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">stack</span></em>, <em class="sig-param"><span class="pre">allstack</span></em>, <em class="sig-param"><span class="pre">h</span></em>, <em class="sig-param"><span class="pre">kappa</span></em>, <em class="sig-param"><span class="pre">besth</span></em>, <em class="sig-param"><span class="pre">bestk</span></em>, <em class="sig-param"><span class="pre">cvalue</span></em>, <em class="sig-param"><span class="pre">cmap=&lt;matplotlib.colors.ListedColormap</span> <span class="pre">object&gt;</span></em>, <em class="sig-param"><span class="pre">title=None</span></em>, <em class="sig-param"><span class="pre">path=None</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/hk.html#plot"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.hk.plot" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="seispy.hk.print_result">
-<span class="sig-prename descclassname"><span class="pre">seispy.hk.</span></span><span class="sig-name descname"><span class="pre">print_result</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">besth</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bestk</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">maxhsig</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">maxksig</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">print_comment</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/hk.html#print_result"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.hk.print_result" title="Permalink to this definition">¶</a></dt>
+<dt id="seispy.hk.print_result">
+<code class="sig-prename descclassname"><span class="pre">seispy.hk.</span></code><code class="sig-name descname"><span class="pre">print_result</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">besth</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bestk</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">maxhsig</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">maxksig</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">print_comment</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/hk.html#print_result"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.hk.print_result" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="seispy.hk.time2idx">
-<span class="sig-prename descclassname"><span class="pre">seispy.hk.</span></span><span class="sig-name descname"><span class="pre">time2idx</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">times</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ti0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dt</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/hk.html#time2idx"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.hk.time2idx" title="Permalink to this definition">¶</a></dt>
+<dt id="seispy.hk.time2idx">
+<code class="sig-prename descclassname"><span class="pre">seispy.hk.</span></code><code class="sig-name descname"><span class="pre">time2idx</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">times</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ti0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dt</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/hk.html#time2idx"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.hk.time2idx" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="seispy.hk.tppps">
-<span class="sig-prename descclassname"><span class="pre">seispy.hk.</span></span><span class="sig-name descname"><span class="pre">tppps</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">depth</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eta_p</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eta_s</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/hk.html#tppps"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.hk.tppps" title="Permalink to this definition">¶</a></dt>
+<dt id="seispy.hk.tppps">
+<code class="sig-prename descclassname"><span class="pre">seispy.hk.</span></code><code class="sig-name descname"><span class="pre">tppps</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">depth</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eta_p</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eta_s</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/hk.html#tppps"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.hk.tppps" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="seispy.hk.tps">
-<span class="sig-prename descclassname"><span class="pre">seispy.hk.</span></span><span class="sig-name descname"><span class="pre">tps</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">depth</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eta_p</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eta_s</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/hk.html#tps"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.hk.tps" title="Permalink to this definition">¶</a></dt>
+<dt id="seispy.hk.tps">
+<code class="sig-prename descclassname"><span class="pre">seispy.hk.</span></code><code class="sig-name descname"><span class="pre">tps</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">depth</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eta_p</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eta_s</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/hk.html#tps"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.hk.tps" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="seispy.hk.tpsps">
-<span class="sig-prename descclassname"><span class="pre">seispy.hk.</span></span><span class="sig-name descname"><span class="pre">tpsps</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">depth</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eta_s</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/hk.html#tpsps"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.hk.tpsps" title="Permalink to this definition">¶</a></dt>
+<dt id="seispy.hk.tpsps">
+<code class="sig-prename descclassname"><span class="pre">seispy.hk.</span></code><code class="sig-name descname"><span class="pre">tpsps</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">depth</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eta_s</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/hk.html#tpsps"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.hk.tpsps" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="seispy.hk.transarray">
-<span class="sig-prename descclassname"><span class="pre">seispy.hk.</span></span><span class="sig-name descname"><span class="pre">transarray</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">array</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">axis</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/hk.html#transarray"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.hk.transarray" title="Permalink to this definition">¶</a></dt>
+<dt id="seispy.hk.transarray">
+<code class="sig-prename descclassname"><span class="pre">seispy.hk.</span></code><code class="sig-name descname"><span class="pre">transarray</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">array</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">axis</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/hk.html#transarray"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.hk.transarray" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="seispy.hk.vslow">
-<span class="sig-prename descclassname"><span class="pre">seispy.hk.</span></span><span class="sig-name descname"><span class="pre">vslow</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">v</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rayp</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/hk.html#vslow"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.hk.vslow" title="Permalink to this definition">¶</a></dt>
+<dt id="seispy.hk.vslow">
+<code class="sig-prename descclassname"><span class="pre">seispy.hk.</span></code><code class="sig-name descname"><span class="pre">vslow</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">v</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rayp</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/hk.html#vslow"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.hk.vslow" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </section>
 <section id="module-seispy.hkpara">
 <span id="seispy-hkpara-module"></span><h2>seispy.hkpara module<a class="headerlink" href="#module-seispy.hkpara" title="Permalink to this headline">¶</a></h2>
 <dl class="py class">
-<dt class="sig sig-object py" id="seispy.hkpara.HKPara">
-<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">seispy.hkpara.</span></span><span class="sig-name descname"><span class="pre">HKPara</span></span><a class="reference internal" href="_modules/seispy/hkpara.html#HKPara"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.hkpara.HKPara" title="Permalink to this definition">¶</a></dt>
+<dt id="seispy.hkpara.HKPara">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">seispy.hkpara.</span></code><code class="sig-name descname"><span class="pre">HKPara</span></code><a class="reference internal" href="_modules/seispy/hkpara.html#HKPara"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.hkpara.HKPara" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<dl class="py property">
-<dt class="sig sig-object py" id="seispy.hkpara.HKPara.hrange">
-<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">hrange</span></span><a class="headerlink" href="#seispy.hkpara.HKPara.hrange" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt id="seispy.hkpara.HKPara.hrange">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">hrange</span></code><a class="headerlink" href="#seispy.hkpara.HKPara.hrange" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py property">
-<dt class="sig sig-object py" id="seispy.hkpara.HKPara.krange">
-<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">krange</span></span><a class="headerlink" href="#seispy.hkpara.HKPara.krange" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt id="seispy.hkpara.HKPara.krange">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">krange</span></code><a class="headerlink" href="#seispy.hkpara.HKPara.krange" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="seispy.hkpara.hkpara">
-<span class="sig-prename descclassname"><span class="pre">seispy.hkpara.</span></span><span class="sig-name descname"><span class="pre">hkpara</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cfg_file</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/hkpara.html#hkpara"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.hkpara.hkpara" title="Permalink to this definition">¶</a></dt>
+<dt id="seispy.hkpara.hkpara">
+<code class="sig-prename descclassname"><span class="pre">seispy.hkpara.</span></code><code class="sig-name descname"><span class="pre">hkpara</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cfg_file</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/hkpara.html#hkpara"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.hkpara.hkpara" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </section>

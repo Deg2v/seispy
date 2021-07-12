@@ -8,14 +8,12 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>Calculating PRFs of the station CB.NJ2 &mdash; seispy latest documentation</title>
+  <title>Calculate PRFs of the station CB.NJ2 &mdash; seispy latest documentation</title>
   
 
   
   <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
 
   
   
@@ -35,7 +33,6 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
         <script src="../_static/doctools.js"></script>
@@ -45,7 +42,7 @@
     
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Module Index" href="../modules.html" />
+    <link rel="next" title="Calculate PRFs of a seismic array in batch" href="ex-ccp.html" />
     <link rel="prev" title="Stack PRFs with Common Conversion points (CCP) method" href="../usage/ccp.html" /> 
 </head>
 
@@ -93,7 +90,7 @@
               
             
             
-              <p class="caption"><span class="caption-text">Getting Started:</span></p>
+              <p><span class="caption-text">Getting Started:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../usage/installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../usage/calrf.html">Calculate a P-wave Receiver Function (PRF)</a></li>
@@ -101,20 +98,22 @@
 <li class="toctree-l1"><a class="reference internal" href="../usage/pickrf.html">Virtual check PRFs with an user interface</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../usage/ccp.html">Stack PRFs with Common Conversion points (CCP) method</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Examples:</span></p>
+<p><span class="caption-text">Examples:</span></p>
 <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Calculating PRFs of the station CB.NJ2</a><ul>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Calculate PRFs of the station CB.NJ2</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#download-seismic-data-and-configure-files">Download Seismic data and configure files</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#run-this-example">Run this example</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="#estimated-the-moho-depth-and-the-crustal-vp-vs-using-the-h-k-stacking-method">Estimated the Moho depth and the crustal Vp/Vs using the H-k stacking method</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="#estimate-the-moho-depth-and-the-crustal-vp-vs-using-the-h-k-stacking-method">Estimate the Moho depth and the crustal Vp/Vs using the H-k stacking method</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#prepare-a-configure-file-for-hk">Prepare a configure file for <code class="docutils literal notranslate"><span class="pre">hk</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="#id1">Run this example</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="ex-ccp.html">Calculate PRFs of a seismic array in batch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ex-ccp.html#ccp-stacking-along-a-linear-seismic-array">CCP stacking along a linear seismic array</a></li>
 </ul>
-<p class="caption"><span class="caption-text">API Documentation:</span></p>
+<p><span class="caption-text">API Documentation:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../modules.html">Module Index</a></li>
 </ul>
@@ -181,7 +180,7 @@
     
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
         
-      <li>Calculating PRFs of the station CB.NJ2</li>
+      <li>Calculate PRFs of the station CB.NJ2</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -202,12 +201,12 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <section id="calculating-prfs-of-the-station-cb-nj2">
-<h1>Calculating PRFs of the station CB.NJ2<a class="headerlink" href="#calculating-prfs-of-the-station-cb-nj2" title="Permalink to this headline">¶</a></h1>
+  <section id="calculate-prfs-of-the-station-cb-nj2">
+<h1>Calculate PRFs of the station CB.NJ2<a class="headerlink" href="#calculate-prfs-of-the-station-cb-nj2" title="Permalink to this headline">¶</a></h1>
 <p>Here, we provide an example for calculating PRFs of CB.NJ2, which is a permanent station at Nanjing China mainland.</p>
 <section id="download-seismic-data-and-configure-files">
 <h2>Download Seismic data and configure files<a class="headerlink" href="#download-seismic-data-and-configure-files" title="Permalink to this headline">¶</a></h2>
-<p>Download link: <a class="reference external" href="https://osf.io/c8h3t/download">ex-prf</a></p>
+<p>Download link: <a class="reference external" href="https://osf.io/c8h3t/download">ex-prf.tar.gz</a></p>
 <p>unzip the file to any directory.</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>tar -xzf Data.CB.NJ2.tar.gz
 </pre></div>
@@ -221,14 +220,14 @@
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>prf rf.cfg
 </pre></div>
 </div>
-<p>As the <code class="docutils literal notranslate"><span class="pre">rfpath</span></code> set in the <code class="docutils literal notranslate"><span class="pre">rf.cfg</span></code>, run following command to virtual check PRFs use a GUI. See <a class="reference internal" href="../usage/pickrf.html"><span class="doc">Virtual check PRFs with an user interface</span></a></p>
+<p>As the <code class="docutils literal notranslate"><span class="pre">rfpath</span></code> set in the <code class="docutils literal notranslate"><span class="pre">rf.cfg</span></code>, run following command to virtual check PRFs use a GUI. See <a class="reference internal" href="../usage/pickrf.html"><span class="doc">Virtual check PRFs with an user interface</span></a> in detail.</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pickrf ./RFresult/CB.NJ2
 </pre></div>
 </div>
 </section>
 </section>
-<section id="estimated-the-moho-depth-and-the-crustal-vp-vs-using-the-h-k-stacking-method">
-<h1>Estimated the Moho depth and the crustal Vp/Vs using the H-k stacking method<a class="headerlink" href="#estimated-the-moho-depth-and-the-crustal-vp-vs-using-the-h-k-stacking-method" title="Permalink to this headline">¶</a></h1>
+<section id="estimate-the-moho-depth-and-the-crustal-vp-vs-using-the-h-k-stacking-method">
+<h1>Estimate the Moho depth and the crustal Vp/Vs using the H-k stacking method<a class="headerlink" href="#estimate-the-moho-depth-and-the-crustal-vp-vs-using-the-h-k-stacking-method" title="Permalink to this headline">¶</a></h1>
 <p>The PRFs had been saved to <code class="docutils literal notranslate"><span class="pre">./RFresult/CB.NJ2</span></code>, and the <code class="docutils literal notranslate"><span class="pre">CB.NJ2finallist.dat</span></code> had been created via the virtual check. The Moho depth can be estimated using the the H-k stacking method.</p>
 <p>The Seispy has provided a command <code class="docutils literal notranslate"><span class="pre">hk</span></code> to do this process.</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>usage: hk <span class="o">[</span>-h<span class="o">]</span> <span class="o">[</span>-p<span class="o">]</span> <span class="o">[</span>-v<span class="o">]</span> cfg_file
@@ -279,8 +278,8 @@ optional arguments:
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>hk hk.cfg -p
 </pre></div>
 </div>
-<p>If <code class="docutils literal notranslate"><span class="pre">-p</span></code> was specified a figure would be generated to <code class="docutils literal notranslate"><span class="pre">hkpath</span></code>, which shows the stacking energy of difference phases and the final result of the estimation.
-<img alt="../_images/CB.NJ2.png" src="../_images/CB.NJ2.png" /></p>
+<p>If <code class="docutils literal notranslate"><span class="pre">-p</span></code> was specified a figure would be generated to <code class="docutils literal notranslate"><span class="pre">hkpath</span></code>, which shows the stacking energy of difference phases and the final result of the estimation.</p>
+<p><img alt="../_images/CB.NJ2.png" src="../_images/CB.NJ2.png" /></p>
 <p>The result of the Moho depth and Vp/Vs were saved into the path of <code class="docutils literal notranslate"><span class="pre">hklst</span></code>(default is <code class="docutils literal notranslate"><span class="pre">hk.dat</span></code>).</p>
 </section>
 </section>
@@ -315,7 +314,7 @@ gitalk.render('gitalk-container');
           </div>
           <footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="../modules.html" class="btn btn-neutral float-right" title="Module Index" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="ex-ccp.html" class="btn btn-neutral float-right" title="Calculate PRFs of a seismic array in batch" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
         <a href="../usage/ccp.html" class="btn btn-neutral float-left" title="Stack PRFs with Common Conversion points (CCP) method" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
 
