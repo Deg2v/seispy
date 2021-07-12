@@ -4,8 +4,7 @@
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8" />
-  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+  
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <title>seispy package &mdash; seispy latest documentation</title>
@@ -89,7 +88,7 @@
               
             
             
-              <p><span class="caption-text">Getting Started:</span></p>
+              <p class="caption"><span class="caption-text">Getting Started:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="usage/installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="usage/calrf.html">Calculate a P-wave Receiver Function (PRF)</a></li>
@@ -97,14 +96,14 @@
 <li class="toctree-l1"><a class="reference internal" href="usage/pickrf.html">Virtual check PRFs with an user interface</a></li>
 <li class="toctree-l1"><a class="reference internal" href="usage/ccp.html">Stack PRFs with Common Conversion points (CCP) method</a></li>
 </ul>
-<p><span class="caption-text">Examples:</span></p>
+<p class="caption"><span class="caption-text">Examples:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="examples/ex-prf.html">Calculate PRFs of the station CB.NJ2</a></li>
 <li class="toctree-l1"><a class="reference internal" href="examples/ex-prf.html#estimate-the-moho-depth-and-the-crustal-vp-vs-using-the-h-k-stacking-method">Estimate the Moho depth and the crustal Vp/Vs using the H-k stacking method</a></li>
 <li class="toctree-l1"><a class="reference internal" href="examples/ex-ccp.html">Calculate PRFs of a seismic array in batch</a></li>
 <li class="toctree-l1"><a class="reference internal" href="examples/ex-ccp.html#ccp-stacking-along-a-linear-seismic-array">CCP stacking along a linear seismic array</a></li>
 </ul>
-<p><span class="caption-text">API Documentation:</span></p>
+<p class="caption"><span class="caption-text">API Documentation:</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="modules.html">Module Index</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="rf.html">RF package</a></li>
@@ -228,9 +227,9 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <section id="seispy-package">
+  <div class="section" id="seispy-package">
 <h1>seispy package<a class="headerlink" href="#seispy-package" title="Permalink to this headline">¶</a></h1>
-<section id="module-seispy.bootstrap">
+<div class="section" id="module-seispy.bootstrap">
 <span id="seispy-bootstrap-module"></span><h2>seispy.bootstrap module<a class="headerlink" href="#module-seispy.bootstrap" title="Permalink to this headline">¶</a></h2>
 <dl class="py exception">
 <dt id="seispy.bootstrap.InstabilityWarning">
@@ -366,7 +365,7 @@ the specified dtype in the “half-open” interval [<cite>low</cite>, <cite>hig
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>New code should use the <code class="docutils literal notranslate"><span class="pre">integers</span></code> method of a <code class="docutils literal notranslate"><span class="pre">default_rng()</span></code>
-instance instead; see <cite>random-quick-start</cite>.</p>
+instance instead; please see the <span class="xref std std-ref">random-quick-start</span>.</p>
 </div>
 <dl>
 <dt>low<span class="classifier">int or array-like of ints</span></dt><dd><p>Lowest (signed) integers to be drawn from the distribution (unless
@@ -440,8 +439,8 @@ will be taken to mean subsamples the same size as the sample (ie, permuted
 samples)</p>
 </dd></dl>
 
-</section>
-<section id="module-seispy.ccp">
+</div>
+<div class="section" id="module-seispy.ccp">
 <span id="seispy-ccp-module"></span><h2>seispy.ccp module<a class="headerlink" href="#module-seispy.ccp" title="Permalink to this headline">¶</a></h2>
 <dl class="py function">
 <dt id="seispy.ccp.ccp_profile">
@@ -517,8 +516,8 @@ samples)</p>
 <code class="sig-prename descclassname"><span class="pre">seispy.ccp.</span></code><code class="sig-name descname"><span class="pre">writedat</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dat_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stack_data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stack_range</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">isci</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/ccp.html#writedat"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.ccp.writedat" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-</section>
-<section id="module-seispy.ccppara">
+</div>
+<div class="section" id="module-seispy.ccppara">
 <span id="seispy-ccppara-module"></span><h2>seispy.ccppara module<a class="headerlink" href="#module-seispy.ccppara" title="Permalink to this headline">¶</a></h2>
 <dl class="py class">
 <dt id="seispy.ccppara.CCPPara">
@@ -541,8 +540,8 @@ samples)</p>
 <code class="sig-prename descclassname"><span class="pre">seispy.ccppara.</span></code><code class="sig-name descname"><span class="pre">ccppara</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cfg_file</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/ccppara.html#ccppara"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.ccppara.ccppara" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-</section>
-<section id="module-seispy.decov">
+</div>
+<div class="section" id="module-seispy.decov">
 <span id="seispy-decov-module"></span><h2>seispy.decov module<a class="headerlink" href="#module-seispy.decov" title="Permalink to this headline">¶</a></h2>
 <dl class="py function">
 <dt id="seispy.decov.correl">
@@ -618,8 +617,8 @@ rms = Root mean square error for predicting numerator after each iteration</p>
 <code class="sig-prename descclassname"><span class="pre">seispy.decov.</span></code><code class="sig-name descname"><span class="pre">phaseshift</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nfft</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dt</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tshift</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/decov.html#phaseshift"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.decov.phaseshift" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-</section>
-<section id="module-seispy.distaz">
+</div>
+<div class="section" id="module-seispy.distaz">
 <span id="seispy-distaz-module"></span><h2>seispy.distaz module<a class="headerlink" href="#module-seispy.distaz" title="Permalink to this headline">¶</a></h2>
 <dl class="py function">
 <dt id="seispy.distaz.acosd">
@@ -755,8 +754,8 @@ return</p>
 <code class="sig-prename descclassname"><span class="pre">seispy.distaz.</span></code><code class="sig-name descname"><span class="pre">tand</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">deg</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/distaz.html#tand"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.distaz.tand" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-</section>
-<section id="module-seispy.eq">
+</div>
+<div class="section" id="module-seispy.eq">
 <span id="seispy-eq-module"></span><h2>seispy.eq module<a class="headerlink" href="#module-seispy.eq" title="Permalink to this headline">¶</a></h2>
 <dl class="py class">
 <dt id="seispy.eq.eq">
@@ -846,8 +845,8 @@ return</p>
 <code class="sig-prename descclassname"><span class="pre">seispy.eq.</span></code><code class="sig-name descname"><span class="pre">rotateZNE</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">st</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/eq.html#rotateZNE"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.eq.rotateZNE" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-</section>
-<section id="module-seispy.geo">
+</div>
+<div class="section" id="module-seispy.geo">
 <span id="seispy-geo-module"></span><h2>seispy.geo module<a class="headerlink" href="#module-seispy.geo" title="Permalink to this headline">¶</a></h2>
 <dl class="py function">
 <dt id="seispy.geo.acosd">
@@ -985,8 +984,8 @@ return</p>
 <code class="sig-prename descclassname"><span class="pre">seispy.geo.</span></code><code class="sig-name descname"><span class="pre">tand</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">deg</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/geo.html#tand"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.geo.tand" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-</section>
-<section id="seispy-get-cpt-module">
+</div>
+<div class="section" id="seispy-get-cpt-module">
 <h2>seispy.get_cpt module<a class="headerlink" href="#seispy-get-cpt-module" title="Permalink to this headline">¶</a></h2>
 <span class="target" id="module-seispy.get_cpt"></span><p>Created:     2020.03
 Copyright:   (c) Dimitrios Bouziotas (bouziot)
@@ -1100,8 +1099,8 @@ axes_off (bool): boolean to erase axes</p>
 <a class="reference external" href="http://matplotlib.org/examples/color/colormaps_reference.html">http://matplotlib.org/examples/color/colormaps_reference.html</a></p>
 </dd></dl>
 
-</section>
-<section id="module-seispy.hk">
+</div>
+<div class="section" id="module-seispy.hk">
 <span id="seispy-hk-module"></span><h2>seispy.hk module<a class="headerlink" href="#module-seispy.hk" title="Permalink to this headline">¶</a></h2>
 <dl class="py function">
 <dt id="seispy.hk.ci">
@@ -1185,8 +1184,8 @@ Calculate error for H and kappa
 <code class="sig-prename descclassname"><span class="pre">seispy.hk.</span></code><code class="sig-name descname"><span class="pre">vslow</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">v</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rayp</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/hk.html#vslow"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.hk.vslow" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-</section>
-<section id="module-seispy.hkpara">
+</div>
+<div class="section" id="module-seispy.hkpara">
 <span id="seispy-hkpara-module"></span><h2>seispy.hkpara module<a class="headerlink" href="#module-seispy.hkpara" title="Permalink to this headline">¶</a></h2>
 <dl class="py class">
 <dt id="seispy.hkpara.HKPara">
@@ -1209,8 +1208,8 @@ Calculate error for H and kappa
 <code class="sig-prename descclassname"><span class="pre">seispy.hkpara.</span></code><code class="sig-name descname"><span class="pre">hkpara</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cfg_file</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/hkpara.html#hkpara"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.hkpara.hkpara" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-</section>
-<section id="module-seispy.io">
+</div>
+<div class="section" id="module-seispy.io">
 <span id="seispy-io-module"></span><h2>seispy.io module<a class="headerlink" href="#module-seispy.io" title="Permalink to this headline">¶</a></h2>
 <dl class="py function">
 <dt id="seispy.io.lsnc">
@@ -1227,16 +1226,16 @@ Calculate error for H and kappa
 <code class="sig-prename descclassname"><span class="pre">seispy.io.</span></code><code class="sig-name descname"><span class="pre">wsfetch</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">server</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">starttime</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">endtime</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">minlatitude</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">maxlatitude</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">minlongitude</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">maxlongitude</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">latitude</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">longitude</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">minradius</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">maxradius</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mindepth</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">maxdepth</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">minmagnitude</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">maxmagnitude</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">magnitudetype</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">includeallorigins</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">includeallmagnitudes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">includearrivals</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eventid</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">limit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">offset</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">orderby</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'time-asc'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">catalog</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">contributor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/io.html#wsfetch"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.io.wsfetch" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-</section>
-<section id="module-seispy.mccc">
+</div>
+<div class="section" id="module-seispy.mccc">
 <span id="seispy-mccc-module"></span><h2>seispy.mccc module<a class="headerlink" href="#module-seispy.mccc" title="Permalink to this headline">¶</a></h2>
 <dl class="py function">
 <dt id="seispy.mccc.mccc">
 <code class="sig-prename descclassname"><span class="pre">seispy.mccc.</span></code><code class="sig-name descname"><span class="pre">mccc</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">seis</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dt</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">twin</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/mccc.html#mccc"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.mccc.mccc" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-</section>
-<section id="module-seispy.para">
+</div>
+<div class="section" id="module-seispy.para">
 <span id="seispy-para-module"></span><h2>seispy.para module<a class="headerlink" href="#module-seispy.para" title="Permalink to this headline">¶</a></h2>
 <dl class="py class">
 <dt id="seispy.para.para">
@@ -1274,8 +1273,8 @@ Calculate error for H and kappa
 
 </dd></dl>
 
-</section>
-<section id="module-seispy.pickfigure">
+</div>
+<div class="section" id="module-seispy.pickfigure">
 <span id="seispy-pickfigure-module"></span><h2>seispy.pickfigure module<a class="headerlink" href="#module-seispy.pickfigure" title="Permalink to this headline">¶</a></h2>
 <dl class="py class">
 <dt id="seispy.pickfigure.RFFigure">
@@ -1376,8 +1375,8 @@ Calculate error for H and kappa
 <code class="sig-prename descclassname"><span class="pre">seispy.pickfigure.</span></code><code class="sig-name descname"><span class="pre">indexpags</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">evt_num</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">maxidx</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">20</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/pickfigure.html#indexpags"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.pickfigure.indexpags" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-</section>
-<section id="module-seispy.pickui">
+</div>
+<div class="section" id="module-seispy.pickui">
 <span id="seispy-pickui-module"></span><h2>seispy.pickui module<a class="headerlink" href="#module-seispy.pickui" title="Permalink to this headline">¶</a></h2>
 <dl class="py class">
 <dt id="seispy.pickui.MatplotlibWidget">
@@ -1446,8 +1445,8 @@ Calculate error for H and kappa
 <code class="sig-prename descclassname"><span class="pre">seispy.pickui.</span></code><code class="sig-name descname"><span class="pre">main</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/pickui.html#main"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.pickui.main" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-</section>
-<section id="module-seispy.plotR">
+</div>
+<div class="section" id="module-seispy.plotR">
 <span id="seispy-plotr-module"></span><h2>seispy.plotR module<a class="headerlink" href="#module-seispy.plotR" title="Permalink to this headline">¶</a></h2>
 <dl class="py function">
 <dt id="seispy.plotR.init_figure">
@@ -1479,8 +1478,8 @@ Calculate error for H and kappa
 <code class="sig-prename descclassname"><span class="pre">seispy.plotR.</span></code><code class="sig-name descname"><span class="pre">set_fig</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">axr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">axb</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stadata</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">station</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xmin</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-</span> <span class="pre">2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xmax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">80</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/plotR.html#set_fig"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.plotR.set_fig" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-</section>
-<section id="module-seispy.plotRT">
+</div>
+<div class="section" id="module-seispy.plotRT">
 <span id="seispy-plotrt-module"></span><h2>seispy.plotRT module<a class="headerlink" href="#module-seispy.plotRT" title="Permalink to this headline">¶</a></h2>
 <dl class="py function">
 <dt id="seispy.plotRT.init_figure">
@@ -1512,8 +1511,8 @@ Calculate error for H and kappa
 <code class="sig-prename descclassname"><span class="pre">seispy.plotRT.</span></code><code class="sig-name descname"><span class="pre">set_fig</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">axr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">axt</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">axb</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">axr_sum</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">axt_sum</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stadata</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">station</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xmin</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-</span> <span class="pre">2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xmax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">30</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/plotRT.html#set_fig"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.plotRT.set_fig" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-</section>
-<section id="module-seispy.psrayp">
+</div>
+<div class="section" id="module-seispy.psrayp">
 <span id="seispy-psrayp-module"></span><h2>seispy.psrayp module<a class="headerlink" href="#module-seispy.psrayp" title="Permalink to this headline">¶</a></h2>
 <dl class="py class">
 <dt id="seispy.psrayp.PsRayp">
@@ -1559,8 +1558,8 @@ Calculate error for H and kappa
 <code class="sig-prename descclassname"><span class="pre">seispy.psrayp.</span></code><code class="sig-name descname"><span class="pre">get_psrayp</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rayp_lib</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dis</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dep</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">layers</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/psrayp.html#get_psrayp"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.psrayp.get_psrayp" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-</section>
-<section id="module-seispy.rf">
+</div>
+<div class="section" id="module-seispy.rf">
 <span id="seispy-rf-module"></span><h2>seispy.rf module<a class="headerlink" href="#module-seispy.rf" title="Permalink to this headline">¶</a></h2>
 <dl class="py function">
 <dt id="seispy.rf.CfgModify">
@@ -1704,8 +1703,8 @@ Calculate error for H and kappa
 
 </dd></dl>
 
-</section>
-<section id="module-seispy.rf2depth_makedata">
+</div>
+<div class="section" id="module-seispy.rf2depth_makedata">
 <span id="seispy-rf2depth-makedata-module"></span><h2>seispy.rf2depth_makedata module<a class="headerlink" href="#module-seispy.rf2depth_makedata" title="Permalink to this headline">¶</a></h2>
 <dl class="py class">
 <dt id="seispy.rf2depth_makedata.Station">
@@ -1733,8 +1732,8 @@ Calculate error for H and kappa
 <code class="sig-prename descclassname"><span class="pre">seispy.rf2depth_makedata.</span></code><code class="sig-name descname"><span class="pre">rf2depth</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/rf2depth_makedata.html#rf2depth"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.rf2depth_makedata.rf2depth" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-</section>
-<section id="module-seispy.rfcorrect">
+</div>
+<div class="section" id="module-seispy.rfcorrect">
 <span id="seispy-rfcorrect-module"></span><h2>seispy.rfcorrect module<a class="headerlink" href="#module-seispy.rfcorrect" title="Permalink to this headline">¶</a></h2>
 <dl class="py class">
 <dt id="seispy.rfcorrect.DepModel">
@@ -1856,8 +1855,8 @@ Calculate error for H and kappa
 <code class="sig-prename descclassname"><span class="pre">seispy.rfcorrect.</span></code><code class="sig-name descname"><span class="pre">time2depth</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">stadatar</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">YAxisRange</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Tpds</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/rfcorrect.html#time2depth"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.rfcorrect.time2depth" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-</section>
-<section id="module-seispy.setuplog">
+</div>
+<div class="section" id="module-seispy.setuplog">
 <span id="seispy-setuplog-module"></span><h2>seispy.setuplog module<a class="headerlink" href="#module-seispy.setuplog" title="Permalink to this headline">¶</a></h2>
 <dl class="py class">
 <dt id="seispy.setuplog.setuplog">
@@ -1865,8 +1864,8 @@ Calculate error for H and kappa
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 </dd></dl>
 
-</section>
-<section id="module-seispy.signal">
+</div>
+<div class="section" id="module-seispy.signal">
 <span id="seispy-signal-module"></span><h2>seispy.signal module<a class="headerlink" href="#module-seispy.signal" title="Permalink to this headline">¶</a></h2>
 <dl class="py function">
 <dt id="seispy.signal.smooth">
@@ -1925,8 +1924,8 @@ and returns the whitened fft.</p>
 </dl>
 </dd></dl>
 
-</section>
-<section id="module-seispy.updatecatalog">
+</div>
+<div class="section" id="module-seispy.updatecatalog">
 <span id="seispy-updatecatalog-module"></span><h2>seispy.updatecatalog module<a class="headerlink" href="#module-seispy.updatecatalog" title="Permalink to this headline">¶</a></h2>
 <dl class="py function">
 <dt id="seispy.updatecatalog.convertinfo">
@@ -1935,7 +1934,7 @@ and returns the whitened fft.</p>
 
 <dl class="py function">
 <dt id="seispy.updatecatalog.fetch_cata">
-<code class="sig-prename descclassname"><span class="pre">seispy.updatecatalog.</span></code><code class="sig-name descname"><span class="pre">fetch_cata</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">inlog</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'/home/travis/virtualenv/python3.6.7/lib/python3.6/site-packages/seispy/data/EventCMT.dat'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">outlog</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/updatecatalog.html#fetch_cata"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.updatecatalog.fetch_cata" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">seispy.updatecatalog.</span></code><code class="sig-name descname"><span class="pre">fetch_cata</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">inlog</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'/home/travis/virtualenv/python3.8.7/lib/python3.8/site-packages/seispy/data/EventCMT.dat'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">outlog</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/updatecatalog.html#fetch_cata"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.updatecatalog.fetch_cata" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py function">
@@ -1953,11 +1952,11 @@ and returns the whitened fft.</p>
 <code class="sig-prename descclassname"><span class="pre">seispy.updatecatalog.</span></code><code class="sig-name descname"><span class="pre">ndkparse</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ndk_str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/updatecatalog.html#ndkparse"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.updatecatalog.ndkparse" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-</section>
-<section id="module-seispy">
+</div>
+<div class="section" id="module-seispy">
 <span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-seispy" title="Permalink to this headline">¶</a></h2>
-</section>
-</section>
+</div>
+</div>
 
 
            </div>

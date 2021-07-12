@@ -4,8 +4,7 @@
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8" />
-  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+  
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <title>CCP package &mdash; seispy latest documentation</title>
@@ -90,7 +89,7 @@
               
             
             
-              <p><span class="caption-text">Getting Started:</span></p>
+              <p class="caption"><span class="caption-text">Getting Started:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="usage/installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="usage/calrf.html">Calculate a P-wave Receiver Function (PRF)</a></li>
@@ -98,14 +97,14 @@
 <li class="toctree-l1"><a class="reference internal" href="usage/pickrf.html">Virtual check PRFs with an user interface</a></li>
 <li class="toctree-l1"><a class="reference internal" href="usage/ccp.html">Stack PRFs with Common Conversion points (CCP) method</a></li>
 </ul>
-<p><span class="caption-text">Examples:</span></p>
+<p class="caption"><span class="caption-text">Examples:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="examples/ex-prf.html">Calculate PRFs of the station CB.NJ2</a></li>
 <li class="toctree-l1"><a class="reference internal" href="examples/ex-prf.html#estimate-the-moho-depth-and-the-crustal-vp-vs-using-the-h-k-stacking-method">Estimate the Moho depth and the crustal Vp/Vs using the H-k stacking method</a></li>
 <li class="toctree-l1"><a class="reference internal" href="examples/ex-ccp.html">Calculate PRFs of a seismic array in batch</a></li>
 <li class="toctree-l1"><a class="reference internal" href="examples/ex-ccp.html#ccp-stacking-along-a-linear-seismic-array">CCP stacking along a linear seismic array</a></li>
 </ul>
-<p><span class="caption-text">API Documentation:</span></p>
+<p class="caption"><span class="caption-text">API Documentation:</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="modules.html">Module Index</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="rf.html">RF package</a></li>
@@ -208,9 +207,9 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <section id="ccp-package">
+  <div class="section" id="ccp-package">
 <h1>CCP package<a class="headerlink" href="#ccp-package" title="Permalink to this headline">¶</a></h1>
-<section id="module-seispy.rfcorrect">
+<div class="section" id="module-seispy.rfcorrect">
 <span id="seispy-rfcorrect-module"></span><h2>seispy.rfcorrect module<a class="headerlink" href="#module-seispy.rfcorrect" title="Permalink to this headline">¶</a></h2>
 <dl class="py class">
 <dt id="seispy.rfcorrect.DepModel">
@@ -332,8 +331,8 @@
 <code class="sig-prename descclassname"><span class="pre">seispy.rfcorrect.</span></code><code class="sig-name descname"><span class="pre">time2depth</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">stadatar</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">YAxisRange</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Tpds</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/rfcorrect.html#time2depth"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.rfcorrect.time2depth" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-</section>
-<section id="module-seispy.rf2depth_makedata">
+</div>
+<div class="section" id="module-seispy.rf2depth_makedata">
 <span id="seispy-rf2depth-makedata-module"></span><h2>seispy.rf2depth_makedata module<a class="headerlink" href="#module-seispy.rf2depth_makedata" title="Permalink to this headline">¶</a></h2>
 <dl class="py class">
 <dt id="seispy.rf2depth_makedata.Station">
@@ -361,8 +360,8 @@
 <code class="sig-prename descclassname"><span class="pre">seispy.rf2depth_makedata.</span></code><code class="sig-name descname"><span class="pre">rf2depth</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/rf2depth_makedata.html#rf2depth"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.rf2depth_makedata.rf2depth" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-</section>
-<section id="module-seispy.ccp">
+</div>
+<div class="section" id="module-seispy.ccp">
 <span id="seispy-ccp-module"></span><h2>seispy.ccp module<a class="headerlink" href="#module-seispy.ccp" title="Permalink to this headline">¶</a></h2>
 <dl class="py function">
 <dt id="seispy.ccp.ccp_profile">
@@ -438,8 +437,8 @@
 <code class="sig-prename descclassname"><span class="pre">seispy.ccp.</span></code><code class="sig-name descname"><span class="pre">writedat</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dat_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stack_data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stack_range</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">isci</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/ccp.html#writedat"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.ccp.writedat" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-</section>
-<section id="module-seispy.ccppara">
+</div>
+<div class="section" id="module-seispy.ccppara">
 <span id="seispy-ccppara-module"></span><h2>seispy.ccppara module<a class="headerlink" href="#module-seispy.ccppara" title="Permalink to this headline">¶</a></h2>
 <dl class="py class">
 <dt id="seispy.ccppara.CCPPara">
@@ -462,8 +461,8 @@
 <code class="sig-prename descclassname"><span class="pre">seispy.ccppara.</span></code><code class="sig-name descname"><span class="pre">ccppara</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cfg_file</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/ccppara.html#ccppara"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.ccppara.ccppara" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-</section>
-</section>
+</div>
+</div>
 
 
            </div>

@@ -4,8 +4,7 @@
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8" />
-  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+  
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <title>Calculate PRFs of a seismic array in batch &mdash; seispy latest documentation</title>
@@ -90,7 +89,7 @@
               
             
             
-              <p><span class="caption-text">Getting Started:</span></p>
+              <p class="caption"><span class="caption-text">Getting Started:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../usage/installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../usage/calrf.html">Calculate a P-wave Receiver Function (PRF)</a></li>
@@ -98,7 +97,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../usage/pickrf.html">Virtual check PRFs with an user interface</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../usage/ccp.html">Stack PRFs with Common Conversion points (CCP) method</a></li>
 </ul>
-<p><span class="caption-text">Examples:</span></p>
+<p class="caption"><span class="caption-text">Examples:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="ex-prf.html">Calculate PRFs of the station CB.NJ2</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ex-prf.html#estimate-the-moho-depth-and-the-crustal-vp-vs-using-the-h-k-stacking-method">Estimate the Moho depth and the crustal Vp/Vs using the H-k stacking method</a></li>
@@ -116,7 +115,7 @@
 </ul>
 </li>
 </ul>
-<p><span class="caption-text">API Documentation:</span></p>
+<p class="caption"><span class="caption-text">API Documentation:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../modules.html">Module Index</a></li>
 </ul>
@@ -204,15 +203,15 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <section id="calculate-prfs-of-a-seismic-array-in-batch">
+  <div class="section" id="calculate-prfs-of-a-seismic-array-in-batch">
 <h1>Calculate PRFs of a seismic array in batch<a class="headerlink" href="#calculate-prfs-of-a-seismic-array-in-batch" title="Permalink to this headline">¶</a></h1>
 <p>This example provide a procedure for batch calculating PRFs of NCISP-III array (Zheng et al., 2007)</p>
-<section id="download-teleseismic-data-records">
+<div class="section" id="download-teleseismic-data-records">
 <h2>Download teleseismic data records<a class="headerlink" href="#download-teleseismic-data-records" title="Permalink to this headline">¶</a></h2>
 <p>Download link: <a class="reference external" href="https://osf.io/wsj83/download">ex-batRF.tar.gz</a></p>
 <p>Unzip the file to any directory. The package include <code class="docutils literal notranslate"><span class="pre">Data.ZX</span></code> with 47 sub folders named as <code class="docutils literal notranslate"><span class="pre">network.station</span></code>, which include <code class="docutils literal notranslate"><span class="pre">sac</span></code> files cut out from 300 s after origin time to 1000 s after origin time seismic events. The <code class="docutils literal notranslate"><span class="pre">SACHeader</span></code> of station information (<code class="docutils literal notranslate"><span class="pre">netwk</span></code>, <code class="docutils literal notranslate"><span class="pre">stnm</span></code>, <code class="docutils literal notranslate"><span class="pre">stla</span></code> and <code class="docutils literal notranslate"><span class="pre">stlo</span></code>) had been written into <code class="docutils literal notranslate"><span class="pre">sac</span></code> files.</p>
-</section>
-<section id="write-a-script-of-batch-calculation">
+</div>
+<div class="section" id="write-a-script-of-batch-calculation">
 <h2>Write a script of batch calculation<a class="headerlink" href="#write-a-script-of-batch-calculation" title="Permalink to this headline">¶</a></h2>
 <p>Seispy has provided a command called <code class="docutils literal notranslate"><span class="pre">setpar</span></code>, which will modify values in the <code class="docutils literal notranslate"><span class="pre">.cfg</span></code> file. Combining with a list of station information with 3 columns (<code class="docutils literal notranslate"><span class="pre">staname</span></code>, <code class="docutils literal notranslate"><span class="pre">stla</span></code>, <code class="docutils literal notranslate"><span class="pre">stlo</span></code>), We can use the <code class="docutils literal notranslate"><span class="pre">setpar</span></code> and <code class="docutils literal notranslate"><span class="pre">prf</span></code> command in shell script (<code class="docutils literal notranslate"><span class="pre">run.sh</span></code>) for batch calculation of the PRFs. In this example, please execute <code class="docutils literal notranslate"><span class="pre">run.sh</span></code> in <code class="docutils literal notranslate"><span class="pre">ex-batRF</span></code> directory for the batch calculation.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="k">while</span> <span class="nb">read</span> staname stla stlo
@@ -228,19 +227,19 @@
 <li><p>The <code class="docutils literal notranslate"><span class="pre">rf.cfg</span></code> is the configure file. In addition to the <code class="docutils literal notranslate"><span class="pre">datapath</span></code> and <code class="docutils literal notranslate"><span class="pre">rfpath</span></code>, other parameters can be set in advance.</p></li>
 <li><p>If set up a local catalog, the calculation time will be saved.</p></li>
 </ul>
-</section>
-</section>
-<section id="ccp-stacking-along-a-linear-seismic-array">
+</div>
+</div>
+<div class="section" id="ccp-stacking-along-a-linear-seismic-array">
 <h1>CCP stacking along a linear seismic array<a class="headerlink" href="#ccp-stacking-along-a-linear-seismic-array" title="Permalink to this headline">¶</a></h1>
 <p>Download link: <a class="reference external" href="https://osf.io/hzq2x/download">ex-ccp.tar.gz</a></p>
-<section id="preparation">
+<div class="section" id="preparation">
 <h2>Preparation<a class="headerlink" href="#preparation" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>A Folder with PRFs (<code class="docutils literal notranslate"><span class="pre">RFresult</span></code>)</p></li>
 <li><p>A configure file with <code class="docutils literal notranslate"><span class="pre">cfg</span></code> format (<code class="docutils literal notranslate"><span class="pre">ccp.cfg</span></code>).</p></li>
 </ul>
-</section>
-<section id="time-to-depth-conversion">
+</div>
+<div class="section" id="time-to-depth-conversion">
 <h2>Time-to-depth conversion<a class="headerlink" href="#time-to-depth-conversion" title="Permalink to this headline">¶</a></h2>
 <p>specify following parameters in the <code class="docutils literal notranslate"><span class="pre">ccp.cfg</span></code> for time-to-depth conversion</p>
 <ul class="simple">
@@ -253,8 +252,8 @@
 </pre></div>
 </div>
 <p>After the time-to-depth conversion, the <code class="docutils literal notranslate"><span class="pre">RFdepth.mat</span></code> will be generated following the path set as <code class="docutils literal notranslate"><span class="pre">depthdat</span></code>.</p>
-</section>
-<section id="ccp-stacking">
+</div>
+<div class="section" id="ccp-stacking">
 <h2>CCP stacking<a class="headerlink" href="#ccp-stacking" title="Permalink to this headline">¶</a></h2>
 <p>specify following parameters in the <code class="docutils literal notranslate"><span class="pre">ccp.cfg</span></code> for CCP stacking. See <a class="reference internal" href="../usage/ccp.html"><span class="doc">Stack PRFs with Common Conversion points (CCP) method</span></a> in detail.</p>
 <ul class="simple">
@@ -269,19 +268,19 @@
 </pre></div>
 </div>
 <p>An ASCII file set by <code class="docutils literal notranslate"><span class="pre">stackfile</span></code> will be generated including 6 columns (<code class="docutils literal notranslate"><span class="pre">bin_lat</span></code>, <code class="docutils literal notranslate"><span class="pre">bin_lon</span></code>, <code class="docutils literal notranslate"><span class="pre">bin_distance</span></code>, <code class="docutils literal notranslate"><span class="pre">depth</span></code>, <code class="docutils literal notranslate"><span class="pre">amplitude</span></code> and <code class="docutils literal notranslate"><span class="pre">stack_num</span></code>).</p>
-</section>
-<section id="plot-the-stacking-image">
+</div>
+<div class="section" id="plot-the-stacking-image">
 <h2>Plot the stacking image<a class="headerlink" href="#plot-the-stacking-image" title="Permalink to this headline">¶</a></h2>
 <p>Seispy dose not provide any functions or script for plotting stacking image. Here we provide a script with GMT6 format for plotting the image. Just run in <code class="docutils literal notranslate"><span class="pre">ex-ccp</span></code> directory.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sh</span> <span class="n">ps_profile</span><span class="o">.</span><span class="n">sh</span>
 </pre></div>
 </div>
-</section>
-<section id="reference">
+</div>
+<div class="section" id="reference">
 <h2>Reference<a class="headerlink" href="#reference" title="Permalink to this headline">¶</a></h2>
 <p>Zheng T, Chen L, Zhao L, et al. Crustal structure across the Yanshan belt at the northern margin of the North China Craton[J]. Physics of the Earth and Planetary Interiors, 2007, 161(1-2): 36-49.</p>
-</section>
-</section>
+</div>
+</div>
 
 
            </div>

@@ -4,8 +4,7 @@
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8" />
-  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+  
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <title>Calculate PRFs of the station CB.NJ2 &mdash; seispy latest documentation</title>
@@ -90,7 +89,7 @@
               
             
             
-              <p><span class="caption-text">Getting Started:</span></p>
+              <p class="caption"><span class="caption-text">Getting Started:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../usage/installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../usage/calrf.html">Calculate a P-wave Receiver Function (PRF)</a></li>
@@ -98,7 +97,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../usage/pickrf.html">Virtual check PRFs with an user interface</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../usage/ccp.html">Stack PRFs with Common Conversion points (CCP) method</a></li>
 </ul>
-<p><span class="caption-text">Examples:</span></p>
+<p class="caption"><span class="caption-text">Examples:</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Calculate PRFs of the station CB.NJ2</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#download-seismic-data-and-configure-files">Download Seismic data and configure files</a></li>
@@ -113,7 +112,7 @@
 <li class="toctree-l1"><a class="reference internal" href="ex-ccp.html">Calculate PRFs of a seismic array in batch</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ex-ccp.html#ccp-stacking-along-a-linear-seismic-array">CCP stacking along a linear seismic array</a></li>
 </ul>
-<p><span class="caption-text">API Documentation:</span></p>
+<p class="caption"><span class="caption-text">API Documentation:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../modules.html">Module Index</a></li>
 </ul>
@@ -201,10 +200,10 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <section id="calculate-prfs-of-the-station-cb-nj2">
+  <div class="section" id="calculate-prfs-of-the-station-cb-nj2">
 <h1>Calculate PRFs of the station CB.NJ2<a class="headerlink" href="#calculate-prfs-of-the-station-cb-nj2" title="Permalink to this headline">¶</a></h1>
 <p>Here, we provide an example for calculating PRFs of CB.NJ2, which is a permanent station at Nanjing China mainland.</p>
-<section id="download-seismic-data-and-configure-files">
+<div class="section" id="download-seismic-data-and-configure-files">
 <h2>Download Seismic data and configure files<a class="headerlink" href="#download-seismic-data-and-configure-files" title="Permalink to this headline">¶</a></h2>
 <p>Download link: <a class="reference external" href="https://osf.io/c8h3t/download">ex-prf.tar.gz</a></p>
 <p>unzip the file to any directory.</p>
@@ -213,8 +212,8 @@
 </div>
 <p>the package include the seismic records of the station CB.NJ2 and configure files for calculating PRFs and H-k stacking.</p>
 <p>The seismic records of CB.NJ2 were cut out from origin time of seismic events to 1000 s after the origin time, which contained the direct P wave and its conversion phases.</p>
-</section>
-<section id="run-this-example">
+</div>
+<div class="section" id="run-this-example">
 <h2>Run this example<a class="headerlink" href="#run-this-example" title="Permalink to this headline">¶</a></h2>
 <p>Change directory to Data.CB.NJ2 then execute following command:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>prf rf.cfg
@@ -224,9 +223,9 @@
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pickrf ./RFresult/CB.NJ2
 </pre></div>
 </div>
-</section>
-</section>
-<section id="estimate-the-moho-depth-and-the-crustal-vp-vs-using-the-h-k-stacking-method">
+</div>
+</div>
+<div class="section" id="estimate-the-moho-depth-and-the-crustal-vp-vs-using-the-h-k-stacking-method">
 <h1>Estimate the Moho depth and the crustal Vp/Vs using the H-k stacking method<a class="headerlink" href="#estimate-the-moho-depth-and-the-crustal-vp-vs-using-the-h-k-stacking-method" title="Permalink to this headline">¶</a></h1>
 <p>The PRFs had been saved to <code class="docutils literal notranslate"><span class="pre">./RFresult/CB.NJ2</span></code>, and the <code class="docutils literal notranslate"><span class="pre">CB.NJ2finallist.dat</span></code> had been created via the virtual check. The Moho depth can be estimated using the the H-k stacking method.</p>
 <p>The Seispy has provided a command <code class="docutils literal notranslate"><span class="pre">hk</span></code> to do this process.</p>
@@ -243,7 +242,7 @@ optional arguments:
   -v          Display results to standard output
 </pre></div>
 </div>
-<section id="prepare-a-configure-file-for-hk">
+<div class="section" id="prepare-a-configure-file-for-hk">
 <h2>Prepare a configure file for <code class="docutils literal notranslate"><span class="pre">hk</span></code><a class="headerlink" href="#prepare-a-configure-file-for-hk" title="Permalink to this headline">¶</a></h2>
 <p>Here we provide an <code class="docutils literal notranslate"><span class="pre">hk.cfg</span></code> in this example. In this file, please specify input/output directories and some other parameters.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">FileIO</span><span class="p">]</span>
@@ -272,8 +271,8 @@ optional arguments:
 <span class="n">weight3</span> <span class="o">=</span> <span class="mf">0.1</span>
 </pre></div>
 </div>
-</section>
-<section id="id1">
+</div>
+<div class="section" id="id1">
 <h2>Run this example<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>hk hk.cfg -p
 </pre></div>
@@ -281,8 +280,8 @@ optional arguments:
 <p>If <code class="docutils literal notranslate"><span class="pre">-p</span></code> was specified a figure would be generated to <code class="docutils literal notranslate"><span class="pre">hkpath</span></code>, which shows the stacking energy of difference phases and the final result of the estimation.</p>
 <p><img alt="../_images/CB.NJ2.png" src="../_images/CB.NJ2.png" /></p>
 <p>The result of the Moho depth and Vp/Vs were saved into the path of <code class="docutils literal notranslate"><span class="pre">hklst</span></code>(default is <code class="docutils literal notranslate"><span class="pre">hk.dat</span></code>).</p>
-</section>
-</section>
+</div>
+</div>
 
 
            </div>
