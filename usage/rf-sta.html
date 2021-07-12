@@ -110,7 +110,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#associate-sac-files-with-events">Associate SAC files with events</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#pretreatment">Pretreatment</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#filter">Filter</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#signal-noise-ratios-calculation">Signal-noise-ratios calculation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#signal-noise-ratios-snr-calculation">Signal-noise-ratios (SNR) calculation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#trim">Trim</a></li>
 </ul>
 </li>
@@ -318,7 +318,7 @@
 <li><p><code class="docutils literal notranslate"><span class="pre">cfg_file</span></code>: configure file shown above.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">-l</span></code> if the argument was specified, a local file of catalog would be used in searching earthquakes.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">-r</span></code> Reverse the horizontal components. The arguments should be in <code class="docutils literal notranslate"><span class="pre">EN</span></code>, <code class="docutils literal notranslate"><span class="pre">E</span></code> or <code class="docutils literal notranslate"><span class="pre">N</span></code>.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">-s</span></code> If this option is specified the the East and North components would be changed.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-s</span></code> If this option is specified, the East and North components would be changed.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">-b</span></code> Correct the back-azimuth with minimal energy of T component. the argument would be specified as half-searching range. Default value is 90 deg.</p></li>
 </ul>
 </div>
@@ -385,7 +385,7 @@
 <p>We use the same process as the <a class="reference external" href="https://git.nju.edu.cn/xumi1993/SplitRFLab">SplitRFLab</a>. To match the data records and events, we should search earthquakes with some criteria (period, epicentral distance and magnitude).</p>
 <div class="section" id="load-station-information">
 <h3>Load station information<a class="headerlink" href="#load-station-information" title="Permalink to this headline">¶</a></h3>
-<p>the The station latitude and longitude are absolutely necessary when we are used to search earthquakes. the function will read stla and stlo of SAC header from files in pjt.para.datapath.</p>
+<p>the The station latitude and longitude are absolutely necessary when we are used to search earthquakes. the function will read <code class="docutils literal notranslate"><span class="pre">stla</span></code> and <code class="docutils literal notranslate"><span class="pre">stlo</span></code> of SAC header from files in pjt.para.datapath.</p>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">pjt</span><span class="o">.</span><span class="n">load_stainfo</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -397,7 +397,7 @@
 </pre></div>
 </div>
 <p>to search earthquakes in IRIS Web service with the CMT catalog.</p>
-<p>In addition, the function allow to perpare earthquakes from a CMT catalog file (saved to seispy/seispy/data/EventCMT.dat). Use command updatecatalog to update the catalog file.</p>
+<p>In addition, the function allow to prepare earthquakes from a CMT catalog file (saved to seispy/seispy/data/EventCMT.dat). Use command <code class="docutils literal notranslate"><span class="pre">updatecatalog</span></code> to update the catalog file.</p>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">pjt</span><span class="o">.</span><span class="n">search_eq</span><span class="p">(</span><span class="n">local</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -428,8 +428,8 @@
 <li><p><code class="docutils literal notranslate"><span class="pre">para.freqmax</span></code>: Pass band high corner frequency.</p></li>
 </ul>
 </div>
-<div class="section" id="signal-noise-ratios-calculation">
-<h3>Signal-noise-ratios calculation<a class="headerlink" href="#signal-noise-ratios-calculation" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="signal-noise-ratios-snr-calculation">
+<h3>Signal-noise-ratios (SNR) calculation<a class="headerlink" href="#signal-noise-ratios-snr-calculation" title="Permalink to this headline">¶</a></h3>
 <p>Bad records will be rejected in this step. We will reject records with SNR &lt; <code class="docutils literal notranslate"><span class="pre">para.noisegate</span></code>. The SNR was calculated as:</p>
 <p>$$
 SNR = 10log_{10}\left(\frac{A_S}{A_N}\right)
@@ -474,7 +474,7 @@ a <code class="docutils literal notranslate"><span class="pre">para.noiselen</sp
 <div class="section" id="mtz">
 <h3><code class="docutils literal notranslate"><span class="pre">mtz</span></code><a class="headerlink" href="#mtz" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
-<li><p>The maximum peak should appear berween -5s and 5s</p></li>
+<li><p>The maximum peak should appear between -5s and 5s</p></li>
 <li><p>the maximum amplitudes of PRFs in a 30–120 s window after the direct P are smaller than 30% of the maximum amplitudes of the direct P phases.</p></li>
 </ul>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">pjt</span><span class="o">.</span><span class="n">saverf</span><span class="p">(</span><span class="n">criterion</span><span class="o">=</span><span class="s1">&#39;crust&#39;</span><span class="p">)</span>
