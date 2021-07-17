@@ -205,30 +205,41 @@
 <h1>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="dependencies">
 <h2>Dependencies<a class="headerlink" href="#dependencies" title="Permalink to this headline">¶</a></h2>
-<p>The current version has been integration tested using <strong>Python 3</strong>. We recommend <a class="reference external" href="https://www.anaconda.com/">Anaconda</a> as the Python environment</p>
+<p>The current version has been integration tested using <strong>Python 3</strong>. We recommend to install the <a class="reference external" href="https://www.anaconda.com/">Anaconda</a> as the Python environment.</p>
+<p>Following Python modules are required for the Seispy, <strong>but do not have to be installed manually.</strong></p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://numpy.org/">Numpy</a></p></li>
+<li><p><a class="reference external" href="https://www.scipy.org/scipylib/index.html">Scipy</a></p></li>
+<li><p><a class="reference external" href="https://docs.obspy.org/">Obspy</a></p></li>
+<li><p><a class="reference external" href="https://matplotlib.org/">Matplotlib</a></p></li>
+<li><p><a class="reference external" href="https://pypi.org/project/PyQt5/">Pyqt5</a></p></li>
+</ul>
 </div>
 <div class="section" id="install-seispy">
 <h2>Install Seispy<a class="headerlink" href="#install-seispy" title="Permalink to this headline">¶</a></h2>
-<p>Now download and install Seispy</p>
+<p>Now download and install Seispy.</p>
 <div class="section" id="download-the-source-codes">
 <h3>Download the source codes<a class="headerlink" href="#download-the-source-codes" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">xumi1993</span><span class="o">/</span><span class="n">seispy</span><span class="o">.</span><span class="n">git</span>
+<p>Clone the source code from <a class="reference external" href="https://github.com/xumi1993/seispy.git">Github</a> to any directory.</p>
+<div class="highlight-Shell notranslate"><div class="highlight"><pre><span></span>git clone https://github.com/xumi1993/seispy.git
 </pre></div>
 </div>
 </div>
 <div class="section" id="install-seispy-to-the-python-environment">
 <h3>Install Seispy to the Python environment<a class="headerlink" href="#install-seispy-to-the-python-environment" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="n">seispy</span>
-<span class="n">pip</span> <span class="n">install</span> <span class="o">.</span>
+<p>Change path to where the source code was cloned into, and install the module via <a class="reference external" href="https://pip.pypa.io/">Python pip</a> command</p>
+<div class="highlight-Shell notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> seispy
+pip install .
 </pre></div>
 </div>
 </div>
 </div>
 <div class="section" id="update-seispy">
 <h2>Update Seispy<a class="headerlink" href="#update-seispy" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="n">seispy</span>
-<span class="n">git</span> <span class="n">pull</span>
-<span class="n">pip</span> <span class="n">install</span> <span class="o">.</span>
+<p>To update the Seispy, please change to directory of the source code, and execute following commands.</p>
+<div class="highlight-Shell notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> seispy
+git pull
+pip install .
 </pre></div>
 </div>
 </div>

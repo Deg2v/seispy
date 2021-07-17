@@ -325,7 +325,7 @@
 <div class="section" id="initialize-a-project-instance">
 <h2>Initialize a project instance<a class="headerlink" href="#initialize-a-project-instance" title="Permalink to this headline">¶</a></h2>
 <p><strong>To further understand the procedure of the command <code class="docutils literal notranslate"><span class="pre">prf</span></code>, we recommend calculating PRFs with writing a Python script as following steps.</strong></p>
-<p>First, let’s init a <code class="docutils literal notranslate"><span class="pre">rf</span></code>instance. In this instance, we can set parameters, match earthquakes from catalog and calculate PRFs.</p>
+<p>First, let’s initialize a <code class="docutils literal notranslate"><span class="pre">RF</span></code>instance. In this instance, we can set parameters, match earthquakes from catalog and calculate PRFs.</p>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">seispy.rf</span> <span class="kn">import</span> <span class="n">RF</span>
 <span class="kn">from</span> <span class="nn">os.path</span> <span class="kn">import</span> <span class="n">join</span>
 <span class="kn">from</span> <span class="nn">obspy</span> <span class="kn">import</span> <span class="n">UTCDateTime</span>
@@ -336,7 +336,7 @@
 </div>
 <div class="section" id="set-parameters">
 <h2>Set parameters<a class="headerlink" href="#set-parameters" title="Permalink to this headline">¶</a></h2>
-<p>Most of parameters are saved in <code class="docutils literal notranslate"><span class="pre">pjt.para</span></code>. Let’s show all default parameters</p>
+<p>Most of parameters are saved in the class <code class="docutils literal notranslate"><span class="pre">pjt.para</span></code>. All default parameters are shown as following</p>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">pjt</span><span class="o">.</span><span class="n">para</span><span class="o">.</span><span class="vm">__dict__</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -410,7 +410,8 @@
 <p>the <code class="docutils literal notranslate"><span class="pre">pjt.para.offset</span></code> and <code class="docutils literal notranslate"><span class="pre">pjt.para.tolerance</span></code> are used to match the origin time from catalog. The definition are the same as those in <a class="reference external" href="https://git.nju.edu.cn/xumi1993/SplitRFLab">SplitRFLab</a>.</p>
 <ul class="simple">
 <li><p>The “offset” is the time duration between the event time and the starting time of your seismograms. Ideally, this offset should be identical to the “request start time” defined in the previous window but the data management center may have sent you data beginning later than requested. The offset value represents this difference.</p></li>
-<li><p>The “Tolerance” value in seconds will define the time window within which the program will try to associate a seismic file to an event file, by using either its name or the information contained in the header. It is up to the user to find the best compromise: a value too small will let orphans and a value too large will bring confusion since several files could be associated to a seismic event. <img alt="../_images/offset.png" src="../_images/offset.png" /></p></li>
+<li><p>The “Tolerance” value in seconds will define the time window within which the program will try to associate a seismic file to an event file, by using either its name or the information contained in the header. It is up to the user to find the best compromise: a value too small will let orphans and a value too large will bring confusion since several files could be associated to a seismic event.
+<img alt="../_images/offset.png" src="../_images/offset.png" /></p></li>
 </ul>
 <p>After setting up these parameters, use following command to match data records to the catalog:</p>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">pjt</span><span class="o">.</span><span class="n">match_eq</span><span class="p">()</span>
@@ -453,9 +454,9 @@ $$</p>
 <h2>PRFs calculation<a class="headerlink" href="#prfs-calculation" title="Permalink to this headline">¶</a></h2>
 <p>We need parameters of <code class="docutils literal notranslate"><span class="pre">pjt.para.gauss</span></code>, <code class="docutils literal notranslate"><span class="pre">pjt.para.itmax</span></code> and <code class="docutils literal notranslate"><span class="pre">pjt.para.minderr</span></code> to calculate PRFs using iterative time-domain deconvolution method</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">pjt.para.gauss</span></code>: Gauss factor. Default is 2.0</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">pjt.para.itmax</span></code>: The maximum number of iterations. Default is 400</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">pjt.para.minderr</span></code>: The minimum misfit. Default is 0.001</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">pjt.para.gauss</span></code>: Gauss factor. Default is 2.0.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">pjt.para.itmax</span></code>: The maximum number of iterations. Default is 400.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">pjt.para.minderr</span></code>: The minimum misfit. Default is 0.001.</p></li>
 </ul>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">pjt</span><span class="o">.</span><span class="n">deconv</span><span class="p">()</span>
 </pre></div>
@@ -467,13 +468,13 @@ $$</p>
 <div class="section" id="crust">
 <h3><code class="docutils literal notranslate"><span class="pre">crust</span></code><a class="headerlink" href="#crust" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
-<li><p>The maximum peak should appear berween -2s and 2s</p></li>
+<li><p>The maximum peak should appear berween -2s and 2s.</p></li>
 </ul>
 </div>
 <div class="section" id="mtz">
 <h3><code class="docutils literal notranslate"><span class="pre">mtz</span></code><a class="headerlink" href="#mtz" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
-<li><p>The maximum peak should appear between -5s and 5s</p></li>
+<li><p>The maximum peak should appear between -5s and 5s.</p></li>
 <li><p>the maximum amplitudes of PRFs in a 30–120 s window after the direct P are smaller than 30% of the maximum amplitudes of the direct P phases.</p></li>
 </ul>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">pjt</span><span class="o">.</span><span class="n">saverf</span><span class="p">(</span><span class="n">criterion</span><span class="o">=</span><span class="s1">&#39;crust&#39;</span><span class="p">)</span>
