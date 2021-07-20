@@ -374,7 +374,24 @@
     <span class="k">return</span> <span class="n">idx</span></div>
 
 
-<div class="viewcode-block" id="slantstack"><a class="viewcode-back" href="../../seispy.html#seispy.geo.slantstack">[docs]</a><span class="k">def</span> <span class="nf">slantstack</span><span class="p">(</span><span class="n">seis</span><span class="p">,</span> <span class="n">timeaxis</span><span class="p">,</span> <span class="n">rayp_range</span><span class="p">,</span> <span class="n">tau_range</span><span class="p">,</span> <span class="n">ref_dis</span><span class="p">,</span> <span class="n">dis</span><span class="p">):</span>
+<div class="viewcode-block" id="slantstack"><a class="viewcode-back" href="../../seispy.html#seispy.geo.slantstack">[docs]</a><span class="k">def</span> <span class="nf">slantstack</span><span class="p">(</span><span class="n">seis</span><span class="p">,</span> <span class="n">timeaxis</span><span class="p">,</span> <span class="n">dis</span><span class="p">,</span> <span class="n">ref_dis</span><span class="o">=</span><span class="mi">65</span><span class="p">,</span> <span class="n">rayp_range</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mf">0.35</span><span class="p">,</span> <span class="mf">0.35</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">),</span> <span class="n">tau_range</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">)):</span>
+    <span class="sd">&quot;&quot;&quot;Slant stack. Refer to Tauzin et al., 2008 JGR in detail.</span>
+
+<span class="sd">    :param seis: [description]</span>
+<span class="sd">    :type seis: [type]</span>
+<span class="sd">    :param timeaxis: [description]</span>
+<span class="sd">    :type timeaxis: [type]</span>
+<span class="sd">    :param dis: [description]</span>
+<span class="sd">    :type dis: [type]</span>
+<span class="sd">    :param ref_dis: [description], defaults to 65</span>
+<span class="sd">    :type ref_dis: int, optional</span>
+<span class="sd">    :param rayp_range: [description], defaults to np.arange(-0.35, 0.35, 0.01)</span>
+<span class="sd">    :type rayp_range: [type], optional</span>
+<span class="sd">    :param tau_range: [description], defaults to np.arange(0, 100)</span>
+<span class="sd">    :type tau_range: [type], optional</span>
+<span class="sd">    :return: [description]</span>
+<span class="sd">    :rtype: [type]</span>
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">EV_num</span> <span class="o">=</span> <span class="n">seis</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
     <span class="n">tmp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">([</span><span class="n">EV_num</span><span class="p">,</span> <span class="n">tau_range</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]])</span>
     <span class="n">amp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">([</span><span class="n">rayp_range</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">tau_range</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]])</span>
