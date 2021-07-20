@@ -131,6 +131,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#module-seispy.psrayp">seispy.psrayp module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#module-seispy.rf">seispy.rf module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#module-seispy.rf2depth_makedata">seispy.rf2depth_makedata module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-seispy.rfani">seispy.rfani module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#module-seispy.rfcorrect">seispy.rfcorrect module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#module-seispy.setuplog">seispy.setuplog module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#module-seispy.signal">seispy.signal module</a></li>
@@ -1744,6 +1745,85 @@ Calculate error for H and kappa
 <dl class="py function">
 <dt id="seispy.rf2depth_makedata.rf2depth">
 <code class="sig-prename descclassname"><span class="pre">seispy.rf2depth_makedata.</span></code><code class="sig-name descname"><span class="pre">rf2depth</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/rf2depth_makedata.html#rf2depth"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.rf2depth_makedata.rf2depth" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="module-seispy.rfani">
+<span id="seispy-rfani-module"></span><h2>seispy.rfani module<a class="headerlink" href="#module-seispy.rfani" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="seispy.rfani.RFAni">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">seispy.rfani.</span></code><code class="sig-name descname"><span class="pre">RFAni</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sacdatar</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tb</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">te</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">val</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/rfani.html#RFAni"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.rfani.RFAni" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt id="seispy.rfani.RFAni.baz_stack">
+<code class="sig-name descname"><span class="pre">baz_stack</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">val</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/rfani.html#RFAni.baz_stack"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.rfani.RFAni.baz_stack" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="seispy.rfani.RFAni.cut_energy_waveform">
+<code class="sig-name descname"><span class="pre">cut_energy_waveform</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">idx</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nb</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ne</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/rfani.html#RFAni.cut_energy_waveform"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.rfani.RFAni.cut_energy_waveform" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="seispy.rfani.RFAni.init_ani_para">
+<code class="sig-name descname"><span class="pre">init_ani_para</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/rfani.html#RFAni.init_ani_para"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.rfani.RFAni.init_ani_para" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="seispy.rfani.RFAni.joint_ani">
+<code class="sig-name descname"><span class="pre">joint_ani</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">weight</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[0.5,</span> <span class="pre">0.3,</span> <span class="pre">0.2]</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/rfani.html#RFAni.joint_ani"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.rfani.RFAni.joint_ani" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="seispy.rfani.RFAni.plot_correct">
+<code class="sig-name descname"><span class="pre">plot_correct</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fvd</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dt</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.44</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">enf</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">80</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">outpath</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/rfani.html#RFAni.plot_correct"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.rfani.RFAni.plot_correct" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="seispy.rfani.RFAni.plot_polar">
+<code class="sig-name descname"><span class="pre">plot_polar</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">cmap=&lt;matplotlib.colors.ListedColormap</span> <span class="pre">object&gt;</span></em>, <em class="sig-param"><span class="pre">show=False</span></em>, <em class="sig-param"><span class="pre">outpath='./'</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/rfani.html#RFAni.plot_polar"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.rfani.RFAni.plot_polar" title="Permalink to this definition">¶</a></dt>
+<dd><p>Polar map of crustal anisotropy inverted by a joint method. See Liu and Niu (2012, doi: 10.1111/j.1365-246X.2011.05249.x) in detail.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>cmap</strong> (<em>optional</em>) – Colormap of matplotlib, defaults to ‘rainbow’</p></li>
+<li><p><strong>show</strong> (<em>bool</em><em>, </em><em>optional</em>) – If show the polar map in the Matplotlib window, defaults to True</p></li>
+<li><p><strong>outpath</strong> (<em>str</em><em>, </em><em>optional</em>) – Output path to saving the figure. If show the figure in the Matplotlib window, this option will be invalid, defaults to current directory.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="seispy.rfani.RFAni.radial_energy_max">
+<code class="sig-name descname"><span class="pre">radial_energy_max</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/rfani.html#RFAni.radial_energy_max"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.rfani.RFAni.radial_energy_max" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="seispy.rfani.RFAni.rotate_to_fast_slow">
+<code class="sig-name descname"><span class="pre">rotate_to_fast_slow</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/rfani.html#RFAni.rotate_to_fast_slow"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.rfani.RFAni.rotate_to_fast_slow" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="seispy.rfani.RFAni.search_peak">
+<code class="sig-name descname"><span class="pre">search_peak</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">energy</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">opt</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'max'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/rfani.html#RFAni.search_peak"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.rfani.RFAni.search_peak" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="seispy.rfani.RFAni.search_peak_list">
+<code class="sig-name descname"><span class="pre">search_peak_list</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">energy</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">opt</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'max'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/rfani.html#RFAni.search_peak_list"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.rfani.RFAni.search_peak_list" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="seispy.rfani.RFAni.xyz2grd">
+<code class="sig-name descname"><span class="pre">xyz2grd</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">energy</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/rfani.html#RFAni.xyz2grd"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.rfani.RFAni.xyz2grd" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt id="seispy.rfani.joint_stack">
+<code class="sig-prename descclassname"><span class="pre">seispy.rfani.</span></code><code class="sig-name descname"><span class="pre">joint_stack</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">energy_r</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">energy_cc</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">energy_tc</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">weight</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[0.4,</span> <span class="pre">0.3,</span> <span class="pre">0.3]</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/rfani.html#joint_stack"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.rfani.joint_stack" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </div>
