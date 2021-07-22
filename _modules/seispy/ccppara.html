@@ -209,8 +209,11 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">line</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([])</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">depth_axis</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([])</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">stack_range</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">center_bin</span> <span class="o">=</span> <span class="p">[]</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">dep_val</span> <span class="o">=</span> <span class="mi">0</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">stack_val</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">boot_samples</span> <span class="o">=</span> <span class="kc">None</span>
+        
 
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">bin_radius</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -289,6 +292,18 @@
     <span class="n">stack_end</span> <span class="o">=</span> <span class="n">cf</span><span class="o">.</span><span class="n">getfloat</span><span class="p">(</span><span class="s1">&#39;stack&#39;</span><span class="p">,</span> <span class="s1">&#39;stack_end&#39;</span><span class="p">)</span>
     <span class="n">cpara</span><span class="o">.</span><span class="n">stack_val</span> <span class="o">=</span> <span class="n">cf</span><span class="o">.</span><span class="n">getfloat</span><span class="p">(</span><span class="s1">&#39;stack&#39;</span><span class="p">,</span> <span class="s1">&#39;stack_val&#39;</span><span class="p">)</span>
     <span class="n">cpara</span><span class="o">.</span><span class="n">stack_range</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">stack_start</span><span class="p">,</span> <span class="n">stack_end</span><span class="p">,</span> <span class="n">cpara</span><span class="o">.</span><span class="n">stack_val</span><span class="p">),</span> <span class="n">stack_end</span><span class="p">)</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">cpara</span><span class="o">.</span><span class="n">boot_samples</span> <span class="o">=</span> <span class="n">cf</span><span class="o">.</span><span class="n">getint</span><span class="p">(</span><span class="s1">&#39;stack&#39;</span><span class="p">,</span> <span class="s1">&#39;boot_samples&#39;</span><span class="p">)</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="n">cpara</span><span class="o">.</span><span class="n">boot_samples</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="c1"># para for center bins</span>
+    <span class="n">cla</span> <span class="o">=</span> <span class="n">cf</span><span class="o">.</span><span class="n">getfloat</span><span class="p">(</span><span class="s1">&#39;spacedbins&#39;</span><span class="p">,</span> <span class="s1">&#39;center_lat&#39;</span><span class="p">)</span>
+    <span class="n">clo</span> <span class="o">=</span> <span class="n">cf</span><span class="o">.</span><span class="n">getfloat</span><span class="p">(</span><span class="s1">&#39;spacedbins&#39;</span><span class="p">,</span> <span class="s1">&#39;center_lon&#39;</span><span class="p">)</span>
+    <span class="n">hlla</span> <span class="o">=</span> <span class="n">cf</span><span class="o">.</span><span class="n">getfloat</span><span class="p">(</span><span class="s1">&#39;spacedbins&#39;</span><span class="p">,</span> <span class="s1">&#39;half_len_lat&#39;</span><span class="p">)</span>
+    <span class="n">hllo</span> <span class="o">=</span> <span class="n">cf</span><span class="o">.</span><span class="n">getfloat</span><span class="p">(</span><span class="s1">&#39;spacedbins&#39;</span><span class="p">,</span> <span class="s1">&#39;half_len_lon&#39;</span><span class="p">)</span>
+    <span class="n">space_val</span> <span class="o">=</span> <span class="n">cf</span><span class="o">.</span><span class="n">getfloat</span><span class="p">(</span><span class="s1">&#39;spacedbins&#39;</span><span class="p">,</span> <span class="s1">&#39;interval&#39;</span><span class="p">)</span>
+    <span class="n">cpara</span><span class="o">.</span><span class="n">center_bin</span> <span class="o">=</span> <span class="p">[</span><span class="n">cla</span><span class="p">,</span> <span class="n">clo</span><span class="p">,</span> <span class="n">hlla</span><span class="p">,</span> <span class="n">hllo</span><span class="p">,</span> <span class="n">space_val</span><span class="p">]</span>
+
     <span class="k">return</span> <span class="n">cpara</span></div>
 </pre></div>
 
