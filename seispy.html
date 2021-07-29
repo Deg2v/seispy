@@ -102,6 +102,7 @@
 <li class="toctree-l1"><a class="reference internal" href="examples/ex-prf.html#estimate-the-moho-depth-and-the-crustal-vp-vs-using-the-h-k-stacking-method">Estimate the Moho depth and the crustal Vp/Vs using the H-k stacking method</a></li>
 <li class="toctree-l1"><a class="reference internal" href="examples/ex-ccp.html">Calculate PRFs of a seismic array in batch</a></li>
 <li class="toctree-l1"><a class="reference internal" href="examples/ex-ccp.html#ccp-stacking-along-a-linear-seismic-array">CCP stacking along a linear seismic array</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples/ex-ccp3d.html">3-D CCP stacking for mantle transition zone structure under the Tibet.</a></li>
 </ul>
 <p class="caption"><span class="caption-text">API Documentation:</span></p>
 <ul class="current">
@@ -112,9 +113,10 @@
 <li class="toctree-l2"><a class="reference internal" href="gui.html">GUI package</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">seispy package</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#module-seispy.bootstrap">seispy.bootstrap module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#seispy-ccp-module">seispy.ccp module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#seispy-ccpprofile-module">seispy.ccpprofile module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#seispy-cc3d-module">seispy.cc3d module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#module-seispy.ccppara">seispy.ccppara module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#module-seispy.decov">seispy.decov module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-seispy.decon">seispy.decon module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#module-seispy.distaz">seispy.distaz module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#module-seispy.eq">seispy.eq module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#module-seispy.geo">seispy.geo module</a></li>
@@ -441,8 +443,193 @@ samples)</p>
 </dd></dl>
 
 </div>
-<div class="section" id="seispy-ccp-module">
-<h2>seispy.ccp module<a class="headerlink" href="#seispy-ccp-module" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="seispy-ccpprofile-module">
+<h2>seispy.ccpprofile module<a class="headerlink" href="#seispy-ccpprofile-module" title="Permalink to this headline">¶</a></h2>
+<span class="target" id="module-seispy.ccpprofile"></span><dl class="py class">
+<dt id="seispy.ccpprofile.CCPProfile">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">seispy.ccpprofile.</span></code><code class="sig-name descname"><span class="pre">CCPProfile</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cfg_file</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">log</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/ccpprofile.html#CCPProfile"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.ccpprofile.CCPProfile" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt id="seispy.ccpprofile.CCPProfile.initial_profile">
+<code class="sig-name descname"><span class="pre">initial_profile</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/ccpprofile.html#CCPProfile.initial_profile"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.ccpprofile.CCPProfile.initial_profile" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="seispy.ccpprofile.CCPProfile.load_para">
+<code class="sig-name descname"><span class="pre">load_para</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cfg_file</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/ccpprofile.html#CCPProfile.load_para"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.ccpprofile.CCPProfile.load_para" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="seispy.ccpprofile.CCPProfile.read_rfdep">
+<code class="sig-name descname"><span class="pre">read_rfdep</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/ccpprofile.html#CCPProfile.read_rfdep"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.ccpprofile.CCPProfile.read_rfdep" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="seispy.ccpprofile.CCPProfile.save_stack_data">
+<code class="sig-name descname"><span class="pre">save_stack_data</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">format</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'npz'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/ccpprofile.html#CCPProfile.save_stack_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.ccpprofile.CCPProfile.save_stack_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>If format is ‘npz’, saving stacked data and parameters to local as a npz file. To load the file, please use data = np.load(fname, allow_pickle=True).
+data[‘cpara’] is the parameters when CCP stacking.
+data[‘stack_data’] is the result of stacked data.</p>
+<p>If format is ‘dat’ the stacked data will be save into a txt file with 8 columns, including bin_lat, bin_lon, profile_dis, depth, amp, ci_low, ci_high and count.
+where bin_lat and bin_lon represent the position of each bin; profile_dis represents the distance in km between each bin and the start point of the profile; depth represents depth of each bin; amp means the stacked amplitude; ci_low and ci_high mean confidence interval with bootstrap method; count represents stacking number of each bin.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>fname</strong> (<em>str</em>) – file name of stacked data</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="seispy.ccpprofile.CCPProfile.stack">
+<code class="sig-name descname"><span class="pre">stack</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/ccpprofile.html#CCPProfile.stack"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.ccpprofile.CCPProfile.stack" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt id="seispy.ccpprofile.bin_shape">
+<code class="sig-prename descclassname"><span class="pre">seispy.ccpprofile.</span></code><code class="sig-name descname"><span class="pre">bin_shape</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cpara</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/ccpprofile.html#bin_shape"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.ccpprofile.bin_shape" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="seispy.ccpprofile.fix_filename">
+<code class="sig-prename descclassname"><span class="pre">seispy.ccpprofile.</span></code><code class="sig-name descname"><span class="pre">fix_filename</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">typ</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'dat'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/ccpprofile.html#fix_filename"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.ccpprofile.fix_filename" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="seispy.ccpprofile.init_profile">
+<code class="sig-prename descclassname"><span class="pre">seispy.ccpprofile.</span></code><code class="sig-name descname"><span class="pre">init_profile</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lat1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lon1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lat2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lon2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">val</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/ccpprofile.html#init_profile"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.ccpprofile.init_profile" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initial bins along a profile with given position of two points.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>lat1</strong> (<em>float</em>) – The latitude of the start point</p></li>
+<li><p><strong>lon1</strong> (<em>float</em>) – The lontitude of the start point</p></li>
+<li><p><strong>lat2</strong> (<em>float</em>) – The latitude of the end point</p></li>
+<li><p><strong>lon2</strong> (<em>float</em>) – The lontitude of the end point</p></li>
+<li><p><strong>val</strong> (<em>float</em>) – The interval between two points in km</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The location of bins (bin_loca), and length between each bin and the start point (profile_range)</p>
+</dd>
+</dl>
+<p>The bin_loca is positions of bins with a numpy.array with two column. The profile_range is distance between bin center and the start point with an 1D numpy.array.
+:rtype: (numpy.array, numpy.array)</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="seispy.ccpprofile.line_proj">
+<code class="sig-prename descclassname"><span class="pre">seispy.ccpprofile.</span></code><code class="sig-name descname"><span class="pre">line_proj</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lat1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lon1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lat2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lon2</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/ccpprofile.html#line_proj"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.ccpprofile.line_proj" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="seispy-cc3d-module">
+<h2>seispy.cc3d module<a class="headerlink" href="#seispy-cc3d-module" title="Permalink to this headline">¶</a></h2>
+<span class="target" id="module-seispy.ccp3d"></span><dl class="py class">
+<dt id="seispy.ccp3d.CCP3D">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">seispy.ccp3d.</span></code><code class="sig-name descname"><span class="pre">CCP3D</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cfg_file</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">log</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/ccp3d.html#CCP3D"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.ccp3d.CCP3D" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt id="seispy.ccp3d.CCP3D.initial_grid">
+<code class="sig-name descname"><span class="pre">initial_grid</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/ccp3d.html#CCP3D.initial_grid"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.ccp3d.CCP3D.initial_grid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="seispy.ccp3d.CCP3D.load_para">
+<code class="sig-name descname"><span class="pre">load_para</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cfg_file</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/ccp3d.html#CCP3D.load_para"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.ccp3d.CCP3D.load_para" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="seispy.ccp3d.CCP3D.read_rfdep">
+<code class="sig-name descname"><span class="pre">read_rfdep</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/ccp3d.html#CCP3D.read_rfdep"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.ccp3d.CCP3D.read_rfdep" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="seispy.ccp3d.CCP3D.read_stack_data">
+<em class="property"><span class="pre">classmethod</span> </em><code class="sig-name descname"><span class="pre">read_stack_data</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">stack_data_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cfg_file</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/ccp3d.html#CCP3D.read_stack_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.ccp3d.CCP3D.read_stack_data" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="seispy.ccp3d.CCP3D.save_good_410_660">
+<code class="sig-name descname"><span class="pre">save_good_410_660</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fname</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/ccp3d.html#CCP3D.save_good_410_660"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.ccp3d.CCP3D.save_good_410_660" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="seispy.ccp3d.CCP3D.save_stack_data">
+<code class="sig-name descname"><span class="pre">save_stack_data</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fname</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/ccp3d.html#CCP3D.save_stack_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.ccp3d.CCP3D.save_stack_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>Save stacked data and parameters to local as a npz file. To load the file, please use data = np.load(fname, allow_pickle=True).
+data[‘cpara’] is the parameters when CCP stacking.
+data[‘stack_data’] is the result of stacked data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>fname</strong> (<em>str</em>) – file name of stacked data</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="seispy.ccp3d.CCP3D.search_good_410_660">
+<code class="sig-name descname"><span class="pre">search_good_410_660</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">peak_410_min</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">380</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">peak_410_max</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">440</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">peak_660_min</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">630</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">peak_660_max</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">690</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/ccp3d.html#CCP3D.search_good_410_660"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.ccp3d.CCP3D.search_good_410_660" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="seispy.ccp3d.CCP3D.stack">
+<code class="sig-name descname"><span class="pre">stack</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/ccp3d.html#CCP3D.stack"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.ccp3d.CCP3D.stack" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt id="seispy.ccp3d.bin_shape">
+<code class="sig-prename descclassname"><span class="pre">seispy.ccp3d.</span></code><code class="sig-name descname"><span class="pre">bin_shape</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cpara</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/ccp3d.html#bin_shape"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.ccp3d.bin_shape" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="seispy.ccp3d.boot_bin_stack">
+<code class="sig-prename descclassname"><span class="pre">seispy.ccp3d.</span></code><code class="sig-name descname"><span class="pre">boot_bin_stack</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data_bin</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_samples</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3000</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/ccp3d.html#boot_bin_stack"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.ccp3d.boot_bin_stack" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="seispy.ccp3d.gen_center_bin">
+<code class="sig-prename descclassname"><span class="pre">seispy.ccp3d.</span></code><code class="sig-name descname"><span class="pre">gen_center_bin</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">center_lat</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">center_lon</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">len_lat</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">len_lon</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">val</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/ccp3d.html#gen_center_bin"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.ccp3d.gen_center_bin" title="Permalink to this definition">¶</a></dt>
+<dd><div class="line-block">
+<div class="line-block">
+<div class="line">|                           |</div>
+<div class="line">|                           |</div>
+</div>
+<div class="line">len_lon                        |</div>
+<div class="line-block">
+<div class="line">|                           |</div>
+<div class="line">|                           |</div>
+</div>
+</div>
+<p>—- len_lat — (center_lon, center_lat) — len_lat —
+|                           |                           |
+|                           |                           |
+|                        len_lon                        |
+|                           |                           |
+|                           |                           |
+———————————————————</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>center_lat</strong> (<em>float</em>) – Latitude of the center point.</p></li>
+<li><p><strong>center_lon</strong> (<em>float</em>) – Longitude of the center point.</p></li>
+<li><p><strong>len_lat</strong> (<em>float</em>) – Half length in degree along latitude axis.</p></li>
+<li><p><strong>len_lon</strong> (<em>float</em>) – Half length in degree along longitude axis.</p></li>
+<li><p><strong>val</strong> (<em>float</em>) – Interval in degree between adjacent grid point.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Coordinates of Grid points.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>2-D ndarray of floats with shape (n, 2), where n is the number of grid points.</p>
+</dd>
+</dl>
+</dd></dl>
+
 </div>
 <div class="section" id="module-seispy.ccppara">
 <span id="seispy-ccppara-module"></span><h2>seispy.ccppara module<a class="headerlink" href="#module-seispy.ccppara" title="Permalink to this headline">¶</a></h2>
@@ -468,50 +655,16 @@ samples)</p>
 <dd></dd></dl>
 
 </div>
-<div class="section" id="module-seispy.decov">
-<span id="seispy-decov-module"></span><h2>seispy.decov module<a class="headerlink" href="#module-seispy.decov" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-seispy.decon">
+<span id="seispy-decon-module"></span><h2>seispy.decon module<a class="headerlink" href="#module-seispy.decon" title="Permalink to this headline">¶</a></h2>
 <dl class="py function">
-<dt id="seispy.decov.correl">
-<code class="sig-prename descclassname"><span class="pre">seispy.decov.</span></code><code class="sig-name descname"><span class="pre">correl</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">R</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">W</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nfft</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/decov.html#correl"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.decov.correl" title="Permalink to this definition">¶</a></dt>
+<dt id="seispy.decon.correl">
+<code class="sig-prename descclassname"><span class="pre">seispy.decon.</span></code><code class="sig-name descname"><span class="pre">correl</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">R</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">W</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nfft</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/decon.html#correl"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.decon.correl" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py function">
-<dt id="seispy.decov.deconv_waterlevel">
-<code class="sig-prename descclassname"><span class="pre">seispy.decov.</span></code><code class="sig-name descname"><span class="pre">deconv_waterlevel</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rsp_list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">src</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sampling_rate</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">waterlevel</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.05</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gauss</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tshift</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">length</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">normalize</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nfft</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_info</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/decov.html#deconv_waterlevel"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.decov.deconv_waterlevel" title="Permalink to this definition">¶</a></dt>
-<dd><p>Frequency-domain deconvolution using waterlevel method.</p>
-<p>Deconvolve src from arrays in rsp_list.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>rsp_list</strong> – either a list of arrays containing the response functions
-or a single array</p></li>
-<li><p><strong>src</strong> – array with source function</p></li>
-<li><p><strong>sampling_rate</strong> – sampling rate of the data</p></li>
-<li><p><strong>waterlevel</strong> – waterlevel to stabilize the deconvolution</p></li>
-<li><p><strong>gauss</strong> – Gauss parameter (standard deviation) of the
-Gaussian Low-pass filter,
-corresponds to cut-off frequency in Hz for a response value of
-exp(0.5)=0.607.</p></li>
-<li><p><strong>tshift</strong> – delay time 0s will be at time tshift afterwards</p></li>
-<li><p><strong>nfft</strong> – explicitely set number of samples for the fft</p></li>
-<li><p><strong>length</strong> – number of data points in results, optional</p></li>
-<li><p><strong>normalize</strong> – normalize all results so that the maximum of the trace
-with supplied index is 1. Set normalize to ‘src’ to normalize
-for the maximum of the prepared source. Set normalize to None for no
-normalization.</p></li>
-<li><p><strong>return_info</strong> – return additionally a lot of different parameters in a
-dict for debugging purposes</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>(list of) array(s) with deconvolution(s)</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt id="seispy.decov.decovit">
-<code class="sig-prename descclassname"><span class="pre">seispy.decov.</span></code><code class="sig-name descname"><span class="pre">decovit</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">uin</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">win</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dt</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nt</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tshift</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">f0</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">itmax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">400</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">minderr</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.001</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">info</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">phase</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'P'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/decov.html#decovit"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.decov.decovit" title="Permalink to this definition">¶</a></dt>
+<dt id="seispy.decon.deconit">
+<code class="sig-prename descclassname"><span class="pre">seispy.decon.</span></code><code class="sig-name descname"><span class="pre">deconit</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">uin</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">win</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dt</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nt</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tshift</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">f0</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">itmax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">400</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">minderr</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.001</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">info</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">phase</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'P'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/decon.html#deconit"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.decon.deconit" title="Permalink to this definition">¶</a></dt>
 <dd><p>Created on Wed Sep 10 14:21:38 2014
 [RFI, rms, it]=makeRFitdecon(uin,win,dt,nt,tshift,f0,itmax,minderr)</p>
 <p>In:
@@ -530,18 +683,53 @@ rms = Root mean square error for predicting numerator after each iteration</p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="seispy.decov.gaussFilter">
-<code class="sig-prename descclassname"><span class="pre">seispy.decov.</span></code><code class="sig-name descname"><span class="pre">gaussFilter</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dt</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nft</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">f0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/decov.html#gaussFilter"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.decov.gaussFilter" title="Permalink to this definition">¶</a></dt>
+<dt id="seispy.decon.decontime">
+<code class="sig-prename descclassname"><span class="pre">seispy.decon.</span></code><code class="sig-name descname"><span class="pre">decontime</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">uin</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">win</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dt</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tshift</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">spiking</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">normalize</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/decon.html#decontime"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.decon.decontime" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py function">
-<dt id="seispy.decov.gfilter">
-<code class="sig-prename descclassname"><span class="pre">seispy.decov.</span></code><code class="sig-name descname"><span class="pre">gfilter</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nfft</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gauss</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dt</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/decov.html#gfilter"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.decov.gfilter" title="Permalink to this definition">¶</a></dt>
+<dt id="seispy.decon.deconvolute">
+<code class="sig-prename descclassname"><span class="pre">seispy.decon.</span></code><code class="sig-name descname"><span class="pre">deconvolute</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">uin</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">win</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dt</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'iter'</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/decon.html#deconvolute"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.decon.deconvolute" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py function">
-<dt id="seispy.decov.phaseshift">
-<code class="sig-prename descclassname"><span class="pre">seispy.decov.</span></code><code class="sig-name descname"><span class="pre">phaseshift</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nfft</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dt</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tshift</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/decov.html#phaseshift"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.decov.phaseshift" title="Permalink to this definition">¶</a></dt>
+<dt id="seispy.decon.deconwater">
+<code class="sig-prename descclassname"><span class="pre">seispy.decon.</span></code><code class="sig-name descname"><span class="pre">deconwater</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">uin</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">win</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dt</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tshift</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wlevel</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.05</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">f0</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">normalize</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/decon.html#deconwater"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.decon.deconwater" title="Permalink to this definition">¶</a></dt>
+<dd><p>Frequency-domain deconvolution using waterlevel method.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>uin</strong> (<em>np.ndarray</em>) – R or Q component for the response function</p></li>
+<li><p><strong>win</strong> (<em>np.ndarray</em>) – Z or L component for the source function</p></li>
+<li><p><strong>dt</strong> (<em>float</em>) – sample interval in second</p></li>
+<li><p><strong>tshift</strong> (<em>float</em><em>, </em><em>optional</em>) – Time shift before P arrival, defaults to 10.</p></li>
+<li><p><strong>wlevel</strong> (<em>float</em><em>, </em><em>optional</em>) – Waterlevel to stabilize the deconvolution, defaults to 0.05</p></li>
+<li><p><strong>f0</strong> (<em>float</em><em>, </em><em>optional</em>) – Gauss factor, defaults to 2.0</p></li>
+<li><p><strong>normalize</strong> (<em>bool</em><em>, </em><em>optional</em>) – If normalize the amplitude of the RF, defaults to False</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>(rf, rms) RF and final rms.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>(np.ndarray, float)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="seispy.decon.gaussFilter">
+<code class="sig-prename descclassname"><span class="pre">seispy.decon.</span></code><code class="sig-name descname"><span class="pre">gaussFilter</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dt</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nft</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">f0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/decon.html#gaussFilter"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.decon.gaussFilter" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="seispy.decon.gfilter">
+<code class="sig-prename descclassname"><span class="pre">seispy.decon.</span></code><code class="sig-name descname"><span class="pre">gfilter</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nfft</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gauss</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dt</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/decon.html#gfilter"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.decon.gfilter" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="seispy.decon.phaseshift">
+<code class="sig-prename descclassname"><span class="pre">seispy.decon.</span></code><code class="sig-name descname"><span class="pre">phaseshift</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nfft</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dt</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tshift</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/decon.html#phaseshift"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.decon.phaseshift" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </div>
@@ -696,7 +884,7 @@ return</p>
 
 <dl class="py method">
 <dt id="seispy.eq.eq.deconvolute">
-<code class="sig-name descname"><span class="pre">deconvolute</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">shift</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">time_after</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">f0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">phase</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'P'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">only_r</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">itmax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">400</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">minderr</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.001</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target_dt</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/eq.html#eq.deconvolute"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.eq.eq.deconvolute" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">deconvolute</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">shift</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">time_after</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">f0</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">phase</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'P'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'iter'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">only_r</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">itmax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">400</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">minderr</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.001</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wlevel</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.05</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target_dt</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/eq.html#eq.deconvolute"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.eq.eq.deconvolute" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
@@ -1198,6 +1386,11 @@ Calculate error for H and kappa
 <dd></dd></dl>
 
 <dl class="py method">
+<dt id="seispy.para.para.decon_method">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">decon_method</span></code><a class="headerlink" href="#seispy.para.para.decon_method" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
 <dt id="seispy.para.para.get_para">
 <code class="sig-name descname"><span class="pre">get_para</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/para.html#para.get_para"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.para.para.get_para" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
@@ -1273,7 +1466,7 @@ Calculate error for H and kappa
 
 <dl class="py method">
 <dt id="seispy.pickfigure.RFFigure.read_sac">
-<code class="sig-name descname"><span class="pre">read_sac</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dt</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.2</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/pickfigure.html#RFFigure.read_sac"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.pickfigure.RFFigure.read_sac" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">read_sac</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dt</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.1</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/pickfigure.html#RFFigure.read_sac"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.pickfigure.RFFigure.read_sac" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
@@ -1440,16 +1633,33 @@ Calculate error for H and kappa
 <dl class="py function">
 <dt id="seispy.plotRT.plotrt">
 <code class="sig-prename descclassname"><span class="pre">seispy.plotRT.</span></code><code class="sig-name descname"><span class="pre">plotrt</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rfpath</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">enf</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">out_path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'./'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">outformat</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'g'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/plotRT.html#plotrt"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.plotRT.plotrt" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>[summary]</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>rfpath</strong> (<em>[</em><em>type</em><em>]</em>) – [description]</p></li>
+<li><p><strong>enf</strong> (<em>int</em><em>, </em><em>optional</em>) – [description], defaults to 3</p></li>
+<li><p><strong>out_path</strong> (<em>str</em><em>, </em><em>optional</em>) – [description], defaults to ‘./’</p></li>
+<li><p><strong>outformat</strong> (<em>str</em><em>, </em><em>optional</em>) – [description], defaults to ‘g’</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>FileExistsError</strong> – [description]</p></li>
+<li><p><strong>FileExistsError</strong> – [description]</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py function">
 <dt id="seispy.plotRT.read_process_data">
-<code class="sig-prename descclassname"><span class="pre">seispy.plotRT.</span></code><code class="sig-name descname"><span class="pre">read_process_data</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lst</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">resamp_dt</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.1</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/plotRT.html#read_process_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.plotRT.read_process_data" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">seispy.plotRT.</span></code><code class="sig-name descname"><span class="pre">read_process_data</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">resamp_dt</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.1</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/plotRT.html#read_process_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.plotRT.read_process_data" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py function">
 <dt id="seispy.plotRT.set_fig">
-<code class="sig-prename descclassname"><span class="pre">seispy.plotRT.</span></code><code class="sig-name descname"><span class="pre">set_fig</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">axr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">axt</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">axb</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">axr_sum</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">axt_sum</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stadata</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">station</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xmin</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-</span> <span class="pre">2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xmax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">30</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/plotRT.html#set_fig"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.plotRT.set_fig" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">seispy.plotRT.</span></code><code class="sig-name descname"><span class="pre">set_fig</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">axr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">axt</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">axb</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">axr_sum</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">axt_sum</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stadata</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">station</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xmin</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-</span> <span class="pre">2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xmax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">30</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">comp</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'R'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/plotRT.html#set_fig"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.plotRT.set_fig" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </div>
@@ -1538,7 +1748,7 @@ Calculate error for H and kappa
 
 <dl class="py method">
 <dt id="seispy.rf.RF.deconv">
-<code class="sig-name descname"><span class="pre">deconv</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">itmax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">minderr</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/rf.html#RF.deconv"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.rf.RF.deconv" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">deconv</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/rf.html#RF.deconv"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.rf.RF.deconv" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">

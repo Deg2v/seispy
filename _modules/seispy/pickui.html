@@ -101,6 +101,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../examples/ex-prf.html#estimate-the-moho-depth-and-the-crustal-vp-vs-using-the-h-k-stacking-method">Estimate the Moho depth and the crustal Vp/Vs using the H-k stacking method</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../examples/ex-ccp.html">Calculate PRFs of a seismic array in batch</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../examples/ex-ccp.html#ccp-stacking-along-a-linear-seismic-array">CCP stacking along a linear seismic array</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../examples/ex-ccp3d.html">3-D CCP stacking for mantle transition zone structure under the Tibet.</a></li>
 </ul>
 <p class="caption"><span class="caption-text">API Documentation:</span></p>
 <ul>
@@ -311,7 +312,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">key_space</span><span class="o">.</span><span class="n">activated</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">plot_ui</span><span class="p">)</span>
 
 <div class="viewcode-block" id="MatplotlibWidget.add_btn"><a class="viewcode-back" href="../../seispy.html#seispy.pickui.MatplotlibWidget.add_btn">[docs]</a>    <span class="k">def</span> <span class="nf">add_btn</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="n">pre_btn</span> <span class="o">=</span> <span class="n">QPushButton</span><span class="p">(</span><span class="s2">&quot;Previous (z)&quot;</span><span class="p">)</span>
+        <span class="n">pre_btn</span> <span class="o">=</span> <span class="n">QPushButton</span><span class="p">(</span><span class="s2">&quot;Back (z)&quot;</span><span class="p">)</span>
         <span class="n">pre_btn</span><span class="o">.</span><span class="n">clicked</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">previous_connect</span><span class="p">)</span>
         <span class="n">next_btn</span> <span class="o">=</span> <span class="n">QPushButton</span><span class="p">(</span><span class="s2">&quot;Next (c)&quot;</span><span class="p">)</span>
         <span class="n">next_btn</span><span class="o">.</span><span class="n">clicked</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">next_connect</span><span class="p">)</span>

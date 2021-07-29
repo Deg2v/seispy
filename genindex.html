@@ -101,6 +101,7 @@
 <li class="toctree-l1"><a class="reference internal" href="examples/ex-prf.html#estimate-the-moho-depth-and-the-crustal-vp-vs-using-the-h-k-stacking-method">Estimate the Moho depth and the crustal Vp/Vs using the H-k stacking method</a></li>
 <li class="toctree-l1"><a class="reference internal" href="examples/ex-ccp.html">Calculate PRFs of a seismic array in batch</a></li>
 <li class="toctree-l1"><a class="reference internal" href="examples/ex-ccp.html#ccp-stacking-along-a-linear-seismic-array">CCP stacking along a linear seismic array</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples/ex-ccp3d.html">3-D CCP stacking for mantle transition zone structure under the Tibet.</a></li>
 </ul>
 <p class="caption"><span class="caption-text">API Documentation:</span></p>
 <ul>
@@ -261,8 +262,16 @@
 </li>
       <li><a href="ccp.html#seispy.ccppara.CCPPara.bin_radius">bin_radius() (seispy.ccppara.CCPPara property)</a>, <a href="seispy.html#seispy.ccppara.CCPPara.bin_radius">[1]</a>
 </li>
+      <li><a href="seispy.html#seispy.ccp3d.bin_shape">bin_shape() (in module seispy.ccp3d)</a>
+
+      <ul>
+        <li><a href="seispy.html#seispy.ccpprofile.bin_shape">(in module seispy.ccpprofile)</a>
+</li>
+      </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="seispy.html#seispy.ccp3d.boot_bin_stack">boot_bin_stack() (in module seispy.ccp3d)</a>
+</li>
       <li><a href="seispy.html#seispy.bootstrap.bootstrap_indexes">bootstrap_indexes() (in module seispy.bootstrap)</a>
 </li>
       <li><a href="seispy.html#seispy.bootstrap.bootstrap_indexes_array">bootstrap_indexes_array() (in module seispy.bootstrap)</a>
@@ -283,9 +292,13 @@
 </li>
       <li><a href="rf.html#seispy.para.para.catalogpath">catalogpath() (seispy.para.para property)</a>, <a href="seispy.html#seispy.para.para.catalogpath">[1]</a>
 </li>
+      <li><a href="seispy.html#seispy.ccp3d.CCP3D">CCP3D (class in seispy.ccp3d)</a>
+</li>
       <li><a href="ccp.html#seispy.ccppara.CCPPara">CCPPara (class in seispy.ccppara)</a>, <a href="seispy.html#seispy.ccppara.CCPPara">[1]</a>
 </li>
       <li><a href="ccp.html#seispy.ccppara.ccppara">ccppara() (in module seispy.ccppara)</a>, <a href="seispy.html#seispy.ccppara.ccppara">[1]</a>
+</li>
+      <li><a href="seispy.html#seispy.ccpprofile.CCPProfile">CCPProfile (class in seispy.ccpprofile)</a>
 </li>
       <li><a href="rf.html#seispy.rf.CfgModify">CfgModify() (in module seispy.rf)</a>, <a href="seispy.html#seispy.rf.CfgModify">[1]</a>
 </li>
@@ -301,7 +314,7 @@
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="seispy.html#seispy.updatecatalog.convertinfo">convertinfo() (in module seispy.updatecatalog)</a>
 </li>
-      <li><a href="seispy.html#seispy.decov.correl">correl() (in module seispy.decov)</a>
+      <li><a href="seispy.html#seispy.decon.correl">correl() (in module seispy.decon)</a>
 </li>
       <li><a href="seispy.html#seispy.distaz.cosd">cosd() (in module seispy.distaz)</a>
 
@@ -333,16 +346,24 @@
 </li>
       <li><a href="rf.html#seispy.rf.datestr2regex">datestr2regex() (in module seispy.rf)</a>, <a href="seispy.html#seispy.rf.datestr2regex">[1]</a>
 </li>
+      <li><a href="rf.html#seispy.para.para.decon_method">decon_method() (seispy.para.para property)</a>, <a href="seispy.html#seispy.para.para.decon_method">[1]</a>
+</li>
+      <li><a href="seispy.html#seispy.decon.deconit">deconit() (in module seispy.decon)</a>
+</li>
+      <li><a href="seispy.html#seispy.decon.decontime">decontime() (in module seispy.decon)</a>
+</li>
       <li><a href="rf.html#seispy.rf.RF.deconv">deconv() (seispy.rf.RF method)</a>, <a href="seispy.html#seispy.rf.RF.deconv">[1]</a>
 </li>
-      <li><a href="seispy.html#seispy.decov.deconv_waterlevel">deconv_waterlevel() (in module seispy.decov)</a>
+      <li><a href="seispy.html#seispy.decon.deconvolute">deconvolute() (in module seispy.decon)</a>
+
+      <ul>
+        <li><a href="rf.html#seispy.eq.eq.deconvolute">(seispy.eq.eq method)</a>, <a href="seispy.html#seispy.eq.eq.deconvolute">[1]</a>
 </li>
-      <li><a href="rf.html#seispy.eq.eq.deconvolute">deconvolute() (seispy.eq.eq method)</a>, <a href="seispy.html#seispy.eq.eq.deconvolute">[1]</a>
-</li>
-      <li><a href="seispy.html#seispy.decov.decovit">decovit() (in module seispy.decov)</a>
-</li>
+      </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="seispy.html#seispy.decon.deconwater">deconwater() (in module seispy.decon)</a>
+</li>
       <li><a href="seispy.html#seispy.distaz.deg2km">deg2km() (in module seispy.distaz)</a>
 
       <ul>
@@ -399,15 +420,17 @@
         <li><a href="rf.html#seispy.rf.RF.filter">(seispy.rf.RF method)</a>, <a href="seispy.html#seispy.rf.RF.filter">[1]</a>
 </li>
       </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="gui.html#seispy.pickfigure.RFFigure.finish">finish() (seispy.pickfigure.RFFigure method)</a>, <a href="seispy.html#seispy.pickfigure.RFFigure.finish">[1]</a>
 
       <ul>
         <li><a href="gui.html#seispy.pickui.MatplotlibWidget.finish">(seispy.pickui.MatplotlibWidget method)</a>, <a href="seispy.html#seispy.pickui.MatplotlibWidget.finish">[1]</a>
 </li>
       </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="rf.html#seispy.eq.eq.fix_channel_name">fix_channel_name() (seispy.eq.eq method)</a>, <a href="seispy.html#seispy.eq.eq.fix_channel_name">[1]</a>
+</li>
+      <li><a href="seispy.html#seispy.ccpprofile.fix_filename">fix_filename() (in module seispy.ccpprofile)</a>
 </li>
       <li><a href="ccp.html#seispy.rfcorrect.from_file">from_file() (in module seispy.rfcorrect)</a>, <a href="seispy.html#seispy.rfcorrect.from_file">[1]</a>
 </li>
@@ -417,7 +440,9 @@
 <h2 id="G">G</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="seispy.html#seispy.decov.gaussFilter">gaussFilter() (in module seispy.decov)</a>
+      <li><a href="seispy.html#seispy.decon.gaussFilter">gaussFilter() (in module seispy.decon)</a>
+</li>
+      <li><a href="seispy.html#seispy.ccp3d.gen_center_bin">gen_center_bin() (in module seispy.ccp3d)</a>
 </li>
       <li><a href="seispy.html#seispy.psrayp.gen_rayp_lib">gen_rayp_lib() (in module seispy.psrayp)</a>
 </li>
@@ -449,7 +474,7 @@
 </li>
       <li><a href="seispy.html#seispy.distaz.distaz.getDelta">getDelta() (seispy.distaz.distaz method)</a>
 </li>
-      <li><a href="seispy.html#seispy.decov.gfilter">gfilter() (in module seispy.decov)</a>
+      <li><a href="seispy.html#seispy.decon.gfilter">gfilter() (in module seispy.decon)</a>
 </li>
       <li><a href="seispy.html#seispy.get_cpt.gmtColormap_openfile">gmtColormap_openfile() (in module seispy.get_cpt)</a>
 </li>
@@ -497,11 +522,17 @@
         <li><a href="gui.html#seispy.pickfigure.RFFigure.init_figure">(seispy.pickfigure.RFFigure method)</a>, <a href="seispy.html#seispy.pickfigure.RFFigure.init_figure">[1]</a>
 </li>
       </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="ccp.html#seispy.rf2depth_makedata.init_mat">init_mat() (in module seispy.rf2depth_makedata)</a>, <a href="seispy.html#seispy.rf2depth_makedata.init_mat">[1]</a>
 </li>
+      <li><a href="seispy.html#seispy.ccpprofile.init_profile">init_profile() (in module seispy.ccpprofile)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="gui.html#seispy.pickfigure.RFFigure.init_variables">init_variables() (seispy.pickfigure.RFFigure method)</a>, <a href="seispy.html#seispy.pickfigure.RFFigure.init_variables">[1]</a>
+</li>
+      <li><a href="seispy.html#seispy.ccp3d.CCP3D.initial_grid">initial_grid() (seispy.ccp3d.CCP3D method)</a>
+</li>
+      <li><a href="seispy.html#seispy.ccpprofile.CCPProfile.initial_profile">initial_profile() (seispy.ccpprofile.CCPProfile method)</a>
 </li>
       <li><a href="gui.html#seispy.pickui.MatplotlibWidget.initUi">initUi() (seispy.pickui.MatplotlibWidget method)</a>, <a href="seispy.html#seispy.pickui.MatplotlibWidget.initUi">[1]</a>
 </li>
@@ -555,14 +586,22 @@
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="seispy.html#seispy.geo.latlon_from">latlon_from() (in module seispy.geo)</a>
 </li>
+      <li><a href="seispy.html#seispy.ccpprofile.line_proj">line_proj() (in module seispy.ccpprofile)</a>
+</li>
+      <li><a href="seispy.html#seispy.ccp3d.CCP3D.load_para">load_para() (seispy.ccp3d.CCP3D method)</a>
+
+      <ul>
+        <li><a href="seispy.html#seispy.ccpprofile.CCPProfile.load_para">(seispy.ccpprofile.CCPProfile method)</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="rf.html#seispy.rf.RF.load_stainfo">load_stainfo() (seispy.rf.RF method)</a>, <a href="seispy.html#seispy.rf.RF.load_stainfo">[1]</a>
 
       <ul>
         <li><a href="rf.html#seispy.rf.stainfo.load_stainfo">(seispy.rf.stainfo method)</a>, <a href="seispy.html#seispy.rf.stainfo.load_stainfo">[1]</a>
 </li>
       </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="rf.html#seispy.rf.load_station_info">load_station_info() (in module seispy.rf)</a>, <a href="seispy.html#seispy.rf.load_station_info">[1]</a>
 </li>
       <li><a href="seispy.html#seispy.io.lsnc">lsnc() (in module seispy.io)</a>
@@ -609,9 +648,13 @@
 </li>
         <li><a href="seispy.html#module-seispy.bootstrap">seispy.bootstrap</a>
 </li>
+        <li><a href="seispy.html#module-seispy.ccp3d">seispy.ccp3d</a>
+</li>
         <li><a href="ccp.html#module-seispy.ccppara">seispy.ccppara</a>, <a href="seispy.html#module-seispy.ccppara">[1]</a>
 </li>
-        <li><a href="seispy.html#module-seispy.decov">seispy.decov</a>
+        <li><a href="seispy.html#module-seispy.ccpprofile">seispy.ccpprofile</a>
+</li>
+        <li><a href="seispy.html#module-seispy.decon">seispy.decon</a>
 </li>
         <li><a href="seispy.html#module-seispy.distaz">seispy.distaz</a>
 </li>
@@ -700,7 +743,7 @@
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="rf.html#seispy.para.para">para (class in seispy.para)</a>, <a href="seispy.html#seispy.para.para">[1]</a>
 </li>
-      <li><a href="seispy.html#seispy.decov.phaseshift">phaseshift() (in module seispy.decov)</a>
+      <li><a href="seispy.html#seispy.decon.phaseshift">phaseshift() (in module seispy.decon)</a>
 </li>
       <li><a href="rf.html#seispy.rf.RF.pick">pick() (seispy.rf.RF method)</a>, <a href="seispy.html#seispy.rf.RF.pick">[1]</a>
 </li>
@@ -788,7 +831,15 @@
         <li><a href="seispy.html#seispy.plotRT.read_process_data">(in module seispy.plotRT)</a>
 </li>
       </ul></li>
+      <li><a href="seispy.html#seispy.ccp3d.CCP3D.read_rfdep">read_rfdep() (seispy.ccp3d.CCP3D method)</a>
+
+      <ul>
+        <li><a href="seispy.html#seispy.ccpprofile.CCPProfile.read_rfdep">(seispy.ccpprofile.CCPProfile method)</a>
+</li>
+      </ul></li>
       <li><a href="gui.html#seispy.pickfigure.RFFigure.read_sac">read_sac() (seispy.pickfigure.RFFigure method)</a>, <a href="seispy.html#seispy.pickfigure.RFFigure.read_sac">[1]</a>
+</li>
+      <li><a href="seispy.html#seispy.ccp3d.CCP3D.read_stack_data">read_stack_data() (seispy.ccp3d.CCP3D class method)</a>
 </li>
       <li><a href="gui.html#seispy.pickfigure.RFFigure.reduce">reduce() (seispy.pickfigure.RFFigure method)</a>, <a href="seispy.html#seispy.pickfigure.RFFigure.reduce">[1]</a>
 
@@ -798,10 +849,10 @@
       </ul></li>
       <li><a href="ccp.html#seispy.rfcorrect.SACStation.resample">resample() (seispy.rfcorrect.SACStation method)</a>, <a href="seispy.html#seispy.rfcorrect.SACStation.resample">[1]</a>
 </li>
-      <li><a href="rf.html#seispy.rf.RF">RF (class in seispy.rf)</a>, <a href="seispy.html#seispy.rf.RF">[1]</a>
-</li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="rf.html#seispy.rf.RF">RF (class in seispy.rf)</a>, <a href="seispy.html#seispy.rf.RF">[1]</a>
+</li>
       <li><a href="ccp.html#seispy.rf2depth_makedata.rf2depth">rf2depth() (in module seispy.rf2depth_makedata)</a>, <a href="seispy.html#seispy.rf2depth_makedata.rf2depth">[1]</a>
 </li>
       <li><a href="seispy.html#seispy.rfani.RFAni">RFAni (class in seispy.rfani)</a>
@@ -840,6 +891,14 @@
 </li>
       <li><a href="seispy.html#seispy.psrayp.PsRayp.save">save() (seispy.psrayp.PsRayp method)</a>
 </li>
+      <li><a href="seispy.html#seispy.ccp3d.CCP3D.save_good_410_660">save_good_410_660() (seispy.ccp3d.CCP3D method)</a>
+</li>
+      <li><a href="seispy.html#seispy.ccp3d.CCP3D.save_stack_data">save_stack_data() (seispy.ccp3d.CCP3D method)</a>
+
+      <ul>
+        <li><a href="seispy.html#seispy.ccpprofile.CCPProfile.save_stack_data">(seispy.ccpprofile.CCPProfile method)</a>
+</li>
+      </ul></li>
       <li><a href="rf.html#seispy.eq.eq.saverf">saverf() (seispy.eq.eq method)</a>, <a href="seispy.html#seispy.eq.eq.saverf">[1]</a>
 
       <ul>
@@ -851,6 +910,8 @@
       <li><a href="rf.html#seispy.eq.eq.search_baz">search_baz() (seispy.eq.eq method)</a>, <a href="seispy.html#seispy.eq.eq.search_baz">[1]</a>
 </li>
       <li><a href="rf.html#seispy.rf.RF.search_eq">search_eq() (seispy.rf.RF method)</a>, <a href="seispy.html#seispy.rf.RF.search_eq">[1]</a>
+</li>
+      <li><a href="seispy.html#seispy.ccp3d.CCP3D.search_good_410_660">search_good_410_660() (seispy.ccp3d.CCP3D method)</a>
 </li>
       <li><a href="rf.html#seispy.eq.eq.search_inc">search_inc() (seispy.eq.eq method)</a>, <a href="seispy.html#seispy.eq.eq.search_inc">[1]</a>
 </li>
@@ -873,6 +934,13 @@
 </li>
       </ul></li>
       <li>
+    seispy.ccp3d
+
+      <ul>
+        <li><a href="seispy.html#module-seispy.ccp3d">module</a>
+</li>
+      </ul></li>
+      <li>
     seispy.ccppara
 
       <ul>
@@ -880,10 +948,17 @@
 </li>
       </ul></li>
       <li>
-    seispy.decov
+    seispy.ccpprofile
 
       <ul>
-        <li><a href="seispy.html#module-seispy.decov">module</a>
+        <li><a href="seispy.html#module-seispy.ccpprofile">module</a>
+</li>
+      </ul></li>
+      <li>
+    seispy.decon
+
+      <ul>
+        <li><a href="seispy.html#module-seispy.decon">module</a>
 </li>
       </ul></li>
       <li>
@@ -956,6 +1031,8 @@
         <li><a href="gui.html#module-seispy.pickfigure">module</a>, <a href="seispy.html#module-seispy.pickfigure">[1]</a>
 </li>
       </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li>
     seispy.pickui
 
@@ -970,8 +1047,6 @@
         <li><a href="seispy.html#module-seispy.plotR">module</a>
 </li>
       </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li>
     seispy.plotRT
 
@@ -1079,6 +1154,12 @@
 </li>
       <li><a href="seispy.html#seispy.geo.srad2skm">srad2skm() (in module seispy.geo)</a>
 </li>
+      <li><a href="seispy.html#seispy.ccp3d.CCP3D.stack">stack() (seispy.ccp3d.CCP3D method)</a>
+
+      <ul>
+        <li><a href="seispy.html#seispy.ccpprofile.CCPProfile.stack">(seispy.ccpprofile.CCPProfile method)</a>
+</li>
+      </ul></li>
       <li><a href="gui.html#seispy.pickfigure.StaData">StaData (class in seispy.pickfigure)</a>, <a href="seispy.html#seispy.pickfigure.StaData">[1]</a>
 </li>
       <li><a href="rf.html#seispy.rf.stainfo">stainfo (class in seispy.rf)</a>, <a href="seispy.html#seispy.rf.stainfo">[1]</a>

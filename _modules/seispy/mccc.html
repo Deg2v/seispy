@@ -101,6 +101,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../examples/ex-prf.html#estimate-the-moho-depth-and-the-crustal-vp-vs-using-the-h-k-stacking-method">Estimate the Moho depth and the crustal Vp/Vs using the H-k stacking method</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../examples/ex-ccp.html">Calculate PRFs of a seismic array in batch</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../examples/ex-ccp.html#ccp-stacking-along-a-linear-seismic-array">CCP stacking along a linear seismic array</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../examples/ex-ccp3d.html">3-D CCP stacking for mantle transition zone structure under the Tibet.</a></li>
 </ul>
 <p class="caption"><span class="caption-text">API Documentation:</span></p>
 <ul>
@@ -225,7 +226,7 @@
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">ns</span><span class="p">):</span>
         <span class="n">tdel</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">tcc</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">i</span><span class="p">])</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">tcc</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">:</span><span class="n">ns</span><span class="p">]))</span><span class="o">/</span><span class="n">ns</span>
 
-    <span class="k">return</span><span class="p">(</span><span class="n">tdel</span><span class="p">)</span></div>
+    <span class="k">return</span> <span class="n">tdel</span></div>
 </pre></div>
 
            </div>

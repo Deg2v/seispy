@@ -101,6 +101,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../examples/ex-prf.html#estimate-the-moho-depth-and-the-crustal-vp-vs-using-the-h-k-stacking-method">Estimate the Moho depth and the crustal Vp/Vs using the H-k stacking method</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../examples/ex-ccp.html">Calculate PRFs of a seismic array in batch</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../examples/ex-ccp.html#ccp-stacking-along-a-linear-seismic-array">CCP stacking along a linear seismic array</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../examples/ex-ccp3d.html">3-D CCP stacking for mantle transition zone structure under the Tibet.</a></li>
 </ul>
 <p class="caption"><span class="caption-text">API Documentation:</span></p>
 <ul>
@@ -260,7 +261,9 @@
     <span class="n">cpara</span><span class="o">.</span><span class="n">stalist</span> <span class="o">=</span> <span class="n">cf</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;FileIO&#39;</span><span class="p">,</span> <span class="s1">&#39;stalist&#39;</span><span class="p">)</span>
     <span class="n">cpara</span><span class="o">.</span><span class="n">stack_sta_list</span> <span class="o">=</span> <span class="n">cf</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;FileIO&#39;</span><span class="p">,</span> <span class="s1">&#39;stack_sta_list&#39;</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">cf</span><span class="o">.</span><span class="n">has_option</span><span class="p">(</span><span class="s1">&#39;FileIO&#39;</span><span class="p">,</span> <span class="s1">&#39;peakfile&#39;</span><span class="p">):</span>
-        <span class="n">cpara</span><span class="o">.</span><span class="n">peakfile</span> <span class="o">=</span> <span class="n">cf</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;FileIO&#39;</span><span class="p">,</span> <span class="s1">&#39;peakfile&#39;</span><span class="p">)</span>
+        <span class="n">fname</span> <span class="o">=</span> <span class="n">cf</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;FileIO&#39;</span><span class="p">,</span> <span class="s1">&#39;peakfile&#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">fname</span> <span class="o">!=</span> <span class="s1">&#39;&#39;</span><span class="p">:</span>
+            <span class="n">cpara</span><span class="o">.</span><span class="n">peakfile</span> <span class="o">=</span> <span class="n">fname</span>
     <span class="n">velmod</span> <span class="o">=</span> <span class="n">cf</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;FileIO&#39;</span><span class="p">,</span> <span class="s1">&#39;velmod&#39;</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">velmod</span> <span class="o">==</span> <span class="s1">&#39;&#39;</span><span class="p">:</span>
         <span class="n">cpara</span><span class="o">.</span><span class="n">velmod</span> <span class="o">=</span> <span class="n">join</span><span class="p">(</span><span class="n">dirname</span><span class="p">(</span><span class="vm">__file__</span><span class="p">),</span> <span class="s1">&#39;data&#39;</span><span class="p">,</span> <span class="s1">&#39;iasp91.vel&#39;</span><span class="p">)</span>
