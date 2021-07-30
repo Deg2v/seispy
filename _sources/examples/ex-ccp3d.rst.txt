@@ -9,7 +9,7 @@ mantle transition zone (MTZ) thickness) is correspond to mineral phase
 transitions and thermal process in the mantle.
 
 Here, we will introduce the usage of the Seispy for imaging the MTZ
-structure in the central Tibet (Xu et al., 2020). 
+structure in the central Tibet (`Xu et al., 2020 <https://doi.org/10.1016/j.pepi.2020.106452>`_). 
 
 Download link
 -------------
@@ -18,12 +18,7 @@ The package include:
 
 -  ``RFdepth_1D.npy``: RF data with 1-D time-to-depth conversion using
    ``rf2depth`` command.
--  ``ccp.cfg``: Configure file for 3-D CCP stacking. Note that following
-   options are exclusive.
-
-   -  ``peakfile``: File to the output depth of the D410 and D660.
-   -  ``[spacedbins]``: Options for spaced grid of bins.
-
+-  ``ccp.cfg``: Configure file for 3-D CCP stacking.
 -  ``ps_mtz.sh``: Plot map for topography of D410 and D660 and the MTZ
    thickness.
 -  ``ps_profile.sh``: Plot section with 2-D CCP stacking along a
@@ -31,6 +26,15 @@ The package include:
 
 3-D CCP stacking
 ----------------
+
+Required parameters
+~~~~~~~~~~~~~~~~~~~~
+
+Some new parameters in the configure file (``ccp.cfg``) are exclusive for 3-D CCP stacking. Other parameters are same as the 2-D CCP stacking. See :doc:`../usage/ccp` in detail.
+
+-  ``peakfile``: File to the output depth of the D410 and D660.
+-  ``[spacedbins]``: Options for spaced grid of bins.
+
 
 Initial grid
 ~~~~~~~~~~~~
@@ -57,7 +61,9 @@ CCP stacking
 
 Run following command in the command line for 3-D CCP stacking.
 
-``Shell ccp3d ccp.cfg -s 380/440/630/690``
+.. code-block:: Shell
+
+    ccp3d ccp.cfg -s 380/440/630/690
 
 -  The option ``-s`` denotes the searching range in depth of the P410s
    and the P660s.
@@ -100,7 +106,7 @@ in this D660 depth
 Plot the map of D410, D660 and the MTZ thickness
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-We have provided a Bash script to plot the map
+We have provided a GMT script to plot the map
 
 .. code-block:: Bash
 
@@ -123,7 +129,7 @@ Required parameters
 Following parameters are required in the ``ccp.cfg``.
 
 - Path to input/output files, including ``depthdat`` and ``stackfile``.
-- The bin ``shape`` was set to ``circle``; ``bin_radius`` was set to 75 km; the interval between adjacent bins was set to 25 km.
+- The bin ``shape`` was set to ``circle``; ``bin_radius`` was set to 75 km; the interval between adjacent bins (``slide_val``) was set to 25 km.
 - Two end points of the profile were set in ``[line]`` section.
 - In ``[stack]`` section, We set the stacking from 300 km to 750 km with 2 km interval in depth.
 - The ``boot_samples`` was set to 2000 times in bootstrapping.
@@ -137,7 +143,7 @@ Run following command
 
     ccp_profile ccp.cfg -t
 
-The text ``stackfile`` will be generated. Use provided bash script to plot the profile.
+The text ``stackfile`` will be generated. Use provided GMT script to plot the profile.
 
 .. code-block:: Shell
 

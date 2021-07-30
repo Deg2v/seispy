@@ -1,12 +1,12 @@
 Calculate PRFs of a seismic array in batch
 ===============================================
 
-This example provide a procedure for batch calculating PRFs of NCISP-III array (Zheng et al., 2007)
+This example provide a procedure for batch calculating PRFs of NCISP-III array (`Zheng et al., 2007 <https://doi.org/10.1016/j.pepi.2007.01.004>`_)
 
 Download teleseismic data records
 --------------------------------------
 
-Download link: `ex-batRF.tar.gz <https://osf.io/wsj83/download>`__
+Download link: `ex-batRF.tar.gz <https://osf.io/wsj83/download>`_
 
 Unzip the file to any directory. The package include ``Data.ZX`` with 47 sub folders named as ``network.station``, which include ``sac`` files cut out from 300 s after origin time to 1000 s after origin time seismic events. The ``SACHeader` of station information (``netwk``, ``stnm``, ``stla`` and ``stlo``) had been written into ``sac`` files.
 
@@ -32,7 +32,7 @@ Seispy has provided a command called ``setpar``, which will modify values in the
 CCP stacking along a linear seismic array
 ==========================================
 
-Download link: `ex-ccp.tar.gz <https://osf.io/hzq2x/download>`__
+Download link: `ex-ccp.tar.gz <https://osf.io/hzq2x/download>`_
 
 Preparation
 --------------
@@ -60,7 +60,7 @@ After the time-to-depth conversion, the ``RFdepth.mat`` will be generated follow
 CCP stacking
 --------------
 
-specify following parameters in the ``ccp.cfg`` for CCP stacking. See :doc:`../usage/ccp.md` in detail.
+specify following parameters in the ``ccp.cfg`` for CCP stacking. See :doc:`../usage/ccp` in detail.
 
 - ``stackfile``: Output file for the CCP stacking
 - ``stack_sta_list``: Stations used for the CCP stacking. In this example, we use the same stations as the ``stalist``.

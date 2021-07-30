@@ -106,6 +106,7 @@
 <li class="toctree-l1 current"><a class="current reference internal" href="#">3-D CCP stacking for mantle transition zone structure under the Tibet.</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#download-link">Download link</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#d-ccp-stacking">3-D CCP stacking</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#required-parameters">Required parameters</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#initial-grid">Initial grid</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#ccp-stacking">CCP stacking</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#output-files">Output files</a><ul>
@@ -117,7 +118,7 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#ccp-stacking-along-a-profile-with-bootstrapping">CCP stacking along a profile with bootstrapping</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#required-parameters">Required parameters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id1">Required parameters</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#run-2-d-ccp-stacking-in-command-line">Run 2-D CCP stacking in command line</a></li>
 </ul>
 </li>
@@ -222,20 +223,14 @@ and D660. The difference in depth between the D410 and D660 (i.e., the
 mantle transition zone (MTZ) thickness) is correspond to mineral phase
 transitions and thermal process in the mantle.</p>
 <p>Here, we will introduce the usage of the Seispy for imaging the MTZ
-structure in the central Tibet (Xu et al., 2020).</p>
+structure in the central Tibet (<a class="reference external" href="https://doi.org/10.1016/j.pepi.2020.106452">Xu et al., 2020</a>).</p>
 <div class="section" id="download-link">
 <h2>Download link<a class="headerlink" href="#download-link" title="Permalink to this headline">¶</a></h2>
 <p>The package include:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">RFdepth_1D.npy</span></code>: RF data with 1-D time-to-depth conversion using
 <code class="docutils literal notranslate"><span class="pre">rf2depth</span></code> command.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">ccp.cfg</span></code>: Configure file for 3-D CCP stacking. Note that following
-options are exclusive.</p>
-<ul>
-<li><p><code class="docutils literal notranslate"><span class="pre">peakfile</span></code>: File to the output depth of the D410 and D660.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">[spacedbins]</span></code>: Options for spaced grid of bins.</p></li>
-</ul>
-</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ccp.cfg</span></code>: Configure file for 3-D CCP stacking.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">ps_mtz.sh</span></code>: Plot map for topography of D410 and D660 and the MTZ
 thickness.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">ps_profile.sh</span></code>: Plot section with 2-D CCP stacking along a
@@ -244,6 +239,14 @@ profile.</p></li>
 </div>
 <div class="section" id="d-ccp-stacking">
 <h2>3-D CCP stacking<a class="headerlink" href="#d-ccp-stacking" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="required-parameters">
+<h3>Required parameters<a class="headerlink" href="#required-parameters" title="Permalink to this headline">¶</a></h3>
+<p>Some new parameters in the configure file (<code class="docutils literal notranslate"><span class="pre">ccp.cfg</span></code>) are exclusive for 3-D CCP stacking. Other parameters are same as the 2-D CCP stacking. See <a class="reference internal" href="../usage/ccp.html"><span class="doc">Stack PRFs with Common Conversion points (CCP) method</span></a> in detail.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">peakfile</span></code>: File to the output depth of the D410 and D660.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[spacedbins]</span></code>: Options for spaced grid of bins.</p></li>
+</ul>
+</div>
 <div class="section" id="initial-grid">
 <h3>Initial grid<a class="headerlink" href="#initial-grid" title="Permalink to this headline">¶</a></h3>
 <p>Seispy provide a command as the <code class="docutils literal notranslate"><span class="pre">ccp3d</span></code> for the 3-D CCP stacking.
@@ -264,7 +267,9 @@ high latitude.</p>
 <div class="section" id="ccp-stacking">
 <h3>CCP stacking<a class="headerlink" href="#ccp-stacking" title="Permalink to this headline">¶</a></h3>
 <p>Run following command in the command line for 3-D CCP stacking.</p>
-<p><code class="docutils literal notranslate"><span class="pre">Shell</span> <span class="pre">ccp3d</span> <span class="pre">ccp.cfg</span> <span class="pre">-s</span> <span class="pre">380/440/630/690</span></code></p>
+<div class="highlight-Shell notranslate"><div class="highlight"><pre><span></span>ccp3d ccp.cfg -s <span class="m">380</span>/440/630/690
+</pre></div>
+</div>
 <ul class="simple">
 <li><p>The option <code class="docutils literal notranslate"><span class="pre">-s</span></code> denotes the searching range in depth of the P410s
 and the P660s.</p></li>
@@ -300,25 +305,25 @@ in this D660 depth</p>
 </div>
 <div class="section" id="plot-the-map-of-d410-d660-and-the-mtz-thickness">
 <h3>Plot the map of D410, D660 and the MTZ thickness<a class="headerlink" href="#plot-the-map-of-d410-d660-and-the-mtz-thickness" title="Permalink to this headline">¶</a></h3>
-<p>We have provided a Bash script to plot the map</p>
+<p>We have provided a GMT script to plot the map</p>
 <div class="highlight-Bash notranslate"><div class="highlight"><pre><span></span>sh ps_mtz.sh
 </pre></div>
 </div>
-<div class="figure align-center" id="id1">
+<div class="figure align-center" id="id2">
 <img alt="MTZ structure" src="../_images/mtz.png" />
-<p class="caption"><span class="caption-text">Topographies of the d410, d660 and MTZ thickness</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-text">Topographies of the d410, d660 and MTZ thickness</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
 </div>
 </div>
 </div>
 <div class="section" id="ccp-stacking-along-a-profile-with-bootstrapping">
 <h2>CCP stacking along a profile with bootstrapping<a class="headerlink" href="#ccp-stacking-along-a-profile-with-bootstrapping" title="Permalink to this headline">¶</a></h2>
 <p>Lateral variations of the topography of D410 and D660 can be imaged by 2-D CCP stacking. To estimate errors of stacked PRFs, we will calculate 95% confidence interval with bootstrap method.</p>
-<div class="section" id="required-parameters">
-<h3>Required parameters<a class="headerlink" href="#required-parameters" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id1">
+<h3>Required parameters<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
 <p>Following parameters are required in the <code class="docutils literal notranslate"><span class="pre">ccp.cfg</span></code>.</p>
 <ul class="simple">
 <li><p>Path to input/output files, including <code class="docutils literal notranslate"><span class="pre">depthdat</span></code> and <code class="docutils literal notranslate"><span class="pre">stackfile</span></code>.</p></li>
-<li><p>The bin <code class="docutils literal notranslate"><span class="pre">shape</span></code> was set to <code class="docutils literal notranslate"><span class="pre">circle</span></code>; <code class="docutils literal notranslate"><span class="pre">bin_radius</span></code> was set to 75 km; the interval between adjacent bins was set to 25 km.</p></li>
+<li><p>The bin <code class="docutils literal notranslate"><span class="pre">shape</span></code> was set to <code class="docutils literal notranslate"><span class="pre">circle</span></code>; <code class="docutils literal notranslate"><span class="pre">bin_radius</span></code> was set to 75 km; the interval between adjacent bins (<code class="docutils literal notranslate"><span class="pre">slide_val</span></code>) was set to 25 km.</p></li>
 <li><p>Two end points of the profile were set in <code class="docutils literal notranslate"><span class="pre">[line]</span></code> section.</p></li>
 <li><p>In <code class="docutils literal notranslate"><span class="pre">[stack]</span></code> section, We set the stacking from 300 km to 750 km with 2 km interval in depth.</p></li>
 <li><p>The <code class="docutils literal notranslate"><span class="pre">boot_samples</span></code> was set to 2000 times in bootstrapping.</p></li>
@@ -330,13 +335,13 @@ in this D660 depth</p>
 <div class="highlight-Shell notranslate"><div class="highlight"><pre><span></span>ccp_profile ccp.cfg -t
 </pre></div>
 </div>
-<p>The text <code class="docutils literal notranslate"><span class="pre">stackfile</span></code> will be generated. Use provided bash script to plot the profile.</p>
+<p>The text <code class="docutils literal notranslate"><span class="pre">stackfile</span></code> will be generated. Use provided GMT script to plot the profile.</p>
 <div class="highlight-Shell notranslate"><div class="highlight"><pre><span></span>sh ps_profile.sh
 </pre></div>
 </div>
-<div class="figure align-center" id="id2">
+<div class="figure align-center" id="id3">
 <img alt="MTZ structure profile" src="../_images/profile.png" />
-<p class="caption"><span class="caption-text">Topography of D410 and D660 along the profile</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-text">Topography of D410 and D660 along the profile</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
 </div>
 </div>
 </div>
