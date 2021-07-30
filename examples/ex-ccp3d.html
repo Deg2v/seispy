@@ -113,9 +113,15 @@
 <li class="toctree-l4"><a class="reference internal" href="#peakfile"><code class="docutils literal notranslate"><span class="pre">peakfile</span></code></a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="#plot-the-map-of-d410-d660-and-the-mtz-thickness">Plot the map of D410, D660 and the MTZ thickness</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#plot-the-map-of-d410-d660-and-the-mtz-thickness">Plot the map of D410, D660 and the MTZ thickness</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ccp-stacking-along-a-profile-with-bootstrapping">CCP stacking along a profile with bootstrapping</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#required-parameters">Required parameters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#run-2-d-ccp-stacking-in-command-line">Run 2-D CCP stacking in command line</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#reference">Reference</a></li>
 </ul>
 </li>
 </ul>
@@ -216,7 +222,7 @@ and D660. The difference in depth between the D410 and D660 (i.e., the
 mantle transition zone (MTZ) thickness) is correspond to mineral phase
 transitions and thermal process in the mantle.</p>
 <p>Here, we will introduce the usage of the Seispy for imaging the MTZ
-structure.</p>
+structure in the central Tibet (Xu et al., 2020).</p>
 <div class="section" id="download-link">
 <h2>Download link<a class="headerlink" href="#download-link" title="Permalink to this headline">¶</a></h2>
 <p>The package include:</p>
@@ -292,13 +298,51 @@ and 9 are confidence interval at the D660 depth; column 10 is the ray number of 
 in this D660 depth</p>
 </div>
 </div>
-</div>
 <div class="section" id="plot-the-map-of-d410-d660-and-the-mtz-thickness">
-<h2>Plot the map of D410, D660 and the MTZ thickness<a class="headerlink" href="#plot-the-map-of-d410-d660-and-the-mtz-thickness" title="Permalink to this headline">¶</a></h2>
+<h3>Plot the map of D410, D660 and the MTZ thickness<a class="headerlink" href="#plot-the-map-of-d410-d660-and-the-mtz-thickness" title="Permalink to this headline">¶</a></h3>
 <p>We have provided a Bash script to plot the map</p>
 <div class="highlight-Bash notranslate"><div class="highlight"><pre><span></span>sh ps_mtz.sh
 </pre></div>
 </div>
+<div class="figure align-center" id="id1">
+<img alt="MTZ structure" src="../_images/mtz.png" />
+<p class="caption"><span class="caption-text">Topographies of the d410, d660 and MTZ thickness</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+</div>
+<div class="section" id="ccp-stacking-along-a-profile-with-bootstrapping">
+<h2>CCP stacking along a profile with bootstrapping<a class="headerlink" href="#ccp-stacking-along-a-profile-with-bootstrapping" title="Permalink to this headline">¶</a></h2>
+<p>Lateral variations of the topography of D410 and D660 can be imaged by 2-D CCP stacking. To estimate errors of stacked PRFs, we will calculate 95% confidence interval with bootstrap method.</p>
+<div class="section" id="required-parameters">
+<h3>Required parameters<a class="headerlink" href="#required-parameters" title="Permalink to this headline">¶</a></h3>
+<p>Following parameters are required in the <code class="docutils literal notranslate"><span class="pre">ccp.cfg</span></code>.</p>
+<ul class="simple">
+<li><p>Path to input/output files, including <code class="docutils literal notranslate"><span class="pre">depthdat</span></code> and <code class="docutils literal notranslate"><span class="pre">stackfile</span></code>.</p></li>
+<li><p>The bin <code class="docutils literal notranslate"><span class="pre">shape</span></code> was set to <code class="docutils literal notranslate"><span class="pre">circle</span></code>; <code class="docutils literal notranslate"><span class="pre">bin_radius</span></code> was set to 75 km; the interval between adjacent bins was set to 25 km.</p></li>
+<li><p>Two end points of the profile were set in <code class="docutils literal notranslate"><span class="pre">[line]</span></code> section.</p></li>
+<li><p>In <code class="docutils literal notranslate"><span class="pre">[stack]</span></code> section, We set the stacking from 300 km to 750 km with 2 km interval in depth.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">boot_samples</span></code> was set to 2000 times in bootstrapping.</p></li>
+</ul>
+</div>
+<div class="section" id="run-2-d-ccp-stacking-in-command-line">
+<h3>Run 2-D CCP stacking in command line<a class="headerlink" href="#run-2-d-ccp-stacking-in-command-line" title="Permalink to this headline">¶</a></h3>
+<p>Run following command</p>
+<div class="highlight-Shell notranslate"><div class="highlight"><pre><span></span>ccp_profile ccp.cfg -t
+</pre></div>
+</div>
+<p>The text <code class="docutils literal notranslate"><span class="pre">stackfile</span></code> will be generated. Use provided bash script to plot the profile.</p>
+<div class="highlight-Shell notranslate"><div class="highlight"><pre><span></span>sh ps_profile.sh
+</pre></div>
+</div>
+<div class="figure align-center" id="id2">
+<img alt="MTZ structure profile" src="../_images/profile.png" />
+<p class="caption"><span class="caption-text">Topography of D410 and D660 along the profile</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+</div>
+<div class="section" id="reference">
+<h2>Reference<a class="headerlink" href="#reference" title="Permalink to this headline">¶</a></h2>
+<p>Xu M, Huang Z, Wang L, et al. Lateral variation of the mantle transition zone beneath the Tibetan Plateau: Insight into thermal processes during Indian–Asian collision[J]. Physics of the Earth and Planetary Interiors, 2020, 301: 106452.</p>
 </div>
 </div>
 

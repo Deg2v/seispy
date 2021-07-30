@@ -103,7 +103,7 @@
 <li class="toctree-l1"><a class="reference internal" href="ex-prf.html#estimate-the-moho-depth-and-the-crustal-vp-vs-using-the-h-k-stacking-method">Estimate the Moho depth and the crustal Vp/Vs using the H-k stacking method</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Calculate PRFs of a seismic array in batch</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#download-teleseismic-data-records">Download teleseismic data records</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#write-a-script-of-batch-calculation">Write a script of batch calculation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#write-a-script-for-batch-calculation">Write a script for batch calculation</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="#ccp-stacking-along-a-linear-seismic-array">CCP stacking along a linear seismic array</a><ul>
@@ -190,7 +190,7 @@
         
           
             
-              <a href="https://github.com/xumi1993/seispy-doc.post/blob/master/source/examples/ex-ccp.md" class="fa fa-github"> Edit on GitHub</a>
+              <a href="https://github.com/xumi1993/seispy-doc.post/blob/master/source/examples/ex-ccp.rst" class="fa fa-github"> Edit on GitHub</a>
             
           
         
@@ -210,10 +210,10 @@
 <div class="section" id="download-teleseismic-data-records">
 <h2>Download teleseismic data records<a class="headerlink" href="#download-teleseismic-data-records" title="Permalink to this headline">¶</a></h2>
 <p>Download link: <a class="reference external" href="https://osf.io/wsj83/download">ex-batRF.tar.gz</a></p>
-<p>Unzip the file to any directory. The package include <code class="docutils literal notranslate"><span class="pre">Data.ZX</span></code> with 47 sub folders named as <code class="docutils literal notranslate"><span class="pre">network.station</span></code>, which include <code class="docutils literal notranslate"><span class="pre">sac</span></code> files cut out from 300 s after origin time to 1000 s after origin time seismic events. The <code class="docutils literal notranslate"><span class="pre">SACHeader</span></code> of station information (<code class="docutils literal notranslate"><span class="pre">netwk</span></code>, <code class="docutils literal notranslate"><span class="pre">stnm</span></code>, <code class="docutils literal notranslate"><span class="pre">stla</span></code> and <code class="docutils literal notranslate"><span class="pre">stlo</span></code>) had been written into <code class="docutils literal notranslate"><span class="pre">sac</span></code> files.</p>
+<p>Unzip the file to any directory. The package include <code class="docutils literal notranslate"><span class="pre">Data.ZX</span></code> with 47 sub folders named as <code class="docutils literal notranslate"><span class="pre">network.station</span></code>, which include <code class="docutils literal notranslate"><span class="pre">sac</span></code> files cut out from 300 s after origin time to 1000 s after origin time seismic events. The <code class="docutils literal notranslate"><span class="pre">SACHeader`</span> <span class="pre">of</span> <span class="pre">station</span> <span class="pre">information</span> <span class="pre">(``netwk</span></code>, <code class="docutils literal notranslate"><span class="pre">stnm</span></code>, <code class="docutils literal notranslate"><span class="pre">stla</span></code> and <code class="docutils literal notranslate"><span class="pre">stlo</span></code>) had been written into <code class="docutils literal notranslate"><span class="pre">sac</span></code> files.</p>
 </div>
-<div class="section" id="write-a-script-of-batch-calculation">
-<h2>Write a script of batch calculation<a class="headerlink" href="#write-a-script-of-batch-calculation" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="write-a-script-for-batch-calculation">
+<h2>Write a script for batch calculation<a class="headerlink" href="#write-a-script-for-batch-calculation" title="Permalink to this headline">¶</a></h2>
 <p>Seispy has provided a command called <code class="docutils literal notranslate"><span class="pre">setpar</span></code>, which will modify values in the <code class="docutils literal notranslate"><span class="pre">.cfg</span></code> file. Combining with a list of station information with 3 columns (<code class="docutils literal notranslate"><span class="pre">staname</span></code>, <code class="docutils literal notranslate"><span class="pre">stla</span></code>, <code class="docutils literal notranslate"><span class="pre">stlo</span></code>), We can use the <code class="docutils literal notranslate"><span class="pre">setpar</span></code> and <code class="docutils literal notranslate"><span class="pre">prf</span></code> command in shell script (<code class="docutils literal notranslate"><span class="pre">run.sh</span></code>) for batch calculation of the PRFs. In this example, please execute <code class="docutils literal notranslate"><span class="pre">run.sh</span></code> in <code class="docutils literal notranslate"><span class="pre">ex-batRF</span></code> directory for the batch calculation.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="k">while</span> <span class="nb">read</span> staname stla stlo
 <span class="k">do</span>
@@ -249,14 +249,14 @@
 <li><p><code class="docutils literal notranslate"><span class="pre">stalist</span></code>: The list of station information with 3 columns (<code class="docutils literal notranslate"><span class="pre">staname</span></code>, <code class="docutils literal notranslate"><span class="pre">stla</span></code>, <code class="docutils literal notranslate"><span class="pre">stlo</span></code>)</p></li>
 </ul>
 <p>Then execute follow command to do the conversion</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">rf2depth</span> <span class="n">ccp</span><span class="o">.</span><span class="n">cfg</span>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>rf2depth ccp.cfg
 </pre></div>
 </div>
 <p>After the time-to-depth conversion, the <code class="docutils literal notranslate"><span class="pre">RFdepth.mat</span></code> will be generated following the path set as <code class="docutils literal notranslate"><span class="pre">depthdat</span></code>.</p>
 </div>
 <div class="section" id="ccp-stacking">
 <h2>CCP stacking<a class="headerlink" href="#ccp-stacking" title="Permalink to this headline">¶</a></h2>
-<p>specify following parameters in the <code class="docutils literal notranslate"><span class="pre">ccp.cfg</span></code> for CCP stacking. See <a class="reference internal" href="../usage/ccp.html"><span class="doc">Stack PRFs with Common Conversion points (CCP) method</span></a> in detail.</p>
+<p>specify following parameters in the <code class="docutils literal notranslate"><span class="pre">ccp.cfg</span></code> for CCP stacking. See <span class="xref std std-doc">../usage/ccp.md</span> in detail.</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">stackfile</span></code>: Output file for the CCP stacking</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">stack_sta_list</span></code>: Stations used for the CCP stacking. In this example, we use the same stations as the <code class="docutils literal notranslate"><span class="pre">stalist</span></code>.</p></li>
@@ -265,16 +265,20 @@
 <li><p>Section <code class="docutils literal notranslate"><span class="pre">[stack]</span></code> for Depth samples.</p></li>
 </ul>
 <p>Then execute following command for CCP stacking</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ccp_profile</span> <span class="n">ccp</span><span class="o">.</span><span class="n">cfg</span> <span class="o">-</span><span class="n">t</span>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>ccp_profile ccp.cfg -t
 </pre></div>
 </div>
-<p>An ASCII file set by <code class="docutils literal notranslate"><span class="pre">stackfile</span></code> will be generated including 6 columns (<code class="docutils literal notranslate"><span class="pre">bin_lat</span></code>, <code class="docutils literal notranslate"><span class="pre">bin_lon</span></code>, <code class="docutils literal notranslate"><span class="pre">bin_distance</span></code>, <code class="docutils literal notranslate"><span class="pre">depth</span></code>, <code class="docutils literal notranslate"><span class="pre">amplitude</span></code> and <code class="docutils literal notranslate"><span class="pre">stack_num</span></code>).</p>
+<p>An text file set by <code class="docutils literal notranslate"><span class="pre">stackfile</span></code> will be generated including 6 columns: <code class="docutils literal notranslate"><span class="pre">bin_lat</span></code>, <code class="docutils literal notranslate"><span class="pre">bin_lon</span></code>, <code class="docutils literal notranslate"><span class="pre">bin_distance</span></code>, <code class="docutils literal notranslate"><span class="pre">depth</span></code>, <code class="docutils literal notranslate"><span class="pre">amplitude</span></code> and <code class="docutils literal notranslate"><span class="pre">stack_num</span></code>.</p>
 </div>
 <div class="section" id="plot-the-stacking-image">
 <h2>Plot the stacking image<a class="headerlink" href="#plot-the-stacking-image" title="Permalink to this headline">¶</a></h2>
 <p>Seispy dose not provide any functions or script for plotting stacking image. Here we provide a script with GMT6 format for plotting the image. Just run in <code class="docutils literal notranslate"><span class="pre">ex-ccp</span></code> directory.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sh</span> <span class="n">ps_profile</span><span class="o">.</span><span class="n">sh</span>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>sh ps_profile.sh
 </pre></div>
+</div>
+<div class="figure align-center" id="id1">
+<img alt="profile" src="../_images/profile_ZX.png" />
+<p class="caption"><span class="caption-text">CCP stacking along the seismic array</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
 </div>
 </div>
 <div class="section" id="reference">
