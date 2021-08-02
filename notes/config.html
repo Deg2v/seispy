@@ -1,0 +1,476 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Template of Configurations &mdash; seispy latest documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../_static/seispy_100.png"/>
+  
+
+  
+  
+
+  
+    <link rel="canonical" href="seispy.xumijian.me/notes/config.html" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Module Index" href="../modules.html" />
+    <link rel="prev" title="3-D CCP stacking for mantle transition zone structure under the Tibet." href="../examples/ex-ccp3d.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+    
+    <a href="../index.html" class="icon icon-home"> seispy
+    
+
+    
+    
+    <img src="../_static/seispy_100.png" class="logo" alt="Logo"/>
+    
+    </a>
+
+    
+    
+    
+    
+
+    
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+    
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Getting Started:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../usage/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/calrf.html">Calculate a P-wave Receiver Function (PRF)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/rf-sta.html">Calculate PRFs for a station</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/pickrf.html">Virtual check PRFs with an user interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/ccp.html">Stack PRFs with Common Conversion points (CCP) method</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Examples:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../examples/ex-prf.html">Calculate PRFs of the station CB.NJ2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples/ex-prf.html#estimate-the-moho-depth-and-the-crustal-vp-vs-using-the-h-k-stacking-method">Estimate the Moho depth and the crustal Vp/Vs using the H-k stacking method</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples/ex-ccp.html">Calculate PRFs of a seismic array in batch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples/ex-ccp.html#ccp-stacking-along-a-linear-seismic-array">CCP stacking along a linear seismic array</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples/ex-ccp3d.html">3-D CCP stacking for mantle transition zone structure under the Tibet.</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Configurations &amp; Commands:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Template of Configurations</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#rf-calculation">RF calculation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#hk-stacking">Hk stacking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ccp-stacking">CCP stacking</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">API Documentation:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../modules.html">Module Index</a></li>
+</ul>
+
+            
+          
+
+    
+        <p class="caption">
+            <span class="caption-text">Links:</span>
+        </p>
+        <ul>
+            
+                <li class="toctree-l1"><a href="https://github.com/xumi1993/seispy"><i class="fa fa-github fa-fw"></i> Source Code</a></li>
+            
+                <li class="toctree-l1"><a href="https://blog.xumijian.me"><i class="fa fa-rss fa-fw"></i> Chinses Blog</a></li>
+            
+                <li class="toctree-l1"><a href="https://home.xumijian.me/#contact"><i class="fa fa-envelope fa-fw"></i> Contact</a></li>
+            
+        </ul>
+    
+
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">seispy</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Template of Configurations</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            
+              <a href="https://github.com/xumi1993/seispy-doc.post/blob/master/source/notes/config.rst" class="fa fa-github"> Edit on GitHub</a>
+            
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="template-of-configurations">
+<h1>Template of Configurations<a class="headerlink" href="#template-of-configurations" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="rf-calculation">
+<h2>RF calculation<a class="headerlink" href="#rf-calculation" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">path</span><span class="p">]</span>
+<span class="c1"># Data path with event records</span>
+<span class="n">datapath</span> <span class="o">=</span> <span class="n">Data</span><span class="o">.</span><span class="n">CB</span><span class="o">.</span><span class="n">NJ2</span>
+
+<span class="c1"># Output RF path</span>
+<span class="n">rfpath</span> <span class="o">=</span> <span class="o">./</span><span class="n">RFresult</span><span class="o">/</span><span class="n">CB</span><span class="o">.</span><span class="n">NJ2</span>
+
+<span class="c1"># Catalog path</span>
+<span class="n">catalogpath</span> <span class="o">=</span> <span class="n">events_all</span><span class="o">.</span><span class="n">dat</span>
+
+<span class="p">[</span><span class="n">search_eq</span><span class="p">]</span>
+<span class="c1"># Date range</span>
+<span class="n">date_begin</span> <span class="o">=</span> <span class="mi">20140101</span>
+<span class="n">date_end</span> <span class="o">=</span> <span class="mi">20150723</span>
+
+<span class="c1"># Catalog server, defaults to IRIS</span>
+<span class="n">catalog_server</span> <span class="o">=</span> <span class="n">IRIS</span>
+
+<span class="c1"># Events limitation</span>
+<span class="n">magmin</span> <span class="o">=</span> <span class="mf">5.5</span>
+<span class="n">magmax</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">dismin</span> <span class="o">=</span> <span class="mi">30</span>
+<span class="n">dismax</span> <span class="o">=</span> <span class="mi">90</span>
+
+<span class="p">[</span><span class="n">match_eq</span><span class="p">]</span>
+<span class="c1"># Date format in SAC filenames</span>
+<span class="n">dateformat</span> <span class="o">=</span> <span class="o">%</span><span class="n">Y</span><span class="o">.%</span><span class="n">j</span><span class="o">.%</span><span class="n">H</span><span class="o">%</span><span class="n">M</span><span class="o">%</span><span class="n">S</span>
+
+<span class="c1"># Reference component in SAC filenames</span>
+<span class="n">ref_comp</span> <span class="o">=</span> <span class="o">.</span><span class="n">BHZ</span><span class="o">.</span>
+
+<span class="c1"># Suffix of SAC filenames</span>
+<span class="n">suffix</span> <span class="o">=</span> <span class="n">SAC</span>
+
+<span class="c1"># Relative time and tolerance</span>
+<span class="n">offset</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">tolerance</span> <span class="o">=</span> <span class="mi">10</span>
+
+<span class="p">[</span><span class="n">snr</span><span class="p">]</span>
+<span class="c1"># Threshold of SNR</span>
+<span class="n">noisegate</span> <span class="o">=</span> <span class="mi">1</span>
+
+<span class="c1"># Time length of SNR calculation</span>
+<span class="n">noiselen</span> <span class="o">=</span> <span class="mi">50</span>
+
+<span class="p">[</span><span class="nb">filter</span><span class="p">]</span>
+<span class="c1"># Low and high cut off frequency</span>
+<span class="n">freqmin</span> <span class="o">=</span> <span class="mf">0.05</span>
+<span class="n">freqmax</span> <span class="o">=</span> <span class="mi">2</span>
+
+<span class="p">[</span><span class="n">rotation</span><span class="p">]</span>
+<span class="c1"># Target components, TRZ or LQT available</span>
+<span class="n">comp</span> <span class="o">=</span> <span class="n">TRZ</span>
+
+<span class="p">[</span><span class="n">trim</span><span class="p">]</span>
+<span class="c1"># Time before and after P arrival for trim</span>
+<span class="n">time_before</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">time_after</span> <span class="o">=</span> <span class="mi">120</span>
+
+<span class="p">[</span><span class="n">decon</span><span class="p">]</span>
+<span class="c1"># Deconvolution method, iter or water available</span>
+<span class="n">decon_method</span> <span class="o">=</span> <span class="nb">iter</span>
+
+<span class="c1"># Gauss factor</span>
+<span class="n">gauss</span> <span class="o">=</span> <span class="mi">2</span>
+
+<span class="c1"># Iteration times and min error</span>
+<span class="n">itmax</span> <span class="o">=</span> <span class="mi">400</span>
+<span class="n">minderr</span> <span class="o">=</span> <span class="mf">0.001</span>
+
+<span class="c1"># Water level</span>
+<span class="n">wlevel</span> <span class="o">=</span> <span class="mf">0.05</span>
+
+<span class="p">[</span><span class="n">save</span><span class="p">]</span>
+<span class="c1"># DT for resample</span>
+<span class="n">target_dt</span> <span class="o">=</span> <span class="mf">0.01</span>
+
+<span class="c1"># Calculate only R component, yes or no available</span>
+<span class="n">only_r</span> <span class="o">=</span> <span class="n">no</span>
+
+<span class="c1"># Criterion for saving RFs, non-set, crust or mtz available</span>
+<span class="n">criterion</span> <span class="o">=</span> <span class="n">crust</span>
+
+<span class="c1"># Max RMS for RFs</span>
+<span class="n">rmsgate</span> <span class="o">=</span> <span class="mf">0.25</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="hk-stacking">
+<h2>Hk stacking<a class="headerlink" href="#hk-stacking" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">FileIO</span><span class="p">]</span>
+<span class="c1"># Path to RFs</span>
+<span class="n">rfpath</span> <span class="o">=</span> <span class="o">./</span><span class="n">RFresult</span><span class="o">/</span><span class="n">CB</span><span class="o">.</span><span class="n">NJ2</span>
+
+<span class="c1"># Output path to images</span>
+<span class="n">hkpath</span> <span class="o">=</span> <span class="o">./</span>
+
+<span class="c1"># Path to result file</span>
+<span class="n">hklst</span> <span class="o">=</span>
+
+<span class="p">[</span><span class="n">hk</span><span class="p">]</span>
+<span class="c1"># Range of H and k</span>
+<span class="n">hmin</span> <span class="o">=</span> <span class="mi">20</span>
+<span class="n">hmax</span> <span class="o">=</span> <span class="mi">50</span>
+<span class="n">kmin</span> <span class="o">=</span> <span class="mf">1.6</span>
+<span class="n">kmax</span> <span class="o">=</span> <span class="mf">1.9</span>
+
+<span class="c1"># Crustal Vp</span>
+<span class="n">vp</span> <span class="o">=</span> <span class="mf">6.3</span>
+
+<span class="c1"># Weight for stacking</span>
+<span class="n">weight1</span> <span class="o">=</span> <span class="mf">0.7</span>
+<span class="n">weight2</span> <span class="o">=</span> <span class="mf">0.2</span>
+<span class="n">weight3</span> <span class="o">=</span> <span class="mf">0.1</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="ccp-stacking">
+<h2>CCP stacking<a class="headerlink" href="#ccp-stacking" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">FileIO</span><span class="p">]</span>
+    <span class="c1"># Path to stations with RF sac files</span>
+<span class="n">rfpath</span> <span class="o">=</span> <span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">RFresult</span>
+
+<span class="c1"># Path to station list</span>
+<span class="n">stalist</span> <span class="o">=</span> <span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">sta_all</span><span class="o">.</span><span class="n">lst</span>
+
+<span class="c1"># Path to the lib of Ps ray parameters.</span>
+<span class="c1"># If it&#39;s empty the ray parameters of Ps would be assumed as that of P arrival</span>
+<span class="n">rayp_lib</span> <span class="o">=</span>
+
+<span class="c1"># Output data structure after time to depth</span>
+<span class="n">depthdat</span> <span class="o">=</span>  <span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">RFdepth</span>
+
+<span class="c1"># Output data structure after CCP stacking</span>
+<span class="n">stackfile</span> <span class="o">=</span> <span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">stack_data</span>
+
+<span class="c1"># Station list used to stack</span>
+<span class="n">stack_sta_list</span> <span class="o">=</span> <span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">stack_sta</span><span class="o">.</span><span class="n">lst</span>
+
+<span class="c1"># Path to 1D velocity model with 3 columns: depth vp vs</span>
+<span class="c1"># If it&#39;s empty, the IASP91 model will be used in time-to-depth conversion</span>
+<span class="n">velmod</span> <span class="o">=</span>
+
+<span class="c1"># Optional, Path to file for searching depth of d410 and d660</span>
+<span class="n">peakfile</span> <span class="o">=</span>
+
+<span class="p">[</span><span class="nb">bin</span><span class="p">]</span>
+<span class="c1"># The shape of bins, circle or rect available</span>
+<span class="n">shape</span> <span class="o">=</span> <span class="n">rect</span>
+
+<span class="c1"># period of S wave (for assuming the radius of fresnel zone)</span>
+<span class="n">domperiod</span> <span class="o">=</span> <span class="mi">5</span>
+
+<span class="c1"># Width of the profile in km, only works for rectangle bin</span>
+<span class="n">width</span> <span class="o">=</span> <span class="mi">100</span>
+
+<span class="c1"># Radius of bins in km</span>
+<span class="c1"># If it&#39;s empty, radius would be assumed following fresnel zone</span>
+<span class="n">bin_radius</span> <span class="o">=</span>
+
+<span class="c1"># sliding or spacing interval of bins in km</span>
+<span class="n">slide_val</span> <span class="o">=</span> <span class="mi">5</span>
+
+<span class="p">[</span><span class="n">line</span><span class="p">]</span>
+<span class="c1"># Coordinate of two end points for ccp_profile</span>
+<span class="n">profile_lat1</span> <span class="o">=</span> <span class="mf">27.5</span>
+<span class="n">profile_lon1</span> <span class="o">=</span> <span class="mi">94</span>
+<span class="n">profile_lat2</span> <span class="o">=</span> <span class="mf">36.5</span>
+<span class="n">profile_lon2</span> <span class="o">=</span> <span class="mi">92</span>
+
+<span class="p">[</span><span class="n">spacedbins</span><span class="p">]</span>
+<span class="c1"># Spaced grid for ccp3d</span>
+<span class="n">center_lat</span> <span class="o">=</span> <span class="mi">32</span>
+<span class="n">center_lon</span> <span class="o">=</span> <span class="mi">94</span>
+<span class="n">half_len_lat</span> <span class="o">=</span> <span class="mi">4</span>
+<span class="n">half_len_lon</span> <span class="o">=</span> <span class="mi">4</span>
+
+<span class="p">[</span><span class="n">depth</span><span class="p">]</span>
+<span class="c1"># Max depth for time-to-depth conversion</span>
+<span class="n">dep_end</span> <span class="o">=</span> <span class="mi">800</span>
+<span class="n">dep_val</span> <span class="o">=</span> <span class="mi">1</span>
+
+<span class="p">[</span><span class="n">stack</span><span class="p">]</span>
+<span class="c1"># Stack RFs from &lt;stack_start&gt; km to &lt;stack_end&gt; km with interval of &lt;stack_val&gt; km</span>
+<span class="n">stack_start</span> <span class="o">=</span> <span class="mi">300</span>
+<span class="n">stack_end</span> <span class="o">=</span> <span class="mi">750</span>
+<span class="n">stack_val</span> <span class="o">=</span> <span class="mi">2</span>
+
+<span class="c1"># Samples in bootstrap method</span>
+<span class="n">boot_samples</span> <span class="o">=</span> <span class="mi">2000</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+           <div class="articleComments">
+            
+
+<!-- gitalk 脚本-->
+<div id="gitalk-container"></div>
+<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+<script src="https://cdn.bootcss.com/blueimp-md5/2.12.0/js/md5.min.js"></script>
+<script type="text/javascript">
+  var gitalk = new Gitalk({
+    clientID: '353cad2a2d15e1570ff3',
+    clientSecret: '4405286d2f00e73da8474211999fdee5a6f09f42',
+    owner: 'xumi1993',
+    repo: 'seispy-doc.post',
+    admin: ['xumi1993'],
+    id: md5(location.pathname),
+    body: location.href,
+    language: 'en'
+  });
+gitalk.render('gitalk-container');
+</script>
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="../modules.html" class="btn btn-neutral float-right" title="Module Index" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../examples/ex-ccp3d.html" class="btn btn-neutral float-left" title="3-D CCP stacking for mantle transition zone structure under the Tibet." accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2020, Mijian Xu.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

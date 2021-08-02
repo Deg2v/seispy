@@ -120,6 +120,10 @@
 <li class="toctree-l1"><a class="reference internal" href="../examples/ex-ccp.html#ccp-stacking-along-a-linear-seismic-array">CCP stacking along a linear seismic array</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../examples/ex-ccp3d.html">3-D CCP stacking for mantle transition zone structure under the Tibet.</a></li>
 </ul>
+<p class="caption"><span class="caption-text">Configurations &amp; Commands:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../notes/config.html">Template of Configurations</a></li>
+</ul>
 <p class="caption"><span class="caption-text">API Documentation:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../modules.html">Module Index</a></li>
@@ -248,83 +252,24 @@
 </div>
 <div class="section" id="a-parameter-file">
 <h3>A parameter file<a class="headerlink" href="#a-parameter-file" title="Permalink to this headline">¶</a></h3>
-<p>The parameter file include parameters used in the time-to-depth and CCP stacking. the format should follow <code class="docutils literal notranslate"><span class="pre">configparser</span></code> module as the following example:</p>
-<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">FileIO</span><span class="p">]</span>
-<span class="c1"># Path to stations with RF sac files</span>
-<span class="n">rfpath</span> <span class="o">=</span> <span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">RFresult</span>
-
-<span class="c1"># Path to station list</span>
-<span class="n">stalist</span> <span class="o">=</span> <span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">sta_all</span><span class="o">.</span><span class="n">lst</span>
-
-<span class="c1"># Path to the lib of Ps ray parameters. </span>
-<span class="c1"># If it&#39;s empty the ray parameters of Ps would be assumed as that of P arrival</span>
-<span class="n">rayp_lib</span> <span class="o">=</span>
-
-<span class="c1"># Output data structure after time to depth</span>
-<span class="n">depthdat</span> <span class="o">=</span>  <span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">xumj</span><span class="o">/</span><span class="n">Researches</span><span class="o">/</span><span class="n">NETibet</span><span class="o">/</span><span class="n">ccp_result</span><span class="o">/</span><span class="n">RFdepth_3D</span><span class="o">.</span><span class="n">mat</span>
-
-<span class="c1"># Output data structure after CCP stacking</span>
-<span class="n">stackfile</span> <span class="o">=</span> <span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">xumj</span><span class="o">/</span><span class="n">Researches</span><span class="o">/</span><span class="n">NETibet</span><span class="o">/</span><span class="n">Ordos_Process</span><span class="o">/</span><span class="n">stack_L5</span>
-
-<span class="c1"># Station list used to stack</span>
-<span class="n">stack_sta_list</span> <span class="o">=</span> <span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">xumj</span><span class="o">/</span><span class="n">Researches</span><span class="o">/</span><span class="n">NETibet</span><span class="o">/</span><span class="n">Ordos_Process</span><span class="o">/</span><span class="n">sta_L5</span><span class="o">.</span><span class="n">lst</span>
-
-<span class="c1"># Path to 1D velocity model</span>
-<span class="c1"># If it&#39;s empty, the IASP91 model will be used in time-to-depth conversion </span>
-<span class="n">velmod</span> <span class="o">=</span>
-
-<span class="p">[</span><span class="nb">bin</span><span class="p">]</span>
-<span class="c1"># The shape of bins</span>
-<span class="n">shape</span> <span class="o">=</span> <span class="n">rect</span>
-
-<span class="c1"># period of S wave (to assuming the radius of fresnel zone)</span>
-<span class="n">domperiod</span> <span class="o">=</span> <span class="mi">5</span>
-
-<span class="c1"># Width of the profile in km</span>
-<span class="n">width</span> <span class="o">=</span> <span class="mi">100</span>
-
-<span class="c1"># Radius of bins in km</span>
-<span class="c1"># If it&#39;s empty, radius would be assumed following fresnel zone</span>
-<span class="n">bin_radius</span> <span class="o">=</span>
-
-<span class="c1"># sliding interval of bins in km </span>
-<span class="n">slid_val</span> <span class="o">=</span> <span class="mi">5</span>
-
-<span class="p">[</span><span class="n">line</span><span class="p">]</span>
-<span class="c1"># Coordinate of two end points for the profile</span>
-<span class="n">profile_lat1</span> <span class="o">=</span> <span class="mf">40.82</span>
-<span class="n">profile_lon1</span> <span class="o">=</span> <span class="mf">103.451</span>
-<span class="n">profile_lat2</span> <span class="o">=</span> <span class="mf">36.33</span>
-<span class="n">profile_lon2</span> <span class="o">=</span> <span class="mf">108.817</span>
-
-<span class="p">[</span><span class="n">depth</span><span class="p">]</span>
-<span class="c1"># Max depth you wanna convert to</span>
-<span class="n">dep_end</span> <span class="o">=</span> <span class="mi">800</span>
-
-<span class="c1"># depth interval in converting time to depth</span>
-<span class="n">dep_val</span> <span class="o">=</span> <span class="mi">1</span>
-
-<span class="p">[</span><span class="n">stack</span><span class="p">]</span>
-<span class="c1"># Stack RFs from &lt;stack_start&gt; km to &lt;stack_end&gt; km with interval of &lt;stack_val&gt; km</span>
-<span class="n">stack_start</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="n">stack_end</span> <span class="o">=</span> <span class="mi">150</span>
-<span class="n">stack_val</span> <span class="o">=</span> <span class="mi">1</span>
-</pre></div>
-</div>
+<p>The parameter file include parameters used in the time-to-depth and CCP stacking. the format should follow <code class="docutils literal notranslate"><span class="pre">configparser</span></code> module. See <a class="reference internal" href="../notes/config.html"><span class="doc">Template for CCP stacking</span></a></p>
 </div>
 <div class="section" id="optional-a-lib-of-ps-ray-parameters">
 <h3>(Optional) A lib of Ps ray parameters<a class="headerlink" href="#optional-a-lib-of-ps-ray-parameters" title="Permalink to this headline">¶</a></h3>
 <p>If you would stack PRFs in a large depth (e.g., D410 or D660), the ray parameters of P arrival cannot represent that of Ps phase. Therefore, a library file of Ps ray parameters in different depths and epicentral distance is required in calculating Ps-P time difference. This lib file has specific binary format. You can generate it by command of gen_rayp_lib:</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>usage: gen_rayp_lib <span class="o">[</span>-h<span class="o">]</span> -d DIS_STR -e DEP_STR <span class="o">[</span>-l LAY_STR<span class="o">]</span> <span class="o">[</span>-o OUT_PATH<span class="o">]</span>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>usage: gen_rayp_lib <span class="o">[</span>-h<span class="o">]</span> -d min_dis/max_dis/interval -e min_dep/max_dep/interval <span class="o">[</span>-l min_layer/man_layer<span class="o">]</span> <span class="o">[</span>-o outpath<span class="o">]</span>
 
 Gen a ray parameter lib <span class="k">for</span> Pds phases
 
 optional arguments:
-  -h, --help   show this <span class="nb">help</span> message and <span class="nb">exit</span>
-  -d DIS_STR   Distance range as <span class="s1">&#39;min_dis/max_dis/interval&#39;</span>
-  -e DEP_STR   Event depth range as <span class="s1">&#39;min_dep/max_dep/interval&#39;</span>
-  -l LAY_STR   layers range as <span class="s1">&#39;min_layer/man_layer&#39;</span>
-  -o OUT_PATH  Out path to Pds ray parameter lib
+  -h, --help            show this <span class="nb">help</span> message and <span class="nb">exit</span>
+  -d min_dis/max_dis/interval
+                        Distance range <span class="k">in</span> degree
+  -e min_dep/max_dep/interval
+                        Event depth range <span class="k">in</span> km
+  -l min_layer/man_layer
+                        layers range as <span class="k">in</span> km, dfaults to <span class="m">0</span>/800
+  -o outpath            Out path to Pds ray parameter lib
 </pre></div>
 </div>
 </div>
@@ -369,26 +314,22 @@ optional arguments:
 <li><p><code class="docutils literal notranslate"><span class="pre">Piercelon</span></code>: Longitudes of each event at each depth (2D array with shape of (ev_num, layer_num)).</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">StopIndex</span></code>: The last layer after time-depth conversion (2D array with shape of (ev_num, layer_num)).</p></li>
 </ul>
-<blockquote>
-<div><p>Note: the layer_num was determined by field <code class="docutils literal notranslate"><span class="pre">[depth]</span></code> in parameter file.</p>
-</div></blockquote>
+<p><strong>NOTE:</strong>
+The layer_num was determined by field <code class="docutils literal notranslate"><span class="pre">[depth]</span></code> in parameter file.</p>
 </div>
 <div class="section" id="ccp-stack-prfs-along-a-profile">
 <h2>CCP Stack PRFs along a profile<a class="headerlink" href="#ccp-stack-prfs-along-a-profile" title="Permalink to this headline">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">ccp_profile</span></code> command provide functions to stack PRFs along a profile:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">usage</span><span class="p">:</span> <span class="n">ccp_profile</span> <span class="p">[</span><span class="o">-</span><span class="n">h</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">l</span> <span class="n">LINE_LOCA</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">s</span> <span class="n">STALIST</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">o</span> <span class="n">OUTPATH</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">t</span><span class="p">]</span> <span class="n">cfg_file</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">usage</span><span class="p">:</span> <span class="n">ccp_profile</span> <span class="p">[</span><span class="o">-</span><span class="n">h</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">t</span><span class="p">]</span> <span class="n">cfg_file</span>
 
-<span class="n">Stack</span> <span class="n">PRFs</span> <span class="n">along</span> <span class="n">a</span> <span class="n">profile</span>
+<span class="n">Stack</span> <span class="n">PRFS</span> <span class="n">along</span> <span class="n">a</span> <span class="n">profile</span>
 
 <span class="n">positional</span> <span class="n">arguments</span><span class="p">:</span>
-  <span class="n">cfg_file</span>      <span class="n">Path</span> <span class="n">to</span> <span class="n">CCP</span> <span class="n">configure</span> <span class="n">file</span>
+  <span class="n">cfg_file</span>    <span class="n">Path</span> <span class="n">to</span> <span class="n">CCP</span> <span class="n">configure</span> <span class="n">file</span>
 
 <span class="n">optional</span> <span class="n">arguments</span><span class="p">:</span>
-  <span class="o">-</span><span class="n">h</span><span class="p">,</span> <span class="o">--</span><span class="n">help</span>    <span class="n">show</span> <span class="n">this</span> <span class="n">help</span> <span class="n">message</span> <span class="ow">and</span> <span class="n">exit</span>
-  <span class="o">-</span><span class="n">l</span> <span class="n">LINE_LOCA</span>  <span class="n">Location</span> <span class="n">of</span> <span class="n">the</span> <span class="n">profile</span> <span class="o">&lt;</span><span class="n">lat1</span><span class="o">&gt;/&lt;</span><span class="n">lon1</span><span class="o">&gt;/&lt;</span><span class="n">lat2</span><span class="o">&gt;/&lt;</span><span class="n">lon2</span><span class="o">&gt;</span>
-  <span class="o">-</span><span class="n">s</span> <span class="n">STALIST</span>    <span class="n">Path</span> <span class="n">to</span> <span class="n">station</span> <span class="nb">list</span>
-  <span class="o">-</span><span class="n">o</span> <span class="n">OUTPATH</span>    <span class="n">Path</span> <span class="n">to</span> <span class="n">output</span> <span class="n">data</span>
-  <span class="o">-</span><span class="n">t</span>            <span class="n">Output</span> <span class="k">as</span> <span class="n">text</span> <span class="n">file</span>
+  <span class="o">-</span><span class="n">h</span><span class="p">,</span> <span class="o">--</span><span class="n">help</span>  <span class="n">show</span> <span class="n">this</span> <span class="n">help</span> <span class="n">message</span> <span class="ow">and</span> <span class="n">exit</span>
+  <span class="o">-</span><span class="n">t</span>          <span class="n">Output</span> <span class="k">as</span> <span class="n">a</span> <span class="n">text</span> <span class="n">file</span>
 </pre></div>
 </div>
 <div class="section" id="required-parameters">
