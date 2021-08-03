@@ -196,6 +196,7 @@
 <span class="kn">from</span> <span class="nn">os.path</span> <span class="kn">import</span> <span class="n">expanduser</span><span class="p">,</span> <span class="n">join</span><span class="p">,</span> <span class="n">dirname</span><span class="p">,</span> <span class="n">exists</span>
 <span class="kn">import</span> <span class="nn">configparser</span>
 <span class="kn">from</span> <span class="nn">seispy.geo</span> <span class="kn">import</span> <span class="n">km2deg</span>
+<span class="kn">from</span> <span class="nn">seispy.utils</span> <span class="kn">import</span> <span class="n">check_path</span>
 
 
 <div class="viewcode-block" id="CCPPara"><a class="viewcode-back" href="../../seispy.html#seispy.ccppara.CCPPara">[docs]</a><span class="k">class</span> <span class="nc">CCPPara</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
@@ -254,7 +255,7 @@
     <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
         <span class="k">raise</span> <span class="ne">FileNotFoundError</span><span class="p">(</span><span class="s1">&#39;Cannot open configure file </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">cfg_file</span><span class="p">)</span>
     <span class="c1"># para for FileIO section</span>
-    <span class="n">cpara</span><span class="o">.</span><span class="n">rfpath</span> <span class="o">=</span> <span class="n">cf</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;FileIO&#39;</span><span class="p">,</span> <span class="s1">&#39;rfpath&#39;</span><span class="p">)</span>
+    <span class="n">cpara</span><span class="o">.</span><span class="n">rfpath</span> <span class="o">=</span> <span class="n">check_path</span><span class="p">(</span><span class="s1">&#39;rfpath&#39;</span><span class="p">,</span> <span class="n">cf</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;FileIO&#39;</span><span class="p">,</span> <span class="s1">&#39;rfpath&#39;</span><span class="p">))</span>
     <span class="n">rayp_lib</span> <span class="o">=</span> <span class="n">cf</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;FileIO&#39;</span><span class="p">,</span> <span class="s1">&#39;rayp_lib&#39;</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">rayp_lib</span> <span class="o">==</span> <span class="s1">&#39;&#39;</span><span class="p">:</span>
         <span class="n">cpara</span><span class="o">.</span><span class="n">rayp_lib</span> <span class="o">=</span> <span class="kc">None</span>

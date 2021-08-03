@@ -385,13 +385,10 @@
                         <span class="c1"># dest=&#39;station&#39;, type=str, default=&#39;&#39;)</span>
     <span class="c1"># parser.add_argument(&#39;-H&#39;, help=&#39;Range for searching best H: &lt;hmin&gt;/&lt;hmax&gt;&#39;, type=str, default=&#39;&#39;)</span>
     <span class="c1"># parser.add_argument(&#39;-K&#39;, help=&#39;Range for searching best K: &lt;kmin&gt;/&lt;kmax&gt;&#39;, type=str, default=&#39;&#39;)</span>
-    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-p&#39;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Whether to save the image&#39;</span><span class="p">,</span>
-                        <span class="n">dest</span><span class="o">=</span><span class="s1">&#39;isplot&#39;</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="s1">&#39;store_true&#39;</span><span class="p">)</span>
     <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-v&#39;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Display results to standard output&#39;</span><span class="p">,</span>
                         <span class="n">dest</span><span class="o">=</span><span class="s1">&#39;isdisplay&#39;</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="s1">&#39;store_true&#39;</span><span class="p">)</span>
     <span class="n">arg</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
     <span class="n">hpara</span> <span class="o">=</span> <span class="n">hkpara</span><span class="p">(</span><span class="n">arg</span><span class="o">.</span><span class="n">cfg_file</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">hpara</span><span class="o">.</span><span class="n">hklist</span><span class="p">)</span>
     <span class="c1"># if arg.station != &#39;&#39;:</span>
     <span class="c1">#     hpara.rfpath = arg.station</span>
     <span class="c1"># if arg.H != &#39;&#39;:</span>
@@ -400,7 +397,7 @@
     <span class="c1"># if arg.K != &#39;&#39;:</span>
     <span class="c1">#     kmin, kmax = [float(val) for val in arg.K.split(&#39;/&#39;)]</span>
     <span class="c1">#     hpara.krange = np.arange(kmin, kmax, 0.1)</span>
-    <span class="n">hksta</span><span class="p">(</span><span class="n">hpara</span><span class="p">,</span> <span class="n">isplot</span><span class="o">=</span><span class="n">arg</span><span class="o">.</span><span class="n">isplot</span><span class="p">,</span> <span class="n">isdisplay</span><span class="o">=</span><span class="n">arg</span><span class="o">.</span><span class="n">isdisplay</span><span class="p">)</span></div>
+    <span class="n">hksta</span><span class="p">(</span><span class="n">hpara</span><span class="p">,</span> <span class="n">isplot</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">isdisplay</span><span class="o">=</span><span class="n">arg</span><span class="o">.</span><span class="n">isdisplay</span><span class="p">)</span></div>
 
 
 <div class="viewcode-block" id="hktest"><a class="viewcode-back" href="../../seispy.html#seispy.hk.hktest">[docs]</a><span class="k">def</span> <span class="nf">hktest</span><span class="p">():</span>
