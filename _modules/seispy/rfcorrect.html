@@ -105,7 +105,7 @@
 </ul>
 <p class="caption"><span class="caption-text">Configurations &amp; Commands:</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../notes/config.html">Template of Configurations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../notes/config.html">Templates of Configurations</a></li>
 </ul>
 <p class="caption"><span class="caption-text">API Documentation:</span></p>
 <ul>
@@ -240,8 +240,16 @@
 <div class="viewcode-block" id="SACStation"><a class="viewcode-back" href="../../seispy.html#seispy.rfcorrect.SACStation">[docs]</a><span class="k">class</span> <span class="nc">SACStation</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data_path</span><span class="p">,</span> <span class="n">only_r</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        :param evt_lst: event list in RF data dir. Column as date string, phase, evt lat, evt lon, evt dep,</span>
-<span class="sd">                        distance, back-azimuth, ray parameter, magnitude and gauss factor.</span>
+<span class="sd">        Class for derivative process of RFs.</span>
+
+<span class="sd">        :param data_path: Path to RF data with SAC format. A finallist.dat must be in this path.</span>
+<span class="sd">        :type data_path: str</span>
+<span class="sd">        :param only_r: [description], defaults to False</span>
+<span class="sd">        :type only_r: bool, optional</span>
+
+<span class="sd">        .. warning::</span>
+
+<span class="sd">            This Class will be renamed to ``RFStation`` in future versions.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">only_r</span> <span class="o">=</span> <span class="n">only_r</span>
         <span class="k">if</span> <span class="n">isfile</span><span class="p">(</span><span class="n">data_path</span><span class="p">):</span>
@@ -337,6 +345,18 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">ani</span><span class="o">.</span><span class="n">baz_stack</span><span class="p">(</span><span class="n">val</span><span class="o">=</span><span class="n">stack_baz_val</span><span class="p">)</span>
         <span class="n">best_f</span><span class="p">,</span> <span class="n">best_t</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ani</span><span class="o">.</span><span class="n">joint_ani</span><span class="p">(</span><span class="n">weight</span><span class="o">=</span><span class="n">weight</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">best_f</span><span class="p">,</span> <span class="n">best_t</span></div></div>
+
+
+<div class="viewcode-block" id="RFStation"><a class="viewcode-back" href="../../seispy.html#seispy.rfcorrect.RFStation">[docs]</a><span class="k">class</span> <span class="nc">RFStation</span><span class="p">(</span><span class="n">SACStation</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data_path</span><span class="p">,</span> <span class="n">only_r</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Class for derivative process of RFs.</span>
+
+<span class="sd">        :param data_path: Path to RF data with SAC format. A finallist.dat must be in this path.</span>
+<span class="sd">        :type data_path: str</span>
+<span class="sd">        :param only_r: [description], defaults to False</span>
+<span class="sd">        :type only_r: bool, optional</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">data_path</span><span class="p">,</span> <span class="n">only_r</span><span class="o">=</span><span class="n">only_r</span><span class="p">)</span></div>
 
 
 <div class="viewcode-block" id="DepModel"><a class="viewcode-back" href="../../seispy.html#seispy.rfcorrect.DepModel">[docs]</a><span class="k">class</span> <span class="nc">DepModel</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>

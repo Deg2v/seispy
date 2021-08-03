@@ -105,7 +105,7 @@
 </ul>
 <p class="caption"><span class="caption-text">Configurations &amp; Commands:</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../notes/config.html">Template of Configurations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../notes/config.html">Templates of Configurations</a></li>
 </ul>
 <p class="caption"><span class="caption-text">API Documentation:</span></p>
 <ul>
@@ -218,7 +218,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">depth_axis</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([])</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">stack_range</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([])</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">center_bin</span> <span class="o">=</span> <span class="p">[]</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">dep_val</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">dep_val</span> <span class="o">=</span> <span class="mi">1</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">stack_val</span> <span class="o">=</span> <span class="mi">1</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">boot_samples</span> <span class="o">=</span> <span class="kc">None</span>
         
@@ -305,7 +305,7 @@
     <span class="n">stack_start</span> <span class="o">=</span> <span class="n">cf</span><span class="o">.</span><span class="n">getfloat</span><span class="p">(</span><span class="s1">&#39;stack&#39;</span><span class="p">,</span> <span class="s1">&#39;stack_start&#39;</span><span class="p">)</span>
     <span class="n">stack_end</span> <span class="o">=</span> <span class="n">cf</span><span class="o">.</span><span class="n">getfloat</span><span class="p">(</span><span class="s1">&#39;stack&#39;</span><span class="p">,</span> <span class="s1">&#39;stack_end&#39;</span><span class="p">)</span>
     <span class="n">cpara</span><span class="o">.</span><span class="n">stack_val</span> <span class="o">=</span> <span class="n">cf</span><span class="o">.</span><span class="n">getfloat</span><span class="p">(</span><span class="s1">&#39;stack&#39;</span><span class="p">,</span> <span class="s1">&#39;stack_val&#39;</span><span class="p">)</span>
-    <span class="n">cpara</span><span class="o">.</span><span class="n">stack_range</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">stack_start</span><span class="p">,</span> <span class="n">stack_end</span><span class="p">,</span> <span class="n">cpara</span><span class="o">.</span><span class="n">stack_val</span><span class="p">),</span> <span class="n">stack_end</span><span class="p">)</span>
+    <span class="n">cpara</span><span class="o">.</span><span class="n">stack_range</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">stack_start</span><span class="p">,</span> <span class="n">stack_end</span><span class="p">,</span> <span class="n">cpara</span><span class="o">.</span><span class="n">stack_val</span><span class="p">)</span>
     <span class="k">try</span><span class="p">:</span>
         <span class="n">cpara</span><span class="o">.</span><span class="n">boot_samples</span> <span class="o">=</span> <span class="n">cf</span><span class="o">.</span><span class="n">getint</span><span class="p">(</span><span class="s1">&#39;stack&#39;</span><span class="p">,</span> <span class="s1">&#39;boot_samples&#39;</span><span class="p">)</span>
     <span class="k">except</span><span class="p">:</span>
