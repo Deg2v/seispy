@@ -94,7 +94,7 @@
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Installation</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#dependencies">Dependencies</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#install-and-update-via-pypi">Install and update via PyPi</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id1">Installation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#run-in-command-line">Run in command line:</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#upgrade-to-stable-version">Upgrade to stable version</a></li>
 </ul>
 </li>
@@ -197,7 +197,7 @@
         
           
             
-              <a href="https://github.com/xumi1993/seispy-doc.post/blob/master/source/usage/installation.md" class="fa fa-github"> Edit on GitHub</a>
+              <a href="https://github.com/xumi1993/seispy-doc.post/blob/master/source/usage/installation.rst" class="fa fa-github"> Edit on GitHub</a>
             
           
         
@@ -227,11 +227,14 @@
 </div>
 <div class="section" id="install-and-update-via-pypi">
 <h2>Install and update via <a class="reference external" href="https://pypi.org/">PyPi</a><a class="headerlink" href="#install-and-update-via-pypi" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="id1">
-<h3>Installation<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
-<p>Run in command line:</p>
+<div class="section" id="run-in-command-line">
+<h3>Run in command line:<a class="headerlink" href="#run-in-command-line" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pip install python-seispy
 </pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>We recommend Chinese users to use <a class="reference external" href="https://mirrors.tuna.tsinghua.edu.cn/help/pypi/">清华大学 pypi 镜像</a> to install Seispy.</p>
 </div>
 </div>
 <div class="section" id="upgrade-to-stable-version">
@@ -246,18 +249,18 @@
 <div class="section" id="download-the-source-codes">
 <h3>Download the source codes<a class="headerlink" href="#download-the-source-codes" title="Permalink to this headline">¶</a></h3>
 <p>Clone the source code from <a class="reference external" href="https://github.com/xumi1993/seispy.git">Github</a> to any directory.</p>
-<div class="highlight-Shell notranslate"><div class="highlight"><pre><span></span>git clone --depth<span class="o">=</span><span class="m">1</span> https://github.com/xumi1993/seispy.git
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>git clone --depth<span class="o">=</span><span class="m">1</span> https://github.com/xumi1993/seispy.git
 </pre></div>
 </div>
 <p>For <strong>Chinese users</strong>, try to clone the source code from <a class="reference external" href="https://git.nju.edu.cn/geophy/seispy">Git service of Nanjing University</a></p>
-<div class="highlight-Shell notranslate"><div class="highlight"><pre><span></span>git clone https://git.nju.edu.cn/geophy/seispy.git
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>git clone https://git.nju.edu.cn/geophy/seispy.git
 </pre></div>
 </div>
 </div>
 <div class="section" id="install-seispy-to-the-python-environment">
 <h3>Install Seispy to the Python environment<a class="headerlink" href="#install-seispy-to-the-python-environment" title="Permalink to this headline">¶</a></h3>
 <p>Change path to where the source code was cloned into, and install the module via <a class="reference external" href="https://pip.pypa.io/">Python pip</a> command</p>
-<div class="highlight-Shell notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> seispy
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> seispy
 pip install .
 </pre></div>
 </div>
@@ -265,7 +268,7 @@ pip install .
 <div class="section" id="update-seispy">
 <h3>Update Seispy<a class="headerlink" href="#update-seispy" title="Permalink to this headline">¶</a></h3>
 <p>To update the Seispy, please change to directory of the source code, and execute following commands.</p>
-<div class="highlight-Shell notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> seispy
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> seispy
 git pull
 pip install .
 </pre></div>
