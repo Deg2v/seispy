@@ -102,12 +102,12 @@
 <li class="toctree-l1"><a class="reference internal" href="ex-prf.html">Calculate PRFs of the station CB.NJ2</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ex-prf.html#estimate-the-moho-depth-and-the-crustal-vp-vs-using-the-h-k-stacking-method">Estimate the Moho depth and the crustal Vp/Vs using the H-k stacking method</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Calculate PRFs of a seismic array in batch</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#download-teleseismic-data-records">Download teleseismic data records</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#download-this-example">Download this example</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#write-a-script-for-batch-calculation">Write a script for batch calculation</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="#ccp-stacking-along-a-linear-seismic-array">CCP stacking along a linear seismic array</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#preparation">Preparation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id1">Download this example</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#time-to-depth-conversion">Time-to-depth conversion</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#ccp-stacking">CCP stacking</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#plot-the-stacking-image">Plot the stacking image</a></li>
@@ -211,8 +211,8 @@
   <div class="section" id="calculate-prfs-of-a-seismic-array-in-batch">
 <h1>Calculate PRFs of a seismic array in batch<a class="headerlink" href="#calculate-prfs-of-a-seismic-array-in-batch" title="Permalink to this headline">¶</a></h1>
 <p>This example provide a procedure for batch calculating PRFs of NCISP-III array (<a class="reference external" href="https://doi.org/10.1016/j.pepi.2007.01.004">Zheng et al., 2007</a>)</p>
-<div class="section" id="download-teleseismic-data-records">
-<h2>Download teleseismic data records<a class="headerlink" href="#download-teleseismic-data-records" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="download-this-example">
+<h2>Download this example<a class="headerlink" href="#download-this-example" title="Permalink to this headline">¶</a></h2>
 <p>Download link: <a class="reference external" href="https://osf.io/xghrk/download">ex-batrf.tar.gz</a></p>
 <p>Unzip the file to any directory. The package include <code class="docutils literal notranslate"><span class="pre">Data.ZX</span></code> with 47 sub folders named as <code class="docutils literal notranslate"><span class="pre">network.station</span></code>, which include <code class="docutils literal notranslate"><span class="pre">sac</span></code> files cut out from 300 s after origin time to 1000 s after origin time seismic events. The <code class="docutils literal notranslate"><span class="pre">SACHeader`</span> <span class="pre">of</span> <span class="pre">station</span> <span class="pre">information</span> <span class="pre">(``netwk</span></code>, <code class="docutils literal notranslate"><span class="pre">stnm</span></code>, <code class="docutils literal notranslate"><span class="pre">stla</span></code> and <code class="docutils literal notranslate"><span class="pre">stlo</span></code>) had been written into <code class="docutils literal notranslate"><span class="pre">sac</span></code> files.</p>
 </div>
@@ -236,9 +236,10 @@
 </div>
 <div class="section" id="ccp-stacking-along-a-linear-seismic-array">
 <h1>CCP stacking along a linear seismic array<a class="headerlink" href="#ccp-stacking-along-a-linear-seismic-array" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id1">
+<h2>Download this example<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
 <p>Download link: <a class="reference external" href="https://osf.io/hzq2x/download">ex-ccp.tar.gz</a></p>
-<div class="section" id="preparation">
-<h2>Preparation<a class="headerlink" href="#preparation" title="Permalink to this headline">¶</a></h2>
+<p>This package include:</p>
 <ul class="simple">
 <li><p>A Folder with PRFs (<code class="docutils literal notranslate"><span class="pre">RFresult</span></code>)</p></li>
 <li><p>A configure file with <code class="docutils literal notranslate"><span class="pre">cfg</span></code> format (<code class="docutils literal notranslate"><span class="pre">ccp.cfg</span></code>).</p></li>
@@ -280,9 +281,9 @@
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>sh ps_profile.sh
 </pre></div>
 </div>
-<div class="figure align-center" id="id1">
+<div class="figure align-center" id="id2">
 <img alt="profile" src="../_images/profile_ZX.png" />
-<p class="caption"><span class="caption-text">CCP stacking along the seismic array</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-text">CCP stacking along the seismic array</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
 </div>
 </div>
 <div class="section" id="reference">
