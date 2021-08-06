@@ -234,7 +234,21 @@
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>We recommend Chinese users to use <a class="reference external" href="https://mirrors.tuna.tsinghua.edu.cn/help/pypi/">清华大学 pypi 镜像</a> to install Seispy.</p>
+<ol class="arabic">
+<li><p>We recommend Chinese users to use <a class="reference external" href="https://mirrors.tuna.tsinghua.edu.cn/help/pypi/">清华大学 pypi 镜像</a> to install Seispy.</p></li>
+<li><p>An error may be raised during installing Obspy via PyPi on Linux platform as following:</p>
+<blockquote>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ERROR</span><span class="p">:</span> <span class="n">Could</span> <span class="ow">not</span> <span class="n">build</span> <span class="n">wheels</span> <span class="k">for</span> <span class="n">obspy</span> <span class="n">which</span> <span class="n">use</span> <span class="n">PEP</span> <span class="mi">517</span> <span class="ow">and</span> <span class="n">cannot</span> <span class="n">be</span> <span class="n">installed</span> <span class="n">directly</span>
+</pre></div>
+</div>
+<p>Please <a class="reference external" href="https://github.com/obspy/obspy/wiki/Installation-via-Anaconda">install Obspy via conda</a> first.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>conda config --add channels conda-forge
+conda install obspy
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+</ol>
 </div>
 </div>
 <div class="section" id="upgrade-to-stable-version">
