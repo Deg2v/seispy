@@ -1,11 +1,11 @@
 
 
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html4" lang="en" >
 <head>
-  <meta charset="utf-8" />
+  <meta charset="utf-8">
   
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   <title>Installation &mdash; seispy latest documentation</title>
   
@@ -18,12 +18,8 @@
   
     <link rel="shortcut icon" href="../_static/seispy_100.png"/>
   
-
   
   
-
-  
-    <link rel="canonical" href="seispy.xumijian.me/usage/installation.html" />
 
   
   <!--[if lt IE 9]>
@@ -31,10 +27,21 @@
   <![endif]-->
   
     
-      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-        <script src="../_static/jquery.js"></script>
-        <script src="../_static/underscore.js"></script>
-        <script src="../_static/doctools.js"></script>
+      <script type="text/javascript">
+          var DOCUMENTATION_OPTIONS = {
+              URL_ROOT:'../',
+              VERSION:'latest',
+              LANGUAGE:'None',
+              COLLAPSE_INDEX:false,
+              FILE_SUFFIX:'.html',
+              HAS_SOURCE:  true,
+              SOURCELINK_SUFFIX: '.txt'
+          };
+      </script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
 
@@ -139,7 +146,7 @@
             
                 <li class="toctree-l1"><a href="https://github.com/xumi1993/seispy"><i class="fa fa-github fa-fw"></i> Source Code</a></li>
             
-                <li class="toctree-l1"><a href="https://blog.xumijian.me"><i class="fa fa-rss fa-fw"></i> Chinses Blog</a></li>
+                <li class="toctree-l1"><a href="https://blog.xumijian.me"><i class="fa fa-rss fa-fw"></i> Chinese Blog</a></li>
             
                 <li class="toctree-l1"><a href="https://home.xumijian.me/#contact"><i class="fa fa-envelope fa-fw"></i> Contact</a></li>
             
@@ -182,8 +189,6 @@
 
 
 
-
-
 <div role="navigation" aria-label="breadcrumbs navigation">
 
   <ul class="wy-breadcrumbs">
@@ -195,7 +200,7 @@
     
       <li class="wy-breadcrumbs-aside">
         
-          
+            
             
               <a href="https://github.com/xumi1993/seispy-doc.post/blob/master/source/usage/installation.rst" class="fa fa-github"> Edit on GitHub</a>
             
@@ -218,11 +223,11 @@
 <p>The current version has been integration tested using <strong>Python 3</strong>. We recommend to install the <a class="reference external" href="https://www.anaconda.com/">Anaconda</a> as the Python environment.</p>
 <p>Following Python modules are required for the Seispy, <strong>but do not have to be installed manually.</strong></p>
 <ul class="simple">
-<li><p><a class="reference external" href="https://numpy.org/">Numpy</a></p></li>
-<li><p><a class="reference external" href="https://www.scipy.org/scipylib/index.html">Scipy</a></p></li>
-<li><p><a class="reference external" href="https://docs.obspy.org/">Obspy</a></p></li>
-<li><p><a class="reference external" href="https://matplotlib.org/">Matplotlib</a></p></li>
-<li><p><a class="reference external" href="https://pypi.org/project/PyQt5/">Pyqt5</a></p></li>
+<li><a class="reference external" href="https://numpy.org/">Numpy</a></li>
+<li><a class="reference external" href="https://www.scipy.org/scipylib/index.html">Scipy</a></li>
+<li><a class="reference external" href="https://docs.obspy.org/">Obspy</a></li>
+<li><a class="reference external" href="https://matplotlib.org/">Matplotlib</a></li>
+<li><a class="reference external" href="https://pypi.org/project/PyQt5/">Pyqt5</a></li>
 </ul>
 </div>
 <div class="section" id="install-and-update-via-pypi">
@@ -233,22 +238,23 @@
 </pre></div>
 </div>
 <div class="admonition note">
-<p class="admonition-title">Note</p>
-<ol class="arabic">
-<li><p>We recommend Chinese users to use <a class="reference external" href="https://mirrors.tuna.tsinghua.edu.cn/help/pypi/">清华大学 pypi 镜像</a> to install Seispy.</p></li>
-<li><p>An error may be raised during installing Obspy via PyPi on Linux platform as following:</p>
+<p class="first admonition-title">Note</p>
+<ol class="arabic simple">
+<li>We recommend Chinese users to use <a class="reference external" href="https://mirrors.tuna.tsinghua.edu.cn/help/pypi/">清华大学 pypi 镜像</a> to install Seispy.</li>
+<li>An error may be raised during installing Obspy via PyPi on Linux platform as following:</li>
+</ol>
 <blockquote>
-<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ERROR</span><span class="p">:</span> <span class="n">Could</span> <span class="ow">not</span> <span class="n">build</span> <span class="n">wheels</span> <span class="k">for</span> <span class="n">obspy</span> <span class="n">which</span> <span class="n">use</span> <span class="n">PEP</span> <span class="mi">517</span> <span class="ow">and</span> <span class="n">cannot</span> <span class="n">be</span> <span class="n">installed</span> <span class="n">directly</span>
+<div><div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>ERROR: Could not build wheels <span class="k">for</span> obspy which use PEP <span class="m">517</span> and cannot be installed directly
 </pre></div>
 </div>
+</div></blockquote>
 <p>Please <a class="reference external" href="https://github.com/obspy/obspy/wiki/Installation-via-Anaconda">install Obspy via conda</a> first.</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>conda config --add channels conda-forge
+<blockquote class="last">
+<div><div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>conda config --add channels conda-forge
 conda install obspy
 </pre></div>
 </div>
 </div></blockquote>
-</li>
-</ol>
 </div>
 </div>
 <div class="section" id="upgrade-to-stable-version">
@@ -320,29 +326,37 @@ gitalk.render('gitalk-container');
            
           </div>
           <footer>
+  
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="calrf.html" class="btn btn-neutral float-right" title="Calculate a P-wave Receiver Function (PRF)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-        <a href="../index.html" class="btn btn-neutral float-left" title="Seispy Documentation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+      
+        <a href="calrf.html" class="btn btn-neutral float-right" title="Calculate a P-wave Receiver Function (PRF)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../index.html" class="btn btn-neutral float-left" title="Seispy Documentation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
     </div>
+  
 
   <hr/>
 
   <div role="contentinfo">
     <p>
-        &#169; Copyright 2020, Mijian Xu.
+        
+        &copy; Copyright 2020, Mijian Xu
 
     </p>
   </div>
     
     
     
-    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
     
-    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
     
     provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
+
         </div>
       </div>
 

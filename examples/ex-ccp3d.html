@@ -1,11 +1,11 @@
 
 
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html4" lang="en" >
 <head>
-  <meta charset="utf-8" />
+  <meta charset="utf-8">
   
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   <title>3-D CCP stacking for mantle transition zone structure under the Tibet. &mdash; seispy latest documentation</title>
   
@@ -18,12 +18,8 @@
   
     <link rel="shortcut icon" href="../_static/seispy_100.png"/>
   
-
   
   
-
-  
-    <link rel="canonical" href="seispy.xumijian.me/examples/ex-ccp3d.html" />
 
   
   <!--[if lt IE 9]>
@@ -31,10 +27,21 @@
   <![endif]-->
   
     
-      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-        <script src="../_static/jquery.js"></script>
-        <script src="../_static/underscore.js"></script>
-        <script src="../_static/doctools.js"></script>
+      <script type="text/javascript">
+          var DOCUMENTATION_OPTIONS = {
+              URL_ROOT:'../',
+              VERSION:'latest',
+              LANGUAGE:'None',
+              COLLAPSE_INDEX:false,
+              FILE_SUFFIX:'.html',
+              HAS_SOURCE:  true,
+              SOURCELINK_SUFFIX: '.txt'
+          };
+      </script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
 
@@ -146,7 +153,7 @@
             
                 <li class="toctree-l1"><a href="https://github.com/xumi1993/seispy"><i class="fa fa-github fa-fw"></i> Source Code</a></li>
             
-                <li class="toctree-l1"><a href="https://blog.xumijian.me"><i class="fa fa-rss fa-fw"></i> Chinses Blog</a></li>
+                <li class="toctree-l1"><a href="https://blog.xumijian.me"><i class="fa fa-rss fa-fw"></i> Chinese Blog</a></li>
             
                 <li class="toctree-l1"><a href="https://home.xumijian.me/#contact"><i class="fa fa-envelope fa-fw"></i> Contact</a></li>
             
@@ -189,8 +196,6 @@
 
 
 
-
-
 <div role="navigation" aria-label="breadcrumbs navigation">
 
   <ul class="wy-breadcrumbs">
@@ -202,7 +207,7 @@
     
       <li class="wy-breadcrumbs-aside">
         
-          
+            
             
               <a href="https://github.com/xumi1993/seispy-doc.post/blob/master/source/examples/ex-ccp3d.rst" class="fa fa-github"> Edit on GitHub</a>
             
@@ -231,14 +236,19 @@ structure in the central Tibet (<a class="reference external" href="https://doi.
 <div class="section" id="download-this-example">
 <h2>Download this example<a class="headerlink" href="#download-this-example" title="Permalink to this headline">¶</a></h2>
 <p>Download link: <a class="reference external" href="https://osf.io/4cga5/download">ex-ccp3d.tar.gz</a></p>
+<p>Download and unzip the file to any directory.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>wget https://osf.io/4cga5/download -O ex-ccp3d.tar.gz
+tar -xzf ex-ccp3d.tar.gz
+</pre></div>
+</div>
 <p>The package include:</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">RFdepth_1D.npy</span></code>: RF data with time-to-depth conversion with 1-D IASP91 model.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">ccp.cfg</span></code>: Configure file for 3-D CCP stacking.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">ps_mtz.sh</span></code>: Plot map for topography of D410 and D660 and the MTZ
-thickness.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">ps_profile.sh</span></code>: Plot section with 2-D CCP stacking along a
-profile.</p></li>
+<li><code class="docutils literal notranslate"><span class="pre">RFdepth_1D.npy</span></code>: RF data with time-to-depth conversion with 1-D IASP91 model.</li>
+<li><code class="docutils literal notranslate"><span class="pre">ccp.cfg</span></code>: Configure file for 3-D CCP stacking.</li>
+<li><code class="docutils literal notranslate"><span class="pre">ps_mtz.sh</span></code>: Plot map for topography of D410 and D660 and the MTZ
+thickness.</li>
+<li><code class="docutils literal notranslate"><span class="pre">ps_profile.sh</span></code>: Plot section with 2-D CCP stacking along a
+profile.</li>
 </ul>
 </div>
 <div class="section" id="d-ccp-stacking">
@@ -247,8 +257,8 @@ profile.</p></li>
 <h3>Required parameters<a class="headerlink" href="#required-parameters" title="Permalink to this headline">¶</a></h3>
 <p>Some new parameters in the configure file (<code class="docutils literal notranslate"><span class="pre">ccp.cfg</span></code>) are exclusive for 3-D CCP stacking. Other parameters are same as the 2-D CCP stacking. See <a class="reference internal" href="../usage/ccp.html"><span class="doc">Stack PRFs with Common Conversion points (CCP) method</span></a> in detail.</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">peakfile</span></code>: File to the output depth of the D410 and D660.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">[spacedbins]</span></code>: Options for spaced grid of bins.</p></li>
+<li><code class="docutils literal notranslate"><span class="pre">peakfile</span></code>: File to the output depth of the D410 and D660.</li>
+<li><code class="docutils literal notranslate"><span class="pre">[spacedbins]</span></code>: Options for spaced grid of bins.</li>
 </ul>
 </div>
 <div class="section" id="initial-grid">
@@ -262,8 +272,8 @@ are the latitude and longitude of the center of study region;
 degree</strong> of grid region along the latitude and longitude direction,
 respectively; <code class="docutils literal notranslate"><span class="pre">slide_val</span></code> represent spacing of grid <strong>in kilometer</strong>.</p>
 <div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>The option <code class="docutils literal notranslate"><span class="pre">slide_val</span></code> are shared by the two commands <code class="docutils literal notranslate"><span class="pre">ccp_profile</span></code> and <code class="docutils literal notranslate"><span class="pre">ccp3d</span></code>, so the unit is unified as kilometer.</p>
+<p class="first admonition-title">Note</p>
+<p class="last">The option <code class="docutils literal notranslate"><span class="pre">slide_val</span></code> are shared by the two commands <code class="docutils literal notranslate"><span class="pre">ccp_profile</span></code> and <code class="docutils literal notranslate"><span class="pre">ccp3d</span></code>, so the unit is unified as kilometer.</p>
 </div>
 <p>In this step, there is compensation for curvature to avoid distortion at
 high latitude.</p>
@@ -275,9 +285,9 @@ high latitude.</p>
 </pre></div>
 </div>
 <ul class="simple">
-<li><p>The option <code class="docutils literal notranslate"><span class="pre">-s</span></code> denotes the searching range in depth of the P410s
-and the P660s.</p></li>
-<li><p>If the <code class="docutils literal notranslate"><span class="pre">boot_samples</span></code> was set in the <code class="docutils literal notranslate"><span class="pre">ccp.cfg</span></code>, the 95% confidence interval will calculated with the bootstrap method when CCP stacking. <code class="docutils literal notranslate"><span class="pre">boot_samples</span></code> represent the times of the sample in bootstrapping.</p></li>
+<li>The option <code class="docutils literal notranslate"><span class="pre">-s</span></code> denotes the searching range in depth of the P410s
+and the P660s.</li>
+<li>If the <code class="docutils literal notranslate"><span class="pre">boot_samples</span></code> was set in the <code class="docutils literal notranslate"><span class="pre">ccp.cfg</span></code>, the 95% confidence interval will calculated with the bootstrap method when CCP stacking. <code class="docutils literal notranslate"><span class="pre">boot_samples</span></code> represent the times of the sample in bootstrapping.</li>
 </ul>
 </div>
 <div class="section" id="output-files">
@@ -315,7 +325,7 @@ in this D660 depth</p>
 </div>
 <div class="figure align-center" id="id2">
 <img alt="MTZ structure" src="../_images/mtz.png" />
-<p class="caption"><span class="caption-text">Topographies of the d410, d660 and MTZ thickness</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-text">Topographies of the d410, d660 and MTZ thickness</span></p>
 </div>
 </div>
 </div>
@@ -326,11 +336,11 @@ in this D660 depth</p>
 <h3>Required parameters<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
 <p>Following parameters are required in the <code class="docutils literal notranslate"><span class="pre">ccp.cfg</span></code>.</p>
 <ul class="simple">
-<li><p>Path to input/output files, including <code class="docutils literal notranslate"><span class="pre">depthdat</span></code> and <code class="docutils literal notranslate"><span class="pre">stackfile</span></code>.</p></li>
-<li><p>The bin <code class="docutils literal notranslate"><span class="pre">shape</span></code> was set to <code class="docutils literal notranslate"><span class="pre">circle</span></code>; <code class="docutils literal notranslate"><span class="pre">bin_radius</span></code> was set to 75 km; the interval between adjacent bins (<code class="docutils literal notranslate"><span class="pre">slide_val</span></code>) was set to 25 km.</p></li>
-<li><p>Two end points of the profile were set in <code class="docutils literal notranslate"><span class="pre">[line]</span></code> section.</p></li>
-<li><p>In <code class="docutils literal notranslate"><span class="pre">[stack]</span></code> section, We set the stacking from 300 km to 750 km with 2 km interval in depth.</p></li>
-<li><p>The <code class="docutils literal notranslate"><span class="pre">boot_samples</span></code> was set to 2000 times in bootstrapping.</p></li>
+<li>Path to input/output files, including <code class="docutils literal notranslate"><span class="pre">depthdat</span></code> and <code class="docutils literal notranslate"><span class="pre">stackfile</span></code>.</li>
+<li>The bin <code class="docutils literal notranslate"><span class="pre">shape</span></code> was set to <code class="docutils literal notranslate"><span class="pre">circle</span></code>; <code class="docutils literal notranslate"><span class="pre">bin_radius</span></code> was set to 75 km; the interval between adjacent bins (<code class="docutils literal notranslate"><span class="pre">slide_val</span></code>) was set to 25 km.</li>
+<li>Two end points of the profile were set in <code class="docutils literal notranslate"><span class="pre">[line]</span></code> section.</li>
+<li>In <code class="docutils literal notranslate"><span class="pre">[stack]</span></code> section, We set the stacking from 300 km to 750 km with 2 km interval in depth.</li>
+<li>The <code class="docutils literal notranslate"><span class="pre">boot_samples</span></code> was set to 2000 times in bootstrapping.</li>
 </ul>
 </div>
 <div class="section" id="run-2-d-ccp-stacking-in-command-line">
@@ -345,7 +355,7 @@ in this D660 depth</p>
 </div>
 <div class="figure align-center" id="id3">
 <img alt="MTZ structure profile" src="../_images/profile.png" />
-<p class="caption"><span class="caption-text">Topography of D410 and D660 along the profile</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-text">Topography of D410 and D660 along the profile</span></p>
 </div>
 </div>
 </div>
@@ -384,29 +394,37 @@ gitalk.render('gitalk-container');
            
           </div>
           <footer>
+  
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="../notes/config.html" class="btn btn-neutral float-right" title="Templates of Configurations" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-        <a href="ex-ccp.html" class="btn btn-neutral float-left" title="Calculate PRFs of a seismic array in batch" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+      
+        <a href="../notes/config.html" class="btn btn-neutral float-right" title="Templates of Configurations" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="ex-ccp.html" class="btn btn-neutral float-left" title="Calculate PRFs of a seismic array in batch" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
     </div>
+  
 
   <hr/>
 
   <div role="contentinfo">
     <p>
-        &#169; Copyright 2020, Mijian Xu.
+        
+        &copy; Copyright 2020, Mijian Xu
 
     </p>
   </div>
     
     
     
-    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
     
-    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
     
     provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
+
         </div>
       </div>
 

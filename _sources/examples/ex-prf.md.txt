@@ -9,7 +9,8 @@ Download link: [ex-prf.tar.gz](https://osf.io/dxcfz/download)
 unzip the file to any directory.
 
 ```shell
-tar -xzf Data.CB.NJ2.tar.gz
+wget https://osf.io/dxcfz/download -O ex-prf.tar.gz
+tar -xzf ex-prf.tar.gz
 ```
 
 the package include the seismic records of the station CB.NJ2 and configure files for RF calculation and H-k stacking.
