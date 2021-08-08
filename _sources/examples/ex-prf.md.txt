@@ -64,4 +64,4 @@ If `-p` was specified a figure would be generated to `hkpath`, which shows the s
 
 ![](../_static/CB.NJ2.png)
 
-The result of the Moho depth and Vp/Vs were saved into the path of `hklst`(default is `hk.dat`).
+The result of the Moho depth and Vp/Vs were saved into the path of `hklst` (defaults to `hk.dat`).
