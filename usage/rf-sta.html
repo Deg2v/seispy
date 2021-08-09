@@ -1,11 +1,11 @@
 
 
 <!DOCTYPE html>
-<html class="writer-html4" lang="en" >
+<html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
+  <meta charset="utf-8" />
   
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <title>Calculate PRFs for a station &mdash; seispy latest documentation</title>
   
@@ -18,8 +18,12 @@
   
     <link rel="shortcut icon" href="../_static/seispy_100.png"/>
   
+
   
   
+
+  
+    <link rel="canonical" href="seispy.xumijian.me/usage/rf-sta.html" />
 
   
   <!--[if lt IE 9]>
@@ -27,21 +31,11 @@
   <![endif]-->
   
     
-      <script type="text/javascript">
-          var DOCUMENTATION_OPTIONS = {
-              URL_ROOT:'../',
-              VERSION:'latest',
-              LANGUAGE:'None',
-              COLLAPSE_INDEX:false,
-              FILE_SUFFIX:'.html',
-              HAS_SOURCE:  true,
-              SOURCELINK_SUFFIX: '.txt'
-          };
-      </script>
-        <script type="text/javascript" src="../_static/jquery.js"></script>
-        <script type="text/javascript" src="../_static/underscore.js"></script>
-        <script type="text/javascript" src="../_static/doctools.js"></script>
-        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
 
@@ -203,6 +197,8 @@
 
 
 
+
+
 <div role="navigation" aria-label="breadcrumbs navigation">
 
   <ul class="wy-breadcrumbs">
@@ -214,7 +210,7 @@
     
       <li class="wy-breadcrumbs-aside">
         
-            
+          
             
               <a href="https://github.com/xumi1993/seispy-doc.post/blob/master/source/usage/rf-sta.rst" class="fa fa-github"> Edit on GitHub</a>
             
@@ -235,6 +231,23 @@
 <div class="section" id="prepare-seismic-records-order-by-stations">
 <h2>Prepare seismic records order by stations<a class="headerlink" href="#prepare-seismic-records-order-by-stations" title="Permalink to this headline">¶</a></h2>
 <p>Seismic data including direct P arrival should be trimmed according earthquakes. Meanwhile, the data should be order by stations instead of events. For example, YN001 and YN002 are stations; the SAC files are teleseismic data records of these stations.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>event_data/
+├── YN001
+│   ├── 2018.229.15.35.02.1.sac
+│   ├── 2018.229.15.35.02.2.sac
+│   ├── 2018.229.15.35.02.3.sac
+│   ├── 2018.229.22.06.55.1.sac
+│   ├── 2018.229.22.06.55.2.sac
+│   │......
+├── YN002
+│   ├── 2018.229.15.35.02.1.sac
+│   ├── 2018.229.15.35.02.2.sac
+│   ├── 2018.229.15.35.02.3.sac
+│   ├── 2018.229.22.06.55.1.sac
+│   ├── 2018.229.22.06.55.2.sac
+│   │......
+</pre></div>
+</div>
 </div>
 <div class="section" id="calculate-prfs-using-a-simple-command">
 <h2>Calculate PRFs using a simple command<a class="headerlink" href="#calculate-prfs-using-a-simple-command" title="Permalink to this headline">¶</a></h2>
@@ -246,12 +259,28 @@
 <div class="section" id="run-in-command-line">
 <h2>Run in command line<a class="headerlink" href="#run-in-command-line" title="Permalink to this headline">¶</a></h2>
 <p>We have provided the command <code class="docutils literal notranslate"><span class="pre">prf</span></code>. The usage is shown as:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">usage</span><span class="p">:</span> <span class="n">prf</span> <span class="p">[</span><span class="o">-</span><span class="n">h</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">l</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">r</span> <span class="n">N</span><span class="o">|</span><span class="n">E</span><span class="o">|</span><span class="n">NE</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">s</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">b</span> <span class="p">[</span><span class="n">BAZ</span><span class="p">]]</span> <span class="n">cfg_file</span>
+
+<span class="n">Calculating</span> <span class="n">RFs</span> <span class="k">for</span> <span class="n">single</span> <span class="n">station</span>
+
+<span class="n">positional</span> <span class="n">arguments</span><span class="p">:</span>
+  <span class="n">cfg_file</span>    <span class="n">Path</span> <span class="n">to</span> <span class="n">RF</span> <span class="n">configure</span> <span class="n">file</span>
+
+<span class="n">optional</span> <span class="n">arguments</span><span class="p">:</span>
+  <span class="o">-</span><span class="n">h</span><span class="p">,</span> <span class="o">--</span><span class="n">help</span>  <span class="n">show</span> <span class="n">this</span> <span class="n">help</span> <span class="n">message</span> <span class="ow">and</span> <span class="n">exit</span>
+  <span class="o">-</span><span class="n">l</span>          <span class="n">use</span> <span class="n">local</span> <span class="n">catalog</span><span class="o">.</span> <span class="n">Default</span> <span class="ow">is</span> <span class="n">false</span>
+  <span class="o">-</span><span class="n">r</span> <span class="n">N</span><span class="o">|</span><span class="n">E</span><span class="o">|</span><span class="n">NE</span>   <span class="n">Reverse</span> <span class="n">components</span><span class="p">:</span> <span class="n">EN</span><span class="p">,</span> <span class="n">E</span> <span class="ow">or</span> <span class="n">N</span>
+  <span class="o">-</span><span class="n">s</span>          <span class="n">Switch</span> <span class="n">the</span> <span class="n">East</span> <span class="ow">and</span> <span class="n">North</span> <span class="n">components</span>
+  <span class="o">-</span><span class="n">b</span> <span class="p">[</span><span class="n">BAZ</span><span class="p">]</span>    <span class="n">Correct</span> <span class="n">back</span><span class="o">-</span><span class="n">azimuth</span><span class="o">.</span> <span class="n">If</span> <span class="s2">&quot;baz&quot;</span> <span class="ow">is</span> <span class="n">specified</span><span class="p">,</span> <span class="n">the</span> <span class="n">corr_baz</span> <span class="o">=</span> <span class="n">raw_baz</span> <span class="o">+</span> <span class="n">baz</span><span class="o">.</span> <span class="n">If</span> <span class="n">no</span> <span class="n">arguments</span> <span class="n">following</span> <span class="o">-</span><span class="n">b</span> <span class="n">Back</span><span class="o">-</span><span class="n">azimuth</span> <span class="n">will</span> <span class="n">be</span> <span class="n">corrected</span> <span class="k">with</span> <span class="n">minimal</span> <span class="n">energy</span> <span class="n">of</span> <span class="n">T</span>
+              <span class="n">component</span><span class="o">.</span> <span class="n">The</span> <span class="n">searching</span> <span class="nb">range</span> <span class="ow">is</span> <span class="n">raw_baz</span> <span class="o">+/-</span> <span class="mi">90</span>
+</pre></div>
+</div>
 <ul class="simple">
-<li><code class="docutils literal notranslate"><span class="pre">cfg_file</span></code>: configure file.</li>
-<li><code class="docutils literal notranslate"><span class="pre">-l</span></code> if the argument was specified, a local file of catalog would be used in searching earthquakes.</li>
-<li><code class="docutils literal notranslate"><span class="pre">-r</span></code> Reverse the horizontal components. The arguments should be in <code class="docutils literal notranslate"><span class="pre">EN</span></code>, <code class="docutils literal notranslate"><span class="pre">E</span></code> or <code class="docutils literal notranslate"><span class="pre">N</span></code>.</li>
-<li><code class="docutils literal notranslate"><span class="pre">-s</span></code> If this option is specified, the East and North components would be changed.</li>
-<li><code class="docutils literal notranslate"><span class="pre">-b</span></code> Correct back-azimuth. If <span class="math notranslate nohighlight">\(baz\)</span> is specified, the <span class="math notranslate nohighlight">\(baz_{corr} = baz_{raw} + baz\)</span>. If no arguments following <code class="docutils literal notranslate"><span class="pre">-b</span></code>,  back-azimuth will be corrected with minimal energy of T component. The searching range is <span class="math notranslate nohighlight">\(baz_{raw} \pm 90^{\circ}\)</span></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cfg_file</span></code>: configure file.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-l</span></code> if the argument was specified, a local file of catalog would be used in searching earthquakes.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-r</span></code> Reverse the horizontal components. The arguments should be in <code class="docutils literal notranslate"><span class="pre">EN</span></code>, <code class="docutils literal notranslate"><span class="pre">E</span></code> or <code class="docutils literal notranslate"><span class="pre">N</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-s</span></code> If this option is specified, the East and North components would be changed.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-b</span></code> Correct back-azimuth. If <span class="math notranslate nohighlight">\(baz\)</span> is specified, the <span class="math notranslate nohighlight">\(baz_{corr} = baz_{raw} + baz\)</span>. If no arguments following <code class="docutils literal notranslate"><span class="pre">-b</span></code>,  back-azimuth will be corrected with minimal energy of T component. The searching range is <span class="math notranslate nohighlight">\(baz_{raw} \pm 90^{\circ}\)</span></p></li>
 </ul>
 </div>
 <div class="section" id="initialize-a-project-instance">
@@ -341,10 +370,10 @@
 <p>A reference sac file will read to Associate with events. Thus, file-search-string will help to find real SAC files in data path. In this program file-search-string composed of <code class="docutils literal notranslate"><span class="pre">pjt.para.ref_comp</span></code> and <code class="docutils literal notranslate"><span class="pre">pjt.para.suffix</span></code>. The presence of <code class="docutils literal notranslate"><span class="pre">*pjt.para.ref_comp*pjt.para.suffix</span></code>, such as <code class="docutils literal notranslate"><span class="pre">*.1.*sac</span></code> in this example, for SAC files will be found.</p>
 <p>the <code class="docutils literal notranslate"><span class="pre">pjt.para.offset</span></code> and <code class="docutils literal notranslate"><span class="pre">pjt.para.tolerance</span></code> are used to match the origin time from catalog. The definition are the same as those in <a class="reference external" href="https://git.nju.edu.cn/xumi1993/SplitRFLab">SplitRFLab</a>.</p>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<ul class="last simple">
-<li>The <code class="docutils literal notranslate"><span class="pre">offset</span></code> is the time duration between the event time and the starting time of your seismograms. Ideally, this offset should be identical to the “request start time” defined in the previous window but the data management center may have sent you data beginning later than requested. The offset value represents this difference.</li>
-<li>The <code class="docutils literal notranslate"><span class="pre">Tolerance</span></code> value in seconds will define the time window within which the program will try to associate a seismic file to an event file, by using either its name or the information contained in the header. It is up to the user to find the best compromise: a value too small will let orphans and a value too large will bring confusion since several files could be associated to a seismic event.</li>
+<p class="admonition-title">Note</p>
+<ul class="simple">
+<li><p>The <code class="docutils literal notranslate"><span class="pre">offset</span></code> is the time duration between the event time and the starting time of your seismograms. Ideally, this offset should be identical to the “request start time” defined in the previous window but the data management center may have sent you data beginning later than requested. The offset value represents this difference.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">Tolerance</span></code> value in seconds will define the time window within which the program will try to associate a seismic file to an event file, by using either its name or the information contained in the header. It is up to the user to find the best compromise: a value too small will let orphans and a value too large will bring confusion since several files could be associated to a seismic event.</p></li>
 </ul>
 </div>
 <div class="figure align-center">
@@ -362,8 +391,8 @@
 <h3>Filter<a class="headerlink" href="#filter" title="Permalink to this headline">¶</a></h3>
 <p>We will aply a bandpass filter on seismic records. Two corners should be specified.</p>
 <ul class="simple">
-<li><code class="docutils literal notranslate"><span class="pre">para.freqmin</span></code>: Pass band low corner frequency.</li>
-<li><code class="docutils literal notranslate"><span class="pre">para.freqmax</span></code>: Pass band high corner frequency.</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">para.freqmin</span></code>: Pass band low corner frequency.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">para.freqmax</span></code>: Pass band high corner frequency.</p></li>
 </ul>
 </div>
 <div class="section" id="signal-noise-ratios-snr-calculation">
@@ -390,9 +419,9 @@
 <h2>PRFs calculation<a class="headerlink" href="#prfs-calculation" title="Permalink to this headline">¶</a></h2>
 <p>We need parameters of <code class="docutils literal notranslate"><span class="pre">pjt.para.gauss</span></code>, <code class="docutils literal notranslate"><span class="pre">pjt.para.itmax</span></code> and <code class="docutils literal notranslate"><span class="pre">pjt.para.minderr</span></code> to calculate PRFs using iterative time-domain deconvolution method</p>
 <ul class="simple">
-<li><code class="docutils literal notranslate"><span class="pre">pjt.para.gauss</span></code>: Gauss factor. Default is 2.0.</li>
-<li><code class="docutils literal notranslate"><span class="pre">pjt.para.itmax</span></code>: The maximum number of iterations. Default is 400.</li>
-<li><code class="docutils literal notranslate"><span class="pre">pjt.para.minderr</span></code>: The minimum misfit. Default is 0.001.</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">pjt.para.gauss</span></code>: Gauss factor. Default is 2.0.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">pjt.para.itmax</span></code>: The maximum number of iterations. Default is 400.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">pjt.para.minderr</span></code>: The minimum misfit. Default is 0.001.</p></li>
 </ul>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">pjt</span><span class="o">.</span><span class="n">deconv</span><span class="p">()</span>
 </pre></div>
@@ -404,14 +433,14 @@
 <div class="section" id="crust">
 <h3><cite>crust</cite><a class="headerlink" href="#crust" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
-<li>The maximum peak should appear between -2s and 2s.</li>
+<li><p>The maximum peak should appear between -2s and 2s.</p></li>
 </ul>
 </div>
 <div class="section" id="mtz">
 <h3><cite>mtz</cite><a class="headerlink" href="#mtz" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
-<li>The maximum peak should appear between -5s and 5s.</li>
-<li>the maximum amplitudes of PRFs in a 30–120 s window after the direct P are smaller than 30% of the maximum amplitudes of the direct P phases.</li>
+<li><p>The maximum peak should appear between -5s and 5s.</p></li>
+<li><p>the maximum amplitudes of PRFs in a 30–120 s window after the direct P are smaller than 30% of the maximum amplitudes of the direct P phases.</p></li>
 </ul>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">pjt</span><span class="o">.</span><span class="n">saverf</span><span class="p">(</span><span class="n">criterion</span><span class="o">=</span><span class="s1">&#39;crust&#39;</span><span class="p">)</span>
 </pre></div>
@@ -449,37 +478,29 @@ gitalk.render('gitalk-container');
            
           </div>
           <footer>
-  
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="pickrf.html" class="btn btn-neutral float-right" title="Virtual check PRFs with an user interface" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="calrf.html" class="btn btn-neutral float-left" title="Calculate a P-wave Receiver Function (PRF)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+        <a href="pickrf.html" class="btn btn-neutral float-right" title="Virtual check PRFs with an user interface" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="calrf.html" class="btn btn-neutral float-left" title="Calculate a P-wave Receiver Function (PRF)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
     <p>
-        
-        &copy; Copyright 2020, Mijian Xu
+        &#169; Copyright 2020, Mijian Xu.
 
     </p>
   </div>
     
     
     
-    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
     
-    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
     
     provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
-
         </div>
       </div>
 

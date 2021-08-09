@@ -1,30 +1,65 @@
 
 # Installation
 
-### Install Dependencies
+## Dependencies
 
-To use this module you will need to have Python3 and some third party modules installed.
+The current version has been integration tested using **Python 3**. We recommend to install the [Anaconda](https://www.anaconda.com/) as the Python environment.
 
-- obspy (Numpy, Scipy and matplotlib included)
-- netcdf4
-- pandas
+Following Python modules are required for the Seispy, **but do not have to be installed manually.**
 
-### Install Seispy
+- [Numpy](https://numpy.org/)
+- [Scipy](https://www.scipy.org/scipylib/index.html)
+- [Obspy](https://docs.obspy.org/)
+- [Matplotlib](https://matplotlib.org/)
+- [Pyqt5](https://pypi.org/project/PyQt5/)
 
-Now download and install Seispy
+## Install and update via [PyPi](https://pypi.org/)
 
-#### Download the source codes
+### Installation 
+
+Run on command line:
+
+```shell
+pip install python-seispy
 ```
+
+### Upgrade to stable version
+
+```shell
+pip install python-seispy -U
+```
+
+## Install and update from source code
+
+### Download the source codes
+
+Clone the source code from [Github](https://github.com/xumi1993/seispy.git) to any directory.
+
+```Shell
 git clone https://github.com/xumi1993/seispy.git
 ```
-or
-```
+
+For **Chinese users**, try to clone the source code from [Git service of Nanjing University](https://git.nju.edu.cn/geophy/seispy)
+
+```Shell
 git clone https://git.nju.edu.cn/geophy/seispy.git
 ```
-The Github link is a mirror repo from [NJU Git](https://git.nju.edu.cn/geophy/seispy.git)
 
-#### Install Seispy to the Python environment 
-```
+### Install Seispy to the Python environment
+
+Change path to where the source code was cloned into, and install the module via [Python pip](https://pip.pypa.io/) command
+
+```Shell
 cd seispy
-python setup.py install
+pip install .
+```
+
+### Update Seispy
+
+To update the Seispy, please change to directory of the source code, and execute following commands.
+
+```Shell
+cd seispy
+git pull
+pip install .
 ```
