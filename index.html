@@ -200,7 +200,7 @@
 <h1>Seispy Documentation<a class="headerlink" href="#seispy-documentation" title="Permalink to this headline">¶</a></h1>
 <a class="reference external image-reference" href="https://travis-ci.com/xumi1993/seispy"><img alt="https://img.shields.io/travis/com/xumi1993/seispy" src="https://img.shields.io/travis/com/xumi1993/seispy" /></a>
 <a class="reference external image-reference" href="https://seispy.xumijian.me"><img alt="https://img.shields.io/travis/com/xumi1993/seispy-doc.post?label=doc" src="https://img.shields.io/travis/com/xumi1993/seispy-doc.post?label=doc" /></a>
-<img alt="https://img.shields.io/pypi/v/python-seispy" src="https://img.shields.io/pypi/v/python-seispy" />
+<a class="reference external image-reference" href="https://pypi.org/project/python-seispy"><img alt="https://img.shields.io/pypi/v/python-seispy" src="https://img.shields.io/pypi/v/python-seispy" /></a>
 <img alt="https://img.shields.io/pypi/pyversions/python-seispy" src="https://img.shields.io/pypi/pyversions/python-seispy" />
 <img alt="https://img.shields.io/github/license/xumi1993/seispy" src="https://img.shields.io/github/license/xumi1993/seispy" />
 <img alt="https://img.shields.io/github/v/tag/xumi1993/seispy" src="https://img.shields.io/github/v/tag/xumi1993/seispy" />
@@ -214,6 +214,24 @@
 <p>Seispy is a Python module for processing seismological data and calculating Receiver Functions. The advanced functions are available to improve the Obspy.</p>
 <p>I have been writing Seispy when I was a master student. At first, I wanted to calculate Receiver Functions in Python, but there is no suitable toolkit. Fortunately, The obspy provided mounts of APIs for processing seismic data, so I ported codes for calculating Receiver Functions from Matlab to Python. Today increased functions have been added to Seispy to further process seismic data over than Obspy.</p>
 <a class="reference internal image-reference" href="_images/seispy_shortcut.png"><img alt="_images/seispy_shortcut.png" class="align-center" src="_images/seispy_shortcut.png" style="width: 591.0px; height: 359.5px;" /></a>
+<div class="section" id="libraries">
+<h2>Libraries<a class="headerlink" href="#libraries" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">seispy.distaz</span></code>: Calculate distance and azimuth (by the <a class="reference external" href="http://www.seis.sc.edu/software/distaz/">lithospheric seismology program at USC</a>).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">seispy.geo</span></code>: Tiny codes of geophysics.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">seispy.bootstrap</span></code>: Bootstrap confidence interval estimation (by <a class="reference external" href="https://github.com/cgevans/scikits-bootstrap">scikits-bootstrap</a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">seispy.decon</span></code>: Functions of deconvolution transferred from <a class="reference external" href="https://github.com/iwbailey/processRFmatlab">iwbailey/processRFmatlab</a> including</p>
+<ul>
+<li><p>Iterative time domain deconvolution method (Ligorría and Ammon 1999 BSSA).</p></li>
+<li><p>Water level frequency domain deconvolution method (CJ. Ammon 1991 BSSA)</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">seispy.rf</span></code>: Procedure for RF calculation. The functions of <code class="docutils literal notranslate"><span class="pre">match_eq</span></code>, <code class="docutils literal notranslate"><span class="pre">search_eq</span></code> invoked <code class="docutils literal notranslate"><span class="pre">obspy.core.UTCDateTime</span></code> and <code class="docutils literal notranslate"><span class="pre">obspy.clients</span></code> from the <a class="reference external" href="https://docs.obspy.org/">Obspy</a>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">seispy.eq</span></code>: RF processing for each event, which invoked <code class="docutils literal notranslate"><span class="pre">obspy.io.sac</span></code>, <code class="docutils literal notranslate"><span class="pre">obspy.signal</span></code>, <code class="docutils literal notranslate"><span class="pre">obspy.taup</span></code> and <code class="docutils literal notranslate"><span class="pre">obspy.core.Stream</span></code> from the <a class="reference external" href="https://docs.obspy.org/">Obspy</a>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">seispy.rfcorrect</span></code>: Subsequent process of RFs including moveout correction and time to depth conversion (1D and 3D) (see <a class="reference external" href="https://www.sciencedirect.com/science/article/pii/S0012821X17306921?via%3Dihub">Mijian Xu et al., 2018 EPSL</a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">seispy.ccpprofile</span></code>: CCP stacking along a profile.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">seispy.ccp3d</span></code>: 3-D CCP stacking with extracting depth D410 and D660.</p></li>
+</ul>
 <div class="toctree-wrapper compound">
 <p class="caption"><span class="caption-text">Getting Started:</span></p>
 <ul>
@@ -332,6 +350,7 @@
 </ul>
 </div>
 </div>
+</div>
 <div class="section" id="indices-and-tables">
 <h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline">¶</a></h1>
 <ul class="simple">
@@ -339,6 +358,13 @@
 <li><p><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Module Index</span></a></p></li>
 <li><p><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></p></li>
 </ul>
+</div>
+<div class="section" id="references">
+<h1>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h1>
+<p>Ammon C J. The isolation of receiver effects from teleseismic P waveforms[J]. Bulletin-Seismological Society of America, 1991, 81(6): 2504-2510.</p>
+<p>Krischer L, Megies T, Barsch R, et al. ObsPy: A bridge for seismology into the scientific Python ecosystem[J]. Computational Science &amp; Discovery, 2015, 8(1): 014003.</p>
+<p>Ligorría J P, Ammon C J. Iterative deconvolution and receiver-function estimation[J]. Bulletin of the seismological Society of America, 1999, 89(5): 1395-1400.</p>
+<p>Xu M, Huang H, Huang Z, et al. Insight into the subducted Indian slab and origin of the Tengchong volcano in SE Tibet from receiver function analysis[J]. Earth and Planetary Science Letters, 2018, 482: 567-579.</p>
 </div>
 
 
