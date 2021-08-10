@@ -16,6 +16,7 @@ Following Python modules are required for the Seispy, **but do not have to be in
 
 
 Install and update via `Anaconda <https://www.anaconda.com/>`_ 
+-------------------------------------------------------------------
 
 We recommend to install the `Anaconda <https://www.anaconda.com/>`_ as the Python environment. 
 
