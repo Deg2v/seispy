@@ -215,7 +215,7 @@
 <h1>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="dependencies">
 <h2>Dependencies<a class="headerlink" href="#dependencies" title="Permalink to this headline">¶</a></h2>
-<p>The current version has been integration tested using <strong>Python 3</strong>. We recommend to install the <a class="reference external" href="https://www.anaconda.com/">Anaconda</a> as the Python environment.</p>
+<p>The current version has been integration tested using <strong>Python 3</strong>.</p>
 <p>Following Python modules are required for the Seispy, <strong>but do not have to be installed manually.</strong></p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://numpy.org/">Numpy</a></p></li>
@@ -224,6 +224,25 @@
 <li><p><a class="reference external" href="https://matplotlib.org/">Matplotlib</a></p></li>
 <li><p><a class="reference external" href="https://pypi.org/project/PyQt5/">Pyqt5</a></p></li>
 </ul>
+<p>Install and update via <a class="reference external" href="https://www.anaconda.com/">Anaconda</a></p>
+<p>We recommend to install the <a class="reference external" href="https://www.anaconda.com/">Anaconda</a> as the Python environment.</p>
+<p>Installing <code class="docutils literal notranslate"><span class="pre">seispy</span></code> from the <code class="docutils literal notranslate"><span class="pre">conda-forge</span></code> channel can be achieved by adding <code class="docutils literal notranslate"><span class="pre">conda-forge</span></code> to your channels with:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>conda config --add channels conda-forge
+conda config --set channel_priority strict
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>For Chinese users, we recommend to change the source of the <code class="docutils literal notranslate"><span class="pre">conda-forge</span></code> to <a class="reference external" href="https://mirrors.tuna.tsinghua.edu.cn/help/anaconda/">清华大学 Anaconda 镜像</a></p>
+</div>
+<p>Once the <code class="docutils literal notranslate"><span class="pre">conda-forge</span></code> channel has been enabled, <code class="docutils literal notranslate"><span class="pre">seispy</span></code> can be installed with:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>conda install seispy
+</pre></div>
+</div>
+<p>It is possible to list all of the versions of <code class="docutils literal notranslate"><span class="pre">seispy</span></code> available on your platform with:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>conda search seispy --channel conda-forge
+</pre></div>
+</div>
 </div>
 <div class="section" id="install-and-update-via-pypi">
 <h2>Install and update via <a class="reference external" href="https://pypi.org/">PyPi</a><a class="headerlink" href="#install-and-update-via-pypi" title="Permalink to this headline">¶</a></h2>
@@ -234,18 +253,16 @@
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<ol class="arabic simple">
+<ul class="simple">
 <li><p>We recommend Chinese users to use <a class="reference external" href="https://mirrors.tuna.tsinghua.edu.cn/help/pypi/">清华大学 pypi 镜像</a> to install Seispy.</p></li>
 <li><p>An error may be raised during installing Obspy via PyPi on Linux platform as following:</p></li>
-</ol>
+</ul>
 <blockquote>
 <div><div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>ERROR: Could not build wheels <span class="k">for</span> obspy which use PEP <span class="m">517</span> and cannot be installed directly
 </pre></div>
 </div>
-</div></blockquote>
 <p>Please <a class="reference external" href="https://github.com/obspy/obspy/wiki/Installation-via-Anaconda">install Obspy via conda</a> first.</p>
-<blockquote>
-<div><div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>conda config --add channels conda-forge
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>conda config --add channels conda-forge
 conda install obspy
 </pre></div>
 </div>
