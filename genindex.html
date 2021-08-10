@@ -87,7 +87,7 @@
               
             
             
-              <p class="caption"><span class="caption-text">Getting Started:</span></p>
+              <p><span class="caption-text">Getting Started:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="usage/installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="usage/calrf.html">Calculate a P-wave Receiver Function (PRF)</a></li>
@@ -95,7 +95,7 @@
 <li class="toctree-l1"><a class="reference internal" href="usage/pickrf.html">Virtual check PRFs with an user interface</a></li>
 <li class="toctree-l1"><a class="reference internal" href="usage/ccp.html">Stack PRFs with Common Conversion points (CCP) method</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Examples:</span></p>
+<p><span class="caption-text">Examples:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="examples/ex-prf.html">Calculate PRFs of the station CB.NJ2</a></li>
 <li class="toctree-l1"><a class="reference internal" href="examples/ex-prf.html#estimate-the-moho-depth-and-the-crustal-vp-vs-using-the-h-k-stacking-method">Estimate the Moho depth and the crustal Vp/Vs using the H-k stacking method</a></li>
@@ -103,11 +103,11 @@
 <li class="toctree-l1"><a class="reference internal" href="examples/ex-ccp.html#ccp-stacking-along-a-linear-seismic-array">CCP stacking along a linear seismic array</a></li>
 <li class="toctree-l1"><a class="reference internal" href="examples/ex-ccp3d.html">3-D CCP stacking for mantle transition zone structure under the Tibet.</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Configurations &amp; Commands:</span></p>
+<p><span class="caption-text">Configurations &amp; Commands:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="notes/config.html">Templates of Configurations</a></li>
 </ul>
-<p class="caption"><span class="caption-text">API Documentation:</span></p>
+<p><span class="caption-text">API Documentation:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="modules.html">Module Index</a></li>
 </ul>
@@ -298,8 +298,6 @@
 </li>
       <li><a href="seispy.html#seispy.ccp3d.CCP3D">CCP3D (class in seispy.ccp3d)</a>
 </li>
-      <li><a href="ccp.html#seispy.ccp.ccp_profile">ccp_profile() (in module seispy.ccp)</a>
-</li>
       <li><a href="ccp.html#seispy.ccppara.CCPPara">CCPPara (class in seispy.ccppara)</a>, <a href="seispy.html#seispy.ccppara.CCPPara">[1]</a>
 </li>
       <li><a href="ccp.html#seispy.ccppara.ccppara">ccppara() (in module seispy.ccppara)</a>, <a href="seispy.html#seispy.ccppara.ccppara">[1]</a>
@@ -310,14 +308,14 @@
 </li>
       <li><a href="rf.html#seispy.rf.CfgParser">CfgParser() (in module seispy.rf)</a>, <a href="seispy.html#seispy.rf.CfgParser">[1]</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="seispy.html#seispy.bootstrap.ci">ci() (in module seispy.bootstrap)</a>
 
       <ul>
         <li><a href="hk.html#seispy.hk.ci">(in module seispy.hk)</a>, <a href="seispy.html#seispy.hk.ci">[1]</a>
 </li>
       </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="seispy.html#seispy.updatecatalog.convertinfo">convertinfo() (in module seispy.updatecatalog)</a>
 </li>
       <li><a href="seispy.html#seispy.decon.correl">correl() (in module seispy.decon)</a>
@@ -436,12 +434,8 @@
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="rf.html#seispy.eq.eq.fix_channel_name">fix_channel_name() (seispy.eq.eq method)</a>, <a href="seispy.html#seispy.eq.eq.fix_channel_name">[1]</a>
 </li>
-      <li><a href="ccp.html#seispy.ccp.fix_filename">fix_filename() (in module seispy.ccp)</a>
-
-      <ul>
-        <li><a href="seispy.html#seispy.ccpprofile.fix_filename">(in module seispy.ccpprofile)</a>
+      <li><a href="seispy.html#seispy.ccpprofile.fix_filename">fix_filename() (in module seispy.ccpprofile)</a>
 </li>
-      </ul></li>
       <li><a href="ccp.html#seispy.rfcorrect.from_file">from_file() (in module seispy.rfcorrect)</a>, <a href="seispy.html#seispy.rfcorrect.from_file">[1]</a>
 </li>
   </ul></td>
@@ -473,8 +467,6 @@
       <li><a href="seispy.html#seispy.psrayp.PsRayp.get_rayp">get_rayp() (seispy.psrayp.PsRayp method)</a>
 </li>
       <li><a href="rf.html#seispy.eq.eq.get_raypara">get_raypara() (seispy.eq.eq method)</a>, <a href="seispy.html#seispy.eq.eq.get_raypara">[1]</a>
-</li>
-      <li><a href="ccp.html#seispy.ccp.get_sta">get_sta() (in module seispy.ccp)</a>
 </li>
       <li><a href="rf.html#seispy.rf.stainfo.get_stainfo">get_stainfo() (seispy.rf.stainfo method)</a>, <a href="seispy.html#seispy.rf.stainfo.get_stainfo">[1]</a>
 </li>
@@ -536,12 +528,8 @@
       </ul></li>
       <li><a href="ccp.html#seispy.rf2depth_makedata.init_mat">init_mat() (in module seispy.rf2depth_makedata)</a>, <a href="seispy.html#seispy.rf2depth_makedata.init_mat">[1]</a>
 </li>
-      <li><a href="ccp.html#seispy.ccp.init_profile">init_profile() (in module seispy.ccp)</a>
-
-      <ul>
-        <li><a href="seispy.html#seispy.ccpprofile.init_profile">(in module seispy.ccpprofile)</a>
+      <li><a href="seispy.html#seispy.ccpprofile.init_profile">init_profile() (in module seispy.ccpprofile)</a>
 </li>
-      </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="gui.html#seispy.pickfigure.RFFigure.init_variables">init_variables() (seispy.pickfigure.RFFigure method)</a>, <a href="seispy.html#seispy.pickfigure.RFFigure.init_variables">[1]</a>
@@ -602,12 +590,8 @@
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="seispy.html#seispy.geo.latlon_from">latlon_from() (in module seispy.geo)</a>
 </li>
-      <li><a href="ccp.html#seispy.ccp.line_proj">line_proj() (in module seispy.ccp)</a>
-
-      <ul>
-        <li><a href="seispy.html#seispy.ccpprofile.line_proj">(in module seispy.ccpprofile)</a>
+      <li><a href="seispy.html#seispy.ccpprofile.line_proj">line_proj() (in module seispy.ccpprofile)</a>
 </li>
-      </ul></li>
       <li><a href="seispy.html#seispy.ccp3d.CCP3D.load_para">load_para() (seispy.ccp3d.CCP3D method)</a>
 
       <ul>
@@ -667,8 +651,6 @@
         <li><a href="seispy.html#module-seispy">seispy</a>
 </li>
         <li><a href="seispy.html#module-seispy.bootstrap">seispy.bootstrap</a>
-</li>
-        <li><a href="ccp.html#module-seispy.ccp">seispy.ccp</a>
 </li>
         <li><a href="seispy.html#module-seispy.ccp3d">seispy.ccp3d</a>
 </li>
@@ -951,8 +933,6 @@
 </li>
       <li><a href="seispy.html#seispy.rfani.RFAni.search_peak_list">search_peak_list() (seispy.rfani.RFAni method)</a>
 </li>
-      <li><a href="ccp.html#seispy.ccp.search_pierce">search_pierce() (in module seispy.ccp)</a>
-</li>
       <li>
     seispy
 
@@ -965,13 +945,6 @@
 
       <ul>
         <li><a href="seispy.html#module-seispy.bootstrap">module</a>
-</li>
-      </ul></li>
-      <li>
-    seispy.ccp
-
-      <ul>
-        <li><a href="ccp.html#module-seispy.ccp">module</a>
 </li>
       </ul></li>
       <li>
@@ -1065,8 +1038,6 @@
         <li><a href="rf.html#module-seispy.para">module</a>, <a href="seispy.html#module-seispy.para">[1]</a>
 </li>
       </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li>
     seispy.pickfigure
 
@@ -1074,6 +1045,8 @@
         <li><a href="gui.html#module-seispy.pickfigure">module</a>, <a href="seispy.html#module-seispy.pickfigure">[1]</a>
 </li>
       </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li>
     seispy.pickui
 
@@ -1151,8 +1124,6 @@
         <li><a href="seispy.html#module-seispy.updatecatalog">module</a>
 </li>
       </ul></li>
-      <li><a href="ccp.html#seispy.ccp.select_sta">select_sta() (in module seispy.ccp)</a>
-</li>
       <li><a href="seispy.html#seispy.plotR.set_fig">set_fig() (in module seispy.plotR)</a>
 
       <ul>
@@ -1197,11 +1168,9 @@
 </li>
       <li><a href="seispy.html#seispy.geo.srad2skm">srad2skm() (in module seispy.geo)</a>
 </li>
-      <li><a href="ccp.html#seispy.ccp.stack">stack() (in module seispy.ccp)</a>
+      <li><a href="seispy.html#seispy.ccp3d.CCP3D.stack">stack() (seispy.ccp3d.CCP3D method)</a>
 
       <ul>
-        <li><a href="seispy.html#seispy.ccp3d.CCP3D.stack">(seispy.ccp3d.CCP3D method)</a>
-</li>
         <li><a href="seispy.html#seispy.ccpprofile.CCPProfile.stack">(seispy.ccpprofile.CCPProfile method)</a>
 </li>
       </ul></li>
@@ -1265,8 +1234,6 @@
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="ccp.html#seispy.ccp.writedat">writedat() (in module seispy.ccp)</a>
-</li>
       <li><a href="seispy.html#seispy.io.wsfetch">wsfetch() (in module seispy.io)</a>
 </li>
   </ul></td>

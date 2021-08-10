@@ -4,7 +4,8 @@
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8" />
-  
+  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <title>Installation &mdash; seispy latest documentation</title>
@@ -89,18 +90,13 @@
               
             
             
-              <p class="caption"><span class="caption-text">Getting Started:</span></p>
+              <p><span class="caption-text">Getting Started:</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Installation</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#dependencies">Dependencies</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#install-and-update-via-anaconda">Install and update via Anaconda</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#install-and-update-via-pypi">Install and update via PyPi</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#run-in-command-line">Run in command line:</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#upgrade-to-stable-version">Upgrade to stable version</a></li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="#install-and-update-via-pypi">Install and update via PyPi</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#install-and-update-from-source-code">Install and update from source code</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#download-the-source-codes">Download the source codes</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#install-seispy-to-the-python-environment">Install Seispy to the Python environment</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#update-seispy">Update Seispy</a></li>
 </ul>
@@ -112,7 +108,7 @@
 <li class="toctree-l1"><a class="reference internal" href="pickrf.html">Virtual check PRFs with an user interface</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ccp.html">Stack PRFs with Common Conversion points (CCP) method</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Examples:</span></p>
+<p><span class="caption-text">Examples:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../examples/ex-prf.html">Calculate PRFs of the station CB.NJ2</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../examples/ex-prf.html#estimate-the-moho-depth-and-the-crustal-vp-vs-using-the-h-k-stacking-method">Estimate the Moho depth and the crustal Vp/Vs using the H-k stacking method</a></li>
@@ -120,11 +116,11 @@
 <li class="toctree-l1"><a class="reference internal" href="../examples/ex-ccp.html#ccp-stacking-along-a-linear-seismic-array">CCP stacking along a linear seismic array</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../examples/ex-ccp3d.html">3-D CCP stacking for mantle transition zone structure under the Tibet.</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Configurations &amp; Commands:</span></p>
+<p><span class="caption-text">Configurations &amp; Commands:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../notes/config.html">Templates of Configurations</a></li>
 </ul>
-<p class="caption"><span class="caption-text">API Documentation:</span></p>
+<p><span class="caption-text">API Documentation:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../modules.html">Module Index</a></li>
 </ul>
@@ -212,9 +208,9 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="installation">
+  <section id="installation">
 <h1>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="dependencies">
+<section id="dependencies">
 <h2>Dependencies<a class="headerlink" href="#dependencies" title="Permalink to this headline">¶</a></h2>
 <p>The current version has been integration tested using <strong>Python 3</strong>.</p>
 <p>Following Python modules are required for the Seispy, <strong>but do not have to be installed manually.</strong></p>
@@ -225,8 +221,8 @@
 <li><p><a class="reference external" href="https://matplotlib.org/">Matplotlib</a></p></li>
 <li><p><a class="reference external" href="https://pypi.org/project/PyQt5/">Pyqt5</a></p></li>
 </ul>
-</div>
-<div class="section" id="install-and-update-via-anaconda">
+</section>
+<section id="install-and-update-via-anaconda">
 <h2>Install and update via <a class="reference external" href="https://www.anaconda.com/">Anaconda</a><a class="headerlink" href="#install-and-update-via-anaconda" title="Permalink to this headline">¶</a></h2>
 <p>We recommend to install the <a class="reference external" href="https://www.anaconda.com/">Anaconda</a> as the Python environment.</p>
 <p>Installing <code class="docutils literal notranslate"><span class="pre">seispy</span></code> from the <code class="docutils literal notranslate"><span class="pre">conda-forge</span></code> channel can be achieved by adding <code class="docutils literal notranslate"><span class="pre">conda-forge</span></code> to your channels with:</p>
@@ -246,11 +242,10 @@ conda config --set channel_priority strict
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>conda search seispy --channel conda-forge
 </pre></div>
 </div>
-</div>
-<div class="section" id="install-and-update-via-pypi">
+</section>
+<section id="install-and-update-via-pypi">
 <h2>Install and update via <a class="reference external" href="https://pypi.org/">PyPi</a><a class="headerlink" href="#install-and-update-via-pypi" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="run-in-command-line">
-<h3>Run in command line:<a class="headerlink" href="#run-in-command-line" title="Permalink to this headline">¶</a></h3>
+<p>Recommended for normal users to install Seispy with a stable version</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pip install python-seispy
 </pre></div>
 </div>
@@ -271,18 +266,13 @@ conda install obspy
 </div>
 </div></blockquote>
 </div>
-</div>
-<div class="section" id="upgrade-to-stable-version">
-<h3>Upgrade to stable version<a class="headerlink" href="#upgrade-to-stable-version" title="Permalink to this headline">¶</a></h3>
+<p>Upgrading Seispy to the next stable version.</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pip install python-seispy -U
 </pre></div>
 </div>
-</div>
-</div>
-<div class="section" id="install-and-update-from-source-code">
+</section>
+<section id="install-and-update-from-source-code">
 <h2>Install and update from source code<a class="headerlink" href="#install-and-update-from-source-code" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="download-the-source-codes">
-<h3>Download the source codes<a class="headerlink" href="#download-the-source-codes" title="Permalink to this headline">¶</a></h3>
 <p>Clone the source code from <a class="reference external" href="https://github.com/xumi1993/seispy.git">Github</a> to any directory.</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>git clone --depth<span class="o">=</span><span class="m">1</span> https://github.com/xumi1993/seispy.git
 </pre></div>
@@ -291,16 +281,15 @@ conda install obspy
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>git clone https://git.nju.edu.cn/geophy/seispy.git
 </pre></div>
 </div>
-</div>
-<div class="section" id="install-seispy-to-the-python-environment">
+<section id="install-seispy-to-the-python-environment">
 <h3>Install Seispy to the Python environment<a class="headerlink" href="#install-seispy-to-the-python-environment" title="Permalink to this headline">¶</a></h3>
 <p>Change path to where the source code was cloned into, and install the module via <a class="reference external" href="https://pip.pypa.io/">Python pip</a> command</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> seispy
 pip install .
 </pre></div>
 </div>
-</div>
-<div class="section" id="update-seispy">
+</section>
+<section id="update-seispy">
 <h3>Update Seispy<a class="headerlink" href="#update-seispy" title="Permalink to this headline">¶</a></h3>
 <p>To update the Seispy, please change to directory of the source code, and execute following commands.</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> seispy
@@ -308,9 +297,9 @@ git pull
 pip install .
 </pre></div>
 </div>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
 
            </div>

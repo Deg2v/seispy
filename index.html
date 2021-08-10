@@ -4,7 +4,8 @@
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8" />
-  
+  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <title>Seispy Documentation &mdash; seispy latest documentation</title>
@@ -88,7 +89,7 @@
               
             
             
-              <p class="caption"><span class="caption-text">Getting Started:</span></p>
+              <p><span class="caption-text">Getting Started:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="usage/installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="usage/calrf.html">Calculate a P-wave Receiver Function (PRF)</a></li>
@@ -96,7 +97,7 @@
 <li class="toctree-l1"><a class="reference internal" href="usage/pickrf.html">Virtual check PRFs with an user interface</a></li>
 <li class="toctree-l1"><a class="reference internal" href="usage/ccp.html">Stack PRFs with Common Conversion points (CCP) method</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Examples:</span></p>
+<p><span class="caption-text">Examples:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="examples/ex-prf.html">Calculate PRFs of the station CB.NJ2</a></li>
 <li class="toctree-l1"><a class="reference internal" href="examples/ex-prf.html#estimate-the-moho-depth-and-the-crustal-vp-vs-using-the-h-k-stacking-method">Estimate the Moho depth and the crustal Vp/Vs using the H-k stacking method</a></li>
@@ -104,11 +105,11 @@
 <li class="toctree-l1"><a class="reference internal" href="examples/ex-ccp.html#ccp-stacking-along-a-linear-seismic-array">CCP stacking along a linear seismic array</a></li>
 <li class="toctree-l1"><a class="reference internal" href="examples/ex-ccp3d.html">3-D CCP stacking for mantle transition zone structure under the Tibet.</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Configurations &amp; Commands:</span></p>
+<p><span class="caption-text">Configurations &amp; Commands:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="notes/config.html">Templates of Configurations</a></li>
 </ul>
-<p class="caption"><span class="caption-text">API Documentation:</span></p>
+<p><span class="caption-text">API Documentation:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="modules.html">Module Index</a></li>
 </ul>
@@ -196,10 +197,12 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="seispy-documentation">
+  <section id="seispy-documentation">
 <h1>Seispy Documentation<a class="headerlink" href="#seispy-documentation" title="Permalink to this headline">¶</a></h1>
-<a class="reference external image-reference" href="https://travis-ci.com/xumi1993/seispy"><img alt="https://img.shields.io/travis/com/xumi1993/seispy" src="https://img.shields.io/travis/com/xumi1993/seispy" /></a>
-<a class="reference external image-reference" href="https://seispy.xumijian.me"><img alt="https://img.shields.io/travis/com/xumi1993/seispy-doc.post?label=doc" src="https://img.shields.io/travis/com/xumi1993/seispy-doc.post?label=doc" /></a>
+<a class="reference external image-reference" href="https://github.com/xumi1993/seispy/actions/workflows/python-publish.yml"><img alt="https://github.com/xumi1993/seispy/actions/workflows/python-publish.yml/badge.svg" src="https://github.com/xumi1993/seispy/actions/workflows/python-publish.yml/badge.svg" /></a>
+<a class="reference external image-reference" href="https://github.com/xumi1993/seispy-doc.post/actions/workflows/deploy.yml"><img alt="https://github.com/xumi1993/seispy-doc.post/actions/workflows/deploy.yml/badge.svg" src="https://github.com/xumi1993/seispy-doc.post/actions/workflows/deploy.yml/badge.svg" /></a>
+<a class="reference external image-reference" href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=13623&amp;branchName=master"><img alt="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/seispy-feedstock?branchName=master" src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/seispy-feedstock?branchName=master" /></a>
+<a class="reference external image-reference" href="https://anaconda.org/conda-forge/seispy"><img alt="https://img.shields.io/conda/vn/conda-forge/seispy.svg" src="https://img.shields.io/conda/vn/conda-forge/seispy.svg" /></a>
 <a class="reference external image-reference" href="https://pypi.org/project/python-seispy"><img alt="https://img.shields.io/pypi/v/python-seispy" src="https://img.shields.io/pypi/v/python-seispy" /></a>
 <img alt="https://img.shields.io/pypi/pyversions/python-seispy" src="https://img.shields.io/pypi/pyversions/python-seispy" />
 <img alt="https://img.shields.io/github/license/xumi1993/seispy" src="https://img.shields.io/github/license/xumi1993/seispy" />
@@ -214,7 +217,7 @@
 <p>Seispy is a Python module for processing seismological data and calculating Receiver Functions. The advanced functions are available to improve the Obspy.</p>
 <p>I have been writing Seispy when I was a master student. At first, I wanted to calculate Receiver Functions in Python, but there is no suitable toolkit. Fortunately, The Obspy provided mounts of APIs for processing seismic data, so I ported codes for calculating Receiver Functions from Matlab to Python. Today increased functions have been added to Seispy to further process seismic data over than Obspy.</p>
 <a class="reference internal image-reference" href="_images/seispy_shortcut.png"><img alt="_images/seispy_shortcut.png" class="align-center" src="_images/seispy_shortcut.png" style="width: 591.0px; height: 359.5px;" /></a>
-<div class="section" id="libraries">
+<section id="libraries">
 <h2>Libraries<a class="headerlink" href="#libraries" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">seispy.distaz</span></code>: Calculate distance and azimuth (by the <a class="reference external" href="http://www.seis.sc.edu/software/distaz/">lithospheric seismology program at USC</a>).</p></li>
@@ -233,7 +236,7 @@
 <li><p><code class="docutils literal notranslate"><span class="pre">seispy.ccp3d</span></code>: 3-D CCP stacking with extracting depth D410 and D660.</p></li>
 </ul>
 <div class="toctree-wrapper compound">
-<p class="caption"><span class="caption-text">Getting Started:</span></p>
+<p><span class="caption-text">Getting Started:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="usage/installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="usage/calrf.html">Calculate a P-wave Receiver Function (PRF)</a></li>
@@ -243,7 +246,7 @@
 </ul>
 </div>
 <div class="toctree-wrapper compound">
-<p class="caption"><span class="caption-text">Examples:</span></p>
+<p><span class="caption-text">Examples:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="examples/ex-prf.html">Calculate PRFs of the station CB.NJ2</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="examples/ex-prf.html#download-this-example">Download this example</a></li>
@@ -278,7 +281,7 @@
 </ul>
 </div>
 <div class="toctree-wrapper compound">
-<p class="caption"><span class="caption-text">Configurations &amp; Commands:</span></p>
+<p><span class="caption-text">Configurations &amp; Commands:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="notes/config.html">Templates of Configurations</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="notes/config.html#rf-calculation">RF calculation</a></li>
@@ -289,7 +292,7 @@
 </ul>
 </div>
 <div class="toctree-wrapper compound">
-<p class="caption"><span class="caption-text">API Documentation:</span></p>
+<p><span class="caption-text">API Documentation:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="modules.html">Module Index</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="rf.html">RF package</a><ul>
@@ -306,7 +309,7 @@
 <li class="toctree-l2"><a class="reference internal" href="ccp.html">CCP package</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="ccp.html#module-seispy.rfcorrect">seispy.rfcorrect module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="ccp.html#module-seispy.rf2depth_makedata">seispy.rf2depth_makedata module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="ccp.html#module-seispy.ccp">seispy.ccp module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ccp.html#seispy-ccp-module">seispy.ccp module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="ccp.html#module-seispy.ccppara">seispy.ccppara module</a></li>
 </ul>
 </li>
@@ -349,23 +352,23 @@
 </li>
 </ul>
 </div>
-</div>
-</div>
-<div class="section" id="indices-and-tables">
+</section>
+</section>
+<section id="indices-and-tables">
 <h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline">¶</a></h1>
 <ul class="simple">
 <li><p><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></p></li>
 <li><p><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Module Index</span></a></p></li>
 <li><p><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></p></li>
 </ul>
-</div>
-<div class="section" id="references">
+</section>
+<section id="references">
 <h1>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h1>
 <p>Ammon C J. The isolation of receiver effects from teleseismic P waveforms[J]. Bulletin-Seismological Society of America, 1991, 81(6): 2504-2510.</p>
 <p>Krischer L, Megies T, Barsch R, et al. ObsPy: A bridge for seismology into the scientific Python ecosystem[J]. Computational Science &amp; Discovery, 2015, 8(1): 014003.</p>
 <p>Ligorría J P, Ammon C J. Iterative deconvolution and receiver-function estimation[J]. Bulletin of the seismological Society of America, 1999, 89(5): 1395-1400.</p>
 <p>Xu M, Huang H, Huang Z, et al. Insight into the subducted Indian slab and origin of the Tengchong volcano in SE Tibet from receiver function analysis[J]. Earth and Planetary Science Letters, 2018, 482: 567-579.</p>
-</div>
+</section>
 
 
            </div>

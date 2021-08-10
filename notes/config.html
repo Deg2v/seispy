@@ -4,7 +4,8 @@
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8" />
-  
+  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <title>Templates of Configurations &mdash; seispy latest documentation</title>
@@ -89,7 +90,7 @@
               
             
             
-              <p class="caption"><span class="caption-text">Getting Started:</span></p>
+              <p><span class="caption-text">Getting Started:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../usage/installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../usage/calrf.html">Calculate a P-wave Receiver Function (PRF)</a></li>
@@ -97,7 +98,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../usage/pickrf.html">Virtual check PRFs with an user interface</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../usage/ccp.html">Stack PRFs with Common Conversion points (CCP) method</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Examples:</span></p>
+<p><span class="caption-text">Examples:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../examples/ex-prf.html">Calculate PRFs of the station CB.NJ2</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../examples/ex-prf.html#estimate-the-moho-depth-and-the-crustal-vp-vs-using-the-h-k-stacking-method">Estimate the Moho depth and the crustal Vp/Vs using the H-k stacking method</a></li>
@@ -105,7 +106,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../examples/ex-ccp.html#ccp-stacking-along-a-linear-seismic-array">CCP stacking along a linear seismic array</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../examples/ex-ccp3d.html">3-D CCP stacking for mantle transition zone structure under the Tibet.</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Configurations &amp; Commands:</span></p>
+<p><span class="caption-text">Configurations &amp; Commands:</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Templates of Configurations</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#rf-calculation">RF calculation</a></li>
@@ -114,7 +115,7 @@
 </ul>
 </li>
 </ul>
-<p class="caption"><span class="caption-text">API Documentation:</span></p>
+<p><span class="caption-text">API Documentation:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../modules.html">Module Index</a></li>
 </ul>
@@ -202,9 +203,9 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="templates-of-configurations">
+  <section id="templates-of-configurations">
 <h1>Templates of Configurations<a class="headerlink" href="#templates-of-configurations" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="rf-calculation">
+<section id="rf-calculation">
 <h2>RF calculation<a class="headerlink" href="#rf-calculation" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">path</span><span class="p">]</span>
 <span class="c1"># Data path with event records</span>
@@ -293,8 +294,8 @@
 <span class="n">rmsgate</span> <span class="o">=</span> <span class="mf">0.25</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="hk-stacking">
+</section>
+<section id="hk-stacking">
 <h2>Hk stacking<a class="headerlink" href="#hk-stacking" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">FileIO</span><span class="p">]</span>
 <span class="c1"># Path to RFs</span>
@@ -322,8 +323,8 @@
 <span class="n">weight3</span> <span class="o">=</span> <span class="mf">0.1</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="ccp-stacking">
+</section>
+<section id="ccp-stacking">
 <h2>CCP stacking<a class="headerlink" href="#ccp-stacking" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">FileIO</span><span class="p">]</span>
     <span class="c1"># Path to stations with RF sac files</span>
@@ -398,8 +399,8 @@
 <span class="n">boot_samples</span> <span class="o">=</span> <span class="mi">2000</span>
 </pre></div>
 </div>
-</div>
-</div>
+</section>
+</section>
 
 
            </div>

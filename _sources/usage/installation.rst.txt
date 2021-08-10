@@ -48,8 +48,7 @@ It is possible to list all of the versions of ``seispy`` available on your platf
 Install and update via `PyPi <https://pypi.org/>`_
 ---------------------------------------------------
 
-Run in command line:
-^^^^^^^^^^^^^^^^^^^^^^^
+Recommended for normal users to install Seispy with a stable version
 
 .. code-block:: shell
 
@@ -72,8 +71,7 @@ Run in command line:
         conda config --add channels conda-forge
         conda install obspy
 
-Upgrade to stable version
-^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Upgrading Seispy to the next stable version. 
 
 .. code-block:: shell
 
@@ -83,8 +81,6 @@ Upgrade to stable version
 Install and update from source code
 --------------------------------------
 
-Download the source codes
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Clone the source code from `Github <https://github.com/xumi1993/seispy.git>`_ to any directory.
 
