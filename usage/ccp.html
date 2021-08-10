@@ -4,8 +4,7 @@
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8" />
-  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+  
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <title>Stack PRFs with Common Conversion points (CCP) method &mdash; seispy latest documentation</title>
@@ -14,8 +13,6 @@
   
   <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
 
   
   
@@ -35,7 +32,6 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
         <script src="../_static/doctools.js"></script>
@@ -93,7 +89,7 @@
               
             
             
-              <p class="caption" role="heading"><span class="caption-text">Getting Started:</span></p>
+              <p class="caption"><span class="caption-text">Getting Started:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="calrf.html">Calculate a P-wave Receiver Function (PRF)</a></li>
@@ -116,7 +112,7 @@
 </ul>
 </li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Examples:</span></p>
+<p class="caption"><span class="caption-text">Examples:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../examples/ex-prf.html">Calculate PRFs of the station CB.NJ2</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../examples/ex-prf.html#estimate-the-moho-depth-and-the-crustal-vp-vs-using-the-h-k-stacking-method">Estimate the Moho depth and the crustal Vp/Vs using the H-k stacking method</a></li>
@@ -124,11 +120,11 @@
 <li class="toctree-l1"><a class="reference internal" href="../examples/ex-ccp.html#ccp-stacking-along-a-linear-seismic-array">CCP stacking along a linear seismic array</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../examples/ex-ccp3d.html">3-D CCP stacking for mantle transition zone structure under the Tibet.</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Configurations &amp; Commands:</span></p>
+<p class="caption"><span class="caption-text">Configurations &amp; Commands:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../notes/config.html">Templates of Configurations</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">API Documentation:</span></p>
+<p class="caption"><span class="caption-text">API Documentation:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../modules.html">Module Index</a></li>
 </ul>
@@ -216,15 +212,15 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <section id="stack-prfs-with-common-conversion-points-ccp-method">
+  <div class="section" id="stack-prfs-with-common-conversion-points-ccp-method">
 <h1>Stack PRFs with Common Conversion points (CCP) method<a class="headerlink" href="#stack-prfs-with-common-conversion-points-ccp-method" title="Permalink to this headline">¶</a></h1>
 <p>This note will introduce how to stack PRFs with CCP method in two steps.</p>
 <p><strong>1. Convert PRFs from time axis to depth axis according to 1D velocity model.</strong></p>
 <p><strong>2. Search and stack amplitudes in each bin with calculated pierce points falling in.</strong></p>
-<section id="preparation">
+<div class="section" id="preparation">
 <h2>Preparation<a class="headerlink" href="#preparation" title="Permalink to this headline">¶</a></h2>
 <p>Before the CCP stacking, we should prepare:</p>
-<section id="prfs-data-with-sac-format">
+<div class="section" id="prfs-data-with-sac-format">
 <h3>PRFs data with sac format<a class="headerlink" href="#prfs-data-with-sac-format" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>The SACHeader of <code class="docutils literal notranslate"><span class="pre">b</span></code>, <code class="docutils literal notranslate"><span class="pre">delta</span></code> and <code class="docutils literal notranslate"><span class="pre">npts</span></code> are required. please make sure that they are correct. The <code class="docutils literal notranslate"><span class="pre">b</span></code> denote the shift time before P arrival.</p></li>
@@ -244,8 +240,8 @@
 </ul>
 </li>
 </ul>
-</section>
-<section id="a-station-list">
+</div>
+<div class="section" id="a-station-list">
 <h3>A station list<a class="headerlink" href="#a-station-list" title="Permalink to this headline">¶</a></h3>
 <p>A text table of station information with 3 columns:</p>
 <ul class="simple">
@@ -253,12 +249,12 @@
 <li><p><code class="docutils literal notranslate"><span class="pre">stlat</span></code>: The latitude of the station.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">stlon</span></code>: The longitude of the station.</p></li>
 </ul>
-</section>
-<section id="a-parameter-file">
+</div>
+<div class="section" id="a-parameter-file">
 <h3>A parameter file<a class="headerlink" href="#a-parameter-file" title="Permalink to this headline">¶</a></h3>
 <p>The parameter file include parameters used in the time-to-depth and CCP stacking. the format should follow <code class="docutils literal notranslate"><span class="pre">configparser</span></code> module. See <a class="reference internal" href="../notes/config.html"><span class="doc">Template for CCP stacking</span></a></p>
-</section>
-<section id="optional-a-lib-of-ps-ray-parameters">
+</div>
+<div class="section" id="optional-a-lib-of-ps-ray-parameters">
 <h3>(Optional) A lib of Ps ray parameters<a class="headerlink" href="#optional-a-lib-of-ps-ray-parameters" title="Permalink to this headline">¶</a></h3>
 <p>If you would stack PRFs in a large depth (e.g., D410 or D660), the ray parameters of P arrival cannot represent that of Ps phase. Therefore, a library file of Ps ray parameters in different depths and epicentral distance is required in calculating Ps-P time difference. This lib file has specific binary format. You can generate it by command of gen_rayp_lib:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>usage: gen_rayp_lib <span class="o">[</span>-h<span class="o">]</span> -d min_dis/max_dis/interval -e min_dep/max_dep/interval <span class="o">[</span>-l min_layer/man_layer<span class="o">]</span> <span class="o">[</span>-o outpath<span class="o">]</span>
@@ -268,17 +264,17 @@ Gen a ray parameter lib <span class="k">for</span> Pds phases
 optional arguments:
   -h, --help            show this <span class="nb">help</span> message and <span class="nb">exit</span>
   -d min_dis/max_dis/interval
-                        Distance range in degree
+                        Distance range <span class="k">in</span> degree
   -e min_dep/max_dep/interval
-                        Event depth range in km
+                        Event depth range <span class="k">in</span> km
   -l min_layer/man_layer
-                        layers range as in km, defaults to <span class="m">0</span>/800
+                        layers range as <span class="k">in</span> km, defaults to <span class="m">0</span>/800
   -o outpath            Out path to Pds ray parameter lib
 </pre></div>
 </div>
 <p>Here, we provide a ray-parameter file with distance from 30-90 degree and source depth from 0 to 600 km: <a class="reference external" href="https://osf.io/utx24/download">psrayp.npz</a></p>
-</section>
-<section id="optional-a-3d-velocity-model">
+</div>
+<div class="section" id="optional-a-3d-velocity-model">
 <h3>(Optional) A 3D velocity model<a class="headerlink" href="#optional-a-3d-velocity-model" title="Permalink to this headline">¶</a></h3>
 <p>To correct influence by velocity anomalies above the interface you wanna study, you can use a 3D velocity model to correct Ps-P time difference. The model file should be <code class="docutils literal notranslate"><span class="pre">.npz</span></code> format (generated by <a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.savez.html?highlight=savez"><code class="docutils literal notranslate"><span class="pre">numpy.savez</span></code></a>) with 5 fields:</p>
 <ul class="simple">
@@ -288,9 +284,9 @@ optional arguments:
 <li><p><code class="docutils literal notranslate"><span class="pre">vp</span></code>: P wave velocity. 3D <code class="docutils literal notranslate"><span class="pre">numpy.array</span></code> with shape of <code class="docutils literal notranslate"><span class="pre">(len_dep,</span> <span class="pre">len_lat,</span> <span class="pre">len_lon)</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">vs</span></code>: S wave velocity. 3D <code class="docutils literal notranslate"><span class="pre">numpy.array</span></code> with shape of <code class="docutils literal notranslate"><span class="pre">(len_dep,</span> <span class="pre">len_lat,</span> <span class="pre">len_lon)</span></code></p></li>
 </ul>
-</section>
-</section>
-<section id="convert-time-to-depth">
+</div>
+</div>
+<div class="section" id="convert-time-to-depth">
 <h2>Convert time to depth<a class="headerlink" href="#convert-time-to-depth" title="Permalink to this headline">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">rf2depth</span></code> command would convert PRFs from time axis to depth axis using above preparations:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">usage</span><span class="p">:</span> <span class="n">rf2depth</span> <span class="p">[</span><span class="o">-</span><span class="n">h</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">d</span> <span class="n">D</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">m</span> <span class="n">M</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">r</span> <span class="n">R</span><span class="p">]</span> <span class="n">cfg_file</span>
@@ -321,8 +317,8 @@ optional arguments:
 </ul>
 <p><strong>NOTE:</strong>
 The layer_num was determined by field <code class="docutils literal notranslate"><span class="pre">[depth]</span></code> in parameter file.</p>
-</section>
-<section id="ccp-stack-prfs-along-a-profile">
+</div>
+<div class="section" id="ccp-stack-prfs-along-a-profile">
 <h2>CCP Stack PRFs along a profile<a class="headerlink" href="#ccp-stack-prfs-along-a-profile" title="Permalink to this headline">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">ccp_profile</span></code> command provide functions to stack PRFs along a profile:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">usage</span><span class="p">:</span> <span class="n">ccp_profile</span> <span class="p">[</span><span class="o">-</span><span class="n">h</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">t</span><span class="p">]</span> <span class="n">cfg_file</span>
@@ -337,7 +333,7 @@ The layer_num was determined by field <code class="docutils literal notranslate"
   <span class="o">-</span><span class="n">t</span>          <span class="n">Output</span> <span class="k">as</span> <span class="n">a</span> <span class="n">text</span> <span class="n">file</span>
 </pre></div>
 </div>
-<section id="required-parameters">
+<div class="section" id="required-parameters">
 <h3>Required parameters<a class="headerlink" href="#required-parameters" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">cfg_file</span></code>: the parameter file introduced above. Meanwhile, some options are required:</p>
@@ -369,9 +365,9 @@ The layer_num was determined by field <code class="docutils literal notranslate"
 </ul>
 </li>
 </ul>
-</section>
-</section>
-</section>
+</div>
+</div>
+</div>
 
 
            </div>

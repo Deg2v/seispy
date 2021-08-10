@@ -4,8 +4,7 @@
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8" />
-  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+  
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <title>Virtual check PRFs with an user interface &mdash; seispy latest documentation</title>
@@ -14,8 +13,6 @@
   
   <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
 
   
   
@@ -35,7 +32,6 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
         <script src="../_static/doctools.js"></script>
@@ -93,7 +89,7 @@
               
             
             
-              <p class="caption" role="heading"><span class="caption-text">Getting Started:</span></p>
+              <p class="caption"><span class="caption-text">Getting Started:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="calrf.html">Calculate a P-wave Receiver Function (PRF)</a></li>
@@ -111,7 +107,7 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="ccp.html">Stack PRFs with Common Conversion points (CCP) method</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Examples:</span></p>
+<p class="caption"><span class="caption-text">Examples:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../examples/ex-prf.html">Calculate PRFs of the station CB.NJ2</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../examples/ex-prf.html#estimate-the-moho-depth-and-the-crustal-vp-vs-using-the-h-k-stacking-method">Estimate the Moho depth and the crustal Vp/Vs using the H-k stacking method</a></li>
@@ -119,11 +115,11 @@
 <li class="toctree-l1"><a class="reference internal" href="../examples/ex-ccp.html#ccp-stacking-along-a-linear-seismic-array">CCP stacking along a linear seismic array</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../examples/ex-ccp3d.html">3-D CCP stacking for mantle transition zone structure under the Tibet.</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Configurations &amp; Commands:</span></p>
+<p class="caption"><span class="caption-text">Configurations &amp; Commands:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../notes/config.html">Templates of Configurations</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">API Documentation:</span></p>
+<p class="caption"><span class="caption-text">API Documentation:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../modules.html">Module Index</a></li>
 </ul>
@@ -211,9 +207,9 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <section id="virtual-check-prfs-with-an-user-interface">
+  <div class="section" id="virtual-check-prfs-with-an-user-interface">
 <h1>Virtual check PRFs with an user interface<a class="headerlink" href="#virtual-check-prfs-with-an-user-interface" title="Permalink to this headline">¶</a></h1>
-<section id="open-the-user-interface">
+<div class="section" id="open-the-user-interface">
 <h2>Open the user interface<a class="headerlink" href="#open-the-user-interface" title="Permalink to this headline">¶</a></h2>
 <p>Following previous steps, PRFs have been calculated and save to SAC files in a folder named as the station name.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>net.sta
@@ -230,8 +226,8 @@
 </div>
 <p>The window will open as following image. Each page will display 20 PRFs. You can press <code class="docutils literal notranslate"><span class="pre">z</span></code> and <code class="docutils literal notranslate"><span class="pre">c</span></code> hotkey or click <code class="docutils literal notranslate"><span class="pre">previous</span></code> and <code class="docutils literal notranslate"><span class="pre">next</span></code> button for turning pages.</p>
 <p><img alt="../_images/pickrf.png" src="../_images/pickrf.png" /></p>
-</section>
-<section id="operations">
+</div>
+<div class="section" id="operations">
 <h2>Operations<a class="headerlink" href="#operations" title="Permalink to this headline">¶</a></h2>
 <p>Directly click PRFs on the interface to set up them to ‘poor’ PRFs. The PRFs will turn gray when you click a PRF. If you click again, it will restored to a ‘good’ PRF.</p>
 <p><img alt="../_images/click.png" src="../_images/click.png" /></p>
@@ -249,19 +245,19 @@
 <li><p>Gaussian factor</p></li>
 </ul>
 <p>This list file is <strong>very important</strong> for derived method such as H-k stacking and CCP stacking.</p>
-</section>
-<section id="other-functions">
+</div>
+<div class="section" id="other-functions">
 <h2>Other functions<a class="headerlink" href="#other-functions" title="Permalink to this headline">¶</a></h2>
-<section id="enlarge-and-reduce-visual-amplitudes-of-the-waveforms">
+<div class="section" id="enlarge-and-reduce-visual-amplitudes-of-the-waveforms">
 <h3>enlarge and reduce visual amplitudes of the waveforms<a class="headerlink" href="#enlarge-and-reduce-visual-amplitudes-of-the-waveforms" title="Permalink to this headline">¶</a></h3>
 <p>Buttons of <code class="docutils literal notranslate"><span class="pre">Amp</span> <span class="pre">enlarge</span></code> and <code class="docutils literal notranslate"><span class="pre">Amp</span> <span class="pre">reduce</span></code> are available to control the visual amplitudes.</p>
-</section>
-<section id="preview-all-prfs">
+</div>
+<div class="section" id="preview-all-prfs">
 <h3>Preview all PRFs<a class="headerlink" href="#preview-all-prfs" title="Permalink to this headline">¶</a></h3>
 <p>the <code class="docutils literal notranslate"><span class="pre">space</span></code> hotkey and <code class="docutils literal notranslate"><span class="pre">preview</span></code> button provide a function to plot all ‘good’ PRFs. Use <code class="docutils literal notranslate"><span class="pre">ctrl+s</span></code> on Linux/Windows and <code class="docutils literal notranslate"><span class="pre">cmd+s</span></code> on MacOS to save this figure as a PDF file.</p>
-</section>
-</section>
-<section id="keymap">
+</div>
+</div>
+<div class="section" id="keymap">
 <h2>Keymap<a class="headerlink" href="#keymap" title="Permalink to this headline">¶</a></h2>
 <table border="1" class="docutils">
 <thead>
@@ -288,8 +284,8 @@
 <td>Save preview</td>
 </tr>
 </tbody>
-</table></section>
-</section>
+</table></div>
+</div>
 
 
            </div>

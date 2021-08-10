@@ -13,8 +13,6 @@
   
   <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
 
   
   
@@ -34,7 +32,6 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
         <script src="../../_static/doctools.js"></script>
@@ -90,7 +87,7 @@
               
             
             
-              <p class="caption" role="heading"><span class="caption-text">Getting Started:</span></p>
+              <p class="caption"><span class="caption-text">Getting Started:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../usage/installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../usage/calrf.html">Calculate a P-wave Receiver Function (PRF)</a></li>
@@ -98,7 +95,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../usage/pickrf.html">Virtual check PRFs with an user interface</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../usage/ccp.html">Stack PRFs with Common Conversion points (CCP) method</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Examples:</span></p>
+<p class="caption"><span class="caption-text">Examples:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../examples/ex-prf.html">Calculate PRFs of the station CB.NJ2</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../examples/ex-prf.html#estimate-the-moho-depth-and-the-crustal-vp-vs-using-the-h-k-stacking-method">Estimate the Moho depth and the crustal Vp/Vs using the H-k stacking method</a></li>
@@ -106,11 +103,11 @@
 <li class="toctree-l1"><a class="reference internal" href="../../examples/ex-ccp.html#ccp-stacking-along-a-linear-seismic-array">CCP stacking along a linear seismic array</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../examples/ex-ccp3d.html">3-D CCP stacking for mantle transition zone structure under the Tibet.</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Configurations &amp; Commands:</span></p>
+<p class="caption"><span class="caption-text">Configurations &amp; Commands:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../notes/config.html">Templates of Configurations</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">API Documentation:</span></p>
+<p class="caption"><span class="caption-text">API Documentation:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../modules.html">Module Index</a></li>
 </ul>
@@ -195,15 +192,15 @@
            <div itemprop="articleBody">
             
   <h1>Source code for seispy.rfcorrect</h1><div class="highlight"><pre>
-<span></span><span class="kn">from</span> <span class="nn">obspy.io.sac.sactrace</span> <span class="k">import</span> <span class="n">SACTrace</span>
+<span></span><span class="kn">from</span> <span class="nn">obspy.io.sac.sactrace</span> <span class="kn">import</span> <span class="n">SACTrace</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">from</span> <span class="nn">scipy.interpolate</span> <span class="k">import</span> <span class="n">interp1d</span><span class="p">,</span> <span class="n">interpn</span>
-<span class="kn">from</span> <span class="nn">scipy.signal</span> <span class="k">import</span> <span class="n">resample</span>
-<span class="kn">from</span> <span class="nn">os.path</span> <span class="k">import</span> <span class="n">dirname</span><span class="p">,</span> <span class="n">join</span><span class="p">,</span> <span class="n">exists</span><span class="p">,</span> <span class="n">basename</span><span class="p">,</span> <span class="n">isfile</span>
-<span class="kn">from</span> <span class="nn">seispy.geo</span> <span class="k">import</span> <span class="n">skm2srad</span><span class="p">,</span> <span class="n">sdeg2skm</span><span class="p">,</span> <span class="n">rad2deg</span><span class="p">,</span> <span class="n">latlon_from</span><span class="p">,</span> \
+<span class="kn">from</span> <span class="nn">scipy.interpolate</span> <span class="kn">import</span> <span class="n">interp1d</span><span class="p">,</span> <span class="n">interpn</span>
+<span class="kn">from</span> <span class="nn">scipy.signal</span> <span class="kn">import</span> <span class="n">resample</span>
+<span class="kn">from</span> <span class="nn">os.path</span> <span class="kn">import</span> <span class="n">dirname</span><span class="p">,</span> <span class="n">join</span><span class="p">,</span> <span class="n">exists</span><span class="p">,</span> <span class="n">basename</span><span class="p">,</span> <span class="n">isfile</span>
+<span class="kn">from</span> <span class="nn">seispy.geo</span> <span class="kn">import</span> <span class="n">skm2srad</span><span class="p">,</span> <span class="n">sdeg2skm</span><span class="p">,</span> <span class="n">rad2deg</span><span class="p">,</span> <span class="n">latlon_from</span><span class="p">,</span> \
                        <span class="n">asind</span><span class="p">,</span> <span class="n">tand</span><span class="p">,</span> <span class="n">srad2skm</span><span class="p">,</span> <span class="n">km2deg</span>
-<span class="kn">from</span> <span class="nn">seispy.psrayp</span> <span class="k">import</span> <span class="n">get_psrayp</span>
-<span class="kn">from</span> <span class="nn">seispy.rfani</span> <span class="k">import</span> <span class="n">RFAni</span>
+<span class="kn">from</span> <span class="nn">seispy.psrayp</span> <span class="kn">import</span> <span class="n">get_psrayp</span>
+<span class="kn">from</span> <span class="nn">seispy.rfani</span> <span class="kn">import</span> <span class="n">RFAni</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="kn">import</span> <span class="nn">warnings</span>
 <span class="kn">import</span> <span class="nn">glob</span>
@@ -212,7 +209,7 @@
 
 
 <div class="viewcode-block" id="SACStationS"><a class="viewcode-back" href="../../seispy.html#seispy.rfcorrect.SACStationS">[docs]</a><span class="k">class</span> <span class="nc">SACStationS</span><span class="p">():</span>
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="p">):</span>
         <span class="n">fnames</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="n">join</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="s1">&#39;*S_*.sac&#39;</span><span class="p">)))</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">ev_num</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">fnames</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">rayp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">ev_num</span><span class="p">)</span>
@@ -241,7 +238,7 @@
 
 
 <div class="viewcode-block" id="SACStation"><a class="viewcode-back" href="../../seispy.html#seispy.rfcorrect.SACStation">[docs]</a><span class="k">class</span> <span class="nc">SACStation</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data_path</span><span class="p">,</span> <span class="n">only_r</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data_path</span><span class="p">,</span> <span class="n">only_r</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Class for derivative process of RFs.</span>
 
@@ -351,7 +348,7 @@
 
 
 <div class="viewcode-block" id="RFStation"><a class="viewcode-back" href="../../seispy.html#seispy.rfcorrect.RFStation">[docs]</a><span class="k">class</span> <span class="nc">RFStation</span><span class="p">(</span><span class="n">SACStation</span><span class="p">):</span>
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data_path</span><span class="p">,</span> <span class="n">only_r</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data_path</span><span class="p">,</span> <span class="n">only_r</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Class for derivative process of RFs.</span>
 
 <span class="sd">        :param data_path: Path to RF data with SAC format. A finallist.dat must be in this path.</span>
@@ -363,7 +360,7 @@
 
 
 <div class="viewcode-block" id="DepModel"><a class="viewcode-back" href="../../seispy.html#seispy.rfcorrect.DepModel">[docs]</a><span class="k">class</span> <span class="nc">DepModel</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">YAxisRange</span><span class="p">,</span> <span class="n">velmod</span><span class="o">=</span><span class="s1">&#39;iasp91&#39;</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">YAxisRange</span><span class="p">,</span> <span class="n">velmod</span><span class="o">=</span><span class="s1">&#39;iasp91&#39;</span><span class="p">):</span>
         <span class="n">VelocityModel</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="n">from_file</span><span class="p">(</span><span class="n">velmod</span><span class="p">))</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">depthsraw</span> <span class="o">=</span> <span class="n">VelocityModel</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">vpraw</span> <span class="o">=</span> <span class="n">VelocityModel</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span>
@@ -667,7 +664,7 @@
 
 
 <div class="viewcode-block" id="Mod3DPerturbation"><a class="viewcode-back" href="../../seispy.html#seispy.rfcorrect.Mod3DPerturbation">[docs]</a><span class="k">class</span> <span class="nc">Mod3DPerturbation</span><span class="p">:</span>
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">modpath</span><span class="p">,</span> <span class="n">YAxisRange</span><span class="p">,</span> <span class="n">velmod</span><span class="o">=</span><span class="s1">&#39;iasp91&#39;</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">modpath</span><span class="p">,</span> <span class="n">YAxisRange</span><span class="p">,</span> <span class="n">velmod</span><span class="o">=</span><span class="s1">&#39;iasp91&#39;</span><span class="p">):</span>
         <span class="n">dep_mod</span> <span class="o">=</span> <span class="n">DepModel</span><span class="p">(</span><span class="n">YAxisRange</span><span class="p">,</span> <span class="n">velmod</span><span class="o">=</span><span class="n">velmod</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">model</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">modpath</span><span class="p">)</span>
         <span class="n">new1dvp</span> <span class="o">=</span> <span class="n">interp1d</span><span class="p">(</span><span class="n">dep_mod</span><span class="o">.</span><span class="n">depthsraw</span><span class="p">,</span> <span class="n">dep_mod</span><span class="o">.</span><span class="n">vpraw</span><span class="p">)(</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="p">[</span><span class="s1">&#39;dep&#39;</span><span class="p">])</span>
