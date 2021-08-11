@@ -318,18 +318,16 @@
 
 
 <div class="viewcode-block" id="plotrt"><a class="viewcode-back" href="../../seispy.html#seispy.plotRT.plotrt">[docs]</a><span class="k">def</span> <span class="nf">plotrt</span><span class="p">(</span><span class="n">rfpath</span><span class="p">,</span> <span class="n">enf</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">out_path</span><span class="o">=</span><span class="s1">&#39;./&#39;</span><span class="p">,</span> <span class="n">outformat</span><span class="o">=</span><span class="s1">&#39;g&#39;</span><span class="p">,</span> <span class="n">xmax</span><span class="o">=</span><span class="mi">30</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;[summary]</span>
+    <span class="sd">&quot;&quot;&quot;Plot PRFs with R and T components</span>
 
-<span class="sd">    :param rfpath: [description]</span>
-<span class="sd">    :type rfpath: [type]</span>
-<span class="sd">    :param enf: [description], defaults to 3</span>
+<span class="sd">    :param rfpath: Path to PRFs</span>
+<span class="sd">    :type rfpath: str</span>
+<span class="sd">    :param enf: The enlarge factor, defaults to 3</span>
 <span class="sd">    :type enf: int, optional</span>
-<span class="sd">    :param out_path: [description], defaults to &#39;./&#39;</span>
+<span class="sd">    :param out_path: The output path, defaults to current directory</span>
 <span class="sd">    :type out_path: str, optional</span>
-<span class="sd">    :param outformat: [description], defaults to &#39;g&#39;</span>
+<span class="sd">    :param outformat: File format of the image file, g as \&#39;png\&#39;, f as \&#39;pdf\&#39;, defaults to &#39;g&#39;</span>
 <span class="sd">    :type outformat: str, optional</span>
-<span class="sd">    :raises FileExistsError: [description]</span>
-<span class="sd">    :raises FileExistsError: [description]</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">station</span> <span class="o">=</span> <span class="n">basename</span><span class="p">(</span><span class="n">rfpath</span><span class="p">)</span>
     <span class="n">lst</span> <span class="o">=</span> <span class="n">join</span><span class="p">(</span><span class="n">rfpath</span><span class="p">,</span> <span class="n">station</span><span class="o">+</span><span class="s1">&#39;finallist.dat&#39;</span><span class="p">)</span>
