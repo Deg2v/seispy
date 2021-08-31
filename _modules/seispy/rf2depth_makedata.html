@@ -344,12 +344,7 @@
         <span class="n">rfdep</span><span class="p">[</span><span class="s1">&#39;piercelon&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pplon_s</span>
         <span class="n">rfdep</span><span class="p">[</span><span class="s1">&#39;stopindex&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">end_index</span>
         <span class="n">RFdepth</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">rfdep</span><span class="p">)</span>
-    <span class="k">try</span><span class="p">:</span>
-        <span class="n">savemat</span><span class="p">(</span><span class="n">cpara</span><span class="o">.</span><span class="n">depthdat</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;RFdepth&#39;</span><span class="p">:</span> <span class="n">RFdepth</span><span class="p">})</span>
-    <span class="k">except</span> <span class="ne">FileNotFoundError</span><span class="p">:</span>
-        <span class="n">log</span><span class="o">.</span><span class="n">RF2depthlog</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s1">&#39;No such file or directory: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">dirname</span><span class="p">(</span><span class="n">cpara</span><span class="o">.</span><span class="n">depthdat</span><span class="p">)))</span>
-        <span class="n">rfdep_path</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s1">&#39;Enter a exist path:&#39;</span><span class="p">)</span>
-        <span class="n">savemat</span><span class="p">(</span><span class="n">rfdep_path</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;RFdepth&#39;</span><span class="p">:</span> <span class="n">RFdepth</span><span class="p">})</span></div>
+    <span class="n">np</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">cpara</span><span class="o">.</span><span class="n">depthdat</span><span class="p">,</span> <span class="n">RFdepth</span><span class="p">)</span></div>
 
 
 <div class="viewcode-block" id="rf2depth"><a class="viewcode-back" href="../../seispy.html#seispy.rf2depth_makedata.rf2depth">[docs]</a><span class="k">def</span> <span class="nf">rf2depth</span><span class="p">():</span>
