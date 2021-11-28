@@ -116,7 +116,7 @@
 <li class="toctree-l2"><a class="reference internal" href="ccp.html">CCP package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="gui.html">GUI package</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">seispy package</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#module-seispy.bootstrap">seispy.bootstrap module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#seispy-bootstrap-module">seispy.bootstrap module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#seispy-ccpprofile-module">seispy.ccpprofile module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#seispy-cc3d-module">seispy.cc3d module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#module-seispy.ccppara">seispy.ccppara module</a></li>
@@ -236,216 +236,8 @@
             
   <div class="section" id="seispy-package">
 <h1>seispy package<a class="headerlink" href="#seispy-package" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="module-seispy.bootstrap">
-<span id="seispy-bootstrap-module"></span><h2>seispy.bootstrap module<a class="headerlink" href="#module-seispy.bootstrap" title="Permalink to this headline">¶</a></h2>
-<dl class="py exception">
-<dt id="seispy.bootstrap.InstabilityWarning">
-<em class="property"><span class="pre">exception</span> </em><code class="sig-prename descclassname"><span class="pre">seispy.bootstrap.</span></code><code class="sig-name descname"><span class="pre">InstabilityWarning</span></code><a class="reference internal" href="_modules/seispy/bootstrap.html#InstabilityWarning"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.bootstrap.InstabilityWarning" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">UserWarning</span></code></p>
-<p>Issued when results may be unstable.</p>
-</dd></dl>
-
-<dl class="py function">
-<dt id="seispy.bootstrap.bootstrap_indexes">
-<code class="sig-prename descclassname"><span class="pre">seispy.bootstrap.</span></code><code class="sig-name descname"><span class="pre">bootstrap_indexes</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_samples</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10000</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/bootstrap.html#bootstrap_indexes"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.bootstrap.bootstrap_indexes" title="Permalink to this definition">¶</a></dt>
-<dd><p>Given data points data, where axis 0 is considered to delineate points, return
-an generator for sets of bootstrap indexes. This can be used as a list
-of bootstrap indexes (with list(bootstrap_indexes(data))) as well.</p>
-</dd></dl>
-
-<dl class="py function">
-<dt id="seispy.bootstrap.bootstrap_indexes_array">
-<code class="sig-prename descclassname"><span class="pre">seispy.bootstrap.</span></code><code class="sig-name descname"><span class="pre">bootstrap_indexes_array</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_samples</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10000</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/bootstrap.html#bootstrap_indexes_array"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.bootstrap.bootstrap_indexes_array" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py function">
-<dt id="seispy.bootstrap.bootstrap_indexes_moving_block">
-<code class="sig-prename descclassname"><span class="pre">seispy.bootstrap.</span></code><code class="sig-name descname"><span class="pre">bootstrap_indexes_moving_block</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_samples</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">block_length</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wrap</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/bootstrap.html#bootstrap_indexes_moving_block"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.bootstrap.bootstrap_indexes_moving_block" title="Permalink to this definition">¶</a></dt>
-<dd><p>Generate moving-block bootstrap samples.</p>
-<p>Given data points <cite>data</cite>, where axis 0 is considered to delineate points,
-return a generator for sets of bootstrap indexes. This can be used as a
-list of bootstrap indexes (with list(bootstrap_indexes_moving_block(data))) as
-well.</p>
-<p>n_samples [default 10000]: the number of subsamples to generate.</p>
-<p>block_length [default 3]: the length of block.</p>
-<p>wrap [default False]: if false, choose only blocks within the data, making
-the last block for data of length L start at L-block_length.  If true, choose
-blocks starting anywhere, and if they extend past the end of the data, wrap
-around to the beginning of the data again.</p>
-</dd></dl>
-
-<dl class="py function">
-<dt id="seispy.bootstrap.ci">
-<code class="sig-prename descclassname"><span class="pre">seispy.bootstrap.</span></code><code class="sig-name descname"><span class="pre">ci</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">data</span></em>, <em class="sig-param"><span class="pre">statfunction=&lt;function</span> <span class="pre">average&gt;</span></em>, <em class="sig-param"><span class="pre">alpha=0.05</span></em>, <em class="sig-param"><span class="pre">n_samples=10000</span></em>, <em class="sig-param"><span class="pre">method='bca'</span></em>, <em class="sig-param"><span class="pre">output='lowhigh'</span></em>, <em class="sig-param"><span class="pre">epsilon=0.001</span></em>, <em class="sig-param"><span class="pre">multi=None</span></em>, <em class="sig-param"><span class="pre">_iter=True</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/bootstrap.html#ci"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.bootstrap.ci" title="Permalink to this definition">¶</a></dt>
-<dd><p>Given a set of data <code class="docutils literal notranslate"><span class="pre">data</span></code>, and a statistics function <code class="docutils literal notranslate"><span class="pre">statfunction</span></code> that
-applies to that data, computes the bootstrap confidence interval for
-<code class="docutils literal notranslate"><span class="pre">statfunction</span></code> on that data. Data points are assumed to be delineated by
-axis 0.</p>
-<dl>
-<dt>data: array_like, shape (N, …) OR tuple of array_like all with shape (N, …)</dt><dd><p>Input data. Data points are assumed to be delineated by axis 0. Beyond this,
-the shape doesn’t matter, so long as <code class="docutils literal notranslate"><span class="pre">statfunction</span></code> can be applied to the
-array. If a tuple of array_likes is passed, then samples from each array (along
-axis 0) are passed in order as separate parameters to the statfunction. The
-type of data (single array or tuple of arrays) can be explicitly specified
-by the multi parameter.</p>
-</dd>
-<dt>statfunction: function (data, weights=(weights, optional)) -&gt; value</dt><dd><p>This function should accept samples of data from <code class="docutils literal notranslate"><span class="pre">data</span></code>. It is applied
-to these samples individually.</p>
-<p>If using the ABC method, the function _must_ accept a named <code class="docutils literal notranslate"><span class="pre">weights</span></code>
-parameter which will be an array_like with weights for each sample, and
-must return a _weighted_ result. Otherwise this parameter is not used
-or required. Note that numpy’s np.average accepts this. (default=np.average)</p>
-</dd>
-<dt>alpha: float or iterable, optional</dt><dd><p>The percentiles to use for the confidence interval (default=0.05). If this
-is a float, the returned values are (alpha/2, 1-alpha/2) percentile confidence
-intervals. If it is an iterable, alpha is assumed to be an iterable of
-each desired percentile.</p>
-</dd>
-<dt>n_samples: float, optional</dt><dd><p>The number of bootstrap samples to use (default=10000)</p>
-</dd>
-<dt>method: string, optional</dt><dd><p>The method to use: one of ‘pi’, ‘bca’, or ‘abc’ (default=’bca’)</p>
-</dd>
-<dt>output: string, optional</dt><dd><p>The format of the output. ‘lowhigh’ gives low and high confidence interval
-values. ‘errorbar’ gives transposed abs(value-confidence interval value) values
-that are suitable for use with matplotlib’s errorbar function. (default=’lowhigh’)</p>
-</dd>
-<dt>epsilon: float, optional (only for ABC method)</dt><dd><p>The step size for finite difference calculations in the ABC method. Ignored for
-all other methods. (default=0.001)</p>
-</dd>
-<dt>multi: boolean, optional</dt><dd><p>If False, assume data is a single array. If True, assume data is a tuple/other
-iterable of arrays of the same length that should be sampled together. If None,
-decide based on whether the data is an actual tuple. (default=None)</p>
-</dd>
-</dl>
-<dl class="simple">
-<dt>confidences: tuple of floats</dt><dd><p>The confidence percentiles specified by alpha</p>
-</dd>
-</dl>
-<dl class="simple">
-<dt>‘pi’: Percentile Interval (Efron 13.3)</dt><dd><p>The percentile interval method simply returns the 100*alphath bootstrap
-sample’s values for the statistic. This is an extremely simple method of
-confidence interval calculation. However, it has several disadvantages
-compared to the bias-corrected accelerated method, which is the default.</p>
-</dd>
-<dt>‘bca’: Bias-Corrected Accelerated (BCa) Non-Parametric (Efron 14.3) (default)</dt><dd><p>This method is much more complex to explain. However, it gives considerably
-better results, and is generally recommended for normal situations. Note
-that in cases where the statistic is smooth, and can be expressed with
-weights, the ABC method will give approximated results much, much faster.
-Note that in a case where the statfunction results in equal output for every
-bootstrap sample, the BCa confidence interval is technically undefined, as
-the acceleration value is undefined. To match the percentile interval method
-and give reasonable output, the implementation of this method returns a
-confidence interval of zero width using the 0th bootstrap sample in this
-case, and warns the user.</p>
-</dd>
-<dt>‘abc’: Approximate Bootstrap Confidence (Efron 14.4, 22.6)</dt><dd><p>This method provides approximated bootstrap confidence intervals without
-actually taking bootstrap samples. This requires that the statistic be
-smooth, and allow for weighting of individual points with a weights=
-parameter (note that np.average allows this). This is _much_ faster
-than all other methods for situations where it can be used.</p>
-</dd>
-</dl>
-<p>To calculate the confidence intervals for the mean of some numbers:</p>
-<p>&gt;&gt; boot.ci( np.randn(100), np.average )</p>
-<p>Given some data points in arrays x and y calculate the confidence intervals
-for all linear regression coefficients simultaneously:</p>
-<p>&gt;&gt; boot.ci( (x,y), scipy.stats.linregress )</p>
-<p>Efron, An Introduction to the Bootstrap. Chapman &amp; Hall 1993</p>
-</dd></dl>
-
-<dl class="py function">
-<dt id="seispy.bootstrap.jackknife_indexes">
-<code class="sig-prename descclassname"><span class="pre">seispy.bootstrap.</span></code><code class="sig-name descname"><span class="pre">jackknife_indexes</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/bootstrap.html#jackknife_indexes"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.bootstrap.jackknife_indexes" title="Permalink to this definition">¶</a></dt>
-<dd><p>Given data points data, where axis 0 is considered to delineate points, return
-a list of arrays where each array is a set of jackknife indexes.</p>
-<p>For a given set of data Y, the jackknife sample J[i] is defined as the data set
-Y with the ith data point deleted.</p>
-</dd></dl>
-
-<dl class="py function">
-<dt id="seispy.bootstrap.randint">
-<code class="sig-prename descclassname"><span class="pre">seispy.bootstrap.</span></code><code class="sig-name descname"><span class="pre">randint</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">low</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">high</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dtype</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#seispy.bootstrap.randint" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return random integers from <cite>low</cite> (inclusive) to <cite>high</cite> (exclusive).</p>
-<p>Return random integers from the “discrete uniform” distribution of
-the specified dtype in the “half-open” interval [<cite>low</cite>, <cite>high</cite>). If
-<cite>high</cite> is None (the default), then results are from [0, <cite>low</cite>).</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>New code should use the <code class="docutils literal notranslate"><span class="pre">integers</span></code> method of a <code class="docutils literal notranslate"><span class="pre">default_rng()</span></code>
-instance instead; please see the <span class="xref std std-ref">random-quick-start</span>.</p>
-</div>
-<dl>
-<dt>low<span class="classifier">int or array-like of ints</span></dt><dd><p>Lowest (signed) integers to be drawn from the distribution (unless
-<code class="docutils literal notranslate"><span class="pre">high=None</span></code>, in which case this parameter is one above the
-<em>highest</em> such integer).</p>
-</dd>
-<dt>high<span class="classifier">int or array-like of ints, optional</span></dt><dd><p>If provided, one above the largest (signed) integer to be drawn
-from the distribution (see above for behavior if <code class="docutils literal notranslate"><span class="pre">high=None</span></code>).
-If array-like, must contain integer values</p>
-</dd>
-<dt>size<span class="classifier">int or tuple of ints, optional</span></dt><dd><p>Output shape.  If the given shape is, e.g., <code class="docutils literal notranslate"><span class="pre">(m,</span> <span class="pre">n,</span> <span class="pre">k)</span></code>, then
-<code class="docutils literal notranslate"><span class="pre">m</span> <span class="pre">*</span> <span class="pre">n</span> <span class="pre">*</span> <span class="pre">k</span></code> samples are drawn.  Default is None, in which case a
-single value is returned.</p>
-</dd>
-<dt>dtype<span class="classifier">dtype, optional</span></dt><dd><p>Desired dtype of the result. Byteorder must be native.
-The default value is int.</p>
-<div class="versionadded">
-<p><span class="versionmodified added">New in version 1.11.0.</span></p>
-</div>
-</dd>
-</dl>
-<dl class="simple">
-<dt>out<span class="classifier">int or ndarray of ints</span></dt><dd><p><cite>size</cite>-shaped array of random integers from the appropriate
-distribution, or a single such random int if <cite>size</cite> not provided.</p>
-</dd>
-</dl>
-<dl>
-<dt>random_integers<span class="classifier">similar to <cite>randint</cite>, only for the closed</span></dt><dd><p>interval [<cite>low</cite>, <cite>high</cite>], and 1 is the lowest value if <cite>high</cite> is
-omitted.</p>
-</dd>
-</dl>
-<p>Generator.integers: which should be used for new code.</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
-<span class="go">array([1, 0, 0, 0, 1, 1, 0, 0, 1, 0]) # random</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
-<span class="go">array([0, 0, 0, 0, 0, 0, 0, 0, 0, 0])</span>
-</pre></div>
-</div>
-<p>Generate a 2 x 4 array of ints between 0 and 4, inclusive:</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
-<span class="go">array([[4, 0, 2, 1], # random</span>
-<span class="go">       [3, 2, 2, 0]])</span>
-</pre></div>
-</div>
-<p>Generate a 1 x 3 array with 3 different upper bounds</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">])</span>
-<span class="go">array([2, 2, 9]) # random</span>
-</pre></div>
-</div>
-<p>Generate a 1 by 3 array with 3 different lower bounds</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">],</span> <span class="mi">10</span><span class="p">)</span>
-<span class="go">array([9, 8, 7]) # random</span>
-</pre></div>
-</div>
-<p>Generate a 2 by 4 array using broadcasting with dtype of uint8</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">],</span> <span class="p">[[</span><span class="mi">10</span><span class="p">],</span> <span class="p">[</span><span class="mi">20</span><span class="p">]],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">uint8</span><span class="p">)</span>
-<span class="go">array([[ 8,  6,  9,  7], # random</span>
-<span class="go">       [ 1, 16,  9, 12]], dtype=uint8)</span>
-</pre></div>
-</div>
-</dd></dl>
-
-<dl class="py function">
-<dt id="seispy.bootstrap.subsample_indexes">
-<code class="sig-prename descclassname"><span class="pre">seispy.bootstrap.</span></code><code class="sig-name descname"><span class="pre">subsample_indexes</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_samples</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.5</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/bootstrap.html#subsample_indexes"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.bootstrap.subsample_indexes" title="Permalink to this definition">¶</a></dt>
-<dd><p>Given data points data, where axis 0 is considered to delineate points, return
-a list of arrays where each array is indexes a subsample of the data of size
-<code class="docutils literal notranslate"><span class="pre">size</span></code>. If size is &gt;= 1, then it will be taken to be an absolute size. If
-size &lt; 1, it will be taken to be a fraction of the data size. If size == -1, it
-will be taken to mean subsamples the same size as the sample (ie, permuted
-samples)</p>
-</dd></dl>
-
+<div class="section" id="seispy-bootstrap-module">
+<h2>seispy.bootstrap module<a class="headerlink" href="#seispy-bootstrap-module" title="Permalink to this headline">¶</a></h2>
 </div>
 <div class="section" id="seispy-ccpprofile-module">
 <h2>seispy.ccpprofile module<a class="headerlink" href="#seispy-ccpprofile-module" title="Permalink to this headline">¶</a></h2>
@@ -698,7 +490,7 @@ rms = Root mean square error for predicting numerator after each iteration</p>
 
 <dl class="py function">
 <dt id="seispy.decon.deconwater">
-<code class="sig-prename descclassname"><span class="pre">seispy.decon.</span></code><code class="sig-name descname"><span class="pre">deconwater</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">uin</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">win</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dt</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tshift</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wlevel</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.05</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">f0</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">normalize</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/decon.html#deconwater"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.decon.deconwater" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">seispy.decon.</span></code><code class="sig-name descname"><span class="pre">deconwater</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">uin</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">win</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dt</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tshift</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wlevel</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.05</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">f0</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">normalize</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">phase</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'P'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/decon.html#deconwater"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.decon.deconwater" title="Permalink to this definition">¶</a></dt>
 <dd><p>Frequency-domain deconvolution using waterlevel method.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -878,13 +670,23 @@ return</p>
 <span id="seispy-eq-module"></span><h2>seispy.eq module<a class="headerlink" href="#module-seispy.eq" title="Permalink to this headline">¶</a></h2>
 <dl class="py class">
 <dt id="seispy.eq.eq">
-<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">seispy.eq.</span></code><code class="sig-name descname"><span class="pre">eq</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pathname</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">datestr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">suffix</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">switchEN</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reverseE</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reverseN</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/eq.html#eq"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.eq.eq" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">seispy.eq.</span></code><code class="sig-name descname"><span class="pre">eq</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pathname</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">datestr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">suffix</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/eq.html#eq"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.eq.eq" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <dl class="py method">
 <dt id="seispy.eq.eq.arr_correct">
 <code class="sig-name descname"><span class="pre">arr_correct</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">write_to_sac</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/eq.html#eq.arr_correct"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.eq.eq.arr_correct" title="Permalink to this definition">¶</a></dt>
 <dd><p>offset = sac.b - real o</p>
 </dd></dl>
+
+<dl class="py method">
+<dt id="seispy.eq.eq.channel_correct">
+<code class="sig-name descname"><span class="pre">channel_correct</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">switchEN</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reverseE</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reverseN</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/eq.html#eq.channel_correct"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.eq.eq.channel_correct" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="seispy.eq.eq.decon_s">
+<code class="sig-name descname"><span class="pre">decon_s</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tshift</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/eq.html#eq.decon_s"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.eq.eq.decon_s" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
 
 <dl class="py method">
 <dt id="seispy.eq.eq.deconvolute">
@@ -923,7 +725,12 @@ return</p>
 
 <dl class="py method">
 <dt id="seispy.eq.eq.judge_rf">
-<code class="sig-name descname"><span class="pre">judge_rf</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">shift</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">npts</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">criterion</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'crust'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rmsgate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/eq.html#eq.judge_rf"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.eq.eq.judge_rf" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">judge_rf</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">shift</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">npts</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">phase</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'P'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">criterion</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'crust'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rmsgate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/eq.html#eq.judge_rf"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.eq.eq.judge_rf" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="seispy.eq.eq.phase_trigger">
+<code class="sig-name descname"><span class="pre">phase_trigger</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">time_before</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">time_after</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">phase</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'S'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stl</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ltl</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/eq.html#eq.phase_trigger"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.eq.eq.phase_trigger" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
@@ -1077,30 +884,6 @@ return</p>
 <dt id="seispy.geo.skm2srad">
 <code class="sig-prename descclassname"><span class="pre">seispy.geo.</span></code><code class="sig-name descname"><span class="pre">skm2srad</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">skm</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/geo.html#skm2srad"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.geo.skm2srad" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
-
-<dl class="py function">
-<dt id="seispy.geo.slantstack">
-<code class="sig-prename descclassname"><span class="pre">seispy.geo.</span></code><code class="sig-name descname"><span class="pre">slantstack</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">seis</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeaxis</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dis</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ref_dis</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">65</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rayp_range</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">array([-</span> <span class="pre">3.50000000e-01,</span> <span class="pre">-</span> <span class="pre">3.40000000e-01,</span> <span class="pre">-</span> <span class="pre">3.30000000e-01,</span> <span class="pre">-</span> <span class="pre">3.20000000e-01,</span> <span class="pre">-</span> <span class="pre">3.10000000e-01,</span> <span class="pre">-</span> <span class="pre">3.00000000e-01,</span> <span class="pre">-</span> <span class="pre">2.90000000e-01,</span> <span class="pre">-</span> <span class="pre">2.80000000e-01,</span> <span class="pre">-</span> <span class="pre">2.70000000e-01,</span> <span class="pre">-</span> <span class="pre">2.60000000e-01,</span> <span class="pre">-</span> <span class="pre">2.50000000e-01,</span> <span class="pre">-</span> <span class="pre">2.40000000e-01,</span> <span class="pre">-</span> <span class="pre">2.30000000e-01,</span> <span class="pre">-</span> <span class="pre">2.20000000e-01,</span> <span class="pre">-</span> <span class="pre">2.10000000e-01,</span> <span class="pre">-</span> <span class="pre">2.00000000e-01,</span> <span class="pre">-</span> <span class="pre">1.90000000e-01,</span> <span class="pre">-</span> <span class="pre">1.80000000e-01,</span> <span class="pre">-</span> <span class="pre">1.70000000e-01,</span> <span class="pre">-</span> <span class="pre">1.60000000e-01,</span> <span class="pre">-</span> <span class="pre">1.50000000e-01,</span> <span class="pre">-</span> <span class="pre">1.40000000e-01,</span> <span class="pre">-</span> <span class="pre">1.30000000e-01,</span> <span class="pre">-</span> <span class="pre">1.20000000e-01,</span> <span class="pre">-</span> <span class="pre">1.10000000e-01,</span> <span class="pre">-</span> <span class="pre">1.00000000e-01,</span> <span class="pre">-</span> <span class="pre">9.00000000e-02,</span> <span class="pre">-</span> <span class="pre">8.00000000e-02,</span> <span class="pre">-</span> <span class="pre">7.00000000e-02,</span> <span class="pre">-</span> <span class="pre">6.00000000e-02,</span> <span class="pre">-</span> <span class="pre">5.00000000e-02,</span> <span class="pre">-</span> <span class="pre">4.00000000e-02,</span> <span class="pre">-</span> <span class="pre">3.00000000e-02,</span> <span class="pre">-</span> <span class="pre">2.00000000e-02,</span> <span class="pre">-</span> <span class="pre">1.00000000e-02,</span> <span class="pre">3.33066907e-16,</span> <span class="pre">1.00000000e-02,</span> <span class="pre">2.00000000e-02,</span> <span class="pre">3.00000000e-02,</span> <span class="pre">4.00000000e-02,</span> <span class="pre">5.00000000e-02,</span> <span class="pre">6.00000000e-02,</span> <span class="pre">7.00000000e-02,</span> <span class="pre">8.00000000e-02,</span> <span class="pre">9.00000000e-02,</span> <span class="pre">1.00000000e-01,</span> <span class="pre">1.10000000e-01,</span> <span class="pre">1.20000000e-01,</span> <span class="pre">1.30000000e-01,</span> <span class="pre">1.40000000e-01,</span> <span class="pre">1.50000000e-01,</span> <span class="pre">1.60000000e-01,</span> <span class="pre">1.70000000e-01,</span> <span class="pre">1.80000000e-01,</span> <span class="pre">1.90000000e-01,</span> <span class="pre">2.00000000e-01,</span> <span class="pre">2.10000000e-01,</span> <span class="pre">2.20000000e-01,</span> <span class="pre">2.30000000e-01,</span> <span class="pre">2.40000000e-01,</span> <span class="pre">2.50000000e-01,</span> <span class="pre">2.60000000e-01,</span> <span class="pre">2.70000000e-01,</span> <span class="pre">2.80000000e-01,</span> <span class="pre">2.90000000e-01,</span> <span class="pre">3.00000000e-01,</span> <span class="pre">3.10000000e-01,</span> <span class="pre">3.20000000e-01,</span> <span class="pre">3.30000000e-01,</span> <span class="pre">3.40000000e-01])</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tau_range</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">array([0,</span> <span class="pre">1,</span> <span class="pre">2,</span> <span class="pre">3,</span> <span class="pre">4,</span> <span class="pre">5,</span> <span class="pre">6,</span> <span class="pre">7,</span> <span class="pre">8,</span> <span class="pre">9,</span> <span class="pre">10,</span> <span class="pre">11,</span> <span class="pre">12,</span> <span class="pre">13,</span> <span class="pre">14,</span> <span class="pre">15,</span> <span class="pre">16,</span> <span class="pre">17,</span> <span class="pre">18,</span> <span class="pre">19,</span> <span class="pre">20,</span> <span class="pre">21,</span> <span class="pre">22,</span> <span class="pre">23,</span> <span class="pre">24,</span> <span class="pre">25,</span> <span class="pre">26,</span> <span class="pre">27,</span> <span class="pre">28,</span> <span class="pre">29,</span> <span class="pre">30,</span> <span class="pre">31,</span> <span class="pre">32,</span> <span class="pre">33,</span> <span class="pre">34,</span> <span class="pre">35,</span> <span class="pre">36,</span> <span class="pre">37,</span> <span class="pre">38,</span> <span class="pre">39,</span> <span class="pre">40,</span> <span class="pre">41,</span> <span class="pre">42,</span> <span class="pre">43,</span> <span class="pre">44,</span> <span class="pre">45,</span> <span class="pre">46,</span> <span class="pre">47,</span> <span class="pre">48,</span> <span class="pre">49,</span> <span class="pre">50,</span> <span class="pre">51,</span> <span class="pre">52,</span> <span class="pre">53,</span> <span class="pre">54,</span> <span class="pre">55,</span> <span class="pre">56,</span> <span class="pre">57,</span> <span class="pre">58,</span> <span class="pre">59,</span> <span class="pre">60,</span> <span class="pre">61,</span> <span class="pre">62,</span> <span class="pre">63,</span> <span class="pre">64,</span> <span class="pre">65,</span> <span class="pre">66,</span> <span class="pre">67,</span> <span class="pre">68,</span> <span class="pre">69,</span> <span class="pre">70,</span> <span class="pre">71,</span> <span class="pre">72,</span> <span class="pre">73,</span> <span class="pre">74,</span> <span class="pre">75,</span> <span class="pre">76,</span> <span class="pre">77,</span> <span class="pre">78,</span> <span class="pre">79,</span> <span class="pre">80,</span> <span class="pre">81,</span> <span class="pre">82,</span> <span class="pre">83,</span> <span class="pre">84,</span> <span class="pre">85,</span> <span class="pre">86,</span> <span class="pre">87,</span> <span class="pre">88,</span> <span class="pre">89,</span> <span class="pre">90,</span> <span class="pre">91,</span> <span class="pre">92,</span> <span class="pre">93,</span> <span class="pre">94,</span> <span class="pre">95,</span> <span class="pre">96,</span> <span class="pre">97,</span> <span class="pre">98,</span> <span class="pre">99])</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/geo.html#slantstack"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.geo.slantstack" title="Permalink to this definition">¶</a></dt>
-<dd><p>Slant stack. Refer to Tauzin et al., 2008 JGR in detail.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>seis</strong> (<em>[</em><em>type</em><em>]</em>) – [description]</p></li>
-<li><p><strong>timeaxis</strong> (<em>[</em><em>type</em><em>]</em>) – [description]</p></li>
-<li><p><strong>dis</strong> (<em>[</em><em>type</em><em>]</em>) – [description]</p></li>
-<li><p><strong>ref_dis</strong> (<em>int</em><em>, </em><em>optional</em>) – [description], defaults to 65</p></li>
-<li><p><strong>rayp_range</strong> (<em>[</em><em>type</em><em>]</em><em>, </em><em>optional</em>) – [description], defaults to np.arange(-0.35, 0.35, 0.01)</p></li>
-<li><p><strong>tau_range</strong> (<em>[</em><em>type</em><em>]</em><em>, </em><em>optional</em>) – [description], defaults to np.arange(0, 100)</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>[description]</p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>[type]</p>
-</dd>
-</dl>
-</dd></dl>
 
 <dl class="py function">
 <dt id="seispy.geo.snr">
@@ -1775,6 +1558,11 @@ zorder: float</p>
 <dd></dd></dl>
 
 <dl class="py method">
+<dt id="seispy.rf.RF.channel_correct">
+<code class="sig-name descname"><span class="pre">channel_correct</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">switchEN</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reverseE</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reverseN</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/rf.html#RF.channel_correct"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.rf.RF.channel_correct" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
 <dt id="seispy.rf.RF.date_begin">
 <em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">date_begin</span></code><a class="headerlink" href="#seispy.rf.RF.date_begin" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
@@ -1805,23 +1593,33 @@ zorder: float</p>
 <dd></dd></dl>
 
 <dl class="py method">
+<dt id="seispy.rf.RF.load">
+<code class="sig-name descname"><span class="pre">load</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/rf.html#RF.load"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.rf.RF.load" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
 <dt id="seispy.rf.RF.load_stainfo">
 <code class="sig-name descname"><span class="pre">load_stainfo</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/rf.html#RF.load_stainfo"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.rf.RF.load_stainfo" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt id="seispy.rf.RF.match_eq">
-<code class="sig-name descname"><span class="pre">match_eq</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">switchEN</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reverseE</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reverseN</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/rf.html#RF.match_eq"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.rf.RF.match_eq" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">match_eq</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/rf.html#RF.match_eq"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.rf.RF.match_eq" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt id="seispy.rf.RF.pick">
-<code class="sig-name descname"><span class="pre">pick</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/rf.html#RF.pick"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.rf.RF.pick" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">pick</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">prepick</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stl</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ltl</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/rf.html#RF.pick"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.rf.RF.pick" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt id="seispy.rf.RF.rotate">
-<code class="sig-name descname"><span class="pre">rotate</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">method</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'NE-&gt;RT'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">search_inc</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/rf.html#RF.rotate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.rf.RF.rotate" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">rotate</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">search_inc</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/rf.html#RF.rotate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.rf.RF.rotate" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="seispy.rf.RF.save">
+<code class="sig-name descname"><span class="pre">save</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/rf.html#RF.save"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.rf.RF.save" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
@@ -1859,7 +1657,7 @@ zorder: float</p>
 
 <dl class="py function">
 <dt id="seispy.rf.match_eq">
-<code class="sig-prename descclassname"><span class="pre">seispy.rf.</span></code><code class="sig-name descname"><span class="pre">match_eq</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">eq_lst</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pathname</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stla</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stlo</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ref_comp</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'Z'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">suffix</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'SAC'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">offset</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tolerance</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">210</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dateformat</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'%Y.%j.%H.%M.%S'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">switchEN</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reverseE</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reverseN</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/rf.html#match_eq"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.rf.match_eq" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">seispy.rf.</span></code><code class="sig-name descname"><span class="pre">match_eq</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">eq_lst</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pathname</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stla</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stlo</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">logger</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ref_comp</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'Z'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">suffix</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'SAC'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">offset</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tolerance</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">210</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dateformat</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'%Y.%j.%H.%M.%S'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/rf.html#match_eq"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.rf.match_eq" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py function">
@@ -2020,30 +1818,8 @@ zorder: float</p>
 <div class="section" id="module-seispy.rfcorrect">
 <span id="seispy-rfcorrect-module"></span><h2>seispy.rfcorrect module<a class="headerlink" href="#module-seispy.rfcorrect" title="Permalink to this headline">¶</a></h2>
 <dl class="py class">
-<dt id="seispy.rfcorrect.DepModel">
-<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">seispy.rfcorrect.</span></code><code class="sig-name descname"><span class="pre">DepModel</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">YAxisRange</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">velmod</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'iasp91'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/rfcorrect.html#DepModel"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.rfcorrect.DepModel" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-</dd></dl>
-
-<dl class="py class">
-<dt id="seispy.rfcorrect.Mod3DPerturbation">
-<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">seispy.rfcorrect.</span></code><code class="sig-name descname"><span class="pre">Mod3DPerturbation</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">modpath</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">YAxisRange</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">velmod</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'iasp91'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/rfcorrect.html#Mod3DPerturbation"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.rfcorrect.Mod3DPerturbation" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<dl class="py method">
-<dt id="seispy.rfcorrect.Mod3DPerturbation.interpdvp">
-<code class="sig-name descname"><span class="pre">interpdvp</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">points</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/rfcorrect.html#Mod3DPerturbation.interpdvp"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.rfcorrect.Mod3DPerturbation.interpdvp" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt id="seispy.rfcorrect.Mod3DPerturbation.interpdvs">
-<code class="sig-name descname"><span class="pre">interpdvs</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">points</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/rfcorrect.html#Mod3DPerturbation.interpdvs"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.rfcorrect.Mod3DPerturbation.interpdvs" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-</dd></dl>
-
-<dl class="py class">
 <dt id="seispy.rfcorrect.RFStation">
-<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">seispy.rfcorrect.</span></code><code class="sig-name descname"><span class="pre">RFStation</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">only_r</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/rfcorrect.html#RFStation"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.rfcorrect.RFStation" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">seispy.rfcorrect.</span></code><code class="sig-name descname"><span class="pre">RFStation</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">only_r</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/rfcorrect.html#RFStation"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.rfcorrect.RFStation" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#seispy.rfcorrect.SACStation" title="seispy.rfcorrect.SACStation"><code class="xref py py-class docutils literal notranslate"><span class="pre">seispy.rfcorrect.SACStation</span></code></a></p>
 </dd></dl>
 
@@ -2091,6 +1867,11 @@ zorder: float</p>
 <code class="sig-name descname"><span class="pre">resample</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dt</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/rfcorrect.html#SACStation.resample"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.rfcorrect.SACStation.resample" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
+<dl class="py method">
+<dt id="seispy.rfcorrect.SACStation.slantstack">
+<code class="sig-name descname"><span class="pre">slantstack</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ref_dis</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rayp_range</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tau_range</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/rfcorrect.html#SACStation.slantstack"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.rfcorrect.SACStation.slantstack" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
 </dd></dl>
 
 <dl class="py class">
@@ -2098,11 +1879,6 @@ zorder: float</p>
 <em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">seispy.rfcorrect.</span></code><code class="sig-name descname"><span class="pre">SACStationS</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/rfcorrect.html#SACStationS"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.rfcorrect.SACStationS" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 </dd></dl>
-
-<dl class="py function">
-<dt id="seispy.rfcorrect.from_file">
-<code class="sig-prename descclassname"><span class="pre">seispy.rfcorrect.</span></code><code class="sig-name descname"><span class="pre">from_file</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mode_name</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/rfcorrect.html#from_file"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.rfcorrect.from_file" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
 
 <dl class="py function">
 <dt id="seispy.rfcorrect.interp_depth_model">

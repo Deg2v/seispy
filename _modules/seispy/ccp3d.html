@@ -197,7 +197,7 @@
 <span class="kn">from</span> <span class="nn">seispy</span> <span class="kn">import</span> <span class="n">distaz</span>
 <span class="kn">from</span> <span class="nn">seispy.rfcorrect</span> <span class="kn">import</span> <span class="n">DepModel</span>
 <span class="kn">from</span> <span class="nn">seispy.setuplog</span> <span class="kn">import</span> <span class="n">setuplog</span>
-<span class="kn">from</span> <span class="nn">seispy.bootstrap</span> <span class="kn">import</span> <span class="n">ci</span>
+<span class="kn">from</span> <span class="nn">scikits.bootstrap</span> <span class="kn">import</span> <span class="n">ci</span>
 <span class="kn">from</span> <span class="nn">seispy.ccppara</span> <span class="kn">import</span> <span class="n">ccppara</span><span class="p">,</span> <span class="n">CCPPara</span>
 <span class="kn">from</span> <span class="nn">seispy.signal</span> <span class="kn">import</span> <span class="n">smooth</span>
 <span class="kn">from</span> <span class="nn">seispy.utils</span> <span class="kn">import</span> <span class="n">check_stack_val</span><span class="p">,</span> <span class="n">read_rfdep</span>
@@ -361,7 +361,7 @@
             <span class="n">boot_stack</span><span class="p">[</span><span class="s1">&#39;mu&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">bin_mu</span>
             <span class="n">boot_stack</span><span class="p">[</span><span class="s1">&#39;ci&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">bin_ci</span>
             <span class="n">boot_stack</span><span class="p">[</span><span class="s1">&#39;count&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">bin_count</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">stack_data</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">boot_stack</span><span class="p">)</span>   </div>
+            <span class="bp">self</span><span class="o">.</span><span class="n">stack_data</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">boot_stack</span><span class="p">)</span></div>
  
 <div class="viewcode-block" id="CCP3D.save_stack_data"><a class="viewcode-back" href="../../seispy.html#seispy.ccp3d.CCP3D.save_stack_data">[docs]</a>    <span class="k">def</span> <span class="nf">save_stack_data</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">fname</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Save stacked data and parameters to local as a npz file. To load the file, please use data = np.load(fname, allow_pickle=True).</span>

@@ -330,7 +330,7 @@
     <span class="k">return</span> <span class="n">RFI</span><span class="p">,</span> <span class="n">rms</span><span class="p">,</span> <span class="n">it</span> </div>
     
 
-<div class="viewcode-block" id="deconwater"><a class="viewcode-back" href="../../seispy.html#seispy.decon.deconwater">[docs]</a><span class="k">def</span> <span class="nf">deconwater</span><span class="p">(</span><span class="n">uin</span><span class="p">,</span> <span class="n">win</span><span class="p">,</span> <span class="n">dt</span><span class="p">,</span> <span class="n">tshift</span><span class="o">=</span><span class="mf">10.</span><span class="p">,</span> <span class="n">wlevel</span><span class="o">=</span><span class="mf">0.05</span><span class="p">,</span> <span class="n">f0</span><span class="o">=</span><span class="mf">2.0</span><span class="p">,</span> <span class="n">normalize</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<div class="viewcode-block" id="deconwater"><a class="viewcode-back" href="../../seispy.html#seispy.decon.deconwater">[docs]</a><span class="k">def</span> <span class="nf">deconwater</span><span class="p">(</span><span class="n">uin</span><span class="p">,</span> <span class="n">win</span><span class="p">,</span> <span class="n">dt</span><span class="p">,</span> <span class="n">tshift</span><span class="o">=</span><span class="mf">10.</span><span class="p">,</span> <span class="n">wlevel</span><span class="o">=</span><span class="mf">0.05</span><span class="p">,</span> <span class="n">f0</span><span class="o">=</span><span class="mf">2.0</span><span class="p">,</span> <span class="n">normalize</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">phase</span><span class="o">=</span><span class="s1">&#39;P&#39;</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Frequency-domain deconvolution using waterlevel method.</span>
 
@@ -407,7 +407,7 @@
         <span class="n">gnorm</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">gaussF</span><span class="p">)</span> <span class="o">*</span> <span class="n">delf</span> <span class="o">*</span> <span class="n">dt</span>
         <span class="n">rft</span> <span class="o">=</span> <span class="n">rft</span><span class="o">.</span><span class="n">real</span> <span class="o">/</span> <span class="n">gnorm</span>
 
-    <span class="k">return</span> <span class="n">rft</span><span class="p">,</span> <span class="n">rms</span> </div>
+    <span class="k">return</span> <span class="n">rft</span><span class="p">,</span> <span class="n">rms</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span></div>
 
 <span class="k">def</span> <span class="nf">_add_zeros</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">numl</span><span class="p">,</span> <span class="n">numr</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Add zeros at left and rigth side of array a&quot;&quot;&quot;</span>
