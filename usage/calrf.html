@@ -219,15 +219,13 @@
 <h2>Import corresponding modules<a class="headerlink" href="#import-corresponding-modules" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">obspy</span>
 <span class="kn">import</span> <span class="nn">seispy</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="read-sac-files-with-3-components-enz">
 <h2>Read SAC files with 3 components (ENZ)<a class="headerlink" href="#read-sac-files-with-3-components-enz" title="Permalink to this headline">¶</a></h2>
 <p>You should prepare teleseismic data if SAC format (ENZ) and read them via obspy. To facilitate the follow-up, you’d better write positions of the station and the event into SAC header (i.e., <code class="docutils literal notranslate"><span class="pre">stla</span></code>, <code class="docutils literal notranslate"><span class="pre">stlo</span></code>, <code class="docutils literal notranslate"><span class="pre">evla</span></code>, <code class="docutils literal notranslate"><span class="pre">evlo</span></code> and <code class="docutils literal notranslate"><span class="pre">evdp</span></code>).</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">st</span> <span class="o">=</span> <span class="n">obspy</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s1">&#39;tele/*.101.*.SAC&#39;</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">st</span> <span class="o">=</span> <span class="n">obspy</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s1">&#39;rf_example/*.101.*.SAC&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -289,26 +287,11 @@
 <span class="n">shift</span> <span class="o">=</span> <span class="mi">10</span>
 <span class="n">time_after</span> <span class="o">=</span> <span class="mi">120</span>
 
-<span class="n">cut_pos_begin</span> <span class="o">=</span> <span class="nb">int</span><span class="p">((</span><span class="n">P_arr</span><span class="o">.</span><span class="n">time</span> <span class="o">-</span> <span class="n">st</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">sac</span><span class="o">.</span><span class="n">o</span> <span class="o">-</span> <span class="n">shift</span><span class="p">)</span> <span class="o">/</span> <span class="n">dt</span><span class="p">)</span>
-<span class="n">cut_pos_end</span> <span class="o">=</span> <span class="nb">int</span><span class="p">((</span><span class="n">P_arr</span><span class="o">.</span><span class="n">time</span> <span class="o">-</span> <span class="n">st</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">sac</span><span class="o">.</span><span class="n">o</span> <span class="o">+</span> <span class="n">time_after</span><span class="p">)</span> <span class="o">/</span> <span class="n">dt</span><span class="p">)</span>
+<span class="n">st_TRZ</span><span class="o">.</span><span class="n">trim</span><span class="p">(</span><span class="n">st_TRZ</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">starttime</span><span class="o">+</span><span class="n">P_arr</span><span class="o">.</span><span class="n">time</span><span class="o">-</span><span class="n">shift</span><span class="p">,</span>
+            <span class="n">st_TRZ</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">starttime</span><span class="o">+</span><span class="n">P_arr</span><span class="o">.</span><span class="n">time</span><span class="o">+</span><span class="n">time_after</span><span class="p">)</span>
 
-<span class="n">T</span> <span class="o">=</span> <span class="n">st_TRZ</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">cut_pos_begin</span><span class="p">:</span><span class="n">cut_pos_end</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span>
-<span class="n">R</span> <span class="o">=</span> <span class="n">st_TRZ</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">cut_pos_begin</span><span class="p">:</span><span class="n">cut_pos_end</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span>
-<span class="n">Z</span> <span class="o">=</span> <span class="n">st_TRZ</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">cut_pos_begin</span><span class="p">:</span><span class="n">cut_pos_end</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span>
-
-<span class="n">time_axis</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="n">shift</span><span class="p">,</span> <span class="n">time_after</span><span class="p">,</span> <span class="n">T</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-
-<span class="n">ax1</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">time_axis</span><span class="p">,</span> <span class="n">Z</span><span class="p">)</span>
-<span class="n">ax1</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Z&#39;</span><span class="p">)</span>
-
-<span class="n">ax2</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
-<span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">time_axis</span><span class="p">,</span> <span class="n">T</span><span class="p">)</span>
-<span class="n">ax2</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;T&#39;</span><span class="p">)</span>
-
-<span class="n">ax3</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
-<span class="n">ax3</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">time_axis</span><span class="p">,</span> <span class="n">R</span><span class="p">)</span>
-<span class="n">ax3</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;R&#39;</span><span class="p">)</span>
+<span class="n">time_axis</span> <span class="o">=</span> <span class="n">st_TRZ</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">times</span><span class="p">()</span> <span class="o">-</span> <span class="n">shift</span>
+<span class="n">st_TRZ</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
 </pre></div>
 </div>
 <p><img alt="png" src="../_images/output_13_1.png" /></p>
@@ -322,16 +305,14 @@
 <li><p>Minimum error = 0.001</p></li>
 </ul>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">f0</span> <span class="o">=</span> <span class="mf">2.0</span>
-<span class="n">tmax</span> <span class="o">=</span> <span class="mi">400</span>
+<span class="n">itmax</span> <span class="o">=</span> <span class="mi">400</span>
 <span class="n">minderr</span> <span class="o">=</span> <span class="mf">0.001</span>
 
-<span class="n">PRF_R</span><span class="p">,</span> <span class="n">RMS</span><span class="p">,</span> <span class="n">it</span> <span class="o">=</span> <span class="n">seispy</span><span class="o">.</span><span class="n">decon</span><span class="o">.</span><span class="n">deconit</span><span class="p">(</span><span class="n">R</span><span class="p">,</span> <span class="n">Z</span><span class="p">,</span> <span class="n">dt</span><span class="p">,</span> <span class="n">R</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">shift</span><span class="p">,</span> <span class="n">f0</span><span class="p">,</span> <span class="n">tmax</span><span class="p">,</span> <span class="n">minderr</span><span class="p">)</span>
-<span class="n">PRF_T</span><span class="p">,</span> <span class="n">RMS</span><span class="p">,</span> <span class="n">it</span> <span class="o">=</span> <span class="n">seispy</span><span class="o">.</span><span class="n">decon</span><span class="o">.</span><span class="n">deconit</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">Z</span><span class="p">,</span> <span class="n">dt</span><span class="p">,</span> <span class="n">T</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">shift</span><span class="p">,</span> <span class="n">f0</span><span class="p">,</span> <span class="n">tmax</span><span class="p">,</span> <span class="n">minderr</span><span class="p">)</span>
-
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">time_axis</span><span class="p">,</span> <span class="n">PRF_R</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">time_axis</span><span class="p">,</span> <span class="n">PRF_T</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">([</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">30</span><span class="p">])</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="s1">&#39;R&#39;</span><span class="p">,</span> <span class="s1">&#39;T&#39;</span><span class="p">])</span>
+<span class="n">rf</span> <span class="o">=</span> <span class="n">RFTrace</span><span class="o">.</span><span class="n">deconvolute</span><span class="p">(</span><span class="n">st_TRZ</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">st_TRZ</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">method</span><span class="o">=</span><span class="s1">&#39;iter&#39;</span><span class="p">,</span>
+                         <span class="n">tshift</span><span class="o">=</span><span class="n">shift</span><span class="p">,</span> <span class="n">f0</span><span class="o">=</span><span class="n">f0</span><span class="p">,</span> <span class="n">itmax</span><span class="o">=</span><span class="n">itmax</span><span class="p">,</span> <span class="n">minderr</span><span class="o">=</span><span class="n">minderr</span><span class="p">)</span>
+<span class="n">rf</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">show</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="s1">&#39;relative&#39;</span><span class="p">,</span>
+        <span class="n">starttime</span><span class="o">=</span><span class="n">rf</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">starttime</span><span class="o">+</span><span class="n">shift</span><span class="p">,</span>
+        <span class="n">endtime</span><span class="o">=</span><span class="n">rf</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">starttime</span><span class="o">+</span><span class="n">shift</span><span class="o">+</span><span class="mi">30</span><span class="p">)</span>
 </pre></div>
 </div>
 <p><img alt="png" src="../_images/output_15_1.png" /></p>
