@@ -94,6 +94,8 @@
 <li class="toctree-l1"><a class="reference internal" href="../../usage/rf-sta.html">Calculate PRFs for a station</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../usage/pickrf.html">Virtual check PRFs with an user interface</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../usage/ccp.html">Stack PRFs with Common Conversion points (CCP) method</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../usage/ccp.html#time-to-depth-conversion">Time-to-depth conversion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../usage/ccp.html#ccp-stack-prfs-along-a-profile">CCP Stack PRFs along a profile</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Examples:</span></p>
 <ul>
@@ -206,6 +208,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">stackfile</span> <span class="o">=</span> <span class="s1">&#39;ccp.dat&#39;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">stalist</span> <span class="o">=</span> <span class="s1">&#39;sta.lst&#39;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">peakfile</span> <span class="o">=</span> <span class="s1">&#39;good_410_660.dat&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">adaptive</span><span class="o">=</span> <span class="kc">False</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">velmod</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">stack_sta_list</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">domperiod</span> <span class="o">=</span> <span class="mi">5</span>
@@ -277,6 +280,10 @@
         <span class="n">cpara</span><span class="o">.</span><span class="n">velmod</span> <span class="o">=</span> <span class="n">velmod</span>
     <span class="c1"># para for bin section</span>
     <span class="n">cpara</span><span class="o">.</span><span class="n">shape</span> <span class="o">=</span> <span class="n">cf</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;bin&#39;</span><span class="p">,</span> <span class="s1">&#39;shape&#39;</span><span class="p">)</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">cpara</span><span class="o">.</span><span class="n">adaptive</span> <span class="o">=</span> <span class="n">cf</span><span class="o">.</span><span class="n">getboolean</span><span class="p">(</span><span class="s1">&#39;bin&#39;</span><span class="p">,</span> <span class="s1">&#39;adaptive&#39;</span><span class="p">)</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="n">cpara</span><span class="o">.</span><span class="n">adaptive</span> <span class="o">=</span> <span class="kc">False</span>
     <span class="k">try</span><span class="p">:</span>
         <span class="n">cpara</span><span class="o">.</span><span class="n">domperiod</span> <span class="o">=</span> <span class="n">cf</span><span class="o">.</span><span class="n">getfloat</span><span class="p">(</span><span class="s1">&#39;bin&#39;</span><span class="p">,</span> <span class="s1">&#39;domperiod&#39;</span><span class="p">)</span>
     <span class="k">except</span><span class="p">:</span>

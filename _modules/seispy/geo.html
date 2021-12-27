@@ -94,6 +94,8 @@
 <li class="toctree-l1"><a class="reference internal" href="../../usage/rf-sta.html">Calculate PRFs for a station</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../usage/pickrf.html">Virtual check PRFs with an user interface</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../usage/ccp.html">Stack PRFs with Common Conversion points (CCP) method</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../usage/ccp.html#time-to-depth-conversion">Time-to-depth conversion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../usage/ccp.html#ccp-stack-prfs-along-a-profile">CCP Stack PRFs along a profile</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Examples:</span></p>
 <ul>
@@ -332,9 +334,8 @@
     <span class="n">spow</span> <span class="o">=</span> <span class="n">rssq</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span>
     <span class="n">npow</span> <span class="o">=</span> <span class="n">rssq</span><span class="p">(</span><span class="n">y</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span>
     <span class="k">if</span> <span class="n">npow</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="k">return</span> <span class="mi">10</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">spow</span> <span class="o">/</span> <span class="n">npow</span><span class="p">)</span></div>
+        <span class="n">npow</span> <span class="o">=</span> <span class="mf">0.001</span>
+    <span class="k">return</span> <span class="mi">10</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">spow</span> <span class="o">/</span> <span class="n">npow</span><span class="p">)</span></div>
 
 
 <div class="viewcode-block" id="latlon_from"><a class="viewcode-back" href="../../seispy.html#seispy.geo.latlon_from">[docs]</a><span class="k">def</span> <span class="nf">latlon_from</span><span class="p">(</span><span class="n">lat1</span><span class="p">,</span> <span class="n">lon1</span><span class="p">,</span> <span class="n">azimuth</span><span class="p">,</span> <span class="n">gcarc_dist</span><span class="p">):</span>
@@ -379,6 +380,41 @@
         <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;opt must be </span><span class="se">\&#39;</span><span class="s1">max</span><span class="se">\&#39;</span><span class="s1"> or </span><span class="se">\&#39;</span><span class="s1">min</span><span class="se">\&#39;</span><span class="s1">&#39;</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">idx</span></div>
 
+
+<div class="viewcode-block" id="geo2sph"><a class="viewcode-back" href="../../seispy.html#seispy.geo.geo2sph">[docs]</a><span class="k">def</span> <span class="nf">geo2sph</span><span class="p">(</span><span class="n">dep</span><span class="p">,</span> <span class="n">lat</span><span class="p">,</span> <span class="n">lon</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Convert geographic coordinates to spherical coordinates.</span>
+
+<span class="sd">    :param dep: Depth from surface</span>
+<span class="sd">    :type dep: float or np.ndarray</span>
+<span class="sd">    :param lat: Latitude</span>
+<span class="sd">    :type lat: float or np.ndarray</span>
+<span class="sd">    :param lon: Longitude</span>
+<span class="sd">    :type lon: float or np.ndarray</span>
+<span class="sd">    :return: spherical coordinate r, theta, phi</span>
+<span class="sd">    :rtype: list</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">theta</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">radians</span><span class="p">(</span><span class="mf">90.</span> <span class="o">-</span> <span class="n">lat</span><span class="p">)</span>
+    <span class="n">phi</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">radians</span><span class="p">(</span><span class="n">lon</span><span class="p">)</span>
+    <span class="n">r</span> <span class="o">=</span> <span class="mi">6371</span> <span class="o">-</span> <span class="n">dep</span>
+    <span class="k">return</span> <span class="n">r</span><span class="p">,</span> <span class="n">theta</span><span class="p">,</span> <span class="n">phi</span></div>
+
+<div class="viewcode-block" id="sph2geo"><a class="viewcode-back" href="../../seispy.html#seispy.geo.sph2geo">[docs]</a><span class="k">def</span> <span class="nf">sph2geo</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">theta</span><span class="p">,</span> <span class="n">phi</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Convert spherical coordinates to geographic coordinates.</span>
+<span class="sd">    :param float r: radial distance from coordinate system origin</span>
+<span class="sd">                    {**Units**: km, **Range**: [0, inf)}</span>
+<span class="sd">    :param float theta: polar angle {**Units**: radians, **Range**: [0,</span>
+<span class="sd">                        π]}</span>
+<span class="sd">    :param float phi: azimuthal angle {**Units**: radians, **Range**:</span>
+<span class="sd">                      [-π, π]}</span>
+<span class="sd">    :returns: geographic coordinate conversion *(lat, lon, depth)* of</span>
+<span class="sd">              spherical coordinates</span>
+<span class="sd">    :rtype: (float, float, float)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">z</span> <span class="o">=</span> <span class="mi">6371</span> <span class="o">-</span> <span class="n">r</span>
+    <span class="n">lat</span> <span class="o">=</span> <span class="mi">90</span> <span class="o">-</span> <span class="n">rad2deg</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span>
+    <span class="n">lon</span> <span class="o">=</span> <span class="n">rad2deg</span><span class="p">(</span><span class="n">phi</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">z</span><span class="p">,</span> <span class="n">lat</span><span class="p">,</span> <span class="n">lon</span></div>
 </pre></div>
 
            </div>

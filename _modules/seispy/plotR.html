@@ -94,6 +94,8 @@
 <li class="toctree-l1"><a class="reference internal" href="../../usage/rf-sta.html">Calculate PRFs for a station</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../usage/pickrf.html">Virtual check PRFs with an user interface</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../usage/ccp.html">Stack PRFs with Common Conversion points (CCP) method</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../usage/ccp.html#time-to-depth-conversion">Time-to-depth conversion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../usage/ccp.html#ccp-stack-prfs-along-a-profile">CCP Stack PRFs along a profile</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Examples:</span></p>
 <ul>
@@ -196,7 +198,7 @@
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="kn">from</span> <span class="nn">matplotlib.gridspec</span> <span class="kn">import</span> <span class="n">GridSpec</span>
 <span class="kn">from</span> <span class="nn">matplotlib.lines</span> <span class="kn">import</span> <span class="n">Line2D</span>
-<span class="kn">from</span> <span class="nn">seispy.rfcorrect</span> <span class="kn">import</span> <span class="n">SACStation</span>
+<span class="kn">from</span> <span class="nn">seispy.rfcorrect</span> <span class="kn">import</span> <span class="n">RFStation</span>
 <span class="kn">from</span> <span class="nn">seispy.rf</span> <span class="kn">import</span> <span class="n">CfgParser</span>
 <span class="kn">import</span> <span class="nn">argparse</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -216,7 +218,7 @@
 
 
 <div class="viewcode-block" id="read_process_data"><a class="viewcode-back" href="../../seispy.html#seispy.plotR.read_process_data">[docs]</a><span class="k">def</span> <span class="nf">read_process_data</span><span class="p">(</span><span class="n">rfpath</span><span class="p">):</span>
-    <span class="n">stadata</span> <span class="o">=</span> <span class="n">SACStation</span><span class="p">(</span><span class="n">rfpath</span><span class="p">,</span> <span class="n">only_r</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">stadata</span> <span class="o">=</span> <span class="n">RFStation</span><span class="p">(</span><span class="n">rfpath</span><span class="p">,</span> <span class="n">only_r</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
     <span class="n">idx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argsort</span><span class="p">(</span><span class="n">stadata</span><span class="o">.</span><span class="n">bazi</span><span class="p">)</span>
     <span class="n">stadata</span><span class="o">.</span><span class="n">event</span> <span class="o">=</span> <span class="n">stadata</span><span class="o">.</span><span class="n">event</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span>
     <span class="n">stadata</span><span class="o">.</span><span class="n">bazi</span> <span class="o">=</span> <span class="n">stadata</span><span class="o">.</span><span class="n">bazi</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span>

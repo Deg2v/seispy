@@ -96,6 +96,8 @@
 <li class="toctree-l1"><a class="reference internal" href="../usage/rf-sta.html">Calculate PRFs for a station</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../usage/pickrf.html">Virtual check PRFs with an user interface</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../usage/ccp.html">Stack PRFs with Common Conversion points (CCP) method</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/ccp.html#time-to-depth-conversion">Time-to-depth conversion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/ccp.html#ccp-stack-prfs-along-a-profile">CCP Stack PRFs along a profile</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Examples:</span></p>
 <ul>
@@ -353,18 +355,21 @@
 <span class="n">peakfile</span> <span class="o">=</span>
 
 <span class="p">[</span><span class="nb">bin</span><span class="p">]</span>
+<span class="c1"># For linear array, wether create bins with a self-adaptive method</span>
+<span class="n">adaptive</span> <span class="o">=</span> <span class="n">false</span>
+
 <span class="c1"># The shape of bins, circle or rect available</span>
 <span class="n">shape</span> <span class="o">=</span> <span class="n">rect</span>
+
+<span class="c1"># Radius of bins in km</span>
+<span class="c1"># Set to empty for determination of radius with fresnel zone</span>
+<span class="n">bin_radius</span> <span class="o">=</span>
 
 <span class="c1"># period of S wave (for assuming the radius of fresnel zone)</span>
 <span class="n">domperiod</span> <span class="o">=</span> <span class="mi">5</span>
 
 <span class="c1"># Width of the profile in km, only works for rectangle bin</span>
 <span class="n">width</span> <span class="o">=</span> <span class="mi">100</span>
-
-<span class="c1"># Radius of bins in km</span>
-<span class="c1"># If it&#39;s empty, radius would be assumed following fresnel zone</span>
-<span class="n">bin_radius</span> <span class="o">=</span>
 
 <span class="c1"># sliding or spacing interval of bins in km</span>
 <span class="n">slide_val</span> <span class="o">=</span> <span class="mi">5</span>

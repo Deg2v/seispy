@@ -95,6 +95,8 @@
 <li class="toctree-l1"><a class="reference internal" href="usage/rf-sta.html">Calculate PRFs for a station</a></li>
 <li class="toctree-l1"><a class="reference internal" href="usage/pickrf.html">Virtual check PRFs with an user interface</a></li>
 <li class="toctree-l1"><a class="reference internal" href="usage/ccp.html">Stack PRFs with Common Conversion points (CCP) method</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage/ccp.html#time-to-depth-conversion">Time-to-depth conversion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage/ccp.html#ccp-stack-prfs-along-a-profile">CCP Stack PRFs along a profile</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Examples:</span></p>
 <ul>
@@ -248,7 +250,8 @@
 <dl class="py method">
 <dt id="seispy.ccpprofile.CCPProfile.initial_profile">
 <code class="sig-name descname"><span class="pre">initial_profile</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/ccpprofile.html#CCPProfile.initial_profile"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.ccpprofile.CCPProfile.initial_profile" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Initialize bins of profile</p>
+</dd></dl>
 
 <dl class="py method">
 <dt id="seispy.ccpprofile.CCPProfile.load_para">
@@ -258,7 +261,13 @@
 <dl class="py method">
 <dt id="seispy.ccpprofile.CCPProfile.read_rfdep">
 <code class="sig-name descname"><span class="pre">read_rfdep</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/ccpprofile.html#CCPProfile.read_rfdep"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.ccpprofile.CCPProfile.read_rfdep" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Read RFdepth file</p>
+<dl class="field-list simple">
+<dt class="field-odd">Raises</dt>
+<dd class="field-odd"><p><strong>FileNotFoundError</strong> – Not Found RFdepth file</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt id="seispy.ccpprofile.CCPProfile.save_stack_data">
@@ -270,7 +279,7 @@ data[‘stack_data’] is the result of stacked data.</p>
 where bin_lat and bin_lon represent the position of each bin; profile_dis represents the distance in km between each bin and the start point of the profile; depth represents depth of each bin; amp means the stacked amplitude; ci_low and ci_high mean confidence interval with bootstrap method; count represents stacking number of each bin.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>fname</strong> (<em>str</em>) – file name of stacked data</p>
+<dd class="field-odd"><p><strong>format</strong> (<em>str</em>) – Format for stacked data</p>
 </dd>
 </dl>
 </dd></dl>
@@ -278,7 +287,8 @@ where bin_lat and bin_lon represent the position of each bin; profile_dis repres
 <dl class="py method">
 <dt id="seispy.ccpprofile.CCPProfile.stack">
 <code class="sig-name descname"><span class="pre">stack</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/ccpprofile.html#CCPProfile.stack"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.ccpprofile.CCPProfile.stack" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Stack RFs in bins</p>
+</dd></dl>
 
 </dd></dl>
 
@@ -591,6 +601,8 @@ Java version for direct use in java programs.
 Port to python, thus adding to the great list of languages to which
 distaz has been ported from the origin fortran: C, Tcl, Java and now python
 and I vaguely remember a perl port. Long live distaz!</p>
+<p>Mijian Xu, Jan 01, 2016
+Add np.ndarray to availible input varible.</p>
 <dl class="py attribute">
 <dt id="seispy.distaz.distaz.az">
 <code class="sig-name descname"><span class="pre">az</span></code><a class="headerlink" href="#seispy.distaz.distaz.az" title="Permalink to this definition">¶</a></dt>
@@ -689,6 +701,11 @@ return</p>
 <dd></dd></dl>
 
 <dl class="py method">
+<dt id="seispy.eq.eq.cleanstream">
+<code class="sig-name descname"><span class="pre">cleanstream</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/eq.html#eq.cleanstream"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.eq.eq.cleanstream" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
 <dt id="seispy.eq.eq.decon_p">
 <code class="sig-name descname"><span class="pre">decon_p</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tshift</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tcomp</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/eq.html#eq.decon_p"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.eq.eq.decon_p" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
@@ -744,8 +761,18 @@ return</p>
 <dd></dd></dl>
 
 <dl class="py method">
+<dt id="seispy.eq.eq.readstream">
+<code class="sig-name descname"><span class="pre">readstream</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/eq.html#eq.readstream"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.eq.eq.readstream" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
 <dt id="seispy.eq.eq.rotate">
 <code class="sig-name descname"><span class="pre">rotate</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bazi</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inc</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'NE-&gt;RT'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">phase</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'P'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">search_inc</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/eq.html#eq.rotate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.eq.eq.rotate" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="seispy.eq.eq.s_condition">
+<code class="sig-name descname"><span class="pre">s_condition</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">trrf</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shift</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/eq.html#eq.s_condition"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.eq.eq.s_condition" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
@@ -818,6 +845,27 @@ return</p>
 <dt id="seispy.geo.extrema">
 <code class="sig-prename descclassname"><span class="pre">seispy.geo.</span></code><code class="sig-name descname"><span class="pre">extrema</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">opt</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'max'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/geo.html#extrema"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.geo.extrema" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
+
+<dl class="py function">
+<dt id="seispy.geo.geo2sph">
+<code class="sig-prename descclassname"><span class="pre">seispy.geo.</span></code><code class="sig-name descname"><span class="pre">geo2sph</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dep</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lat</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lon</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/geo.html#geo2sph"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.geo.geo2sph" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert geographic coordinates to spherical coordinates.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>dep</strong> (<em>float</em><em> or </em><em>np.ndarray</em>) – Depth from surface</p></li>
+<li><p><strong>lat</strong> (<em>float</em><em> or </em><em>np.ndarray</em>) – Latitude</p></li>
+<li><p><strong>lon</strong> (<em>float</em><em> or </em><em>np.ndarray</em>) – Longitude</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>spherical coordinate r, theta, phi</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py function">
 <dt id="seispy.geo.geoproject">
@@ -900,6 +948,33 @@ M = [cos(inc)     -sin(inc)*sin(bazi)    -sin(inc)*cos(bazi);</p>
 <dt id="seispy.geo.snr">
 <code class="sig-prename descclassname"><span class="pre">seispy.geo.</span></code><code class="sig-name descname"><span class="pre">snr</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/geo.html#snr"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.geo.snr" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
+
+<dl class="py function">
+<dt id="seispy.geo.sph2geo">
+<code class="sig-prename descclassname"><span class="pre">seispy.geo.</span></code><code class="sig-name descname"><span class="pre">sph2geo</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">r</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">theta</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">phi</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/geo.html#sph2geo"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.geo.sph2geo" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert spherical coordinates to geographic coordinates.
+:param float r: radial distance from coordinate system origin</p>
+<blockquote>
+<div><p>{<strong>Units</strong>: km, <strong>Range</strong>: [0, inf)}</p>
+</div></blockquote>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>theta</strong> (<em>float</em>) – polar angle {<strong>Units</strong>: radians, <strong>Range</strong>: [0,
+π]}</p></li>
+<li><p><strong>phi</strong> (<em>float</em>) – azimuthal angle {<strong>Units</strong>: radians, <strong>Range</strong>:
+[-π, π]}</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>geographic coordinate conversion <em>(lat, lon, depth)</em> of
+spherical coordinates</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>(float, float, float)</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py function">
 <dt id="seispy.geo.spherical2cartesian">
@@ -1541,12 +1616,12 @@ zorder: float</p>
 
 <dl class="py function">
 <dt id="seispy.rf.CfgParser">
-<code class="sig-prename descclassname"><span class="pre">seispy.rf.</span></code><code class="sig-name descname"><span class="pre">CfgParser</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cfg_file</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/rf.html#CfgParser"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.rf.CfgParser" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">seispy.rf.</span></code><code class="sig-name descname"><span class="pre">CfgParser</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cfg_file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">phase</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'P'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/rf.html#CfgParser"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.rf.CfgParser" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py class">
 <dt id="seispy.rf.RF">
-<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">seispy.rf.</span></code><code class="sig-name descname"><span class="pre">RF</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cfg_file</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">log</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/rf.html#RF"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.rf.RF" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">seispy.rf.</span></code><code class="sig-name descname"><span class="pre">RF</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">phase</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'P'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cfg_file</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">log</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/rf.html#RF"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.rf.RF" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <dl class="py method">
 <dt id="seispy.rf.RF.baz_correct">
@@ -1560,7 +1635,7 @@ zorder: float</p>
 
 <dl class="py method">
 <dt id="seispy.rf.RF.channel_correct">
-<code class="sig-name descname"><span class="pre">channel_correct</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">switchEN</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reverseE</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reverseN</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/rf.html#RF.channel_correct"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.rf.RF.channel_correct" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">channel_correct</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/rf.html#RF.channel_correct"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.rf.RF.channel_correct" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
@@ -1594,13 +1669,13 @@ zorder: float</p>
 <dd></dd></dl>
 
 <dl class="py method">
-<dt id="seispy.rf.RF.load">
-<code class="sig-name descname"><span class="pre">load</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/rf.html#RF.load"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.rf.RF.load" title="Permalink to this definition">¶</a></dt>
+<dt id="seispy.rf.RF.load_stainfo">
+<code class="sig-name descname"><span class="pre">load_stainfo</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/rf.html#RF.load_stainfo"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.rf.RF.load_stainfo" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
-<dt id="seispy.rf.RF.load_stainfo">
-<code class="sig-name descname"><span class="pre">load_stainfo</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/rf.html#RF.load_stainfo"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.rf.RF.load_stainfo" title="Permalink to this definition">¶</a></dt>
+<dt id="seispy.rf.RF.loadpjt">
+<em class="property"><span class="pre">classmethod</span> </em><code class="sig-name descname"><span class="pre">loadpjt</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/rf.html#RF.loadpjt"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.rf.RF.loadpjt" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
@@ -1619,8 +1694,8 @@ zorder: float</p>
 <dd></dd></dl>
 
 <dl class="py method">
-<dt id="seispy.rf.RF.save">
-<code class="sig-name descname"><span class="pre">save</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/rf.html#RF.save"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.rf.RF.save" title="Permalink to this definition">¶</a></dt>
+<dt id="seispy.rf.RF.savepjt">
+<code class="sig-name descname"><span class="pre">savepjt</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/rf.html#RF.savepjt"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.rf.RF.savepjt" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
@@ -1647,6 +1722,11 @@ zorder: float</p>
 </dd></dl>
 
 <dl class="py function">
+<dt id="seispy.rf.common_parser">
+<code class="sig-prename descclassname"><span class="pre">seispy.rf.</span></code><code class="sig-name descname"><span class="pre">common_parser</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/rf.html#common_parser"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.rf.common_parser" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
 <dt id="seispy.rf.datestr2regex">
 <code class="sig-prename descclassname"><span class="pre">seispy.rf.</span></code><code class="sig-name descname"><span class="pre">datestr2regex</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">datestr</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/rf.html#datestr2regex"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.rf.datestr2regex" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
@@ -1662,8 +1742,13 @@ zorder: float</p>
 <dd></dd></dl>
 
 <dl class="py function">
+<dt id="seispy.rf.parse_common_args">
+<code class="sig-prename descclassname"><span class="pre">seispy.rf.</span></code><code class="sig-name descname"><span class="pre">parse_common_args</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/rf.html#parse_common_args"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.rf.parse_common_args" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
 <dt id="seispy.rf.pickphase">
-<code class="sig-prename descclassname"><span class="pre">seispy.rf.</span></code><code class="sig-name descname"><span class="pre">pickphase</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">eqs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">para</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/rf.html#pickphase"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.rf.pickphase" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">seispy.rf.</span></code><code class="sig-name descname"><span class="pre">pickphase</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">eqs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">para</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">logger</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/rf.html#pickphase"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.rf.pickphase" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py function">
@@ -1679,6 +1764,11 @@ zorder: float</p>
 <dl class="py function">
 <dt id="seispy.rf.setpar">
 <code class="sig-prename descclassname"><span class="pre">seispy.rf.</span></code><code class="sig-name descname"><span class="pre">setpar</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/rf.html#setpar"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.rf.setpar" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="seispy.rf.srf">
+<code class="sig-prename descclassname"><span class="pre">seispy.rf.</span></code><code class="sig-name descname"><span class="pre">srf</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/rf.html#srf"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.rf.srf" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py class">
@@ -1876,9 +1966,9 @@ zorder: float</p>
 </dd></dl>
 
 <dl class="py class">
-<dt id="seispy.rfcorrect.SACStationS">
-<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">seispy.rfcorrect.</span></code><code class="sig-name descname"><span class="pre">SACStationS</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/rfcorrect.html#SACStationS"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.rfcorrect.SACStationS" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dt id="seispy.rfcorrect.SRFStation">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">seispy.rfcorrect.</span></code><code class="sig-name descname"><span class="pre">SRFStation</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seispy/rfcorrect.html#SRFStation"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#seispy.rfcorrect.SRFStation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#seispy.rfcorrect.SACStation" title="seispy.rfcorrect.SACStation"><code class="xref py py-class docutils literal notranslate"><span class="pre">seispy.rfcorrect.SACStation</span></code></a></p>
 </dd></dl>
 
 <dl class="py function">
