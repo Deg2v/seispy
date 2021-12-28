@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>Calculate PRFs for a station &mdash; seispy latest documentation</title>
+  <title>Calculate PRFs for single station &mdash; seispy latest documentation</title>
   
 
   
@@ -94,7 +94,7 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="calrf.html">Calculate a P-wave Receiver Function (PRF)</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Calculate PRFs for a station</a><ul>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Calculate PRFs for single station</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#prepare-seismic-records-order-by-stations">Prepare seismic records order by stations</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#calculate-prfs-using-a-simple-command">Calculate PRFs using a simple command</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#prepare-a-configure-file">Prepare a configure file</a></li>
@@ -132,6 +132,7 @@
 <li class="toctree-l1"><a class="reference internal" href="ccp.html">Stack PRFs with Common Conversion points (CCP) method</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ccp.html#time-to-depth-conversion">Time-to-depth conversion</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ccp.html#ccp-stack-prfs-along-a-profile">CCP Stack PRFs along a profile</a></li>
+<li class="toctree-l1"><a class="reference internal" href="srf.html">Calculate S wave Receiver Functions (SRF) for sigle station</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Examples:</span></p>
 <ul>
@@ -212,7 +213,7 @@
     
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
         
-      <li>Calculate PRFs for a station</li>
+      <li>Calculate PRFs for single station</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -233,10 +234,10 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="calculate-prfs-for-a-station">
-<h1>Calculate PRFs for a station<a class="headerlink" href="#calculate-prfs-for-a-station" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="calculate-prfs-for-single-station">
+<h1>Calculate PRFs for single station<a class="headerlink" href="#calculate-prfs-for-single-station" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="prepare-seismic-records-order-by-stations">
-<h2>Prepare seismic records order by stations<a class="headerlink" href="#prepare-seismic-records-order-by-stations" title="Permalink to this headline">¶</a></h2>
+<span id="events"></span><h2>Prepare seismic records order by stations<a class="headerlink" href="#prepare-seismic-records-order-by-stations" title="Permalink to this headline">¶</a></h2>
 <p>Seismic data including direct P arrival should be trimmed according earthquakes. Meanwhile, the data should be order by stations instead of events. For example, YN001 and YN002 are stations; the SAC files are teleseismic data records of these stations.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>event_data/
 ├── YN001
@@ -259,7 +260,7 @@
 <div class="section" id="calculate-prfs-using-a-simple-command">
 <h2>Calculate PRFs using a simple command<a class="headerlink" href="#calculate-prfs-using-a-simple-command" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="prepare-a-configure-file">
-<h3>Prepare a configure file<a class="headerlink" href="#prepare-a-configure-file" title="Permalink to this headline">¶</a></h3>
+<span id="cfg"></span><h3>Prepare a configure file<a class="headerlink" href="#prepare-a-configure-file" title="Permalink to this headline">¶</a></h3>
 <p>We should prepare a configure file as following including all parameters that will be set during the calculation. The format is following Python module of <a class="reference external" href="https://docs.python.org/3/library/configparser.html">configparser</a>. We have provided a template configure file in <a class="reference internal" href="../notes/config.html"><span class="doc">Templates of Configurations</span></a>. See comment in detail.</p>
 </div>
 </div>

@@ -41,7 +41,7 @@
     
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Calculate PRFs of the station CB.NJ2" href="../examples/ex-prf.html" />
+    <link rel="next" title="Calculate S wave Receiver Functions (SRF) for sigle station" href="srf.html" />
     <link rel="prev" title="Virtual check PRFs with an user interface" href="pickrf.html" /> 
 </head>
 
@@ -93,7 +93,7 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="calrf.html">Calculate a P-wave Receiver Function (PRF)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="rf-sta.html">Calculate PRFs for a station</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rf-sta.html">Calculate PRFs for single station</a></li>
 <li class="toctree-l1"><a class="reference internal" href="pickrf.html">Virtual check PRFs with an user interface</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Stack PRFs with Common Conversion points (CCP) method</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#preparation">Preparation</a><ul>
@@ -108,6 +108,7 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="#time-to-depth-conversion">Time-to-depth conversion</a></li>
 <li class="toctree-l1"><a class="reference internal" href="#ccp-stack-prfs-along-a-profile">CCP Stack PRFs along a profile</a></li>
+<li class="toctree-l1"><a class="reference internal" href="srf.html">Calculate S wave Receiver Functions (SRF) for sigle station</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Examples:</span></p>
 <ul>
@@ -376,10 +377,13 @@
 </div>
 </li>
 <li><p><strong>Using specified stations</strong>: If the <code class="docutils literal notranslate"><span class="pre">stack_sta_list</span></code> is set to a existing file, stations in this file are used for CCP stacking. The start and end point of the profile are set in <code class="docutils literal notranslate"><span class="pre">[line]</span></code> section.</p></li>
-<li><p><strong>Using stations as a linear array with adaptive bins</strong>: If the CCP stacking is preformed on a curved linear array, a self-adaptive setting of bins maybe suitable. In this case, once <code class="docutils literal notranslate"><span class="pre">adaptive</span></code> is set to <code class="docutils literal notranslate"><span class="pre">true</span></code> and <code class="docutils literal notranslate"><span class="pre">slide_val</span></code> is specified, bins are create along the station curve.</p>
+<li><p><strong>Using stations as a linear array with self-adaptive bins</strong>: If the CCP stacking is preformed on a curved linear array, a self-adaptive setting of bins maybe suitable. In this case, once <code class="docutils literal notranslate"><span class="pre">adaptive</span></code> is set to <code class="docutils literal notranslate"><span class="pre">true</span></code>, <code class="docutils literal notranslate"><span class="pre">slide_val</span></code> and <code class="docutils literal notranslate"><span class="pre">stack_sta_list</span></code>  is specified, bins are created along the station curve.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>The <code class="docutils literal notranslate"><span class="pre">[line]</span></code> section and <code class="docutils literal notranslate"><span class="pre">rect</span></code> bins are invalid in such situation.</p>
+<ul class="simple">
+<li><p>The <code class="docutils literal notranslate"><span class="pre">[line]</span></code> section and <code class="docutils literal notranslate"><span class="pre">rect</span></code> bins are invalid in such situation.</p></li>
+<li><p>Stations in the <code class="docutils literal notranslate"><span class="pre">stack_sta_list</span></code> should be in order along the linear array</p></li>
+</ul>
 </div>
 <div class="figure align-center" id="id2">
 <a class="reference internal image-reference" href="../_images/t2.png"><img alt="../_images/t2.png" src="../_images/t2.png" style="width: 50.0%;" /></a>
@@ -419,7 +423,7 @@ gitalk.render('gitalk-container');
           </div>
           <footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="../examples/ex-prf.html" class="btn btn-neutral float-right" title="Calculate PRFs of the station CB.NJ2" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="srf.html" class="btn btn-neutral float-right" title="Calculate S wave Receiver Functions (SRF) for sigle station" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
         <a href="pickrf.html" class="btn btn-neutral float-left" title="Virtual check PRFs with an user interface" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
 

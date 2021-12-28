@@ -93,11 +93,12 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../usage/installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../usage/calrf.html">Calculate a P-wave Receiver Function (PRF)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../usage/rf-sta.html">Calculate PRFs for a station</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/rf-sta.html">Calculate PRFs for single station</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../usage/pickrf.html">Virtual check PRFs with an user interface</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../usage/ccp.html">Stack PRFs with Common Conversion points (CCP) method</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../usage/ccp.html#time-to-depth-conversion">Time-to-depth conversion</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../usage/ccp.html#ccp-stack-prfs-along-a-profile">CCP Stack PRFs along a profile</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/srf.html">Calculate S wave Receiver Functions (SRF) for sigle station</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Examples:</span></p>
 <ul class="current">
@@ -109,7 +110,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#download-this-example">Download this example</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#d-ccp-stacking">3-D CCP stacking</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#required-parameters">Required parameters</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#initial-grid">Initial grid</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#initialize-grid">Initialize grid</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#ccp-stacking">CCP stacking</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#output-files">Output files</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#stackfile"><code class="docutils literal notranslate"><span class="pre">stackfile</span></code></a></li>
@@ -258,8 +259,8 @@ profile.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">[spacedbins]</span></code>: Options for spaced grid of bins.</p></li>
 </ul>
 </div>
-<div class="section" id="initial-grid">
-<h3>Initial grid<a class="headerlink" href="#initial-grid" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="initialize-grid">
+<h3>Initialize grid<a class="headerlink" href="#initialize-grid" title="Permalink to this headline">¶</a></h3>
 <p>Seispy provide a command as the <code class="docutils literal notranslate"><span class="pre">ccp3d</span></code> for the 3-D CCP stacking.
 Before using this command, we will introduce rules of spaced grid.</p>
 <p>The section <code class="docutils literal notranslate"><span class="pre">[spacedbins]</span></code> and option <code class="docutils literal notranslate"><span class="pre">slide_val</span></code> in the <code class="docutils literal notranslate"><span class="pre">ccp.cfg</span></code>
